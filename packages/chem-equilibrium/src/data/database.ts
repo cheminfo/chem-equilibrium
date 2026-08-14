@@ -955,10 +955,10 @@ export const database: DatabaseEntry[] = [
       'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
   },
   {
-    formed: 'Mn(en)3++',
+    formed: 'Mn(C2H8N2)3++',
     components: {
       'Mn++': 1,
-      en: 3,
+      C2H8N2: 3,
     },
     pK: 5.81,
     type: 'complexation',
@@ -970,10 +970,10 @@ export const database: DatabaseEntry[] = [
       'cumulative constant: the ligand count was missing from the upstream table',
   },
   {
-    formed: 'Fe(en)3++',
+    formed: 'Fe(C2H8N2)3++',
     components: {
       'Fe++': 1,
-      en: 3,
+      C2H8N2: 3,
     },
     pK: 9.72,
     type: 'complexation',
@@ -985,10 +985,10 @@ export const database: DatabaseEntry[] = [
       'cumulative constant: the ligand count was missing from the upstream table',
   },
   {
-    formed: 'Co(en)3++',
+    formed: 'Co(C2H8N2)3++',
     components: {
       'Co++': 1,
-      en: 3,
+      C2H8N2: 3,
     },
     pK: 14.11,
     type: 'complexation',
@@ -1000,10 +1000,10 @@ export const database: DatabaseEntry[] = [
       'cumulative constant: the ligand count was missing from the upstream table',
   },
   {
-    formed: 'Co(en)3+++',
+    formed: 'Co(C2H8N2)3+++',
     components: {
       'Co+++': 1,
-      en: 3,
+      C2H8N2: 3,
     },
     pK: 48.68,
     type: 'complexation',
@@ -1015,10 +1015,10 @@ export const database: DatabaseEntry[] = [
       'cumulative constant: the ligand count was missing from the upstream table',
   },
   {
-    formed: 'Ni(en)3++',
+    formed: 'Ni(C2H8N2)3++',
     components: {
       'Ni++': 1,
-      en: 3,
+      C2H8N2: 3,
     },
     pK: 17.61,
     type: 'complexation',
@@ -1030,10 +1030,10 @@ export const database: DatabaseEntry[] = [
       'cumulative constant: the ligand count was missing from the upstream table',
   },
   {
-    formed: 'Cu(en)2++',
+    formed: 'Cu(C2H8N2)2++',
     components: {
       'Cu++': 1,
-      en: 2,
+      C2H8N2: 2,
     },
     pK: 19.54,
     type: 'complexation',

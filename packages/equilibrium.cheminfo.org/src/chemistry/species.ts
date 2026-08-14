@@ -12,9 +12,10 @@ import { database, speciesNames } from 'chem-equilibrium';
  * @returns A label that renders correctly, for display only.
  */
 export function normalizeMF(label: string): string {
-  return label
-    .replaceAll('(en)', '(C2H8N2)')
-    .replace(/(?<sign>\++|-+)$/, (signs) => `(${signs[0]}${signs.length})`);
+  return label.replace(
+    /(?<sign>\++|-+)$/,
+    (signs) => `(${signs[0]}${signs.length})`,
+  );
 }
 
 /**

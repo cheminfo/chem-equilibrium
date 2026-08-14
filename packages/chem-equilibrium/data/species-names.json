@@ -247,6 +247,16 @@
     ]
   },
   {
+    "label": "C2H8N2",
+    "name": "ethylenediamine",
+    "alternatives": [
+      "ethane-1,2-diamine",
+      "1,2-diaminoethane",
+      "H2NCH2CH2NH2",
+      "en"
+    ]
+  },
+  {
     "label": "C2O4--",
     "name": "oxalate ion",
     "alternatives": ["ethanedioate ion", "oxalate", "oxalate dianion"]
@@ -444,19 +454,19 @@
     ]
   },
   {
-    "label": "Co(en)3++",
+    "label": "Co(C2H8N2)3++",
     "name": "tris(ethylenediamine)cobalt(II) ion",
     "alternatives": [
       "tris(ethane-1,2-diamine)cobalt(II) ion",
-      "cobalt(II) tris-en complex"
+      "cobalt(II) tris(ethylenediamine) complex"
     ]
   },
   {
-    "label": "Co(en)3+++",
+    "label": "Co(C2H8N2)3+++",
     "name": "tris(ethylenediamine)cobalt(III) ion",
     "alternatives": [
       "tris(ethane-1,2-diamine)cobalt(III) ion",
-      "cobalt(III) tris-en complex"
+      "cobalt(III) tris(ethylenediamine) complex"
     ]
   },
   {
@@ -509,11 +519,11 @@
     "alternatives": ["dicyanidocuprate(I) ion", "copper(I) dicyanide complex"]
   },
   {
-    "label": "Cu(en)2++",
+    "label": "Cu(C2H8N2)2++",
     "name": "bis(ethylenediamine)copper(II) ion",
     "alternatives": [
       "bis(ethane-1,2-diamine)copper(II) ion",
-      "copper(II) bis-en complex"
+      "copper(II) bis(ethylenediamine) complex"
     ]
   },
   {
@@ -576,16 +586,6 @@
     "alternatives": ["cupric sulfide", "copper sulphide", "covellite"]
   },
   {
-    "label": "en",
-    "name": "ethylenediamine",
-    "alternatives": [
-      "ethane-1,2-diamine",
-      "1,2-diaminoethane",
-      "H2NCH2CH2NH2",
-      "en ligand"
-    ]
-  },
-  {
     "label": "F-",
     "name": "fluoride ion",
     "alternatives": ["fluoride", "fluoride anion"]
@@ -619,13 +619,9 @@
     ]
   },
   {
-    "label": "Fe(en)3++",
+    "label": "Fe(C2H8N2)3++",
     "name": "tris(ethylenediamine)iron(II) ion",
-    "alternatives": [
-      "tris(ethane-1,2-diamine)iron(II) ion",
-      "tris(en)iron(II) ion",
-      "[Fe(en)3]2+"
-    ]
+    "alternatives": ["tris(ethane-1,2-diamine)iron(II) ion", "[Fe(C2H8N2)3]2+"]
   },
   {
     "label": "Fe(H2O)5OH++",
@@ -963,9 +959,12 @@
     "alternatives": ["manganous ion", "Mn2+", "Mn++"]
   },
   {
-    "label": "Mn(en)3++",
+    "label": "Mn(C2H8N2)3++",
     "name": "tris(ethylenediamine)manganese(II) ion",
-    "alternatives": ["tris(ethane-1,2-diamine)manganese(II) ion", "[Mn(en)3]2+"]
+    "alternatives": [
+      "tris(ethane-1,2-diamine)manganese(II) ion",
+      "[Mn(C2H8N2)3]2+"
+    ]
   },
   {
     "label": "Mn(OH)2",
@@ -1002,9 +1001,12 @@
     ]
   },
   {
-    "label": "Ni(en)3++",
+    "label": "Ni(C2H8N2)3++",
     "name": "tris(ethylenediamine)nickel(II) ion",
-    "alternatives": ["tris(ethane-1,2-diamine)nickel(II) ion", "[Ni(en)3]2+"]
+    "alternatives": [
+      "tris(ethane-1,2-diamine)nickel(II) ion",
+      "[Ni(C2H8N2)3]2+"
+    ]
   },
   {
     "label": "Ni(NH3)6++",

@@ -210,6 +210,15 @@ export const speciesNames: Record<
       'ethanaminium ion',
     ],
   },
+  C2H8N2: {
+    name: 'ethylenediamine',
+    alternatives: [
+      'ethane-1,2-diamine',
+      '1,2-diaminoethane',
+      'H2NCH2CH2NH2',
+      'en',
+    ],
+  },
   'C2O4--': {
     name: 'oxalate ion',
     alternatives: ['ethanedioate ion', 'oxalate', 'oxalate dianion'],
@@ -373,18 +382,18 @@ export const speciesNames: Record<
       'tris(oxalato)cobaltate(4-) ion',
     ],
   },
-  'Co(en)3++': {
+  'Co(C2H8N2)3++': {
     name: 'tris(ethylenediamine)cobalt(II) ion',
     alternatives: [
       'tris(ethane-1,2-diamine)cobalt(II) ion',
-      'cobalt(II) tris-en complex',
+      'cobalt(II) tris(ethylenediamine) complex',
     ],
   },
-  'Co(en)3+++': {
+  'Co(C2H8N2)3+++': {
     name: 'tris(ethylenediamine)cobalt(III) ion',
     alternatives: [
       'tris(ethane-1,2-diamine)cobalt(III) ion',
-      'cobalt(III) tris-en complex',
+      'cobalt(III) tris(ethylenediamine) complex',
     ],
   },
   'Co(NH3)4+++': {
@@ -426,11 +435,11 @@ export const speciesNames: Record<
     name: 'dicyanocuprate(I) ion',
     alternatives: ['dicyanidocuprate(I) ion', 'copper(I) dicyanide complex'],
   },
-  'Cu(en)2++': {
+  'Cu(C2H8N2)2++': {
     name: 'bis(ethylenediamine)copper(II) ion',
     alternatives: [
       'bis(ethane-1,2-diamine)copper(II) ion',
-      'copper(II) bis-en complex',
+      'copper(II) bis(ethylenediamine) complex',
     ],
   },
   'Cu(NH3)4++': {
@@ -481,15 +490,6 @@ export const speciesNames: Record<
     name: 'copper(II) sulfide',
     alternatives: ['cupric sulfide', 'copper sulphide', 'covellite'],
   },
-  en: {
-    name: 'ethylenediamine',
-    alternatives: [
-      'ethane-1,2-diamine',
-      '1,2-diaminoethane',
-      'H2NCH2CH2NH2',
-      'en ligand',
-    ],
-  },
   'F-': {
     name: 'fluoride ion',
     alternatives: ['fluoride', 'fluoride anion'],
@@ -519,13 +519,9 @@ export const speciesNames: Record<
       'yellow prussiate ion',
     ],
   },
-  'Fe(en)3++': {
+  'Fe(C2H8N2)3++': {
     name: 'tris(ethylenediamine)iron(II) ion',
-    alternatives: [
-      'tris(ethane-1,2-diamine)iron(II) ion',
-      'tris(en)iron(II) ion',
-      '[Fe(en)3]2+',
-    ],
+    alternatives: ['tris(ethane-1,2-diamine)iron(II) ion', '[Fe(C2H8N2)3]2+'],
   },
   'Fe(H2O)5OH++': {
     name: 'pentaaquahydroxoiron(III) ion',
@@ -794,9 +790,12 @@ export const speciesNames: Record<
     name: 'magnesium carbonate',
     alternatives: ['magnesite'],
   },
-  'Mn(en)3++': {
+  'Mn(C2H8N2)3++': {
     name: 'tris(ethylenediamine)manganese(II) ion',
-    alternatives: ['tris(ethane-1,2-diamine)manganese(II) ion', '[Mn(en)3]2+'],
+    alternatives: [
+      'tris(ethane-1,2-diamine)manganese(II) ion',
+      '[Mn(C2H8N2)3]2+',
+    ],
   },
   'Mn(OH)2': {
     name: 'manganese(II) hydroxide',
@@ -826,9 +825,9 @@ export const speciesNames: Record<
       'nickel(II) tetracyanide complex',
     ],
   },
-  'Ni(en)3++': {
+  'Ni(C2H8N2)3++': {
     name: 'tris(ethylenediamine)nickel(II) ion',
-    alternatives: ['tris(ethane-1,2-diamine)nickel(II) ion', '[Ni(en)3]2+'],
+    alternatives: ['tris(ethane-1,2-diamine)nickel(II) ion', '[Ni(C2H8N2)3]2+'],
   },
   'Ni(NH3)6++': {
     name: 'hexaamminenickel(II) ion',

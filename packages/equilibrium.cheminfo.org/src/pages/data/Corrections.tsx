@@ -48,7 +48,7 @@ export function Corrections() {
             complexes listed a single ligand although their formula carries two
             or three, which turned a cumulative constant into a 1:1 one. The
             counts were restored, so these constants are read as β₃ (β₂ for{' '}
-            <Species label="Cu(en)2++" withName={false} />
+            <Species label="Cu(C2H8N2)2++" withName={false} />
             ).
           </li>
         </ul>
