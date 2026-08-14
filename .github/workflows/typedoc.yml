@@ -2,16 +2,14 @@ name: TypeDoc
 
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - 'chem-equilibrium-v*'
+  release:
+    types: [published]
 
 jobs:
   typedoc:
     # Documentation: https://github.com/zakodium/workflows#typedoc
     uses: zakodium/workflows/.github/workflows/typedoc.yml@typedoc-v1
     with:
-      entry: 'packages/chem-equilibrium/src/index.ts'
-      name: 'chem-equilibrium'
+      entry: 'src/index.ts'
     secrets:
       github-token: ${{ secrets.BOT_TOKEN }}

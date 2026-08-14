@@ -4,6 +4,3 @@ dist
 lib
 node_modules
 package-lock.json
-playwright-report
-reference
-test-results
