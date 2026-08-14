@@ -31,16 +31,14 @@ export function useToolState<T extends object>(
 
   const state = useMemo(
     () => codec.decode(query, defaults),
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- defaults and codec are module constants
-    [query],
+    [query, codec, defaults],
   );
 
   const update = useCallback(
     (patch: Partial<T>) => {
       replaceQuery(path, codec.encode({ ...state, ...patch }));
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- codec is a module constant
-    [path, state],
+    [path, state, codec],
   );
 
   return [state, update];

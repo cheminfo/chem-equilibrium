@@ -1,4 +1,4 @@
-import { newtonRaphton } from '../../../src/core/NewtonRaphton.js';
+import { newtonRaphton } from 'chem-equilibrium';
 
 //	public static Equilibrium setup(double constants[], double[][] coefficients, double[] totalConcentrations, double[] fixedConcentrations, int nPrecipitations) {
 //components: 0: CO3--, 1: Ca++, 2: Fe++, 3: H+, 4: H2O (solvent) 5: OH- 6: HCO3-, 7: H2CO3

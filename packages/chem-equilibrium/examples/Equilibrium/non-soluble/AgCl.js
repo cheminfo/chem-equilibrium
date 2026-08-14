@@ -1,4 +1,4 @@
-import { newtonRaphton } from '../../../src/core/NewtonRaphton.js';
+import { newtonRaphton } from 'chem-equilibrium';
 
 //species: 0: Cl-, 1: Ag+,     2: AgCl
 //rxns: 0: Cl- -> Cl-, beta=1
