@@ -1,53 +1,62 @@
-'use strict';
+import { writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 
-const superagent = require('superagent');
-const Papa = require('papaparse');
-const fs = require('fs');
-const path = require('path');
+import Papa from 'papaparse';
 
-superagent.get('https://googledocs.cheminfo.org/spreadsheets/d/1VjfiuDtJUqxdfyFr7DdVcIM-l3eh47SqanafHdbXvDQ/export?format=tsv').then(function (res) {
-    var parsed = Papa.parse(res.text, {
-        header: true,
-        delimiter: '\t',
-        dynamicTyping: true
-    });
-    var data = parsed.data;
-    data = data.filter(d => d.Active !== 'no');
-    data.forEach(function (d) {
-        var reg = /\s*(\d*)\s*(.*)/;
-        var m = reg.exec(d.A);
-        d.sA = m[2].trim();
-        d.nA = m[1] || 1;
-        m = reg.exec(d.B);
-        d.sB = m[2].trim();
-        d.nB = m[1] || 1;
-        m = reg.exec(d.AB);
-        d.sAB = m[2].trim();
-        d.nAB = m[1] || 1;
-        d.nA /= d.nAB;
-        d.nB /= d.nAB;
-        d.nAB = 1;
-    });
+const DATABASE_URL =
+  'https://googledocs.cheminfo.org/spreadsheets/d/1VjfiuDtJUqxdfyFr7DdVcIM-l3eh47SqanafHdbXvDQ/export?format=tsv';
 
-    data = processData(data);
-    fs.writeFileSync(path.join(__dirname, 'data.json'), JSON.stringify(data, null, '\t'));
-}).catch(function (err) {
-    console.log(err);
-    process.exit(1);
+const response = await fetch(DATABASE_URL);
+if (!response.ok) {
+  throw new Error(
+    `could not download the database: ${response.status} ${response.statusText}`,
+  );
+}
+
+const parsed = Papa.parse(await response.text(), {
+  header: true,
+  delimiter: '\t',
+  dynamicTyping: true,
 });
 
-function processData(data) {
-    return data.map(d => {
-        var type = d.type.match(/complex/i) ? 'complexation' : d.type;
-        if(d.nAB !== 1) throw new Error('Product cannot have a stoechiometric coefficient');
-        return {
-            formed: d.AB,
-            components: {
-                [d.sA]: d.nA,
-                [d.sB]: d.nB
-            },
-            pK: d.pk,
-            type: type
-        }
-    });
+const SPECIE = /\s*(?<coefficient>\d*)\s*(?<formula>.*)/;
+
+let data = parsed.data.filter((d) => d.Active !== 'no');
+for (const d of data) {
+  let m = SPECIE.exec(d.A);
+  d.sA = m.groups.formula.trim();
+  d.nA = m.groups.coefficient || 1;
+  m = SPECIE.exec(d.B);
+  d.sB = m.groups.formula.trim();
+  d.nB = m.groups.coefficient || 1;
+  m = SPECIE.exec(d.AB);
+  d.sAB = m.groups.formula.trim();
+  d.nAB = m.groups.coefficient || 1;
+  d.nA /= d.nAB;
+  d.nB /= d.nAB;
+  d.nAB = 1;
+}
+
+data = processData(data);
+writeFileSync(
+  join(import.meta.dirname, 'data.json'),
+  `${JSON.stringify(data, null, 2)}\n`,
+);
+
+function processData(rows) {
+  return rows.map((d) => {
+    const type = /complex/i.test(d.type) ? 'complexation' : d.type;
+    if (d.nAB !== 1) {
+      throw new Error('Product cannot have a stoechiometric coefficient');
+    }
+    return {
+      formed: d.AB,
+      components: {
+        [d.sA]: d.nA,
+        [d.sB]: d.nB,
+      },
+      pK: d.pk,
+      type,
+    };
+  });
 }

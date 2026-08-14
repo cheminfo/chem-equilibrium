@@ -1,6 +1,4 @@
-'use strict';
-
-var newtonRaphton = require('../../../src/core/NewtonRaphton');
+import newtonRaphton from '../../../src/core/NewtonRaphton.js';
 
 //	public static Equilibrium setup(double constants[], double[][] coefficients, double[] totalConcentrations, double[] fixedConcentrations, int nPrecipitations) {
 //components: 0: CO3--, 1: Ca++, 2: Fe++, 3: H+, 4: H2O (solvent) 5: OH- 6: HCO3-, 7: H2CO3
@@ -20,25 +18,32 @@ var newtonRaphton = require('../../../src/core/NewtonRaphton');
 // Fe++ + 2H2O - 2H+ -> Fe(OH)2 ksp = 4.87e21
 
 var model = [
-    //              CO3--      Fe++      H+        OH-        HCO3-      H2CO3
-    /* CO3-- */  [  1,         0,        0,        0,         1,         1],
-    /* Fe++  */  [  0,         1,        0,        0,         0,         0],
-    /* H+    */  [  0,         0,        1,        -1,        1,         2]
+  //              CO3--      Fe++      H+        OH-        HCO3-      H2CO3
+  /* CO3-- */ [1, 0, 0, 0, 1, 1],
+  /* Fe++  */ [0, 1, 0, 0, 0, 0],
+  /* H+    */ [0, 0, 1, -1, 1, 2],
 ];
 var beta = [1, 1, 1, 1e-14, 2.1e10, 2.2e17];
 var solidBeta = [3.3e-11, 4.87e21 * 1e14];
 var solidModel = [
-    //            FeCO3      Fe(OH)
-    /* CO3-- */  [1,         0,     ],
-    /* Fe++  */  [1,         1,     ],
-    /* H+    */  [0,         -1,    ]
+  //            FeCO3      Fe(OH)
+  /* CO3-- */ [1, 0],
+  /* Fe++  */ [1, 1],
+  /* H+    */ [0, -1],
 ];
 var cTotal = [0.1, 0.1, 0.1];
 var c = [0.001, 0.001, 0.001];
 var solidC = [0, 0];
 
-
-var result = newtonRaphton(model, beta, cTotal, c, [[],[],[]], [], []);
+var result = newtonRaphton(model, beta, cTotal, c, [[], [], []], [], []);
 var initialC = result.slice(0, c.length);
-result = newtonRaphton(model, beta, cTotal, initialC, solidModel, solidBeta, solidC);
+result = newtonRaphton(
+  model,
+  beta,
+  cTotal,
+  initialC,
+  solidModel,
+  solidBeta,
+  solidC,
+);
 console.log(result);

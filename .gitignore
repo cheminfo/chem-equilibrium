@@ -1,4 +1,6 @@
+.claude
 dist
+docs
 
 # Logs
 logs
@@ -16,6 +18,7 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+*.lcov
 
 # nyc test coverage
 .nyc_output
@@ -38,3 +41,8 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+.DS_Store

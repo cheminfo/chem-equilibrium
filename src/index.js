@@ -1,10 +1,12 @@
-'use strict';
+import Equilibrium from './core/Equilibrium.js';
+import Helper from './helpers/Helper.js';
+import Serie from './helpers/Serie.js';
 
-const Equilibrium = require('./core/Equilibrium');
-const Helper = require('./helpers/Helper');
-const Serie = require('./helpers/Serie');
-
+// Kept for backwards compatibility: consumers reach Helper and Serie through
+// the default export.
 Equilibrium.Helper = Helper;
 Equilibrium.Serie = Serie;
 
-module.exports = Equilibrium;
+export { default, default as Equilibrium } from './core/Equilibrium.js';
+export { default as Helper } from './helpers/Helper.js';
+export { default as Serie } from './helpers/Serie.js';

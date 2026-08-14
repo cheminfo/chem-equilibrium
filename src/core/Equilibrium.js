@@ -1,370 +1,385 @@
-'use strict';
-const Matrix = require('ml-matrix');
-const random = require('./../util/random');
-const newtonRaphton = require('./NewtonRaphton');
+import { Matrix } from 'ml-matrix';
+
+import { logarithmic } from '../util/random.js';
+
+import newtonRaphton from './NewtonRaphton.js';
 
 const defaultOptions = {
-    robustMaxTries: 10,
-    volume: 1,
-    random: Math.random,
-    autoInitial: true,
-    tolerance: 1e-15
+  robustMaxTries: 10,
+  volume: 1,
+  random: Math.random,
+  autoInitial: true,
+  tolerance: 1e-15,
 };
 
 /**
  * Equilibrium
  */
-class Equilibrium {
-    /**
-     * @constructor
-     * @param {object} model
-     * amounts can be though as if they were concenrations.
-     * @param {object[]} model.components - The equilibrium's independent components. Each object in the array requires
-     * a label property and either a total property (for total amount) or an atEquilibrium property (for fixed final amount).
-     * The label property should be a unique name for that specie
-     *
-     * @param {object[]} model.formedSpecies - The list of species that are formed from the components. Each object
-     * in the array requires a label property, a beta property and a components property. The component property should be an array of numbers
-     * with the stoechiometric coefficient of each component using the order in which the components where specified. The beta property
-     * should be a number with the formation constant of this specie. The label property should be a unique name for that specie.
-     *
-     * @param {object} options - Additional options
-     * @param {number} [options.volume=1] - Volume of the solution in which the equilibrium occurs. If this value is 1 then
-     * @param {number} [options.robustMaxTries=15] - Maximum tries when using {@link #Equilibrium#solveRobust solveRobust}.
-     * @param {function} [options.random=Math.random] - Random number generator to use when initializing concentrations
-     */
-    constructor(model, options) {
-        this.options = Object.assign({}, defaultOptions, options);
-        checkModel(model);
-        this.model = model;
-        this._model = this._processModel(model);
+export default class Equilibrium {
+  /**
+   * Build an equilibrium from a model of components and formed species.
+   * @class
+   * @param {object} model - Description of the chemical system. Component
+   * amounts can be though as if they were concenrations.
+   * @param {object[]} model.components - The equilibrium's independent components. Each object in the array requires
+   * a label property and either a total property (for total amount) or an atEquilibrium property (for fixed final amount).
+   * The label property should be a unique name for that specie
+   * @param {object[]} model.formedSpecies - The list of species that are formed from the components. Each object
+   * in the array requires a label property, a beta property and a components property. The component property should be an array of numbers
+   * with the stoechiometric coefficient of each component using the order in which the components where specified. The beta property
+   * should be a number with the formation constant of this specie. The label property should be a unique name for that specie.
+   * @param {object} options - Additional options
+   * @param {number} [options.volume=1] - Volume of the solution in which the equilibrium occurs. If this value is 1 then
+   * @param {number} [options.robustMaxTries=15] - Maximum tries when using {@link #Equilibrium#solveRobust solveRobust}.
+   * @param {() => number} [options.random=Math.random] - Random number generator to use when initializing concentrations
+   */
+  constructor(model, options) {
+    this.options = { ...defaultOptions, ...options };
+    checkModel(model);
+    this.model = model;
+    this._model = this._processModel(model);
+  }
+
+  /**
+   * Get initial values of components. Initial values that are not set by the user are choosen randomly
+   * @returns {object} Object with two properties: solid with the initial solid "concentrations", component with
+   * the initial non-fixed components
+   * @private
+   */
+  _getInitial() {
+    // Return random inital value for all labels that don't have a fixed initial value
+    const keys = this._initial ? Object.keys(this._initial) : [];
+    const initial = new Array(this._model.nComp);
+    const initialSolid = new Array(this._model.specSolidLabels.length);
+
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      let idx = this._model.compLabels.indexOf(key);
+      if (idx === -1) {
+        idx = this._model.specSolidLabels.indexOf(key);
+        if (idx !== -1) initialSolid[idx] = this._initial[key];
+      } else {
+        initial[idx] = this._initial[key];
+      }
     }
 
-    /**
-     * Get initial values of components. Initial values that are not set by the user are choosen randomly
-     * @return {object} Object with two properties: solid with the initial solid "concentrations", component with
-     * the initial non-fixed components
-     * @private
-     */
-    _getInitial() {
-        // Return random inital value for all labels that don't have a fixed initial value
-        var keys = this._initial ? Object.keys(this._initial) : [];
-        var initial = new Array(this._model.nComp);
-        var initialSolid = new Array(this._model.specSolidLabels.length);
-
-        for (var i = 0; i < keys.length; i++) {
-            var key = keys[i];
-            var idx = this._model.compLabels.indexOf(key);
-            if (idx === -1) {
-                idx = this._model.specSolidLabels.indexOf(key);
-                if (idx !== -1) initialSolid[idx] = this._initial[key];
-            } else {
-                initial[idx] = this._initial[key];
-            }
-        }
-
-        for (i = 0; i < initial.length; i++) {
-            if (initial[i] === undefined) {
-                initial[i] = random.logarithmic(this.options.random);
-            }
-        }
-
-        for (i = 0; i < initialSolid.length; i++) {
-            if (initialSolid[i] === undefined) {
-                initialSolid[i] = random.logarithmic(this.options.random);
-            }
-        }
-
-        return {
-            components: initial,
-            solids: initialSolid
-        };
+    for (let i = 0; i < initial.length; i++) {
+      if (initial[i] === undefined) {
+        initial[i] = logarithmic(this.options.random);
+      }
     }
 
-    /**
-     * Process the model and get something readily usable by the optimization algorithm
-     * @param {object} model
-     * @return {{model: Array, beta: Array, cTotal: Array, cFixed: Array, specLabels: Array, compLabels: Array, fixedLabels: Array, nComp: (number|*), nSpec: (*|number), nFixed: number}}
-     * @private
-     */
-    _processModel(model) {
-        // change betas and model to reflect what should be
-        // optimized in newton raphton
-        // Initialize model
-        var nFormed = model.formedSpecies.length;
-        var nComp = model.components.length;
-        var nSpec = nComp + nFormed;
-        var nSpecSolution = count(model.formedSpecies, spec => !spec.solid);
-        var nSpecSolid = nSpec - nSpecSolution - nComp;
-
-        var formedSpeciesSolution = model.formedSpecies.filter(spec => !spec.solid);
-        var formedSpeciesSolid = model.formedSpecies.filter(spec => spec.solid);
-
-        // ========= init betas =====================================================================================
-        // The formation constants for components is always 1
-        var beta = new Matrix(1, nSpecSolution + nComp).fill(1);
-        // The other formation constants we pick from user
-        beta.setSubMatrix([formedSpeciesSolution.map(c => c.beta)], 0, nComp);
-        if (nSpecSolid) {
-            var solidBeta = new Matrix([formedSpeciesSolid.map(c => c.beta)]);
-        }
-
-
-        // =========== Init stoechiometric matrix (formed species in solution) =================================
-        // One line per component, one column per specie
-        // Species are components + formedSpecies
-
-        var matrix = new Matrix(nComp, nSpecSolution + nComp);
-        var identity = Matrix.identity(model.components.length);
-        matrix.setSubMatrix(identity, 0, 0);
-
-        // Now we modify the stoechiometric matrix if there are any components with fixed concentrations
-        // Fixed components are removed from the model and beta values of species are updated accordingly
-        var rows = [];
-        for (i = 0; i < nComp; i++) {
-            for (var j = 0; j < nSpecSolution; j++) {
-                matrix.set(i, j + nComp, formedSpeciesSolution[j].components[i]);
-            }
-        }
-
-        for (i = 0; i < nComp; i++) {
-            // Fixed components have the atEquilibrium property set
-            var atEq = model.components[i].atEquilibrium;
-            if (!atEq) {
-                // Keep this component in the final model
-                rows.push(i);
-            } else {
-                // Update the beta value of all species
-                // newBeta = oldBeta * fixedComponentConcentration^(stoechiometricCoefficient)
-                var m = new Matrix(1, nSpecSolution + nComp).fill(atEq);
-                m.pow([matrix.getRow(i)]);
-                beta.multiply(m);
-            }
-        }
-
-        // remove fixed components from beta and stoechiometric matrix
-        var columns = rows.concat(getRange(nComp, nComp + nSpecSolution - 1));
-        matrix = matrix.selection(rows, columns);
-        beta = beta.selection([0], columns);
-        // remove empty columns
-        // var notZeroColumns = [];
-        // loop1: for(var i=0; i<matrix.columns; i++) {
-        //     for(var j=0; j<matrix.rows; j++) {
-        //         if(matrix[j][i] !== 0) {
-        //             notZeroColumns.push(i);
-        //             continue loop1;
-        //         }
-        //     }
-        // }
-        // matrix = matrix.selection(getRange(0, matrix.rows - 1), notZeroColumns);
-        // beta = beta.selection([0], notZeroColumns);
-
-        // ============= Init stoechiometric matrix (formed solids) ================================================
-        if (nSpecSolid) {
-            rows = [];
-            var solidMatrix = new Matrix(nComp, nSpecSolid);
-            for (i = 0; i < nComp; i++) {
-                for (j = 0; j < nSpecSolid; j++) {
-                    solidMatrix.set(i, j, formedSpeciesSolid[j].components[i]);
-                }
-            }
-
-            for (i = 0; i < nComp; i++) {
-                // Fixed components have the atEquilibrium property set
-                atEq = model.components[i].atEquilibrium;
-                if (!atEq) {
-                    // Keep this component in the final model
-                    rows.push(i);
-                } else {
-                    // Update the beta value of all species
-                    // newBeta = oldBeta * fixedComponentConcentration^(stoechiometricCoefficient)
-                    m = new Matrix(1, nSpecSolid).fill(atEq);
-                    m.pow([solidMatrix.getRow(i)]);
-                    solidBeta.multiply(m);
-                }
-            }
-
-            // remove fixed components from beta and stoechiometric matrix
-            columns = getRange(0, nSpecSolid - 1);
-            solidMatrix = solidMatrix.selection(rows, columns);
-            solidBeta = solidBeta.selection([0], columns);
-            // newtonRaphton uses the dissociaton Ksp, not the formation Ksp
-            solidBeta.pow(-1);
-        }
-
-
-        // ============= Labels and concentrations ==================================================================
-        var specLabels = [];
-        var fixedLabels = [];
-        var cFixed = [];
-        var compLabels = [];
-
-        // Init labels and total concentration
-        var cTotal = [];
-        for (var i = 0; i < nComp; i++) {
-            var component = model.components[i];
-            if (component.atEquilibrium) {
-                // Keep concentration and label of fixed components
-                fixedLabels.push(component.label);
-                cFixed.push(component.atEquilibrium / this.options.volume);
-            } else {
-                // Total concentration of components that will be involved in the optimization algorithm
-                cTotal.push(component.total / this.options.volume);
-                specLabels.push(component.label);
-                compLabels.push(component.label);
-            }
-        }
-
-        var specSolutionLabels = formedSpeciesSolution.map(s => s.label);
-        var specSolidLabels = formedSpeciesSolid.map(s => s.label);
-        specLabels = specLabels.concat(specSolutionLabels, specSolidLabels);
-
-        return {
-            model: matrix.to2DArray(),
-            beta: beta.to1DArray(),
-            cTotal: cTotal,
-            cFixed: cFixed,
-            specLabels,
-            compLabels,
-            fixedLabels,
-            specSolidLabels,
-            specSolutionLabels,
-            nFixed: nComp - matrix.rows,
-            solidModel: solidMatrix && solidMatrix.to2DArray(),
-            solidBeta: solidBeta && solidBeta.to1DArray()
-        };
+    for (let i = 0; i < initialSolid.length; i++) {
+      if (initialSolid[i] === undefined) {
+        initialSolid[i] = logarithmic(this.options.random);
+      }
     }
 
-    /**
-     * Solve the model. Initial concentrations set with {@link Equilibrium#setInitial setInitial} will be used as the
-     * starting points of the optimization algorithm.
-     * @return {object} An Object with as many properties as there are species. The key is the label of the specie,
-     * and the value is the concentration at equilibrium of this specie.
-     */
-    solve() {
-        var model = this._model;
-        var initial = this._getInitial();
-        var cSpec = newtonRaphton(model.model, model.beta, model.cTotal, initial.components, model.solidModel, model.solidBeta, initial.solids, this.options);
-        var result = this._processResult(cSpec);
-        if (this.options.autoInitial) this.setInitial(result);
-        return result;
+    return {
+      components: initial,
+      solids: initialSolid,
+    };
+  }
+
+  /**
+   * Process the model and get something readily usable by the optimization algorithm
+   * @param {object} model - Description of the chemical system.
+   * @returns {object} The stoechiometric matrices, formation constants, total
+   * concentrations and labels used by the optimization algorithm.
+   * @private
+   */
+  _processModel(model) {
+    // change betas and model to reflect what should be
+    // optimized in newton raphton
+    // Initialize model
+    const nFormed = model.formedSpecies.length;
+    const nComp = model.components.length;
+    const nSpec = nComp + nFormed;
+    const nSpecSolution = count(model.formedSpecies, (spec) => !spec.solid);
+    const nSpecSolid = nSpec - nSpecSolution - nComp;
+
+    const formedSpeciesSolution = model.formedSpecies.filter(
+      (spec) => !spec.solid,
+    );
+    const formedSpeciesSolid = model.formedSpecies.filter((spec) => spec.solid);
+
+    // ========= init betas =====================================================================================
+    // The formation constants for components is always 1
+    let beta = new Matrix(1, nSpecSolution + nComp).fill(1);
+    // The other formation constants we pick from user
+    beta.setSubMatrix([formedSpeciesSolution.map((c) => c.beta)], 0, nComp);
+    let solidBeta;
+    if (nSpecSolid) {
+      solidBeta = new Matrix([formedSpeciesSolid.map((c) => c.beta)]);
     }
 
-    /**
-     * Solve the model robustly. Does not take into account initial concentrations set with {@link #Equilibrium#setInitial setInitial}
-     * Random initialization concentrations are used until the optimization algorithm converges. The number of tries
-     * is set at instanciation with robustMaxTries
-     * @return {object|null} An Object with as many properties as there are species. The key is the label of the specie,
-     * and the value is the concentration at equilibrium of this specie.
-     */
-    solveRobust() {
-        var model = this._model;
-        for (var i = 0; i < this.options.robustMaxTries; i++) {
-            var initial = {
-                components: random.logarithmic(this.options.random, model.compLabels.length),
-                solids: random.logarithmic(this.options.random, model.specSolidLabels.length)
-            };
-            var cSpec = newtonRaphton(model.model, model.beta, model.cTotal, initial.components, model.solidModel, model.solidBeta, initial.solids, this.options);
-            if (cSpec) {
-                return this._processResult(cSpec);
-            }
-        }
+    // =========== Init stoechiometric matrix (formed species in solution) =================================
+    // One line per component, one column per specie
+    // Species are components + formedSpecies
 
-        return null;
+    let matrix = new Matrix(nComp, nSpecSolution + nComp);
+    const identity = Matrix.identity(model.components.length);
+    matrix.setSubMatrix(identity, 0, 0);
+
+    // Now we modify the stoechiometric matrix if there are any components with fixed concentrations
+    // Fixed components are removed from the model and beta values of species are updated accordingly
+    let rows = [];
+    for (let i = 0; i < nComp; i++) {
+      for (let j = 0; j < nSpecSolution; j++) {
+        matrix.set(i, j + nComp, formedSpeciesSolution[j].components[i]);
+      }
     }
 
-    /**
-     * Set initial concentration of components
-     * @param {object} init - Object where the key is the label of the component and the value is the initial
-     * amount (in moles) of this components.
-     */
-    setInitial(init) {
-        var initial = Object.assign({}, init);
-        var keys = Object.keys(initial);
-        for (var i = 0; i < keys.length; i++) {
-            var key = keys[i];
-            if (initial[key] === 0) initial[key] = 1e-15;
-        }
-        this._initial = initial;
+    for (let i = 0; i < nComp; i++) {
+      // Fixed components have the atEquilibrium property set
+      const atEq = model.components[i].atEquilibrium;
+      if (atEq) {
+        // Update the beta value of all species
+        // newBeta = oldBeta * fixedComponentConcentration^(stoechiometricCoefficient)
+        const m = new Matrix(1, nSpecSolution + nComp).fill(atEq);
+        m.powM([matrix.getRow(i)]);
+        beta.multiply(m);
+      } else {
+        // Keep this component in the final model
+        rows.push(i);
+      }
     }
 
-    /**
-     * Transforms array of specie concentrations into object where the key is the specie label.
-     * Adds the fixed concentrations to it
-     * @param {Array} cSpec - Array of specie concentrations
-     * @return {object} Object where key is the specie label and value is the concentration
-     * @private
-     */
-    _processResult(cSpec) {
-        if (!cSpec) return null;
-        var result = {};
-        for (var i = 0; i < this._model.specLabels.length; i++) {
-            result[this._model.specLabels[i]] = cSpec[i];
+    // remove fixed components from beta and stoechiometric matrix
+    let columns = rows.concat(getRange(nComp, nComp + nSpecSolution - 1));
+    matrix = matrix.selection(rows, columns);
+    beta = beta.selection([0], columns);
+
+    // ============= Init stoechiometric matrix (formed solids) ================================================
+    let solidMatrix;
+    if (nSpecSolid) {
+      rows = [];
+      solidMatrix = new Matrix(nComp, nSpecSolid);
+      for (let i = 0; i < nComp; i++) {
+        for (let j = 0; j < nSpecSolid; j++) {
+          solidMatrix.set(i, j, formedSpeciesSolid[j].components[i]);
         }
+      }
 
-
-        for (i = 0; i < this._model.cFixed.length; i++) {
-            result[this._model.fixedLabels[i]] = this._model.cFixed[i];
+      for (let i = 0; i < nComp; i++) {
+        // Fixed components have the atEquilibrium property set
+        const atEq = model.components[i].atEquilibrium;
+        if (atEq) {
+          // Update the beta value of all species
+          // newBeta = oldBeta * fixedComponentConcentration^(stoechiometricCoefficient)
+          const m = new Matrix(1, nSpecSolid).fill(atEq);
+          m.powM([solidMatrix.getRow(i)]);
+          solidBeta.multiply(m);
+        } else {
+          // Keep this component in the final model
+          rows.push(i);
         }
+      }
 
-        return result;
+      // remove fixed components from beta and stoechiometric matrix
+      columns = getRange(0, nSpecSolid - 1);
+      solidMatrix = solidMatrix.selection(rows, columns);
+      solidBeta = solidBeta.selection([0], columns);
+      // newtonRaphton uses the dissociaton Ksp, not the formation Ksp
+      solidBeta.pow(-1);
     }
+
+    // ============= Labels and concentrations ==================================================================
+    let specLabels = [];
+    const fixedLabels = [];
+    const cFixed = [];
+    const compLabels = [];
+
+    // Init labels and total concentration
+    const cTotal = [];
+    for (let i = 0; i < nComp; i++) {
+      const component = model.components[i];
+      if (component.atEquilibrium) {
+        // Keep concentration and label of fixed components
+        fixedLabels.push(component.label);
+        cFixed.push(component.atEquilibrium / this.options.volume);
+      } else {
+        // Total concentration of components that will be involved in the optimization algorithm
+        cTotal.push(component.total / this.options.volume);
+        specLabels.push(component.label);
+        compLabels.push(component.label);
+      }
+    }
+
+    const specSolutionLabels = formedSpeciesSolution.map((s) => s.label);
+    const specSolidLabels = formedSpeciesSolid.map((s) => s.label);
+    specLabels = specLabels.concat(specSolutionLabels, specSolidLabels);
+
+    return {
+      model: matrix.to2DArray(),
+      beta: beta.to1DArray(),
+      cTotal,
+      cFixed,
+      specLabels,
+      compLabels,
+      fixedLabels,
+      specSolidLabels,
+      specSolutionLabels,
+      nFixed: nComp - matrix.rows,
+      solidModel: solidMatrix && solidMatrix.to2DArray(),
+      solidBeta: solidBeta && solidBeta.to1DArray(),
+    };
+  }
+
+  /**
+   * Solve the model. Initial concentrations set with {@link Equilibrium#setInitial setInitial} will be used as the
+   * starting points of the optimization algorithm.
+   * @returns {object} An Object with as many properties as there are species. The key is the label of the specie,
+   * and the value is the concentration at equilibrium of this specie.
+   */
+  solve() {
+    const model = this._model;
+    const initial = this._getInitial();
+    const cSpec = newtonRaphton(
+      model.model,
+      model.beta,
+      model.cTotal,
+      initial.components,
+      model.solidModel,
+      model.solidBeta,
+      initial.solids,
+      this.options,
+    );
+    const result = this._processResult(cSpec);
+    if (this.options.autoInitial) this.setInitial(result);
+    return result;
+  }
+
+  /**
+   * Solve the model robustly. Does not take into account initial concentrations set with {@link #Equilibrium#setInitial setInitial}
+   * Random initialization concentrations are used until the optimization algorithm converges. The number of tries
+   * is set at instanciation with robustMaxTries
+   * @returns {object|null} An Object with as many properties as there are species. The key is the label of the specie,
+   * and the value is the concentration at equilibrium of this specie.
+   */
+  solveRobust() {
+    const model = this._model;
+    for (let i = 0; i < this.options.robustMaxTries; i++) {
+      const initial = {
+        components: logarithmic(this.options.random, model.compLabels.length),
+        solids: logarithmic(this.options.random, model.specSolidLabels.length),
+      };
+      const cSpec = newtonRaphton(
+        model.model,
+        model.beta,
+        model.cTotal,
+        initial.components,
+        model.solidModel,
+        model.solidBeta,
+        initial.solids,
+        this.options,
+      );
+      if (cSpec) {
+        return this._processResult(cSpec);
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * Set initial concentration of components
+   * @param {object} init - Object where the key is the label of the component and the value is the initial
+   * amount (in moles) of this components.
+   */
+  setInitial(init) {
+    const initial = { ...init };
+    const keys = Object.keys(initial);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      if (initial[key] === 0) initial[key] = 1e-15;
+    }
+    this._initial = initial;
+  }
+
+  /**
+   * Transforms array of specie concentrations into object where the key is the specie label.
+   * Adds the fixed concentrations to it
+   * @param {Array} cSpec - Array of specie concentrations
+   * @returns {object} Object where key is the specie label and value is the concentration
+   * @private
+   */
+  _processResult(cSpec) {
+    if (!cSpec) return null;
+    const result = {};
+    for (let i = 0; i < this._model.specLabels.length; i++) {
+      result[this._model.specLabels[i]] = cSpec[i];
+    }
+
+    for (let i = 0; i < this._model.cFixed.length; i++) {
+      result[this._model.fixedLabels[i]] = this._model.cFixed[i];
+    }
+
+    return result;
+  }
 }
 
-module.exports = Equilibrium;
-
 function getRange(start, end) {
-    var arr = [];
-    for (var i = start; i <= end; i++) {
-        arr.push(i);
-    }
-    return arr;
+  const range = [];
+  for (let i = start; i <= end; i++) {
+    range.push(i);
+  }
+  return range;
 }
 
 function checkModel(model) {
-    // check that labels are unique
-    var labels = {};
-    checkLabels(model.formedSpecies, labels);
-    checkLabels(model.components, labels);
-    checkComponents(model.components);
-    checkFormedSpecies(model);
+  // check that labels are unique
+  const labels = {};
+  checkLabels(model.formedSpecies, labels);
+  checkLabels(model.components, labels);
+  checkComponents(model.components);
+  checkFormedSpecies(model);
 }
 
 function checkLabels(arr, labels) {
-    for (var i = 0; i < arr.length; i++) {
-        var label = arr[i].label;
-        if (label === undefined || label === null) throw new Error('Labels must be defined');
-        if (labels[label]) throw new Error('Labels should be unique');
-        labels[label] = true;
+  for (let i = 0; i < arr.length; i++) {
+    const label = arr[i].label;
+    if (label === undefined || label === null) {
+      throw new Error('Labels must be defined');
     }
+    if (labels[label]) throw new Error('Labels should be unique');
+    labels[label] = true;
+  }
 }
 
 function checkComponents(comp) {
-    for (var i = 0; i < comp.length; i++) {
-        if (typeof comp[i].total !== 'number' && typeof comp[i].atEquilibrium !== 'number') {
-            throw new Error('Component should have a property total or atEquilibrium that is a number');
-        }
+  for (let i = 0; i < comp.length; i++) {
+    if (
+      typeof comp[i].total !== 'number' &&
+      typeof comp[i].atEquilibrium !== 'number'
+    ) {
+      throw new Error(
+        'Component should have a property total or atEquilibrium that is a number',
+      );
     }
+  }
 }
 
 function checkFormedSpecies(model) {
-    var spec = model.formedSpecies;
-    if (!spec) throw new Error('Formed species is not defined');
-    for (var i = 0; i < spec.length; i++) {
-        var s = spec[i];
-        if (!s.components || s.components.length !== model.components.length) {
-            throw new Error('Formed species\' components array should have the same size as components');
-        }
-        if (typeof s.beta !== 'number') {
-            throw new Error('All formed species should have a beta property');
-        }
+  const spec = model.formedSpecies;
+  if (!spec) throw new Error('Formed species is not defined');
+  for (let i = 0; i < spec.length; i++) {
+    const s = spec[i];
+    if (!s.components || s.components.length !== model.components.length) {
+      throw new Error(
+        "Formed species' components array should have the same size as components",
+      );
     }
+    if (typeof s.beta !== 'number') {
+      throw new Error('All formed species should have a beta property');
+    }
+  }
 }
 
 function count(arr, cb) {
-    var count = 0;
-    for (var i = 0; i < arr.length; i++) {
-        if (cb(arr[i])) ++count;
-    }
-    return count;
+  let n = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (cb(arr[i])) ++n;
+  }
+  return n;
 }
