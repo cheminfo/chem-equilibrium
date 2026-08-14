@@ -1,455 +1,168 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset='utf-8' />
-  <title>chem-equilibrium 0.0.1 | Documentation</title>
-  <meta name='viewport' content='width=device-width,initial-scale=1'>
-  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
-  <link href='assets/style.css' type='text/css' rel='stylesheet' />
-  <link href='assets/github.css' type='text/css' rel='stylesheet' />
-</head>
-<body class='documentation'>
-  <div class='max-width-4 mx-auto'>
-    <div class='clearfix md-mxn2'>
-      <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
-        <div class='py1 px2'>
-          <h3 class='mb0 no-anchor'>chem-equilibrium</h3>
-          <div class='mb1'><code>0.0.1</code></div>
-          <input
-            placeholder='Filter'
-            id='filter-input'
-            class='col12 block input'
-            type='text' />
-          <div id='toc'>
-            <ul class='list-reset h5 py1-ul'>
-              
-                
-                <li><a
-                  href='#equilibrium'
-                  class=" toggle-sibling">
-                  Equilibrium
-                  <span class='icon'>▸</span>
-                </a>
-                
-                <div class='toggle-target display-none'>
-                  
-                  
-                    <ul class='list-reset py1-ul pl1'>
-                      <li class='h5'><span>Instance members</span></li>
-                      
-                      <li><a
-                        href='#Equilibrium#constructor'
-                        class='regular pre-open'>
-                        #constructor
-                      </a></li>
-                      
-                      <li><a
-                        href='#Equilibrium#solve'
-                        class='regular pre-open'>
-                        #solve
-                      </a></li>
-                      
-                      <li><a
-                        href='#Equilibrium#solveRobust'
-                        class='regular pre-open'>
-                        #solveRobust
-                      </a></li>
-                      
-                      <li><a
-                        href='#Equilibrium#setInitial'
-                        class='regular pre-open'>
-                        #setInitial
-                      </a></li>
-                      
-                    </ul>
-                  
-                  
-                </div>
-                
-                </li>
-              
-            </ul>
-          </div>
-          <div class='mt1 h6 quiet'>
-            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
-          </div>
-        </div>
-      </div>
-      <div class='fix-margin-3'>
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    <h3 class='fl m0' id='equilibrium'>
-      Equilibrium
-    </h3>
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/cheminfo-js/chem-equilibrium/blob/b13b397c9452f45f27428c19d23d9f0caa7aca7e/src/index.js#L15-L223'>
-      <span>src/index.js</span>
-      </a>
-    
-  </div>
-  
-
-  <p>Equilibrium</p>
-
-
-  <div class='pre p1 fill-light mt0'>new Equilibrium()</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
-    <div class="clearfix">
-  
-    <div class='border-bottom' id='Equilibrium#constructor'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>new constructor(model, options)</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>new constructor(model: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>model</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> amounts can be though as if they were concenrations.
-
-          </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>model.components</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&gt;</code>
-                  </td>
-                  <td class='break-word'><span>The equilibrium&#x27;s independent components. Each object in the array requires
-a label property and either a total property (for total amount) or an atEquilibrium property (for fixed final amount).
-The label property should be a unique name for that specie
-</span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>model.formedSpecies</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&gt;</code>
-                  </td>
-                  <td class='break-word'><span>The list of species that are formed from the components. Each object
-in the array requires a label property, a beta property and a components property. The component property should be an array of numbers
-with the stoechiometric coefficient of each component using the order in which the components where specified. The beta property
-should be a number with the formation constant of this specie. The label property should be a unique name for that specie.
-</span></td>
-                </tr>
-              
-            </tbody>
-          </table>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> Additional options
-
-          </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>options.volume</span> <code class='quiet'>[<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>]</code>
-                  
-                    (default <code>1</code>)
-                  </td>
-                  <td class='break-word'><span>Volume of the solution in which the equilibrium occurs. If this value is 1 then
-</span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>options.robustMaxTries</span> <code class='quiet'>[<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>]</code>
-                  
-                    (default <code>15</code>)
-                  </td>
-                  <td class='break-word'><span>Maximum tries when using 
-<a href="#Equilibrium#solveRobust">solveRobust</a>
-.
-</span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>options.random</span> <code class='quiet'>[<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>]</code>
-                  
-                    (default <code>Math.random</code>)
-                  </td>
-                  <td class='break-word'><span>Random number generator to use when initializing concentrations
-</span></td>
-                </tr>
-              
-            </tbody>
-          </table>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-    <div class='border-bottom' id='Equilibrium#solve'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>solve()</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>Solve the model. Initial concentrations set with <a href="#equilibriumsetinitial">setInitial</a> will be used as the
-starting points of the optimization algorithm.</p>
-
-
-  <div class='pre p1 fill-light mt0'>solve(): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
-        An Object with as many properties as there are species. The key is the label of the specie,
-and the value is the concentration at equilibrium of this specie.
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-    <div class='border-bottom' id='Equilibrium#solveRobust'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>solveRobust()</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>Solve the model robustly. Does not take into account initial concentrations set with <a href="#Equilibrium#setInitial">setInitial</a>
-Random initialization concentrations are used until the optimization algorithm converges. The number of tries
-is set at instanciation with robustMaxTries</p>
-
-
-  <div class='pre p1 fill-light mt0'>solveRobust(): (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | null)</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | null)</code>:
-        An Object with as many properties as there are species. The key is the label of the specie,
-and the value is the concentration at equilibrium of this specie.
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-    <div class='border-bottom' id='Equilibrium#setInitial'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>setInitial(initial)</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>Set initial concentration of components</p>
-
-
-  <div class='pre p1 fill-light mt0'>setInitial(initial: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>initial</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> Object where the key is the label of the component and the value is the initial
-amount (in moles) of this components.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-</div>
-
-  
-
-  
-</section>
-
-          
-        
-      </div>
-    </div>
-  </div>
-  <script src='assets/anchor.js'></script>
-  <script src='assets/site.js'></script>
-</body>
-</html>
+<!DOCTYPE html><html class="default" lang="en" data-base="./"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>chem-equilibrium</title><meta name="description" content="Documentation for chem-equilibrium"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script><script async src="assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="index.html" class="title">chem-equilibrium</a><div id="tsd-toolbar-links"></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h1>chem-equilibrium</h1></div><div class="tsd-panel tsd-typography"><h1 id="chem-equilibrium" class="tsd-anchor-link">chem-equilibrium<a href="#chem-equilibrium" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<p><a href="https://www.npmjs.com/package/chem-equilibrium"><img src="https://img.shields.io/npm/v/chem-equilibrium.svg" alt="NPM version"></a>
+<a href="https://www.npmjs.com/package/chem-equilibrium"><img src="https://img.shields.io/npm/dm/chem-equilibrium.svg" alt="npm download"></a>
+<a href="https://codecov.io/gh/cheminfo/chem-equilibrium"><img src="https://img.shields.io/codecov/c/github/cheminfo/chem-equilibrium.svg" alt="test coverage"></a>
+<a href="https://github.com/cheminfo/chem-equilibrium/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/chem-equilibrium.svg" alt="license"></a></p>
+<p>Compute chemical equilibrium.</p>
+<p>Given the total amount of each component and the formation constants of the
+species they form, the solver returns the concentration of every specie at
+equilibrium. Acid/base, complexation and precipitation reactions are supported,
+and a component can either be given as a total amount or pinned to a fixed
+concentration at equilibrium (typically <code>H+</code>, to work at an imposed pH).</p>
+<h2 id="installation" class="tsd-anchor-link">Installation<a href="#installation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="console"><span class="hl-0">npm install chem-equilibrium</span>
+</code><button type="button">Copy</button></pre>
+
+<p>This package is ESM-only. CommonJS consumers can still <code>require()</code> it on Node.js
+22.12 or later (any 24.x and above also works), or switch to <code>import</code>.</p>
+<h2 id="usage" class="tsd-anchor-link">Usage<a href="#usage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="solving-an-explicit-model" class="tsd-anchor-link">Solving an explicit model<a href="#solving-an-explicit-model" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Describe the components and the species they form, then solve:</p>
+<pre><code class="js"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">Equilibrium</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;chem-equilibrium&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">model</span><span class="hl-0"> = {</span><br/><span class="hl-0">  </span><span class="hl-2">components:</span><span class="hl-0"> [</span><br/><span class="hl-0">    </span><span class="hl-6">// the pH is imposed, so H+ is fixed at equilibrium</span><br/><span class="hl-0">    { </span><span class="hl-2">label:</span><span class="hl-0"> </span><span class="hl-3">&#39;H+&#39;</span><span class="hl-0">, </span><span class="hl-2">atEquilibrium:</span><span class="hl-0"> </span><span class="hl-7">10</span><span class="hl-0"> ** -</span><span class="hl-7">4.75</span><span class="hl-0"> },</span><br/><span class="hl-0">    </span><span class="hl-6">// 1 mol of acetate is introduced</span><br/><span class="hl-0">    { </span><span class="hl-2">label:</span><span class="hl-0"> </span><span class="hl-3">&#39;CH3COO-&#39;</span><span class="hl-0">, </span><span class="hl-2">total:</span><span class="hl-0"> </span><span class="hl-7">1</span><span class="hl-0"> },</span><br/><span class="hl-0">  ],</span><br/><span class="hl-0">  </span><span class="hl-2">formedSpecies:</span><span class="hl-0"> [</span><br/><span class="hl-0">    </span><span class="hl-6">// coefficients follow the order of `components`</span><br/><span class="hl-0">    { </span><span class="hl-2">label:</span><span class="hl-0"> </span><span class="hl-3">&#39;OH-&#39;</span><span class="hl-0">, </span><span class="hl-2">beta:</span><span class="hl-0"> </span><span class="hl-7">10</span><span class="hl-0"> ** -</span><span class="hl-7">14</span><span class="hl-0">, </span><span class="hl-2">components:</span><span class="hl-0"> [-</span><span class="hl-7">1</span><span class="hl-0">, </span><span class="hl-7">0</span><span class="hl-0">] },</span><br/><span class="hl-0">    { </span><span class="hl-2">label:</span><span class="hl-0"> </span><span class="hl-3">&#39;CH3COOH&#39;</span><span class="hl-0">, </span><span class="hl-2">beta:</span><span class="hl-0"> </span><span class="hl-7">10</span><span class="hl-0"> ** </span><span class="hl-7">4.75</span><span class="hl-0">, </span><span class="hl-2">components:</span><span class="hl-0"> [</span><span class="hl-7">1</span><span class="hl-0">, </span><span class="hl-7">1</span><span class="hl-0">] },</span><br/><span class="hl-0">  ],</span><br/><span class="hl-0">};</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">solution</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-8">Equilibrium</span><span class="hl-0">(</span><span class="hl-2">model</span><span class="hl-0">).</span><span class="hl-8">solveRobust</span><span class="hl-0">();</span><br/><span class="hl-6">// at pH = pKa the acid and its conjugated base are equimolar:</span><br/><span class="hl-6">// {</span><br/><span class="hl-6">//   &#39;CH3COO-&#39;: 0.5,</span><br/><span class="hl-6">//   &#39;OH-&#39;: 5.62341325190349e-10,</span><br/><span class="hl-6">//   CH3COOH: 0.5,</span><br/><span class="hl-6">//   &#39;H+&#39;: 0.00001778279410038923</span><br/><span class="hl-6">// }</span>
+</code><button type="button">Copy</button></pre>
+
+<p><code>solveRobust()</code> retries with random starting points until the Newton-Raphson
+algorithm converges, and returns <code>null</code> if it never does. <code>solve()</code> runs a
+single pass from the concentrations given to <code>setInitial()</code>, which is much
+faster when solving a series of closely related systems.</p>
+<h3 id="using-the-bundled-database" class="tsd-anchor-link">Using the bundled database<a href="#using-the-bundled-database" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><code>Helper</code> builds the model for you from the bundled database of formation
+constants — you only declare which species you put in the solution:</p>
+<pre><code class="js"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">Helper</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;chem-equilibrium&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">helper</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-8">Helper</span><span class="hl-0">();</span><br/><span class="hl-2">helper</span><span class="hl-0">.</span><span class="hl-8">addSpecie</span><span class="hl-0">(</span><span class="hl-3">&#39;CO3--&#39;</span><span class="hl-0">, </span><span class="hl-7">0.1</span><span class="hl-0">);</span><br/><span class="hl-2">helper</span><span class="hl-0">.</span><span class="hl-8">setAtEquilibrium</span><span class="hl-0">(</span><span class="hl-3">&#39;H+&#39;</span><span class="hl-0">, </span><span class="hl-7">10</span><span class="hl-0"> ** -</span><span class="hl-7">7</span><span class="hl-0">); </span><span class="hl-6">// work at pH 7</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">solution</span><span class="hl-0"> = </span><span class="hl-2">helper</span><span class="hl-0">.</span><span class="hl-8">getEquilibrium</span><span class="hl-0">().</span><span class="hl-8">solveRobust</span><span class="hl-0">();</span><br/><span class="hl-6">// {</span><br/><span class="hl-6">//   &#39;CO3--&#39;: 0.000038978124414873076,</span><br/><span class="hl-6">//   &#39;OH-&#39;: 1e-7,</span><br/><span class="hl-6">//   &#39;HCO3-&#39;: 0.08333375231890001,</span><br/><span class="hl-6">//   H2CO3: 0.01662726955668513,</span><br/><span class="hl-6">//   &#39;H+&#39;: 1e-7</span><br/><span class="hl-6">// }</span>
+</code><button type="button">Copy</button></pre>
+
+<p><code>Helper</code> walks the database to pull in every specie reachable from the ones you
+added, so <code>HCO3-</code> and <code>H2CO3</code> appear without being declared. Individual
+equations can be turned off with <code>disableEquation(formedSpecie)</code> and back on
+with <code>enableEquation(formedSpecie)</code> / <code>enableAllEquations()</code>.</p>
+<h3 id="titrations-and-speciation-curves" class="tsd-anchor-link">Titrations and speciation curves<a href="#titrations-and-speciation-curves" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><code>Serie</code> solves a whole series of equilibria, reusing each solution as the
+starting point of the next one:</p>
+<pre><code class="js"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">Helper</span><span class="hl-0">, </span><span class="hl-2">Serie</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;chem-equilibrium&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">serie</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-8">Serie</span><span class="hl-0">(</span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-8">Helper</span><span class="hl-0">());</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">titration</span><span class="hl-0"> = </span><span class="hl-2">serie</span><span class="hl-0">.</span><span class="hl-8">getTitration</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">solution:</span><span class="hl-0"> { </span><span class="hl-2">type:</span><span class="hl-0"> </span><span class="hl-3">&#39;CH3COO-&#39;</span><span class="hl-0">, </span><span class="hl-2">concentration:</span><span class="hl-0"> </span><span class="hl-7">0.1</span><span class="hl-0">, </span><span class="hl-2">volume:</span><span class="hl-0"> </span><span class="hl-7">0.05</span><span class="hl-0"> },</span><br/><span class="hl-0">  </span><span class="hl-2">titrationSolution:</span><span class="hl-0"> { </span><span class="hl-2">type:</span><span class="hl-0"> </span><span class="hl-3">&#39;H+&#39;</span><span class="hl-0">, </span><span class="hl-2">concentration:</span><span class="hl-0"> </span><span class="hl-7">0.1</span><span class="hl-0">, </span><span class="hl-2">volume:</span><span class="hl-0"> </span><span class="hl-7">0.1</span><span class="hl-0"> },</span><br/><span class="hl-0">  </span><span class="hl-2">chunks:</span><span class="hl-0"> </span><span class="hl-7">5</span><span class="hl-0">,</span><br/><span class="hl-0">});</span><br/><br/><span class="hl-2">titration</span><span class="hl-0">.</span><span class="hl-2">volumes</span><span class="hl-0">;</span><br/><span class="hl-6">// [0, 0.02, 0.04, 0.06, 0.08, 0.1]</span><br/><span class="hl-2">titration</span><span class="hl-0">.</span><span class="hl-2">species</span><span class="hl-0">;</span><br/><span class="hl-6">// [&#39;H+&#39;, &#39;CH3COO-&#39;, &#39;OH-&#39;, &#39;CH3CO2H&#39;]</span><br/><span class="hl-2">titration</span><span class="hl-0">.</span><span class="hl-2">xy</span><span class="hl-0">;</span><br/><span class="hl-6">// volume / pH pairs, ready to plot:</span><br/><span class="hl-6">// [0, 8.85, 0.02, 4.876, 0.04, 4.102, 0.06, 2.037, 0.08, 1.636, 0.1, 1.477]</span>
+</code><button type="button">Copy</button></pre>
+
+<p><code>getSolutions()</code> sweeps one specie instead of adding a titrant — here the pH,
+from 0 to 14:</p>
+<pre><code class="js"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">helper</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-8">Helper</span><span class="hl-0">();</span><br/><span class="hl-2">helper</span><span class="hl-0">.</span><span class="hl-8">addSpecie</span><span class="hl-0">(</span><span class="hl-3">&#39;CH3COO-&#39;</span><span class="hl-0">, </span><span class="hl-7">1</span><span class="hl-0">);</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">sweep</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-8">Serie</span><span class="hl-0">(</span><span class="hl-2">helper</span><span class="hl-0">).</span><span class="hl-8">getSolutions</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">varying:</span><span class="hl-0"> </span><span class="hl-3">&#39;H+&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">isFixed:</span><span class="hl-0"> </span><span class="hl-4">true</span><span class="hl-0">, </span><span class="hl-6">// pin H+ at equilibrium rather than as a total amount</span><br/><span class="hl-0">  </span><span class="hl-2">log:</span><span class="hl-0"> </span><span class="hl-4">true</span><span class="hl-0">, </span><span class="hl-6">// `from` and `to` are -log10 values, i.e. pH units</span><br/><span class="hl-0">  </span><span class="hl-2">from:</span><span class="hl-0"> </span><span class="hl-7">0</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">to:</span><span class="hl-0"> </span><span class="hl-7">14</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">chunks:</span><span class="hl-0"> </span><span class="hl-7">14</span><span class="hl-0">,</span><br/><span class="hl-0">});</span><br/><br/><span class="hl-2">sweep</span><span class="hl-0">.</span><span class="hl-2">x</span><span class="hl-0">; </span><span class="hl-6">// [0, 1, 2, ..., 14]</span><br/><span class="hl-2">sweep</span><span class="hl-0">.</span><span class="hl-2">solutions</span><span class="hl-0">[</span><span class="hl-7">5</span><span class="hl-0">];</span><br/><span class="hl-6">// {</span><br/><span class="hl-6">//   &#39;CH3COO-&#39;: 0.6661394245831219,</span><br/><span class="hl-6">//   &#39;OH-&#39;: 9.999999999999999e-10,</span><br/><span class="hl-6">//   CH3CO2H: 0.333860575416878,</span><br/><span class="hl-6">//   &#39;H+&#39;: 0.00001</span><br/><span class="hl-6">// }</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="api" class="tsd-anchor-link">API<a href="#api" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Everything is a named export; this package has no default export. The classes
+are <code>Equilibrium</code>, <code>Helper</code>, <code>Serie</code>, <code>Equation</code> and <code>EquationSet</code>, plus the
+low-level <code>newtonRaphton</code> solver and the bundled data, <code>database</code> and
+<code>speciesNames</code>. The package is written in TypeScript and ships its own types.</p>
+<h3 id="_" class="tsd-anchor-link"><code>new Equilibrium(model[, options])</code><a href="#_" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>volume</code></td>
+<td><code>1</code></td>
+<td>Volume of the solution; totals are divided by it to get concentrations</td>
+</tr>
+<tr>
+<td><code>robustMaxTries</code></td>
+<td><code>10</code></td>
+<td>Number of random restarts attempted by <code>solveRobust()</code></td>
+</tr>
+<tr>
+<td><code>random</code></td>
+<td><code>Math.random</code></td>
+<td>Random number generator used to initialize concentrations</td>
+</tr>
+<tr>
+<td><code>autoInitial</code></td>
+<td><code>true</code></td>
+<td>Reuse the result of <code>solve()</code> as the next starting point</td>
+</tr>
+<tr>
+<td><code>tolerance</code></td>
+<td><code>1e-15</code></td>
+<td>Convergence tolerance on the dissolved species</td>
+</tr>
+<tr>
+<td><code>solidTolerance</code></td>
+<td><code>1e-5</code></td>
+<td>Convergence tolerance on the solid species</td>
+</tr>
+<tr>
+<td><code>maxIterations</code></td>
+<td><code>99</code></td>
+<td>Iterations before Newton-Raphson gives up</td>
+</tr>
+</tbody>
+</table>
+<p>Methods: <code>solve()</code>, <code>solveRobust()</code>, <code>setInitial(concentrations)</code>.</p>
+<p>A <code>model</code> has a <code>components</code> array (<code>{ label, total }</code> or
+<code>{ label, atEquilibrium }</code>) and a <code>formedSpecies</code> array
+(<code>{ label, beta, components, solid }</code>), where <code>components</code> is the array of
+stoechiometric coefficients in the order the components were declared, and
+<code>solid: true</code> marks a precipitate.</p>
+<h3 id="_-1" class="tsd-anchor-link"><code>new Helper([options])</code><a href="#_-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>solvent</code></td>
+<td><code>'H2O'</code></td>
+<td>Solvent; equations without a pK for it are dropped</td>
+</tr>
+<tr>
+<td><code>database</code></td>
+<td>(bundled)</td>
+<td>Replace the bundled database with your own list of equations</td>
+</tr>
+<tr>
+<td><code>extend</code></td>
+<td><code>false</code></td>
+<td>Append <code>database</code> to the bundled one instead of replacing it</td>
+</tr>
+</tbody>
+</table>
+<p>Methods: <code>addSpecie(label[, total])</code>, <code>setTotal(label, total)</code>,
+<code>setAtEquilibrium(label, value)</code>, <code>resetSpecies()</code>, <code>setOptions(options)</code>,
+<code>disableEquation(formedSpecie)</code>, <code>enableEquation(formedSpecie)</code>,
+<code>enableAllEquations()</code>, <code>getSpecies(options)</code>, <code>getComponents(options)</code>,
+<code>getEquations(options)</code>, <code>getModel()</code>, <code>getEquilibrium()</code>, <code>clone()</code>.</p>
+<h3 id="_-2" class="tsd-anchor-link"><code>new Serie(helper)</code><a href="#_-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Methods: <code>getTitration(options)</code> and <code>getSolutions(options)</code>. Both accept
+<code>chunks</code> (number of intervals, default <code>200</code>, so <code>chunks + 1</code> points are
+computed) and forward any other option to the underlying <code>Helper</code> and
+<code>Equilibrium</code>.</p>
+<h2 id="database" class="tsd-anchor-link">Database<a href="#database" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>The formation constants live in
+<a href="media/database.ts"><code>src/data/database.ts</code></a>, which is the source of truth —
+edit it there. Each entry carries its <code>pK</code>, the temperature and the literature
+source when they are documented, and a <code>warning</code> when the value is known to be
+doubtful:</p>
+<pre><code class="js"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">database</span><span class="hl-0">, </span><span class="hl-2">speciesNames</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;chem-equilibrium&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-2">database</span><span class="hl-0">.</span><span class="hl-2">length</span><span class="hl-0">; </span><span class="hl-6">// 129</span><br/><span class="hl-2">speciesNames</span><span class="hl-0">[</span><span class="hl-3">&#39;CO3--&#39;</span><span class="hl-0">].</span><span class="hl-2">name</span><span class="hl-0">; </span><span class="hl-6">// &#39;carbonate ion&#39;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><code>pK</code> is always the base-10 logarithm of the <strong>formation</strong> constant of <code>formed</code>
+from its components, so <code>beta = 10 ** pK</code>. For an acid/base couple that number
+is the pKa; for a precipitation equilibrium it is <code>-log10(Ksp)</code>; for a complex
+it is <code>+log β</code>.</p>
+<p>An entry marked <code>active: false</code> is kept for the record — it documents a constant
+that was considered and deliberately left out — and never enters a model, so
+<code>Helper</code> builds its systems from the 127 active ones:</p>
+<pre><code class="js"><span class="hl-2">database</span><span class="hl-0">.</span><span class="hl-8">filter</span><span class="hl-0">((</span><span class="hl-2">entry</span><span class="hl-0">) </span><span class="hl-4">=&gt;</span><span class="hl-0"> </span><span class="hl-2">entry</span><span class="hl-0">.</span><span class="hl-2">active</span><span class="hl-0"> !== </span><span class="hl-4">false</span><span class="hl-0">).</span><span class="hl-2">length</span><span class="hl-0">; </span><span class="hl-6">// 127</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Browse the whole table, sources included, on
+<a href="https://equilibrium.cheminfo.org/#/data">equilibrium.cheminfo.org/#/data</a>.</p>
+<h2 id="api-documentation" class="tsd-anchor-link"><a href="https://cheminfo.github.io/chem-equilibrium/">API Documentation</a><a href="#api-documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h2 id="license" class="tsd-anchor-link">License<a href="#license" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><a href="media/LICENSE">MIT</a></p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#chem-equilibrium"><span>chem-<wbr/>equilibrium</span></a><ul><li><a href="#installation"><span>Installation</span></a></li><li><a href="#usage"><span>Usage</span></a></li><li><ul><li><a href="#solving-an-explicit-model"><span>Solving an explicit model</span></a></li><li><a href="#using-the-bundled-database"><span>Using the bundled database</span></a></li><li><a href="#titrations-and-speciation-curves"><span>Titrations and speciation curves</span></a></li></ul></li><li><a href="#api"><span>API</span></a></li><li><ul><li><a href="#_"><span></span></a></li><li><a href="#_-1"><span></span></a></li><li><a href="#_-2"><span></span></a></li></ul></li><li><a href="#database"><span>Database</span></a></li><li><a href="#api-documentation"><span>API <wbr/>Documentation</span></a></li><li><a href="#license"><span>License</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html">chem-equilibrium</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer></footer><div class="overlay"></div></body></html>

@@ -1,0 +1,1490 @@
+import type { DatabaseEntry } from '../types.ts';
+
+/**
+ * Formation constants, and where each one comes from.
+ *
+ * `pK` is the base-10 logarithm of the formation constant of `formed` from
+ * its components, so `beta = 10 ** pK`. For an acid/base couple that is the
+ * pKa; for a precipitation equilibrium it is `-log10(Ksp)`.
+ *
+ * This table is the source of truth: edit it here. An entry with
+ * `active: false` is kept for the record and never enters a model.
+ */
+export const database: DatabaseEntry[] = [
+  {
+    formed: 'HIO3',
+    components: {
+      'IO3-': 1,
+      'H+': 1,
+    },
+    pK: 0.8,
+    type: 'acidoBasic',
+  },
+  {
+    formed: 'HOCN',
+    components: {
+      'OCN-': 1,
+      'H+': 1,
+    },
+    pK: 3.48,
+    type: 'acidoBasic',
+  },
+  {
+    formed: 'HBrO',
+    components: {
+      'BrO-': 1,
+      'H+': 1,
+    },
+    pK: 8.6,
+    type: 'acidoBasic',
+  },
+  {
+    formed: 'CH2ClCO2H',
+    components: {
+      'CH2ClCO2-': 1,
+      'H+': 1,
+    },
+    pK: 2.89,
+    type: 'acidoBasic',
+  },
+  {
+    formed: 'C6H5COOH',
+    components: {
+      'C6H5COO-': 1,
+      'H+': 1,
+    },
+    pK: 4.2,
+    type: 'acidoBasic',
+  },
+  {
+    formed: 'C6H5NH3+',
+    components: {
+      C6H5NH2: 1,
+      'H+': 1,
+    },
+    pK: 4.6,
+    type: 'acidoBasic',
+  },
+  {
+    formed: 'C2H5COOH',
+    components: {
+      'C2H5COO-': 1,
+      'H+': 1,
+    },
+    pK: 4.87,
+    type: 'acidoBasic',
+  },
+  {
+    formed: 'C5H5NH+',
+    components: {
+      C5H5N: 1,
+      'H+': 1,
+    },
+    pK: 5.25,
+    type: 'acidoBasic',
+  },
+  {
+    formed: 'CH3NH3+',
+    components: {
+      CH3NH2: 1,
+      'H+': 1,
+    },
+    pK: 10.66,
+    type: 'acidoBasic',
+  },
+  {
+    formed: '(C2H5)3NH+',
+    components: {
+      '(C2H5)3N': 1,
+      'H+': 1,
+    },
+    pK: 10.75,
+    type: 'acidoBasic',
+  },
+  {
+    formed: 'C2H5NH3+',
+    components: {
+      C2H5NH2: 1,
+      'H+': 1,
+    },
+    pK: 10.8,
+    type: 'acidoBasic',
+  },
+  {
+    formed: 'HClO4',
+    components: {
+      'ClO4-': 1,
+      'H+': 1,
+    },
+    pK: -7,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'HBr',
+    components: {
+      'Br-': 1,
+      'H+': 1,
+    },
+    pK: -9,
+    type: 'acidoBasic',
+  },
+  {
+    formed: 'HI',
+    components: {
+      'I-': 1,
+      'H+': 1,
+    },
+    pK: -10,
+    type: 'acidoBasic',
+  },
+  {
+    formed: 'HCl',
+    components: {
+      'Cl-': 1,
+      'H+': 1,
+    },
+    pK: -3,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'H2SO4',
+    components: {
+      'HSO4-': 1,
+      'H+': 1,
+    },
+    pK: -3,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'HNO3',
+    components: {
+      'NO3-': 1,
+      'H+': 1,
+    },
+    pK: -1,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'H3O+',
+    components: {
+      H2O: 1,
+      'H+': 1,
+    },
+    pK: 0,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+    active: false,
+  },
+  {
+    formed: 'H2SO3',
+    components: {
+      'HSO3-': 1,
+      'H+': 1,
+    },
+    pK: 1.8,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'HSO4-',
+    components: {
+      'SO4--': 1,
+      'H+': 1,
+    },
+    pK: 1.9,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'HClO2',
+    components: {
+      'ClO2-': 1,
+      'H+': 1,
+    },
+    pK: 1.93,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'H3PO3',
+    components: {
+      'H2PO3-': 1,
+      'H+': 1,
+    },
+    pK: 1.26,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+    warning: 'phosphorous acid is H3PO3, a diprotic acid',
+  },
+  {
+    formed: 'Fe(H2O)6+++',
+    components: {
+      'Fe(H2O)5OH++': 1,
+      'H+': 1,
+    },
+    pK: 2.1,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'H3PO4',
+    components: {
+      'H2PO4-': 1,
+      'H+': 1,
+    },
+    pK: 2.12,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'HF',
+    components: {
+      'F-': 1,
+      'H+': 1,
+    },
+    pK: 3.2,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'HNO2',
+    components: {
+      'NO2-': 1,
+      'H+': 1,
+    },
+    pK: 3.35,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'HCO2H',
+    components: {
+      'HCO2-': 1,
+      'H+': 1,
+    },
+    pK: 3.75,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'CH3CO2H',
+    components: {
+      'CH3COO-': 1,
+      'H+': 1,
+    },
+    pK: 4.7,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'Al(H2O)6+++',
+    components: {
+      'Al(H2O)5OH++': 1,
+      'H+': 1,
+    },
+    pK: 4.9,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'H2CO3',
+    components: {
+      'HCO3-': 1,
+      'H+': 1,
+    },
+    pK: 6.3,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'H2PO3-',
+    components: {
+      'HPO3--': 1,
+      'H+': 1,
+    },
+    pK: 6.7,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+    warning: 'phosphorous acid is H3PO3, a diprotic acid',
+  },
+  {
+    formed: 'H2S',
+    components: {
+      'HS-': 1,
+      'H+': 1,
+    },
+    pK: 7.04,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'HSO3-',
+    components: {
+      'SO3--': 1,
+      'H+': 1,
+    },
+    pK: 7.21,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'HClO',
+    components: {
+      'ClO-': 1,
+      'H+': 1,
+    },
+    pK: 7.4,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'HCN',
+    components: {
+      'CN-': 1,
+      'H+': 1,
+    },
+    pK: 9.2,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'NH4+',
+    components: {
+      NH3: 1,
+      'H+': 1,
+    },
+    pK: 9.25,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'HCO3-',
+    components: {
+      'CO3--': 1,
+      'H+': 1,
+    },
+    pK: 10.33,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'H2PO4-',
+    components: {
+      'HPO4--': 1,
+      'H+': 1,
+    },
+    pK: 7.2,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'HPO4--',
+    components: {
+      'PO4---': 1,
+      'H+': 1,
+    },
+    pK: 12.32,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'H2O',
+    components: {
+      'OH-': 1,
+      'H+': 1,
+    },
+    pK: 14,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'HS-',
+    components: {
+      'S--': 1,
+      'H+': 1,
+    },
+    pK: 19,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'NH3',
+    components: {
+      'NH2-': 1,
+      'H+': 1,
+    },
+    pK: 23,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+  },
+  {
+    formed: 'OH-',
+    components: {
+      'O--': 1,
+      'H+': 1,
+    },
+    pK: 24,
+    type: 'acidoBasic',
+    source:
+      'https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf',
+    active: false,
+  },
+  {
+    formed: 'Ag(NH3)2+',
+    components: {
+      'Ag+': 1,
+      NH3: 2,
+    },
+    pK: 7.2,
+    type: 'complexation',
+    subType: 'ammonia complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Zn(NH3)4++',
+    components: {
+      'Zn++': 1,
+      NH3: 4,
+    },
+    pK: 8.89,
+    type: 'complexation',
+    subType: 'ammonia complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Cu(NH3)4++',
+    components: {
+      'Cu++': 1,
+      NH3: 4,
+    },
+    pK: 13.04,
+    type: 'complexation',
+    subType: 'ammonia complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Hg(NH3)4++',
+    components: {
+      'Hg++': 1,
+      NH3: 4,
+    },
+    pK: 19.26,
+    type: 'complexation',
+    subType: 'ammonia complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Co(NH3)6++',
+    components: {
+      'Co++': 1,
+      NH3: 6,
+    },
+    pK: 4.7,
+    type: 'complexation',
+    subType: 'ammonia complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Co(NH3)4+++',
+    components: {
+      'Co+++': 1,
+      NH3: 4,
+    },
+    pK: 33.66,
+    type: 'complexation',
+    subType: 'ammonia complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Cd(NH3)6++',
+    components: {
+      'Cd++': 1,
+      NH3: 6,
+    },
+    pK: 5.41,
+    type: 'complexation',
+    subType: 'ammonia complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+    warning:
+      'log beta6 is smaller than log beta4 of Cd(NH3)4++ (7.00), which is thermodynamically impossible',
+  },
+  {
+    formed: 'Cd(NH3)4++',
+    components: {
+      'Cd++': 1,
+      NH3: 4,
+    },
+    pK: 7,
+    type: 'complexation',
+    subType: 'ammonia complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Ni(NH3)6++',
+    components: {
+      'Ni++': 1,
+      NH3: 6,
+    },
+    pK: 8.3,
+    type: 'complexation',
+    subType: 'ammonia complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Fe(CN)6----',
+    components: {
+      'Fe++': 1,
+      'CN-': 6,
+    },
+    pK: 35,
+    type: 'complexation',
+    subType: 'cyanide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Fe(CN)6---',
+    components: {
+      'Fe+++': 1,
+      'CN-': 6,
+    },
+    pK: 41.96,
+    type: 'complexation',
+    subType: 'cyanide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Ag(CN)2-',
+    components: {
+      'Ag+': 1,
+      'CN-': 2,
+    },
+    pK: 18.72,
+    type: 'complexation',
+    subType: 'cyanide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Cu(CN)2-',
+    components: {
+      'Cu+': 1,
+      'CN-': 2,
+    },
+    pK: 16,
+    type: 'complexation',
+    subType: 'cyanide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Cd(CN)4--',
+    components: {
+      'Cd++': 1,
+      'CN-': 4,
+    },
+    pK: 16.89,
+    type: 'complexation',
+    subType: 'cyanide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Au(CN)2-',
+    components: {
+      'Au+': 1,
+      'CN-': 2,
+    },
+    pK: 38.3,
+    type: 'complexation',
+    subType: 'cyanide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Ni(CN)4--',
+    components: {
+      'Ni++': 1,
+      'CN-': 4,
+    },
+    pK: 31,
+    type: 'complexation',
+    subType: 'cyanide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'AlF6---',
+    components: {
+      'Al+++': 1,
+      'F-': 6,
+    },
+    pK: 4.4,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+    warning:
+      'log beta6 is smaller than log beta4 of AlF4- (8.30), which is thermodynamically impossible',
+  },
+  {
+    formed: 'AlF4-',
+    components: {
+      'Al+++': 1,
+      'F-': 4,
+    },
+    pK: 8.3,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'BeF4--',
+    components: {
+      'Be++': 1,
+      'F-': 4,
+    },
+    pK: 13.11,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'SnF6--',
+    components: {
+      'Sn++++': 1,
+      'F-': 6,
+    },
+    pK: 25,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'CuCl2-',
+    components: {
+      'Cu+': 1,
+      'Cl-': 2,
+    },
+    pK: 5.48,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'AgCl2-',
+    components: {
+      'Ag+': 1,
+      'Cl-': 2,
+    },
+    pK: 5.26,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'PbCl4--',
+    components: {
+      'Pb++': 1,
+      'Cl-': 4,
+    },
+    pK: 15.4,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'HgCl4--',
+    components: {
+      'Hg++': 1,
+      'Cl-': 4,
+    },
+    pK: 15.7,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'CuBr2-',
+    components: {
+      'Cu+': 1,
+      'Br-': 2,
+    },
+    pK: 5.9,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'AgBr2-',
+    components: {
+      'Ag+': 1,
+      'Br-': 2,
+    },
+    pK: 11,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+    warning:
+      'identical to AgI2- (11.00) for a different halide; check before relying on it',
+  },
+  {
+    formed: 'HgBr4--',
+    components: {
+      'Hg++': 1,
+      'Br-': 4,
+    },
+    pK: 4.48,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+    warning:
+      'far below the values of HgCl4-- (15.70) and HgI4-- (30.28), and identical to PbI4--; likely a transcription error',
+  },
+  {
+    formed: 'CuI2-',
+    components: {
+      'Cu+': 1,
+      'I-': 2,
+    },
+    pK: 8.9,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'AgI2-',
+    components: {
+      'Ag+': 1,
+      'I-': 2,
+    },
+    pK: 11,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+    warning:
+      'identical to AgBr2- (11.00) for a different halide; check before relying on it',
+  },
+  {
+    formed: 'PbI4--',
+    components: {
+      'Pb++': 1,
+      'I-': 4,
+    },
+    pK: 4.48,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'HgI4--',
+    components: {
+      'Hg++': 1,
+      'I-': 4,
+    },
+    pK: 30.28,
+    type: 'complexation',
+    subType: 'halide complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Ag(CH3NH2)2+',
+    components: {
+      'Ag+': 1,
+      CH3NH2: 2,
+    },
+    pK: 6.89,
+    type: 'complexation',
+    subType: 'monodentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Ag(S2O3)2---',
+    components: {
+      'Ag+': 1,
+      'S2O3--': 2,
+    },
+    pK: 13.46,
+    type: 'complexation',
+    subType: 'monodentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Cd(SCN)4--',
+    components: {
+      'Cd++': 1,
+      'SCN-': 4,
+    },
+    pK: 3,
+    type: 'complexation',
+    subType: 'monodentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Cu(SCN)2',
+    components: {
+      'Cu++': 1,
+      'SCN-': 2,
+    },
+    pK: 3.75,
+    type: 'complexation',
+    subType: 'monodentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Fe(SCN)3',
+    components: {
+      'Fe+++': 1,
+      'SCN-': 3,
+    },
+    pK: 6.3,
+    type: 'complexation',
+    subType: 'monodentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Hg(SCN)4--',
+    components: {
+      'Hg++': 1,
+      'SCN-': 4,
+    },
+    pK: 21.7,
+    type: 'complexation',
+    subType: 'monodentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Cu(OH)4--',
+    components: {
+      'Cu++': 1,
+      'OH-': 4,
+    },
+    pK: 16.11,
+    type: 'complexation',
+    subType: 'monodentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Zn(OH)4--',
+    components: {
+      'Zn++': 1,
+      'OH-': 4,
+    },
+    pK: 15.45,
+    type: 'complexation',
+    subType: 'monodentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Mn(C2H8N2)3++',
+    components: {
+      'Mn++': 1,
+      C2H8N2: 3,
+    },
+    pK: 5.81,
+    type: 'complexation',
+    subType: 'bidentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+    warning:
+      'cumulative constant: the ligand count was missing from the upstream table',
+  },
+  {
+    formed: 'Fe(C2H8N2)3++',
+    components: {
+      'Fe++': 1,
+      C2H8N2: 3,
+    },
+    pK: 9.72,
+    type: 'complexation',
+    subType: 'bidentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+    warning:
+      'cumulative constant: the ligand count was missing from the upstream table',
+  },
+  {
+    formed: 'Co(C2H8N2)3++',
+    components: {
+      'Co++': 1,
+      C2H8N2: 3,
+    },
+    pK: 14.11,
+    type: 'complexation',
+    subType: 'bidentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+    warning:
+      'cumulative constant: the ligand count was missing from the upstream table',
+  },
+  {
+    formed: 'Co(C2H8N2)3+++',
+    components: {
+      'Co+++': 1,
+      C2H8N2: 3,
+    },
+    pK: 48.68,
+    type: 'complexation',
+    subType: 'bidentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+    warning:
+      'cumulative constant: the ligand count was missing from the upstream table',
+  },
+  {
+    formed: 'Ni(C2H8N2)3++',
+    components: {
+      'Ni++': 1,
+      C2H8N2: 3,
+    },
+    pK: 17.61,
+    type: 'complexation',
+    subType: 'bidentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+    warning:
+      'cumulative constant: the ligand count was missing from the upstream table',
+  },
+  {
+    formed: 'Cu(C2H8N2)2++',
+    components: {
+      'Cu++': 1,
+      C2H8N2: 2,
+    },
+    pK: 19.54,
+    type: 'complexation',
+    subType: 'bidentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+    warning:
+      'cumulative constant: the ligand count was missing from the upstream table',
+  },
+  {
+    formed: 'Co(C2O4)3----',
+    components: {
+      'Co++': 1,
+      'C2O4--': 3,
+    },
+    pK: 6.65,
+    type: 'complexation',
+    subType: 'bidentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'Fe(C2O4)3---',
+    components: {
+      'Fe+++': 1,
+      'C2O4--': 3,
+    },
+    pK: 20.52,
+    type: 'complexation',
+    subType: 'bidentate ligands complex',
+    temperature: 298,
+    source:
+      'http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf',
+  },
+  {
+    formed: 'AgBr',
+    components: {
+      'Ag+': 1,
+      'Br-': 1,
+    },
+    pK: 12.27,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'AgBrO3',
+    components: {
+      'Ag+': 1,
+      'BrO3-': 1,
+    },
+    pK: 4.24,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Ag2CO3',
+    components: {
+      'Ag+': 2,
+      'CO3--': 1,
+    },
+    pK: 11.1,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'AgCl',
+    components: {
+      'Ag+': 1,
+      'Cl-': 1,
+    },
+    pK: 9.74,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Ag2CrO4',
+    components: {
+      'Ag+': 2,
+      'CrO4--': 1,
+    },
+    pK: 11.05,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'AgI',
+    components: {
+      'Ag+': 1,
+      'I-': 1,
+    },
+    pK: 16.07,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'AgOH',
+    components: {
+      'Ag+': 1,
+      'OH-': 1,
+    },
+    pK: 7.72,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Ag2S',
+    components: {
+      'Ag+': 2,
+      'S--': 1,
+    },
+    pK: 50.22,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Al(OH)3',
+    components: {
+      'Al+++': 1,
+      'OH-': 3,
+    },
+    pK: 32.74,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'BaCO3',
+    components: {
+      'Ba++': 1,
+      'CO3--': 1,
+    },
+    pK: 8.7,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'BaCrO4',
+    components: {
+      'Ba++': 1,
+      'CrO4--': 1,
+    },
+    pK: 10.07,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'BaF2',
+    components: {
+      'Ba++': 1,
+      'F-': 2,
+    },
+    pK: 6.74,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'BaSO4',
+    components: {
+      'Ba++': 1,
+      'SO4--': 1,
+    },
+    pK: 9.96,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Bi2S3',
+    components: {
+      'Bi+++': 2,
+      'S--': 3,
+    },
+    pK: 71.8,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'CaCO3',
+    components: {
+      'Ca++': 1,
+      'CO3--': 1,
+    },
+    pK: 8.47,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'CaF2',
+    components: {
+      'Ca++': 1,
+      'F-': 2,
+    },
+    pK: 10.46,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Ca(OH)2',
+    components: {
+      'Ca++': 1,
+      'OH-': 2,
+    },
+    pK: 5.3,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Ca3(PO4)2',
+    components: {
+      'Ca++': 3,
+      'PO4---': 2,
+    },
+    pK: 32.68,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'CaSO4',
+    components: {
+      'Ca++': 1,
+      'SO4--': 1,
+    },
+    pK: 4.35,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'CdS',
+    components: {
+      'Cd++': 1,
+      'S--': 1,
+    },
+    pK: 28,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'CuCl',
+    components: {
+      'Cu+': 1,
+      'Cl-': 1,
+    },
+    pK: 6.77,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Cu(OH)2',
+    components: {
+      'Cu++': 1,
+      'OH-': 2,
+    },
+    pK: 18.8,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'CuS',
+    components: {
+      'Cu++': 1,
+      'S--': 1,
+    },
+    pK: 44.07,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Fe(OH)2',
+    components: {
+      'Fe++': 1,
+      'OH-': 2,
+    },
+    pK: 16.31,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Fe(OH)3',
+    components: {
+      'Fe+++': 1,
+      'OH-': 3,
+    },
+    pK: 38.55,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'FeS',
+    components: {
+      'Fe++': 1,
+      'S--': 1,
+    },
+    pK: 18.22,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Hg2Cl2',
+    components: {
+      'Hg+': 2,
+      'Cl-': 2,
+    },
+    pK: 17.85,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Li2CO3',
+    components: {
+      'Li+': 2,
+      'CO3--': 1,
+    },
+    pK: 2.96,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'MgCO3',
+    components: {
+      'Mg++': 1,
+      'CO3--': 1,
+    },
+    pK: 4.17,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Mg(OH)2',
+    components: {
+      'Mg++': 1,
+      'OH-': 2,
+    },
+    pK: 11.15,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Mn(OH)2',
+    components: {
+      'Mn++': 1,
+      'OH-': 2,
+    },
+    pK: 12.7,
+    type: 'precipitation',
+    temperature: 298,
+    warning: 'manganese(II) was written Mn--',
+  },
+  {
+    formed: 'PbCl2',
+    components: {
+      'Pb++': 1,
+      'Cl-': 2,
+    },
+    pK: 4.77,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'PbCrO4',
+    components: {
+      'Pb++': 1,
+      'CrO4--': 1,
+    },
+    pK: 15.7,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'PbI2',
+    components: {
+      'Pb++': 1,
+      'I-': 2,
+    },
+    pK: 7.85,
+    type: 'precipitation',
+    temperature: 298,
+    warning: 'iodide was written I--',
+  },
+  {
+    formed: 'Pb(OH)2',
+    components: {
+      'Pb++': 1,
+      'OH-': 2,
+    },
+    pK: 14.92,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'PbS',
+    components: {
+      'Pb++': 1,
+      'S--': 1,
+    },
+    pK: 28.15,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'PbSO4',
+    components: {
+      'Pb++': 1,
+      'SO4--': 1,
+    },
+    pK: 7.8,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'Zn(OH)2',
+    components: {
+      'Zn++': 1,
+      'OH-': 2,
+    },
+    pK: 16.35,
+    type: 'precipitation',
+    temperature: 298,
+  },
+  {
+    formed: 'ZnS',
+    components: {
+      'Zn++': 1,
+      'S--': 1,
+    },
+    pK: 22.52,
+    type: 'precipitation',
+    temperature: 298,
+  },
+];
