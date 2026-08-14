@@ -10,6 +10,7 @@ import {
 import type { Indicator } from '../chemistry/indicators.ts';
 
 import { ColorSwatch, IndicatorBar, PhRuler } from './IndicatorBar.tsx';
+import { filterKeepingSelected } from './keepSelected.ts';
 
 interface IndicatorPickerProps {
   indicators: Indicator[];
@@ -31,13 +32,14 @@ export function IndicatorPicker(props: IndicatorPickerProps) {
   const { indicators, selected, onSelect } = props;
   const [query, setQuery] = useState('');
 
-  const visible = useMemo(() => {
+  const { entries: visible, matchCount } = useMemo(() => {
     const needle = query.trim().toLowerCase();
-    if (!needle) return indicators;
-    return indicators.filter((entry) =>
-      entry.name.toLowerCase().includes(needle),
+    return filterKeepingSelected(
+      indicators,
+      (entry) => !needle || entry.name.toLowerCase().includes(needle),
+      (entry) => entry.name === selected,
     );
-  }, [indicators, query]);
+  }, [indicators, query, selected]);
 
   const names = useMemo(
     () => ['', ...visible.map((entry) => entry.name)],
@@ -85,7 +87,7 @@ export function IndicatorPicker(props: IndicatorPickerProps) {
               onSelect={onSelect}
             />
           ))}
-          {visible.length === 0 ? (
+          {matchCount === 0 ? (
             <p className="bp6-text-muted" style={{ padding: 8 }}>
               No indicator matches “{query}”.
             </p>

@@ -35,7 +35,7 @@ const PRESET: WorkbenchPreset = {
     log: true,
     from: 0,
     to: 14,
-    logY: true,
+    logY: false,
     tolerance: 1e-15,
     solidTolerance: 1e-10,
     maxIterations: 200,

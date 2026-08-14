@@ -1,4 +1,4 @@
-/** The ten sections of the page, in reading order. */
+/** The sections of the page, in reading order. */
 export const HOW_SECTIONS = [
   { id: 'idea', title: 'The idea' },
   { id: 'mass-action', title: 'The law of mass action' },
@@ -10,6 +10,7 @@ export const HOW_SECTIONS = [
   { id: 'solids', title: 'Solids' },
   { id: 'convergence', title: 'Convergence and its limits' },
   { id: 'continuation', title: 'Continuation' },
+  { id: 'assumptions', title: 'What the model assumes' },
 ] as const;
 
 export type SectionId = (typeof HOW_SECTIONS)[number]['id'];

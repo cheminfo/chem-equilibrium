@@ -1,5 +1,6 @@
 import { AnchorButton, Button, Card } from '@blueprintjs/core';
 
+import { Logo } from '../components/Logo.tsx';
 import { navigate } from '../router/location.ts';
 
 import { CitationCard } from './about/CitationCard.tsx';
@@ -17,7 +18,13 @@ export function AboutPage() {
       <Card compact>
         <div style={INTRO_STYLE}>
           <div className="prose">
-            <h2 style={{ margin: '0 0 8px' }}>About this site</h2>
+            <h2 className="wordmark" style={{ margin: '0 0 8px' }}>
+              <Logo size={32} />
+              <span>
+                <span className="wordmark-name">equilibrium</span>
+                <span className="wordmark-domain">.cheminfo.org</span>
+              </span>
+            </h2>
             <p style={{ marginTop: 0 }}>
               A teaching site for chemical equilibrium, developed at EPFL. It
               solves acid/base, complexation and precipitation systems exactly —

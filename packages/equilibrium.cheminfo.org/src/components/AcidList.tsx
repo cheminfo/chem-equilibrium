@@ -7,6 +7,7 @@ import { formatPK } from '../chemistry/format.ts';
 import { STRENGTH_BANDS, nameOf, strengthBand } from '../chemistry/species.ts';
 
 import { EquationText } from './EquationText.tsx';
+import { filterKeepingSelected } from './keepSelected.ts';
 import { activateRowOnKey, followSelectionWithFocus } from './selectableRow.ts';
 
 interface AcidListProps {
@@ -28,13 +29,18 @@ export function AcidList(props: AcidListProps) {
   const [query, setQuery] = useState('');
   const listRef = useRef<HTMLDivElement>(null);
 
-  const visible = useMemo(
-    () => ACID_COUPLES.filter((couple) => matchesCouple(couple, query)),
-    [query],
+  const { entries: visible, matchCount } = useMemo(
+    () =>
+      filterKeepingSelected(
+        ACID_COUPLES,
+        (couple) => matchesCouple(couple, query),
+        (couple) => couple.acid === selected,
+      ),
+    [query, selected],
   );
 
-  // The row that holds the tab stop; the search can hide the picked couple, and
-  // a list no key can reach would then be left behind.
+  // The row that holds the tab stop; it falls back to the first row when the
+  // picked couple is not one of these, so no list is left unreachable.
   const tabbable = visible.some((couple) => couple.acid === selected)
     ? selected
     : visible[0]?.acid;
@@ -116,13 +122,13 @@ export function AcidList(props: AcidListProps) {
             })}
           </tbody>
         </table>
-        {visible.length === 0 ? (
+        {matchCount === 0 ? (
           <p className="bp6-text-muted">No couple matches “{query}”.</p>
         ) : null}
       </div>
 
       <p className="bp6-text-muted" style={{ margin: 0, fontSize: 12 }}>
-        {visible.length} of {ACID_COUPLES.length} couples, strongest acid first.
+        {matchCount} of {ACID_COUPLES.length} couples, strongest acid first.
         Click a row, or use the arrow keys.
       </p>
     </div>

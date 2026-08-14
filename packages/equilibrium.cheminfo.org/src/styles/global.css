@@ -2,6 +2,10 @@
   --page-max-width: 1440px;
   --prose-max-width: 46rem;
   --gap: 12px;
+
+  /* The two brand colours: the forward reaction and the reverse one. */
+  --brand: #0b5754;
+  --brand-accent: #f2a71b;
 }
 
 html,
@@ -30,6 +34,7 @@ body {
   gap: var(--gap);
   padding: 8px 16px;
   height: auto;
+  border-bottom: 2px solid var(--brand-accent);
 }
 
 .app-header h1 {
@@ -37,6 +42,23 @@ body {
   margin: 0;
   white-space: nowrap;
   flex: 0 0 auto;
+}
+
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.wordmark-name {
+  color: var(--brand);
+}
+
+.wordmark-domain {
+  color: #5c7080;
+  font-weight: 400;
 }
 
 /* Ten tabs do not fit on a laptop, let alone a tablet: let them scroll rather
@@ -60,7 +82,8 @@ body {
 }
 
 @media (max-width: 700px) {
-  .app-header h1 {
+  /* The mark stays: it is the only thing identifying the site on a phone. */
+  .app-header h1 .wordmark-text {
     display: none;
   }
 
@@ -121,6 +144,41 @@ body {
   gap: var(--gap);
 }
 
+/* One row per quantity, one column per solution: the labels are written once
+   and the two values that a titration compares sit side by side. */
+.field-grid {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 170px) minmax(0, 170px);
+  justify-content: start;
+  align-items: center;
+  gap: 6px 8px;
+}
+
+.field-head {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.field-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+/* Blueprint gives the tooltip target `display: block` through a selector whose
+   `:not()` argument out-specifies a plain class, so the icon would sit on the
+   baseline of a taller line box. */
+.help-icon.bp6-popover-target {
+  display: flex !important;
+  align-items: center;
+  margin-top: 0;
+}
+
 .chart-container {
   width: 100%;
   height: 460px;
@@ -159,6 +217,40 @@ body {
   max-height: 420px;
 }
 
+/* Formula and name are two columns, not one run of text: every row takes its
+   tracks from the list through subgrid, so the names all start at the same x
+   however wide the formula beside them is. */
+.species-grid {
+  display: grid;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.species-grid--checkbox {
+  grid-template-columns: max-content max-content minmax(0, 1fr);
+}
+
+.species-grid--option {
+  grid-template-columns: max-content minmax(0, 1fr);
+}
+
+.species-grid > .species-row {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 1px 6px;
+}
+
+.species-grid > .species-row .bp6-control-indicator {
+  margin: 0;
+}
+
+.species-grid--checkbox > .species-row:hover {
+  background: rgb(143 153 168 / 15%);
+}
+
 table.data-table {
   border-collapse: collapse;
   width: 100%;
@@ -182,11 +274,6 @@ table.data-table tbody tr.selectable {
 .numeric {
   text-align: right;
   font-variant-numeric: tabular-nums;
-}
-
-.no-print {
-  /* stylelint-disable-next-line */
-  display: revert;
 }
 
 @media print {

@@ -28,7 +28,7 @@ const PRESET: WorkbenchPreset = {
     log: true,
     from: 0,
     to: 14,
-    logY: true,
+    logY: false,
     ...DEFAULT_SETTINGS,
   },
 };

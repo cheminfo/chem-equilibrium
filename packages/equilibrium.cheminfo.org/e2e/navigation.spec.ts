@@ -22,7 +22,7 @@ test('the shell renders with every tab', async ({ page }) => {
   await page.goto('/');
   await expect(
     page.getByRole('heading', {
-      name: 'Chemical equilibrium',
+      name: 'equilibrium.cheminfo.org',
       exact: true,
       level: 1,
     }),

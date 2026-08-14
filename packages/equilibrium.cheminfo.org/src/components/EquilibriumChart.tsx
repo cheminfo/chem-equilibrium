@@ -1,6 +1,6 @@
 import type { LineCustomSvgLayerProps, LineSvgLayer, Point } from '@nivo/line';
 import { ResponsiveLine } from '@nivo/line';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 import { assignColors } from '../chemistry/palette.ts';
 
@@ -56,6 +56,9 @@ const MAX_DECADES = 16;
 /** Used when a series label is not in the shared palette. */
 const FALLBACK_COLOR = '#888888';
 
+/** Colour of the vertical line that follows the cursor. */
+const CURSOR_COLOR = 'rgb(115 134 148)';
+
 /**
  * The line chart shared by every tool: speciation diagrams and titration curves.
  * @param props - Data and presentation of the chart.
@@ -63,6 +66,8 @@ const FALLBACK_COLOR = '#888888';
  */
 export function EquilibriumChart(props: EquilibriumChartProps) {
   const { x, series, xLabel, yLabel, logY, yRange, bands, onHover } = props;
+
+  const [cursorX, setCursorX] = useState<number | null>(null);
 
   const colors = useMemo(
     () => assignColors(series.map((entry) => entry.label)),
@@ -96,8 +101,11 @@ export function EquilibriumChart(props: EquilibriumChartProps) {
       'legends',
       'mesh',
     ];
+    if (cursorX !== null) {
+      base.splice(base.indexOf('slices'), 0, cursorLayer(cursorX));
+    }
     return bands ? [bandsLayer(bands), ...base] : base;
-  }, [bands]);
+  }, [bands, cursorX]);
 
   if (x.length === 0 || series.length === 0) {
     return null;
@@ -152,9 +160,13 @@ export function EquilibriumChart(props: EquilibriumChartProps) {
       sliceTooltip={({ slice }) => <SliceTooltip points={slice.points} />}
       onMouseMove={(datum) => {
         const point = 'points' in datum ? datum.points[0] : datum;
+        setCursorX(point ? point.data.x : null);
         onHover?.(point ? x.indexOf(point.data.x) : null);
       }}
-      onMouseLeave={() => onHover?.(null)}
+      onMouseLeave={() => {
+        setCursorX(null);
+        onHover?.(null);
+      }}
     />
   );
 }
@@ -166,13 +178,17 @@ function SliceTooltip({
 }) {
   const shown = points.slice(0, 12);
   return (
-    <div className="bp6-card bp6-elevation-2" style={{ padding: 8 }}>
+    <div
+      className="bp6-card bp6-elevation-2"
+      style={{ padding: 8, whiteSpace: 'nowrap' }}
+    >
       {shown.map((point) => (
         <div key={point.id} style={{ display: 'flex', gap: 8 }}>
           <span
             style={{
               width: 10,
               height: 10,
+              flexShrink: 0,
               alignSelf: 'center',
               background: point.color,
             }}
@@ -270,6 +286,29 @@ function formatTooltip(value: unknown): string {
     return numeric.toExponential(2);
   }
   return numeric.toPrecision(4).replace(/\.?0+$/, '');
+}
+
+/**
+ * Build the layer that marks the abscissa under the cursor.
+ * @param value - Abscissa of the point the cursor is over.
+ * @returns A nivo custom layer.
+ */
+function cursorLayer(value: number) {
+  return function CursorLine(layer: LineCustomSvgLayerProps<ChartLineSeries>) {
+    const position = layer.xScale(value);
+    return (
+      <line
+        x1={position}
+        x2={position}
+        y1={0}
+        y2={layer.innerHeight}
+        stroke={CURSOR_COLOR}
+        strokeWidth={1}
+        strokeDasharray="4 3"
+        pointerEvents="none"
+      />
+    );
+  };
 }
 
 /**

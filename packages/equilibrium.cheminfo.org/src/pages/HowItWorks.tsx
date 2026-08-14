@@ -8,6 +8,7 @@ import {
   useToolState,
 } from '../router/useToolState.ts';
 
+import { AssumptionsSection } from './how-it-works/AssumptionsSection.tsx';
 import { ContinuationSection } from './how-it-works/ContinuationSection.tsx';
 import { ConvergenceSection } from './how-it-works/ConvergenceSection.tsx';
 import { FixedSection } from './how-it-works/FixedSection.tsx';
@@ -83,7 +84,7 @@ const CODEC: ToolStateCodec<HowItWorksState> = {
 };
 
 /**
- * The algorithm behind every tool of this site, in ten sections.
+ * The algorithm behind every tool of this site, section by section.
  *
  * The two illustrations are live rather than drawn: the numbers in them come
  * from the same solver the rest of the site runs on, so nothing on this page
@@ -116,9 +117,9 @@ export function HowItWorksPage() {
         Every diagram on this site comes out of the same few hundred lines of
         numerical chemistry. This page is what they do: how a flask full of
         species becomes four unknowns, what the constants in the database
-        actually mean, and where the algorithm is solid — or fragile. Two of the
-        illustrations are live, and every number quoted was produced by running
-        the solver.
+        actually mean, where the algorithm is solid — or fragile — and what it
+        leaves out. Two of the illustrations are live, and every number quoted
+        was produced by running the solver.
       </ToolHeader>
 
       <div className="tool-layout">
@@ -139,6 +140,7 @@ export function HowItWorksPage() {
           <SolidsSection />
           <ConvergenceSection />
           <ContinuationSection />
+          <AssumptionsSection />
         </div>
       </div>
     </div>

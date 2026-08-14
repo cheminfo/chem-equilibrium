@@ -1,12 +1,14 @@
 import { Callout, Card, H5, Switch } from '@blueprintjs/core';
 import { useMemo, useState } from 'react';
 
+import { findSaturationPoints } from '../chemistry/saturation.ts';
 import { buildHelper, runSpeciation, toSeries } from '../chemistry/solve.ts';
 import { useToolState } from '../router/useToolState.ts';
 
 import { EquationTable } from './EquationTable.tsx';
 import type { ChartSeries } from './EquilibriumChart.tsx';
 import { EquilibriumChart } from './EquilibriumChart.tsx';
+import { SaturationNote } from './SaturationNote.tsx';
 import { SpeciationReadout } from './SpeciationReadout.tsx';
 import type { SelectedSpecies } from './SpeciesPicker.tsx';
 import { SpeciesPicker } from './SpeciesPicker.tsx';
@@ -78,6 +80,11 @@ export function SpeciationWorkbench(props: SpeciationWorkbenchProps) {
         : entry,
     );
   }, [result, solids]);
+
+  const saturation = useMemo(
+    () => findSaturationPoints(result.x, result.solutions, solids),
+    [result, solids],
+  );
 
   const pointCount = result.x.length + result.errorCount;
   const middle =
@@ -169,6 +176,9 @@ export function SpeciationWorkbench(props: SpeciationWorkbenchProps) {
                 />
               </div>
             )}
+            {series.length > 0 ? (
+              <SaturationNote points={saturation} quantity={xLabel} />
+            ) : null}
           </Card>
 
           <Card>

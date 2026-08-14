@@ -1,6 +1,7 @@
 import { AnchorButton, Tab, Tabs } from '@blueprintjs/core';
 import type { ReactElement } from 'react';
 
+import { Logo } from './components/Logo.tsx';
 import { ShareLink } from './components/ShareLink.tsx';
 import { AboutPage } from './pages/About.tsx';
 import { DataPage } from './pages/Data.tsx';
@@ -45,7 +46,13 @@ export function App() {
   return (
     <div className="app">
       <header className="app-header bp6-navbar no-print">
-        <h1>Chemical equilibrium</h1>
+        <h1 className="wordmark">
+          <Logo size={26} />
+          <span className="wordmark-text">
+            <span className="wordmark-name">equilibrium</span>
+            <span className="wordmark-domain">.cheminfo.org</span>
+          </span>
+        </h1>
         <div className="app-header-tabs">
           <Tabs
             id="pages"

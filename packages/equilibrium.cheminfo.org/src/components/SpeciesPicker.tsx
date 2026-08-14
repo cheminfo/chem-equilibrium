@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { matchesSpecies, nameOf } from '../chemistry/species.ts';
 
 import { Species } from './Species.tsx';
+import { filterKeepingSelected } from './keepSelected.ts';
 
 /** A species the user put in the beaker, with the amount introduced. */
 export interface SelectedSpecies {
@@ -28,7 +29,8 @@ interface SpeciesPickerProps {
  * Pick the species that go into the solution and set how much of each.
  *
  * Searching matches the formula and the English name alike, so a student who
- * knows "carbonate" but not `CO3--` still finds it.
+ * knows "carbonate" but not `CO3--` still finds it. What is already in the
+ * solution stays listed whatever the query, so it can always be unticked.
  * @param props - Available and selected species.
  * @returns The picker.
  */
@@ -41,9 +43,14 @@ export function SpeciesPicker(props: SpeciesPickerProps) {
     [selected],
   );
 
-  const visible = useMemo(
-    () => available.filter((label) => matchesSpecies(label, query)),
-    [available, query],
+  const { entries: visible, matchCount } = useMemo(
+    () =>
+      filterKeepingSelected(
+        available,
+        (label) => matchesSpecies(label, query),
+        (label) => selectedByLabel.has(label),
+      ),
+    [available, query, selectedByLabel],
   );
 
   function toggle(label: string): void {
@@ -130,20 +137,23 @@ export function SpeciesPicker(props: SpeciesPickerProps) {
       )}
 
       <div className="scroll-y">
-        {visible.map((label) => (
-          <Checkbox
-            key={label}
-            checked={selectedByLabel.has(label)}
-            onChange={() => toggle(label)}
-            labelElement={
-              <span>
-                <Species label={label} withName={false} />
-                <span className="bp6-text-muted"> {nameOf(label) ?? ''}</span>
-              </span>
-            }
-          />
-        ))}
-        {visible.length === 0 ? (
+        <div className="species-grid species-grid--checkbox">
+          {visible.map((label) => (
+            <Checkbox
+              key={label}
+              className="species-row"
+              checked={selectedByLabel.has(label)}
+              onChange={() => toggle(label)}
+              labelElement={
+                <>
+                  <Species label={label} withName={false} />
+                  <span className="bp6-text-muted">{nameOf(label) ?? ''}</span>
+                </>
+              }
+            />
+          ))}
+        </div>
+        {matchCount === 0 ? (
           <p className="bp6-text-muted">No species matches “{query}”.</p>
         ) : null}
       </div>
