@@ -22,7 +22,7 @@ test('the shell renders with every tab', async ({ page }) => {
   await page.goto('/');
   await expect(
     page.getByRole('heading', {
-      name: 'equilibrium.cheminfo.org',
+      name: 'EquiLibrium.cheminfo.org',
       exact: true,
       level: 1,
     }),
@@ -77,5 +77,5 @@ test('the About page credits the authors and shows the EPFL logo', async ({
   for (const name of ['Daniel Kostro', 'Michaël Zasso', 'Luc Patiny']) {
     await expect(page.getByText(name, { exact: false })).toBeVisible();
   }
-  await expect(page.locator('img[src*="epfl-logo"]')).toBeVisible();
+  await expect(page.getByRole('img', { name: /EPFL/ })).toBeVisible();
 });

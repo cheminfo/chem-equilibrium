@@ -1,6 +1,7 @@
 import { AnchorButton, Button, Card } from '@blueprintjs/core';
 
-import { Logo } from '../components/Logo.tsx';
+import { EpflLogo } from '../components/EpflLogo.tsx';
+import { Wordmark } from '../components/Wordmark.tsx';
 import { navigate } from '../router/location.ts';
 
 import { CitationCard } from './about/CitationCard.tsx';
@@ -19,11 +20,7 @@ export function AboutPage() {
         <div style={INTRO_STYLE}>
           <div className="prose">
             <h2 className="wordmark" style={{ margin: '0 0 8px' }}>
-              <Logo size={32} />
-              <span>
-                <span className="wordmark-name">equilibrium</span>
-                <span className="wordmark-domain">.cheminfo.org</span>
-              </span>
+              <Wordmark size={32} />
             </h2>
             <p style={{ marginTop: 0 }}>
               A teaching site for chemical equilibrium, developed at EPFL. It
@@ -52,12 +49,7 @@ export function AboutPage() {
             rel="noopener"
             style={LOGO_LINK_STYLE}
           >
-            <img
-              src="/epfl-logo.svg"
-              alt="EPFL — École polytechnique fédérale de Lausanne"
-              width={120}
-              style={LOGO_STYLE}
-            />
+            <EpflLogo />
           </a>
         </div>
       </Card>
@@ -121,5 +113,3 @@ const LOGO_LINK_STYLE = {
   borderRadius: 3,
   padding: 8,
 } as const;
-
-const LOGO_STYLE = { display: 'block', width: 120, height: 'auto' } as const;

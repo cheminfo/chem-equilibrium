@@ -1,8 +1,8 @@
 import { AnchorButton, Tab, Tabs } from '@blueprintjs/core';
 import type { ReactElement } from 'react';
 
-import { Logo } from './components/Logo.tsx';
 import { ShareLink } from './components/ShareLink.tsx';
+import { Wordmark } from './components/Wordmark.tsx';
 import { AboutPage } from './pages/About.tsx';
 import { DataPage } from './pages/Data.tsx';
 import { HomePage } from './pages/Home.tsx';
@@ -47,11 +47,7 @@ export function App() {
     <div className="app">
       <header className="app-header bp6-navbar no-print">
         <h1 className="wordmark">
-          <Logo size={26} />
-          <span className="wordmark-text">
-            <span className="wordmark-name">equilibrium</span>
-            <span className="wordmark-domain">.cheminfo.org</span>
-          </span>
+          <Wordmark />
         </h1>
         <div className="app-header-tabs">
           <Tabs
@@ -81,18 +77,6 @@ export function App() {
       <main className="app-main">
         <Page />
       </main>
-
-      <footer className="app-footer bp6-text-muted no-print">
-        Built at EPFL with the open-source{' '}
-        <a
-          href="https://www.npmjs.com/package/chem-equilibrium"
-          target="_blank"
-          rel="noopener"
-        >
-          chem-equilibrium
-        </a>{' '}
-        solver.
-      </footer>
     </div>
   );
 }

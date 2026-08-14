@@ -43,12 +43,12 @@ export function SectionNav(props: SectionNavProps) {
           margin: 0,
           padding: 0,
           display: 'flex',
-          flexWrap: 'wrap',
+          flexDirection: 'column',
           gap: 2,
         }}
       >
         {HOW_SECTIONS.map((section, index) => (
-          <li key={section.id} style={{ flex: '1 1 200px' }}>
+          <li key={section.id}>
             <button
               type="button"
               className={`bp6-button bp6-minimal bp6-fill bp6-align-left${

@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 /** The reference to quote, one line per work being credited. */
 const CITATION = [
-  'cheminfo. Chemical equilibrium (equilibrium.cheminfo.org). EPFL, Lausanne.',
+  'L. Patiny, R. Turin. Chemical equilibrium (equilibrium.cheminfo.org). cheminfo, EPFL, Lausanne.',
   'Solver: D. Kostro, M. Zasso, L. Patiny. chem-equilibrium.',
   'https://github.com/cheminfo/chem-equilibrium',
 ].join('\n');

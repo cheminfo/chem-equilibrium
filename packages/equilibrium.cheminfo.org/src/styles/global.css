@@ -6,6 +6,10 @@
   /* The two brand colours: the forward reaction and the reverse one. */
   --brand: #0b5754;
   --brand-accent: #f2a71b;
+
+  /* The mark's gold reaches 2.0:1 on white — too little for text, so set text
+     in a darkened one (4.7:1) of the same hue. */
+  --brand-accent-text: #a56600;
 }
 
 html,
@@ -56,6 +60,10 @@ body {
   color: var(--brand);
 }
 
+.wordmark-accent {
+  color: var(--brand-accent-text);
+}
+
 .wordmark-domain {
   color: #5c7080;
   font-weight: 400;
@@ -99,12 +107,6 @@ body {
   margin: 0 auto;
   padding: 16px;
   box-sizing: border-box;
-}
-
-.app-footer {
-  padding: 12px 16px;
-  text-align: center;
-  font-size: 12px;
 }
 
 /* Stacked charges rendered by react-mf need room not to collide. */

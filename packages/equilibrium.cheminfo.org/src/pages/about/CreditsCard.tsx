@@ -60,6 +60,10 @@ const PEOPLE: Person[] = [
     name: 'Luc Patiny',
     role: 'maintains the cheminfo tooling this site is built on, and curates the equilibrium database.',
   },
+  {
+    name: 'Régis Turin',
+    role: 'shaped the teaching material — the exercises and the worked examples — and reviewed the equilibrium data they rest on.',
+  },
 ];
 
 const STACK: Dependency[] = [
