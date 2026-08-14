@@ -46,7 +46,7 @@ export class Helper {
   species: Record<string, number>;
   /** Labels whose free concentration is imposed rather than mass-balanced. */
   atEquilibrium: Set<string>;
-  eqSet: EquationSet;
+  equationSet: EquationSet;
 
   constructor(options?: HelperOptions) {
     this.options = { ...defaultOptions, ...options };
@@ -58,14 +58,16 @@ export class Helper {
       entries = entries.concat(database);
     }
     entries = entries.filter((entry) => entry.active !== false);
-    this.eqSet = new EquationSet(forSolvent(entries, this.options.solvent));
+    this.equationSet = new EquationSet(
+      forSolvent(entries, this.options.solvent),
+    );
     this.addSpecie(this.options.solvent);
   }
 
   clone(): Helper {
     const helper = new Helper(this.options);
     helper.species = { ...this.species };
-    helper.eqSet = this.eqSet.clone();
+    helper.equationSet = this.equationSet.clone();
     helper.atEquilibrium = new Set(this.atEquilibrium);
     return helper;
   }
@@ -76,7 +78,7 @@ export class Helper {
    * @returns The species labels.
    */
   getSpecies(options: HelperFilter = {}): string[] {
-    return this.eqSet.getSpecies({
+    return this.equationSet.getSpecies({
       ...options,
       species: options.filtered ? Object.keys(this.species) : null,
     });
@@ -88,10 +90,12 @@ export class Helper {
    * @returns The component labels.
    */
   getComponents(options: HelperFilter = {}): string[] {
-    const eqSet = options.filtered
-      ? this.eqSet.getSubset(Object.keys(this.species))
-      : this.eqSet;
-    return eqSet.getNormalized(this.options.solvent).getComponents(options);
+    const equationSet = options.filtered
+      ? this.equationSet.getSubset(Object.keys(this.species))
+      : this.equationSet;
+    return equationSet
+      .getNormalized(this.options.solvent)
+      .getComponents(options);
   }
 
   /**
@@ -100,14 +104,14 @@ export class Helper {
    * @returns One plain object per equation.
    */
   getEquations(options: HelperEquationFilter = {}): EquationJSON[] {
-    let eqSet = this.eqSet;
+    let equationSet = this.equationSet;
     if (options.filtered) {
-      eqSet = eqSet.getSubset(Object.keys(this.species));
+      equationSet = equationSet.getSubset(Object.keys(this.species));
     }
     if (options.normalized) {
-      eqSet = eqSet.getNormalized(this.options.solvent);
+      equationSet = equationSet.getNormalized(this.options.solvent);
     }
-    return eqSet.getEquations(options);
+    return equationSet.getEquations(options);
   }
 
   /**
@@ -115,7 +119,7 @@ export class Helper {
    * @returns The model consumed by {@link Equilibrium}.
    */
   getModel(): Model {
-    const model = this.eqSet
+    const model = this.equationSet
       .getSubset(Object.keys(this.species))
       .getNormalized(this.options.solvent)
       .getModel(this.species, true);
@@ -176,15 +180,15 @@ export class Helper {
   }
 
   disableEquation(formedSpecie: string): void {
-    this.eqSet.disableEquation(formedSpecie, true);
+    this.equationSet.disableEquation(formedSpecie, true);
   }
 
   enableEquation(formedSpecie: string): void {
-    this.eqSet.enableEquation(formedSpecie, true);
+    this.equationSet.enableEquation(formedSpecie, true);
   }
 
   enableAllEquations(): void {
-    this.eqSet.enableAllEquations();
+    this.equationSet.enableAllEquations();
   }
 }
 

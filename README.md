@@ -181,8 +181,9 @@ Methods: `addSpecie(label[, total])`, `setTotal(label, total)`,
 ### `new Serie(helper)`
 
 Methods: `getTitration(options)` and `getSolutions(options)`. Both accept
-`chunks` (number of points, default `200`) and forward any other option to the
-underlying `Helper` and `Equilibrium`.
+`chunks` (number of intervals, default `200`, so `chunks + 1` points are
+computed) and forward any other option to the underlying `Helper` and
+`Equilibrium`.
 
 ## Database
 

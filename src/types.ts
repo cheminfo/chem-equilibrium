@@ -18,7 +18,10 @@ export interface EquationData {
 
 /** An equation as it comes out of `EquationSet.getEquations`. */
 export interface EquationJSON extends EquationData {
-  /** Set when the equation is currently disabled. */
+  /**
+   * Set when the equation is currently disabled.
+   * @default false
+   */
   disabled?: boolean;
 }
 
@@ -30,13 +33,23 @@ export interface DatabaseEntry extends EquationData {
   /**
    * More precise classification of a complexation equilibrium, as recorded in
    * the upstream table (e.g. `ammonia complex`, `halide complex`).
+   * @default undefined - the table records none
    */
   subType?: string;
-  /** Where the constant was taken from. */
+  /**
+   * Where the constant was taken from.
+   * @default undefined - the source was never documented
+   */
   source?: string;
-  /** Temperature at which the constant was measured, in kelvin. */
+  /**
+   * Temperature at which the constant was measured, in kelvin.
+   * @default undefined - the temperature was never documented
+   */
   temperature?: number;
-  /** Why this entry should be treated with caution. */
+  /**
+   * Why this entry should be treated with caution.
+   * @default undefined - nothing is known against the value
+   */
   warning?: string;
   /**
    * Whether the equilibrium takes part in the systems built from the database.
@@ -50,9 +63,15 @@ export interface DatabaseEntry extends EquationData {
 /** A component of the system: either a known total, or a fixed free concentration. */
 export interface ModelComponent {
   label: string;
-  /** Analytical total amount of that component. */
+  /**
+   * Analytical total amount of that component.
+   * @default undefined - give `atEquilibrium` instead
+   */
   total?: number;
-  /** Free concentration imposed at equilibrium, e.g. `1e-7` for H+ at pH 7. */
+  /**
+   * Free concentration imposed at equilibrium, e.g. `1e-7` for H+ at pH 7.
+   * @default undefined - give `total` instead
+   */
   atEquilibrium?: number;
 }
 
@@ -136,7 +155,10 @@ export interface HelperOptions extends EquilibriumOptions {
    * @default 'H2O'
    */
   solvent?: string;
-  /** Replace the bundled database with this list of equilibria. */
+  /**
+   * Replace the bundled database with this list of equilibria.
+   * @default undefined - the bundled database is used
+   */
   database?: DatabaseEntryInput[];
   /**
    * Append `database` to the bundled one instead of replacing it.
@@ -155,7 +177,10 @@ export interface DatabaseEntryInput extends Omit<DatabaseEntry, 'pK'> {
 
 /** Filters accepted by the getters of `EquationSet` and `Helper`. */
 export interface EquationFilter {
-  /** Only keep equilibria of that kind. */
+  /**
+   * Only keep equilibria of that kind.
+   * @default undefined - every kind is kept
+   */
   type?: EquationType;
   /**
    * Include the equations turned off with `disableEquation`.

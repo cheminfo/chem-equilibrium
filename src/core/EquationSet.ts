@@ -38,13 +38,13 @@ export class EquationSet {
   }
 
   clone(): EquationSet {
-    const eqSet = new EquationSet();
-    eqSet.#normalized = this.#normalized;
-    eqSet.#disabledKeys = new Set(this.#disabledKeys);
+    const equationSet = new EquationSet();
+    equationSet.#normalized = this.#normalized;
+    equationSet.#disabledKeys = new Set(this.#disabledKeys);
     for (const [key, eq] of this.entries()) {
-      eqSet.#equations.set(key, eq.clone());
+      equationSet.#equations.set(key, eq.clone());
     }
-    return eqSet;
+    return equationSet;
   }
 
   add(eq: Equation | EquationData, key?: string): void {
