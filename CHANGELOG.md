@@ -1,5 +1,35 @@
 # Changelog
 
+## [3.0.0](https://github.com/cheminfo/chem-equilibrium/compare/v2.2.1...v3.0.0) (2026-08-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* Helper.eqSet is now Helper.equationSet.
+* database now holds 129 entries instead of 127; the two added are marked active: false. Consumers reading it directly must skip them.
+* the package is ESM-only and has no default export; import the named exports instead.
+* corrected constants change computed results — the phosphorous acid chain, Mn(OH)2, PbI2 and the six ethylenediamine complexes — and the solid convergence test is now relative, so hydroxide systems that used to return null converge.
+* the package has no default export anymore. Use `import { Equilibrium } from 'chem-equilibrium'` instead of `import Equilibrium from 'chem-equilibrium'`, and the UMD bundle exposes `ChemEquilibrium.Equilibrium` instead of `ChemEquilibrium.default`. The `Equilibrium.Helper` and `Equilibrium.Serie` static properties are gone, import `Helper` and `Serie` directly.
+
+### Features
+
+* drop default exports in favour of named exports ([5336223](https://github.com/cheminfo/chem-equilibrium/commit/5336223b1d96864fe87b6c0663d8103add2b2b8f))
+* make src/data the source of truth and record inactive entries ([373c6dc](https://github.com/cheminfo/chem-equilibrium/commit/373c6dcf3de2b7d304a4c59fc4db499a87e13404))
+* migrate package to ESM and current tooling ([3d5d1ee](https://github.com/cheminfo/chem-equilibrium/commit/3d5d1ee2db2a250bf9eb97a1ab7fb19d98c63bad))
+* move to a monorepo with equilibrium.cheminfo.org ([335dbda](https://github.com/cheminfo/chem-equilibrium/commit/335dbda762d3b2fd961f01ca14e6ba45e33bd35d))
+* name the site equilibrium.cheminfo.org and mark where curves bend ([69bfd6a](https://github.com/cheminfo/chem-equilibrium/commit/69bfd6a1df59c0e6d0442eab58fa425dce99f95b))
+* rename Helper.eqSet to equationSet and document the optional types ([5f99614](https://github.com/cheminfo/chem-equilibrium/commit/5f99614953dba144b76c0a7ba5bd024ebd268916))
+* set the name as EquiLibrium and inline the EPFL logo ([92f2ced](https://github.com/cheminfo/chem-equilibrium/commit/92f2ced76f8011ec15bd4808666ef4c2551e1e98))
+* ship only the solver, and move the site to its own repository ([7a154e8](https://github.com/cheminfo/chem-equilibrium/commit/7a154e83aea8a54f2547729f677bfc486d84bb30))
+
+
+### Bug Fixes
+
+* build the library before linting ([3ca1200](https://github.com/cheminfo/chem-equilibrium/commit/3ca12008d0b561990a42494700640437f14ca46b))
+* H2PO3 to H3PO3 ([2ad1c5b](https://github.com/cheminfo/chem-equilibrium/commit/2ad1c5be7603886f675314cd017db25a0151e056))
+* name ethylenediamine by its formula rather than en ([ff8c88e](https://github.com/cheminfo/chem-equilibrium/commit/ff8c88e642d6979eb9f957d3afdcf12eba5709a8))
+* restore the browser bundle build ([da9cd6c](https://github.com/cheminfo/chem-equilibrium/commit/da9cd6c4759384c659f94ea0aea975aeb39325bb))
+
 ## [2.2.1](https://github.com/cheminfo/chem-equilibrium/compare/v2.2.0...v2.2.1) (2017-03-30)
 
 ### Miscellaneous
