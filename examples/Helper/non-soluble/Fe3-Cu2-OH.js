@@ -1,4 +1,4 @@
-import Helper from '../../../src/helpers/Helper.js';
+import { Helper } from '../../../src/helpers/Helper.js';
 
 var chunks = 10;
 

@@ -2,7 +2,7 @@ import { Matrix } from 'ml-matrix';
 
 import { logarithmic } from '../util/random.js';
 
-import newtonRaphton from './NewtonRaphton.js';
+import { newtonRaphton } from './NewtonRaphton.js';
 
 const defaultOptions = {
   robustMaxTries: 10,
@@ -15,7 +15,7 @@ const defaultOptions = {
 /**
  * Equilibrium
  */
-export default class Equilibrium {
+export class Equilibrium {
   /**
    * Build an equilibrium from a model of components and formed species.
    * @class

@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest';
 
 import { seededRandom } from '../../__tests__/data/seededRandom.js';
-import Equilibrium from '../Equilibrium.js';
+import { Equilibrium } from '../Equilibrium.js';
 
 function acetateModel(ph) {
   return {

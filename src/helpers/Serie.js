@@ -6,7 +6,7 @@ const defaultOptions = {
   isFixed: false,
 };
 
-export default class Serie {
+export class Serie {
   constructor(helper) {
     this.helper = helper;
   }

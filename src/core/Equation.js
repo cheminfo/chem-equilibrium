@@ -2,7 +2,7 @@ import deepcopy from 'deepcopy';
 
 const types = new Set(['acidoBasic', 'precipitation', 'complexation']);
 
-export default class Equation {
+export class Equation {
   constructor(eq) {
     // Sanity checks
     if (typeof eq.formed !== 'string') {

@@ -7,7 +7,7 @@ import {
   equations1,
   multiSolvent,
 } from '../../__tests__/data/equations.js';
-import Helper from '../Helper.js';
+import { Helper } from '../Helper.js';
 
 test('should clone a helper', () => {
   const helper = new Helper({ database: equations1 });

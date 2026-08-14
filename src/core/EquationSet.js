@@ -1,6 +1,6 @@
-import Equation from './Equation.js';
+import { Equation } from './Equation.js';
 
-export default class EquationSet {
+export class EquationSet {
   constructor(equations) {
     equations = equations || [];
     this._normalized = false;

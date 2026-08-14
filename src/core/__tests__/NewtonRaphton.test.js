@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
 
-import newtonRaphton from '../NewtonRaphton.js';
+import { newtonRaphton } from '../NewtonRaphton.js';
 
 test('solves a soluble system A + B <-> AB', () => {
   const beta = 1e5;

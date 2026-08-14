@@ -7,7 +7,7 @@ import {
   equations3,
   equations4,
 } from '../../__tests__/data/equations.js';
-import EquationSet from '../EquationSet.js';
+import { EquationSet } from '../EquationSet.js';
 
 test('should clone an equation set', () => {
   const eqSet = new EquationSet(equations1);

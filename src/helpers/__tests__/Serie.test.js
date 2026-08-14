@@ -1,8 +1,8 @@
 import { expect, test } from 'vitest';
 
 import { seededRandom } from '../../__tests__/data/seededRandom.js';
-import Helper from '../Helper.js';
-import Serie from '../Serie.js';
+import { Helper } from '../Helper.js';
+import { Serie } from '../Serie.js';
 
 test('getSolutions sweeps the pH and keeps acetate conserved', () => {
   const helper = new Helper();

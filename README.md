@@ -29,7 +29,7 @@ This package is ESM-only. CommonJS consumers can still `require()` it on Node.js
 Describe the components and the species they form, then solve:
 
 ```js
-import Equilibrium from 'chem-equilibrium';
+import { Equilibrium } from 'chem-equilibrium';
 
 const model = {
   components: [
@@ -139,9 +139,8 @@ sweep.solutions[5];
 
 ## API
 
-The default export is `Equilibrium`; `Equilibrium`, `Helper` and `Serie` are
-also available as named exports (and, for backwards compatibility, as
-`Equilibrium.Helper` and `Equilibrium.Serie`).
+`Equilibrium`, `Helper` and `Serie` are named exports; this package has no
+default export.
 
 ### `new Equilibrium(model[, options])`
 

@@ -1,14 +1,14 @@
 import deepcopy from 'deepcopy';
 
 import database from '../../data/data.json' with { type: 'json' };
-import EquationSet from '../core/EquationSet.js';
-import Equilibrium from '../core/Equilibrium.js';
+import { EquationSet } from '../core/EquationSet.js';
+import { Equilibrium } from '../core/Equilibrium.js';
 
 const defaultOptions = {
   solvent: 'H2O',
 };
 
-export default class Helper {
+export class Helper {
   constructor(options) {
     this.atEquilibrium = new Set();
     options = { ...defaultOptions, ...options };

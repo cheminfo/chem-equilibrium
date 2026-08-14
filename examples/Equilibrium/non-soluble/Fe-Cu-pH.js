@@ -1,4 +1,4 @@
-import Equilibrium from '../../../src/core/Equilibrium.js';
+import { Equilibrium } from '../../../src/core/Equilibrium.js';
 
 var model = {
   volume: 1,

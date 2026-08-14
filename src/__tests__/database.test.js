@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest';
 
 import equations from '../../data/data.json' with { type: 'json' };
-import EquationSet from '../core/EquationSet.js';
+import { EquationSet } from '../core/EquationSet.js';
 
 test('verify database can be initialized in an EquationSet', () => {
   const eqSet = new EquationSet(equations);

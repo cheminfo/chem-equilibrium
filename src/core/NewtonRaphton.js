@@ -24,7 +24,7 @@ const defaultOptions = {
  * @param {number} [options.maxIterations=99] - Maximum number of iterations before giving up.
  * @returns {Array<number>|null} Concentration of each specie, or null if the algorithm did not converge.
  */
-export default function newtonRaphton(
+export function newtonRaphton(
   model,
   beta,
   cTotal,

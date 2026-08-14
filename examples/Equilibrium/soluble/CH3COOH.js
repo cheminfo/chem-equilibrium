@@ -1,4 +1,4 @@
-import Equilibrium from 'chem-equilibrium';
+import { Equilibrium } from 'chem-equilibrium';
 
 var equilibriumModel = {
   components: [

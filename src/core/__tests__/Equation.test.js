@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
 
-import Equation from '../Equation.js';
+import { Equation } from '../Equation.js';
 
 const eqA = new Equation({
   formed: 'A',
