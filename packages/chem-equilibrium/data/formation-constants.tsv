@@ -1,0 +1,130 @@
+type	subType	formed	componentA	componentB	pK	temperature	source	warning	active
+acidoBasic		HIO3	IO3-	H+	0.8				yes
+acidoBasic		HOCN	OCN-	H+	3.48				yes
+acidoBasic		HBrO	BrO-	H+	8.6				yes
+acidoBasic		CH2ClCO2H	CH2ClCO2-	H+	2.89				yes
+acidoBasic		C6H5COOH	C6H5COO-	H+	4.2				yes
+acidoBasic		C6H5NH3+	C6H5NH2	H+	4.6				yes
+acidoBasic		C2H5COOH	C2H5COO-	H+	4.87				yes
+acidoBasic		C5H5NH+	C5H5N	H+	5.25				yes
+acidoBasic		CH3NH3+	CH3NH2	H+	10.66				yes
+acidoBasic		(C2H5)3NH+	(C2H5)3N	H+	10.75				yes
+acidoBasic		C2H5NH3+	C2H5NH2	H+	10.8				yes
+acidoBasic		HClO4	ClO4-	H+	-7		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		HBr	Br-	H+	-9				yes
+acidoBasic		HI	I-	H+	-10				yes
+acidoBasic		HCl	Cl-	H+	-3		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		H2SO4	HSO4-	H+	-3		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		HNO3	NO3-	H+	-1		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		H3O+	H2O	H+	0		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		no
+acidoBasic		H2SO3	HSO3-	H+	1.8		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		HSO4-	SO4--	H+	1.9		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		HClO2	ClO2-	H+	1.93		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		H3PO3	H2PO3-	H+	1.26		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf	phosphorous acid is H3PO3, a diprotic acid	yes
+acidoBasic		Fe(H2O)6+++	Fe(H2O)5OH++	H+	2.1		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		H3PO4	H2PO4-	H+	2.12		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		HF	F-	H+	3.2		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		HNO2	NO2-	H+	3.35		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		HCO2H	HCO2-	H+	3.75		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		CH3CO2H	CH3COO-	H+	4.7		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		Al(H2O)6+++	Al(H2O)5OH++	H+	4.9		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		H2CO3	HCO3-	H+	6.3		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		H2PO3-	HPO3--	H+	6.7		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf	phosphorous acid is H3PO3, a diprotic acid	yes
+acidoBasic		H2S	HS-	H+	7.04		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		HSO3-	SO3--	H+	7.21		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		HClO	ClO-	H+	7.40		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		HCN	CN-	H+	9.2		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		NH4+	NH3	H+	9.25		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		HCO3-	CO3--	H+	10.33		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		H2PO4-	HPO4--	H+	7.2		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		HPO4--	PO4---	H+	12.32		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		H2O	OH-	H+	14		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		HS-	S--	H+	19		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		NH3	NH2-	H+	23		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		yes
+acidoBasic		OH-	O--	H+	24		https://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/chimie/06/deug/CHIM105B/pdf/sem2pka.pdf		no
+complexation	ammonia complex	Ag(NH3)2+	Ag+	2 NH3	7.20	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	ammonia complex	Zn(NH3)4++	Zn++	4 NH3	8.89	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	ammonia complex	Cu(NH3)4++	Cu++	4 NH3	13.04	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	ammonia complex	Hg(NH3)4++	Hg++	4 NH3	19.26	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	ammonia complex	Co(NH3)6++	Co++	6 NH3	4.70	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	ammonia complex	Co(NH3)4+++	Co+++	4 NH3	33.66	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	ammonia complex	Cd(NH3)6++	Cd++	6 NH3	5.41	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf	log beta6 is smaller than log beta4 of Cd(NH3)4++ (7.00), which is thermodynamically impossible	yes
+complexation	ammonia complex	Cd(NH3)4++	Cd++	4 NH3	7.00	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	ammonia complex	Ni(NH3)6++	Ni++	6 NH3	8.30	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	cyanide complex	Fe(CN)6----	Fe++	6 CN-	35.00	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	cyanide complex	Fe(CN)6---	Fe+++	6 CN-	41.96	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	cyanide complex	Ag(CN)2-	Ag+	2 CN-	18.72	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	cyanide complex	Cu(CN)2-	Cu+	2 CN-	16.00	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	cyanide complex	Cd(CN)4--	Cd++	4 CN-	16.89	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	cyanide complex	Au(CN)2-	Au+	2 CN-	38.30	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	cyanide complex	Ni(CN)4--	Ni++	4 CN-	31.00	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	halide complex	AlF6---	Al+++	6 F-	4.40	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf	log beta6 is smaller than log beta4 of AlF4- (8.30), which is thermodynamically impossible	yes
+complexation	halide complex	AlF4-	Al+++	4 F-	8.30	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	halide complex	BeF4--	Be++	4 F-	13.11	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	halide complex	SnF6--	Sn++++	6 F-	25.00	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	halide complex	CuCl2-	Cu+	2 Cl-	5.48	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	halide complex	AgCl2-	Ag+	2 Cl-	5.26	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	halide complex	PbCl4--	Pb++	4 Cl-	15.40	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	halide complex	HgCl4--	Hg++	4 Cl-	15.70	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	halide complex	CuBr2-	Cu+	2 Br-	5.90	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	halide complex	AgBr2-	Ag+	2 Br-	11.00	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf	identical to AgI2- (11.00) for a different halide; check before relying on it	yes
+complexation	halide complex	HgBr4--	Hg++	4 Br-	4.48	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf	far below the values of HgCl4-- (15.70) and HgI4-- (30.28), and identical to PbI4--; likely a transcription error	yes
+complexation	halide complex	CuI2-	Cu+	2 I-	8.90	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	halide complex	AgI2-	Ag+	2 I-	11.00	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf	identical to AgBr2- (11.00) for a different halide; check before relying on it	yes
+complexation	halide complex	PbI4--	Pb++	4 I-	4.48	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	halide complex	HgI4--	Hg++	4 I-	30.28	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	monodentate ligands complex	Ag(CH3NH2)2+	Ag+	2 CH3NH2	6.89	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	monodentate ligands complex	Ag(S2O3)2---	Ag+	2 S2O3--	13.46	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	monodentate ligands complex	Cd(SCN)4--	Cd++	4 SCN-	3.00	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	monodentate ligands complex	Cu(SCN)2	Cu++	2 SCN-	3.75	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	monodentate ligands complex	Fe(SCN)3	Fe+++	3 SCN-	6.30	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	monodentate ligands complex	Hg(SCN)4--	Hg++	4 SCN-	21.70	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	monodentate ligands complex	Cu(OH)4--	Cu++	4 OH-	16.11	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	monodentate ligands complex	Zn(OH)4--	Zn++	4 OH-	15.45	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	bidentate ligands complex	Mn(en)3++	Mn++	3 en	5.81	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf	cumulative constant: the ligand count was missing from the upstream table	yes
+complexation	bidentate ligands complex	Fe(en)3++	Fe++	3 en	9.72	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf	cumulative constant: the ligand count was missing from the upstream table	yes
+complexation	bidentate ligands complex	Co(en)3++	Co++	3 en	14.11	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf	cumulative constant: the ligand count was missing from the upstream table	yes
+complexation	bidentate ligands complex	Co(en)3+++	Co+++	3 en	48.68	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf	cumulative constant: the ligand count was missing from the upstream table	yes
+complexation	bidentate ligands complex	Ni(en)3++	Ni++	3 en	17.61	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf	cumulative constant: the ligand count was missing from the upstream table	yes
+complexation	bidentate ligands complex	Cu(en)2++	Cu++	2 en	19.54	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf	cumulative constant: the ligand count was missing from the upstream table	yes
+complexation	bidentate ligands complex	Co(C2O4)3----	Co++	3 C2O4--	6.65	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+complexation	bidentate ligands complex	Fe(C2O4)3---	Fe+++	3 C2O4--	20.52	298	http://www.ars-chemia.net/Permanent_Files/Tables/Formation_Constants_of_Complex_Ions.pdf		yes
+precipitation		AgBr	Ag+	Br-	12.27	298			yes
+precipitation		AgBrO3	Ag+	BrO3-	4.24	298			yes
+precipitation		Ag2CO3	2 Ag+	CO3--	11.10	298			yes
+precipitation		AgCl	Ag+	Cl-	9.74	298			yes
+precipitation		Ag2CrO4	2 Ag+	CrO4--	11.05	298			yes
+precipitation		AgI	Ag+	I-	16.07	298			yes
+precipitation		AgOH	Ag+	OH-	7.72	298			yes
+precipitation		Ag2S	2 Ag+	S--	50.22	298			yes
+precipitation		Al(OH)3	Al+++	3 OH-	32.74	298			yes
+precipitation		BaCO3	Ba++	CO3--	8.70	298			yes
+precipitation		BaCrO4	Ba++	CrO4--	10.07	298			yes
+precipitation		BaF2	Ba++	2 F-	6.74	298			yes
+precipitation		BaSO4	Ba++	SO4--	9.96	298			yes
+precipitation		Bi2S3	2 Bi+++	3 S--	71.80	298			yes
+precipitation		CaCO3	Ca++	CO3--	8.47	298			yes
+precipitation		CaF2	Ca++	2F-	10.46	298			yes
+precipitation		Ca(OH)2	Ca++	2 OH-	5.30	298			yes
+precipitation		Ca3(PO4)2	3 Ca++	2 PO4---	32.68	298			yes
+precipitation		CaSO4	Ca++	SO4--	4.35	298			yes
+precipitation		CdS	Cd++	S--	28.00	298			yes
+precipitation		CuCl	Cu+	Cl-	6.77	298			yes
+precipitation		Cu(OH)2	Cu++	2 OH-	18.80	298			yes
+precipitation		CuS	Cu++	S--	44.07	298			yes
+precipitation		Fe(OH)2	Fe++	2 OH-	16.31	298			yes
+precipitation		Fe(OH)3	Fe+++	3 OH-	38.55	298			yes
+precipitation		FeS	Fe++	S--	18.22	298			yes
+precipitation		Hg2Cl2	2 Hg+	2 Cl-	17.85	298			yes
+precipitation		Li2CO3	2 Li+	CO3--	2.96	298			yes
+precipitation		MgCO3	Mg++	CO3--	4.17	298			yes
+precipitation		Mg(OH)2	Mg++	2 OH-	11.15	298			yes
+precipitation		Mn(OH)2	Mn++	2 OH-	12.70	298		manganese(II) was written Mn--	yes
+precipitation		PbCl2	Pb++	2 Cl-	4.77	298			yes
+precipitation		PbCrO4	Pb++	CrO4--	15.70	298			yes
+precipitation		PbI2	Pb++	2 I-	7.85	298		iodide was written I--	yes
+precipitation		Pb(OH)2	Pb++	2 OH-	14.92	298			yes
+precipitation		PbS	Pb++	S--	28.15	298			yes
+precipitation		PbSO4	Pb++	SO4--	7.80	298			yes
+precipitation		Zn(OH)2	Zn++	2 OH-	16.35	298			yes
+precipitation		ZnS	Zn++	S--	22.52	298			yes

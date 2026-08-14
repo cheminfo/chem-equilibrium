@@ -1,0 +1,476 @@
+{
+  "source": {
+    "tool": "Equilibres acide/base (view-acidbase.json) and Démonstration titrage acide / base (view-titration.json)",
+    "library": "chem-equilibrium (view-acidbase pins 2.2.1, view-titration pins 2.2.0) from https://www.lactame.com/lib/chem-equilibrium/<version>/chem-equilibrium.min",
+    "dataset": "data/data.json of the chem-equilibrium package, filtered to type === \"acidoBasic\"",
+    "call": "new ChemEquilibrium.Helper().getSpecies({type: \"acidoBasic\"})",
+    "note": "pK is log10 of the FORMATION constant of \"formed\" from its \"components\"; for a monoprotic couple this equals the pKa of the acid. beta = 10**pK. H2O (pK 14) supplies Kw = 1e-14 and is always present as the solvent."
+  },
+  "speciesCount": 71,
+  "speciesSelectableByUser": [
+    "(C2H5)3N",
+    "(C2H5)3NH+",
+    "Al(H2O)5OH++",
+    "Al(H2O)6+++",
+    "BrO-",
+    "C2H5COO-",
+    "C2H5COOH",
+    "C2H5NH2",
+    "C2H5NH3+",
+    "C5H5N",
+    "C5H5NH+",
+    "C6H5COO-",
+    "C6H5COOH",
+    "C6H5NH2",
+    "C6H5NH3+",
+    "CH2ClCO2-",
+    "CH2ClCO2H",
+    "CH3CO2H",
+    "CH3COO-",
+    "CH3NH2",
+    "CH3NH3+",
+    "CN-",
+    "CO3--",
+    "Cl-",
+    "ClO-",
+    "ClO2-",
+    "ClO4-",
+    "F-",
+    "Fe(H2O)5OH++",
+    "Fe(H2O)6+++",
+    "H+",
+    "H2CO3",
+    "H2O",
+    "H2PO3-",
+    "H2PO4-",
+    "H2S",
+    "H2SO3",
+    "H2SO4",
+    "H3PO3",
+    "H3PO4",
+    "HBrO",
+    "HCN",
+    "HCO2-",
+    "HCO2H",
+    "HCO3-",
+    "HCl",
+    "HClO",
+    "HClO2",
+    "HClO4",
+    "HF",
+    "HIO3",
+    "HNO2",
+    "HNO3",
+    "HOCN",
+    "HPO3--",
+    "HPO4--",
+    "HS-",
+    "HSO3-",
+    "HSO4-",
+    "IO3-",
+    "NH2-",
+    "NH3",
+    "NH4+",
+    "NO2-",
+    "NO3-",
+    "OCN-",
+    "OH-",
+    "PO4---",
+    "S--",
+    "SO3--",
+    "SO4--"
+  ],
+  "equationCount": 39,
+  "equations": [
+    {
+      "formed": "HClO4",
+      "components": {
+        "ClO4-": 1,
+        "H+": 1
+      },
+      "pK": -7,
+      "type": "acidoBasic",
+      "displayedAs": "HClO4 ⇄ ClO4- + H+"
+    },
+    {
+      "formed": "HCl",
+      "components": {
+        "Cl-": 1,
+        "H+": 1
+      },
+      "pK": -3,
+      "type": "acidoBasic",
+      "displayedAs": "HCl ⇄ Cl- + H+"
+    },
+    {
+      "formed": "H2SO4",
+      "components": {
+        "HSO4-": 1,
+        "H+": 1
+      },
+      "pK": -3,
+      "type": "acidoBasic",
+      "displayedAs": "H2SO4 ⇄ HSO4- + H+"
+    },
+    {
+      "formed": "HNO3",
+      "components": {
+        "NO3-": 1,
+        "H+": 1
+      },
+      "pK": -1,
+      "type": "acidoBasic",
+      "displayedAs": "HNO3 ⇄ NO3- + H+"
+    },
+    {
+      "formed": "HIO3",
+      "components": {
+        "IO3-": 1,
+        "H+": 1
+      },
+      "pK": 0.8,
+      "type": "acidoBasic",
+      "displayedAs": "HIO3 ⇄ IO3- + H+"
+    },
+    {
+      "formed": "H3PO3",
+      "components": {
+        "H2PO3-": 1,
+        "H+": 1
+      },
+      "pK": 1.26,
+      "type": "acidoBasic",
+      "displayedAs": "H3PO3 ⇄ H2PO3- + H+"
+    },
+    {
+      "formed": "H2SO3",
+      "components": {
+        "HSO3-": 1,
+        "H+": 1
+      },
+      "pK": 1.8,
+      "type": "acidoBasic",
+      "displayedAs": "H2SO3 ⇄ HSO3- + H+"
+    },
+    {
+      "formed": "HSO4-",
+      "components": {
+        "SO4--": 1,
+        "H+": 1
+      },
+      "pK": 1.9,
+      "type": "acidoBasic",
+      "displayedAs": "HSO4- ⇄ SO4-- + H+"
+    },
+    {
+      "formed": "HClO2",
+      "components": {
+        "ClO2-": 1,
+        "H+": 1
+      },
+      "pK": 1.93,
+      "type": "acidoBasic",
+      "displayedAs": "HClO2 ⇄ ClO2- + H+"
+    },
+    {
+      "formed": "Fe(H2O)6+++",
+      "components": {
+        "Fe(H2O)5OH++": 1,
+        "H+": 1
+      },
+      "pK": 2.1,
+      "type": "acidoBasic",
+      "displayedAs": "Fe(H2O)6+++ ⇄ Fe(H2O)5OH++ + H+"
+    },
+    {
+      "formed": "H3PO4",
+      "components": {
+        "H2PO4-": 1,
+        "H+": 1
+      },
+      "pK": 2.12,
+      "type": "acidoBasic",
+      "displayedAs": "H3PO4 ⇄ H2PO4- + H+"
+    },
+    {
+      "formed": "CH2ClCO2H",
+      "components": {
+        "CH2ClCO2-": 1,
+        "H+": 1
+      },
+      "pK": 2.89,
+      "type": "acidoBasic",
+      "displayedAs": "CH2ClCO2H ⇄ CH2ClCO2- + H+"
+    },
+    {
+      "formed": "HF",
+      "components": {
+        "F-": 1,
+        "H+": 1
+      },
+      "pK": 3.2,
+      "type": "acidoBasic",
+      "displayedAs": "HF ⇄ F- + H+"
+    },
+    {
+      "formed": "HNO2",
+      "components": {
+        "NO2-": 1,
+        "H+": 1
+      },
+      "pK": 3.35,
+      "type": "acidoBasic",
+      "displayedAs": "HNO2 ⇄ NO2- + H+"
+    },
+    {
+      "formed": "HOCN",
+      "components": {
+        "OCN-": 1,
+        "H+": 1
+      },
+      "pK": 3.48,
+      "type": "acidoBasic",
+      "displayedAs": "HOCN ⇄ OCN- + H+"
+    },
+    {
+      "formed": "HCO2H",
+      "components": {
+        "HCO2-": 1,
+        "H+": 1
+      },
+      "pK": 3.75,
+      "type": "acidoBasic",
+      "displayedAs": "HCO2H ⇄ HCO2- + H+"
+    },
+    {
+      "formed": "C6H5COOH",
+      "components": {
+        "C6H5COO-": 1,
+        "H+": 1
+      },
+      "pK": 4.2,
+      "type": "acidoBasic",
+      "displayedAs": "C6H5COOH ⇄ C6H5COO- + H+"
+    },
+    {
+      "formed": "C6H5NH3+",
+      "components": {
+        "C6H5NH2": 1,
+        "H+": 1
+      },
+      "pK": 4.6,
+      "type": "acidoBasic",
+      "displayedAs": "C6H5NH3+ ⇄ C6H5NH2 + H+"
+    },
+    {
+      "formed": "CH3CO2H",
+      "components": {
+        "CH3COO-": 1,
+        "H+": 1
+      },
+      "pK": 4.7,
+      "type": "acidoBasic",
+      "displayedAs": "CH3CO2H ⇄ CH3COO- + H+"
+    },
+    {
+      "formed": "C2H5COOH",
+      "components": {
+        "C2H5COO-": 1,
+        "H+": 1
+      },
+      "pK": 4.87,
+      "type": "acidoBasic",
+      "displayedAs": "C2H5COOH ⇄ C2H5COO- + H+"
+    },
+    {
+      "formed": "Al(H2O)6+++",
+      "components": {
+        "Al(H2O)5OH++": 1,
+        "H+": 1
+      },
+      "pK": 4.9,
+      "type": "acidoBasic",
+      "displayedAs": "Al(H2O)6+++ ⇄ Al(H2O)5OH++ + H+"
+    },
+    {
+      "formed": "C5H5NH+",
+      "components": {
+        "C5H5N": 1,
+        "H+": 1
+      },
+      "pK": 5.25,
+      "type": "acidoBasic",
+      "displayedAs": "C5H5NH+ ⇄ C5H5N + H+"
+    },
+    {
+      "formed": "H2CO3",
+      "components": {
+        "HCO3-": 1,
+        "H+": 1
+      },
+      "pK": 6.3,
+      "type": "acidoBasic",
+      "displayedAs": "H2CO3 ⇄ HCO3- + H+"
+    },
+    {
+      "formed": "H2PO3-",
+      "components": {
+        "HPO3--": 1,
+        "H+": 1
+      },
+      "pK": 6.7,
+      "type": "acidoBasic",
+      "displayedAs": "H2PO3- ⇄ HPO3-- + H+"
+    },
+    {
+      "formed": "H2S",
+      "components": {
+        "HS-": 1,
+        "H+": 1
+      },
+      "pK": 7.04,
+      "type": "acidoBasic",
+      "displayedAs": "H2S ⇄ HS- + H+"
+    },
+    {
+      "formed": "H2PO4-",
+      "components": {
+        "HPO4--": 1,
+        "H+": 1
+      },
+      "pK": 7.2,
+      "type": "acidoBasic",
+      "displayedAs": "H2PO4- ⇄ HPO4-- + H+"
+    },
+    {
+      "formed": "HSO3-",
+      "components": {
+        "SO3--": 1,
+        "H+": 1
+      },
+      "pK": 7.21,
+      "type": "acidoBasic",
+      "displayedAs": "HSO3- ⇄ SO3-- + H+"
+    },
+    {
+      "formed": "HClO",
+      "components": {
+        "ClO-": 1,
+        "H+": 1
+      },
+      "pK": 7.4,
+      "type": "acidoBasic",
+      "displayedAs": "HClO ⇄ ClO- + H+"
+    },
+    {
+      "formed": "HBrO",
+      "components": {
+        "BrO-": 1,
+        "H+": 1
+      },
+      "pK": 8.6,
+      "type": "acidoBasic",
+      "displayedAs": "HBrO ⇄ BrO- + H+"
+    },
+    {
+      "formed": "HCN",
+      "components": {
+        "CN-": 1,
+        "H+": 1
+      },
+      "pK": 9.2,
+      "type": "acidoBasic",
+      "displayedAs": "HCN ⇄ CN- + H+"
+    },
+    {
+      "formed": "NH4+",
+      "components": {
+        "NH3": 1,
+        "H+": 1
+      },
+      "pK": 9.25,
+      "type": "acidoBasic",
+      "displayedAs": "NH4+ ⇄ NH3 + H+"
+    },
+    {
+      "formed": "HCO3-",
+      "components": {
+        "CO3--": 1,
+        "H+": 1
+      },
+      "pK": 10.33,
+      "type": "acidoBasic",
+      "displayedAs": "HCO3- ⇄ CO3-- + H+"
+    },
+    {
+      "formed": "CH3NH3+",
+      "components": {
+        "CH3NH2": 1,
+        "H+": 1
+      },
+      "pK": 10.66,
+      "type": "acidoBasic",
+      "displayedAs": "CH3NH3+ ⇄ CH3NH2 + H+"
+    },
+    {
+      "formed": "(C2H5)3NH+",
+      "components": {
+        "(C2H5)3N": 1,
+        "H+": 1
+      },
+      "pK": 10.75,
+      "type": "acidoBasic",
+      "displayedAs": "(C2H5)3NH+ ⇄ (C2H5)3N + H+"
+    },
+    {
+      "formed": "C2H5NH3+",
+      "components": {
+        "C2H5NH2": 1,
+        "H+": 1
+      },
+      "pK": 10.8,
+      "type": "acidoBasic",
+      "displayedAs": "C2H5NH3+ ⇄ C2H5NH2 + H+"
+    },
+    {
+      "formed": "HPO4--",
+      "components": {
+        "PO4---": 1,
+        "H+": 1
+      },
+      "pK": 12.32,
+      "type": "acidoBasic",
+      "displayedAs": "HPO4-- ⇄ PO4--- + H+"
+    },
+    {
+      "formed": "H2O",
+      "components": {
+        "OH-": 1,
+        "H+": 1
+      },
+      "pK": 14,
+      "type": "acidoBasic",
+      "displayedAs": "H2O ⇄ OH- + H+"
+    },
+    {
+      "formed": "HS-",
+      "components": {
+        "S--": 1,
+        "H+": 1
+      },
+      "pK": 19,
+      "type": "acidoBasic",
+      "displayedAs": "HS- ⇄ S-- + H+"
+    },
+    {
+      "formed": "NH3",
+      "components": {
+        "NH2-": 1,
+        "H+": 1
+      },
+      "pK": 23,
+      "type": "acidoBasic",
+      "displayedAs": "NH3 ⇄ NH2- + H+"
+    }
+  ]
+}

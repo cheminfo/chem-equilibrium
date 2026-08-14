@@ -1,0 +1,196 @@
+:root {
+  --page-max-width: 1440px;
+  --prose-max-width: 46rem;
+  --gap: 12px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    sans-serif;
+  font-size: 14px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  padding: 8px 16px;
+  height: auto;
+}
+
+.app-header h1 {
+  font-size: 16px;
+  margin: 0;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+/* Ten tabs do not fit on a laptop, let alone a tablet: let them scroll rather
+   than wrap the header into two rows or push the actions off-screen. */
+.app-header-tabs {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+
+.app-header-tabs .bp6-tab-list {
+  flex-wrap: nowrap;
+}
+
+.app-header-actions {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 4px;
+}
+
+@media (max-width: 700px) {
+  .app-header h1 {
+    display: none;
+  }
+
+  .app-header-actions .bp6-button-text {
+    display: none;
+  }
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.app-footer {
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* Stacked charges rendered by react-mf need room not to collide. */
+.species,
+.equation {
+  line-height: 1.7;
+  white-space: nowrap;
+}
+
+.equation {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.tool-layout {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: minmax(320px, 1fr) minmax(0, 2fr);
+  align-items: start;
+}
+
+.tool-layout--wide {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 960px) {
+  .tool-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.panel-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.chart-container {
+  width: 100%;
+  height: 460px;
+}
+
+.prose {
+  max-width: var(--prose-max-width);
+}
+
+.prose h2 {
+  margin-top: 2rem;
+}
+
+.prose p,
+.prose li {
+  line-height: 1.6;
+}
+
+.formula {
+  display: block;
+  overflow-x: auto;
+  padding: 10px 12px;
+  margin: 12px 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  border-radius: 3px;
+}
+
+.scroll-x {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.scroll-y {
+  overflow-y: auto;
+  max-height: 420px;
+}
+
+table.data-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.data-table th,
+table.data-table td {
+  text-align: left;
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+
+table.data-table tbody tr {
+  cursor: default;
+}
+
+table.data-table tbody tr.selectable {
+  cursor: pointer;
+}
+
+.numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.no-print {
+  /* stylelint-disable-next-line */
+  display: revert;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

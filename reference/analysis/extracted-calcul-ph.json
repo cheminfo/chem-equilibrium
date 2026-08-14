@@ -1,0 +1,1351 @@
+{
+  "tool": "calcul-ph",
+  "viewFile": "view-calcul-ph.json",
+  "visualizerVersion": "2.147.1",
+  "titleFr": "Calcul du pH d'une solution",
+  "titleEn": "Calculating the pH of a solution",
+  "libraries": [
+    {
+      "path": "../../lib/chem-equilibrium/2.2.0/chem-equilibrium.min",
+      "alias": "ChemEquilibrium"
+    }
+  ],
+  "initialPreferences": {
+    "solution": {
+      "type": "CH3CO2H",
+      "concentration": 0.1
+    }
+  },
+  "colourBanding": {
+    "ruleSource": "module id=6 (slick_grid \"Cliquez pour choisir l’acide\"), filterRow script",
+    "rule": [
+      {
+        "id": "strongAcid",
+        "condition": "pK < -1.6",
+        "color": "#fdd2d2",
+        "colorName": "pale red",
+        "labelFr": "acide fort (« acide très fort », nivelé par l’eau) – base conjuguée très faible / indifférente",
+        "labelEn": "strong acid (levelled by water) – very weak (spectator) conjugate base"
+      },
+      {
+        "id": "weakAcidAcidicRange",
+        "condition": "pK < 6.9",
+        "color": "#fcd6ff",
+        "colorName": "pale pink / mauve",
+        "labelFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+        "labelEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base"
+      },
+      {
+        "id": "neutral",
+        "condition": "pK < 7.1",
+        "color": "#d1d3ff",
+        "colorName": "pale blue",
+        "labelFr": "pKa ≈ 7, couple neutre (frontière acide/base)",
+        "labelEn": "pKa ≈ 7, neutral couple (acid/base borderline)"
+      },
+      {
+        "id": "weakAcidBasicRange",
+        "condition": "pK < 15.6",
+        "color": "#d0fdd4",
+        "colorName": "pale green",
+        "labelFr": "acide faible, domaine basique (pKa entre 7.1 et 15.6) – base conjuguée notable",
+        "labelEn": "weak acid, basic range (pKa between 7.1 and 15.6) – appreciably basic conjugate base"
+      },
+      {
+        "id": "veryWeakAcid",
+        "condition": "pK >= 15.6",
+        "color": "#ffffe5",
+        "colorName": "pale yellow",
+        "labelFr": "acide très faible (pKa ≥ 15.6) – base conjuguée forte, nivelée par l’eau",
+        "labelEn": "very weak acid (pKa ≥ 15.6) – strong conjugate base, levelled by water"
+      }
+    ]
+  },
+  "pKaReferenceTable": [
+    {
+      "order": 1,
+      "acid": "HI",
+      "conjugateBase": "I(-)",
+      "equation": "HI ⇄ I(-) + H+",
+      "pKa": -5.2,
+      "type": "acidoBasic",
+      "color": "#fdd2d2",
+      "colorName": "pale red",
+      "category": "strongAcid",
+      "categoryFr": "acide fort (« acide très fort », nivelé par l’eau) – base conjuguée très faible / indifférente",
+      "categoryEn": "strong acid (levelled by water) – very weak (spectator) conjugate base",
+      "rawComponents": {
+        "I(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 2,
+      "acid": "HBr",
+      "conjugateBase": "Br(-)",
+      "equation": "HBr ⇄ Br(-) + H+",
+      "pKa": -4.7,
+      "type": "acidoBasic",
+      "color": "#fdd2d2",
+      "colorName": "pale red",
+      "category": "strongAcid",
+      "categoryFr": "acide fort (« acide très fort », nivelé par l’eau) – base conjuguée très faible / indifférente",
+      "categoryEn": "strong acid (levelled by water) – very weak (spectator) conjugate base",
+      "rawComponents": {
+        "Br(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 3,
+      "acid": "H2SO4",
+      "conjugateBase": "HSO4(-)",
+      "equation": "H2SO4 ⇄ HSO4(-) + H+",
+      "pKa": -3,
+      "type": "acidoBasic",
+      "color": "#fdd2d2",
+      "colorName": "pale red",
+      "category": "strongAcid",
+      "categoryFr": "acide fort (« acide très fort », nivelé par l’eau) – base conjuguée très faible / indifférente",
+      "categoryEn": "strong acid (levelled by water) – very weak (spectator) conjugate base",
+      "rawComponents": {
+        "HSO4(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 4,
+      "acid": "HCl",
+      "conjugateBase": "Cl(-)",
+      "equation": "HCl ⇄ Cl(-) + H+",
+      "pKa": -2.2,
+      "type": "acidoBasic",
+      "color": "#fdd2d2",
+      "colorName": "pale red",
+      "category": "strongAcid",
+      "categoryFr": "acide fort (« acide très fort », nivelé par l’eau) – base conjuguée très faible / indifférente",
+      "categoryEn": "strong acid (levelled by water) – very weak (spectator) conjugate base",
+      "rawComponents": {
+        "Cl(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 5,
+      "acid": "HNO3",
+      "conjugateBase": "NO3(-)",
+      "equation": "HNO3 ⇄ NO3(-) + H+",
+      "pKa": -1,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "NO3(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 6,
+      "acid": "HIO3",
+      "conjugateBase": "IO3(-)",
+      "equation": "HIO3 ⇄ IO3(-) + H+",
+      "pKa": 0.8,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "IO3(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 7,
+      "acid": "H2SO3",
+      "conjugateBase": "HSO3(-)",
+      "equation": "H2SO3 ⇄ HSO3(-) + H+",
+      "pKa": 1.8,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "HSO3(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 8,
+      "acid": "HSO4(-)",
+      "conjugateBase": "SO4(--)",
+      "equation": "HSO4(-) ⇄ SO4(--) + H+",
+      "pKa": 1.9,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "SO4(--)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 9,
+      "acid": "HClO2",
+      "conjugateBase": "ClO2(-)",
+      "equation": "HClO2 ⇄ ClO2(-) + H+",
+      "pKa": 1.93,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "ClO2(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 10,
+      "acid": "H2PO3",
+      "conjugateBase": "HPO3(-)",
+      "equation": "H2PO3 ⇄ HPO3(-) + H+",
+      "pKa": 2,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "HPO3(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 11,
+      "acid": "Fe(H2O)6+++",
+      "conjugateBase": "Fe(H2O)5OH++",
+      "equation": "Fe(H2O)6+++ ⇄ Fe(H2O)5OH++ + H+",
+      "pKa": 2.1,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "Fe(H2O)5OH++": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 12,
+      "acid": "H3PO4",
+      "conjugateBase": "H2PO4(-)",
+      "equation": "H3PO4 ⇄ H2PO4(-) + H+",
+      "pKa": 2.12,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "H2PO4(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 13,
+      "acid": "CH2ClCO2H",
+      "conjugateBase": "CH2ClCO2(-)",
+      "equation": "CH2ClCO2H ⇄ CH2ClCO2(-) + H+",
+      "pKa": 2.89,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "CH2ClCO2(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 14,
+      "acid": "HF",
+      "conjugateBase": "F(-)",
+      "equation": "HF ⇄ F(-) + H+",
+      "pKa": 3.17,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "F(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 15,
+      "acid": "HNO2",
+      "conjugateBase": "NO2(-)",
+      "equation": "HNO2 ⇄ NO2(-) + H+",
+      "pKa": 3.35,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "NO2(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 16,
+      "acid": "HOCN",
+      "conjugateBase": "OCN(-)",
+      "equation": "HOCN ⇄ OCN(-) + H+",
+      "pKa": 3.48,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "OCN(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 17,
+      "acid": "HCO2H",
+      "conjugateBase": "HCO2(-)",
+      "equation": "HCO2H ⇄ HCO2(-) + H+",
+      "pKa": 3.75,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "HCO2(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 18,
+      "acid": "C6H5COOH",
+      "conjugateBase": "C6H5COO(-)",
+      "equation": "C6H5COOH ⇄ C6H5COO(-) + H+",
+      "pKa": 4.2,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "C6H5COO(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 19,
+      "acid": "C6H5NH3+",
+      "conjugateBase": "C6H5NH2",
+      "equation": "C6H5NH3+ ⇄ C6H5NH2 + H+",
+      "pKa": 4.6,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "C6H5NH2": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 20,
+      "acid": "CH3CO2H",
+      "conjugateBase": "CH3COO(-)",
+      "equation": "CH3CO2H ⇄ CH3COO(-) + H+",
+      "pKa": 4.7,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "CH3COO(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 21,
+      "acid": "C2H5COOH",
+      "conjugateBase": "C2H5COO(-)",
+      "equation": "C2H5COOH ⇄ C2H5COO(-) + H+",
+      "pKa": 4.87,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "C2H5COO(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 22,
+      "acid": "Al(H2O)6+++",
+      "conjugateBase": "Al(H2O)5OH++",
+      "equation": "Al(H2O)6+++ ⇄ Al(H2O)5OH++ + H+",
+      "pKa": 4.9,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "Al(H2O)5OH++": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 23,
+      "acid": "C5H5NH+",
+      "conjugateBase": "C5H5N",
+      "equation": "C5H5NH+ ⇄ C5H5N + H+",
+      "pKa": 5.25,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "C5H5N": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 24,
+      "acid": "H2CO3",
+      "conjugateBase": "HCO3(-)",
+      "equation": "H2CO3 ⇄ HCO3(-) + H+",
+      "pKa": 6.3,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "HCO3(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 25,
+      "acid": "HPO3(-)",
+      "conjugateBase": "PO3(--)",
+      "equation": "HPO3(-) ⇄ PO3(--) + H+",
+      "pKa": 6.59,
+      "type": "acidoBasic",
+      "color": "#fcd6ff",
+      "colorName": "pale pink / mauve",
+      "category": "weakAcidAcidicRange",
+      "categoryFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "categoryEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "rawComponents": {
+        "PO3(--)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 26,
+      "acid": "H2S",
+      "conjugateBase": "HS(-)",
+      "equation": "H2S ⇄ HS(-) + H+",
+      "pKa": 7.04,
+      "type": "acidoBasic",
+      "color": "#d1d3ff",
+      "colorName": "pale blue",
+      "category": "neutral",
+      "categoryFr": "pKa ≈ 7, couple neutre (frontière acide/base)",
+      "categoryEn": "pKa ≈ 7, neutral couple (acid/base borderline)",
+      "rawComponents": {
+        "HS(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 27,
+      "acid": "H2PO4(-)",
+      "conjugateBase": "HPO4(--)",
+      "equation": "H2PO4(-) ⇄ HPO4(--) + H+",
+      "pKa": 7.2,
+      "type": "acidoBasic",
+      "color": "#d0fdd4",
+      "colorName": "pale green",
+      "category": "weakAcidBasicRange",
+      "categoryFr": "acide faible, domaine basique (pKa entre 7.1 et 15.6) – base conjuguée notable",
+      "categoryEn": "weak acid, basic range (pKa between 7.1 and 15.6) – appreciably basic conjugate base",
+      "rawComponents": {
+        "HPO4(--)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 28,
+      "acid": "HSO3(-)",
+      "conjugateBase": "SO3(--)",
+      "equation": "HSO3(-) ⇄ SO3(--) + H+",
+      "pKa": 7.21,
+      "type": "acidoBasic",
+      "color": "#d0fdd4",
+      "colorName": "pale green",
+      "category": "weakAcidBasicRange",
+      "categoryFr": "acide faible, domaine basique (pKa entre 7.1 et 15.6) – base conjuguée notable",
+      "categoryEn": "weak acid, basic range (pKa between 7.1 and 15.6) – appreciably basic conjugate base",
+      "rawComponents": {
+        "SO3(--)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 29,
+      "acid": "HClO",
+      "conjugateBase": "ClO(-)",
+      "equation": "HClO ⇄ ClO(-) + H+",
+      "pKa": 8,
+      "type": "acidoBasic",
+      "color": "#d0fdd4",
+      "colorName": "pale green",
+      "category": "weakAcidBasicRange",
+      "categoryFr": "acide faible, domaine basique (pKa entre 7.1 et 15.6) – base conjuguée notable",
+      "categoryEn": "weak acid, basic range (pKa between 7.1 and 15.6) – appreciably basic conjugate base",
+      "rawComponents": {
+        "ClO(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 30,
+      "acid": "HBrO",
+      "conjugateBase": "BrO(-)",
+      "equation": "HBrO ⇄ BrO(-) + H+",
+      "pKa": 8.6,
+      "type": "acidoBasic",
+      "color": "#d0fdd4",
+      "colorName": "pale green",
+      "category": "weakAcidBasicRange",
+      "categoryFr": "acide faible, domaine basique (pKa entre 7.1 et 15.6) – base conjuguée notable",
+      "categoryEn": "weak acid, basic range (pKa between 7.1 and 15.6) – appreciably basic conjugate base",
+      "rawComponents": {
+        "BrO(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 31,
+      "acid": "HCN",
+      "conjugateBase": "CN(-)",
+      "equation": "HCN ⇄ CN(-) + H+",
+      "pKa": 9.2,
+      "type": "acidoBasic",
+      "color": "#d0fdd4",
+      "colorName": "pale green",
+      "category": "weakAcidBasicRange",
+      "categoryFr": "acide faible, domaine basique (pKa entre 7.1 et 15.6) – base conjuguée notable",
+      "categoryEn": "weak acid, basic range (pKa between 7.1 and 15.6) – appreciably basic conjugate base",
+      "rawComponents": {
+        "CN(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 32,
+      "acid": "NH4+",
+      "conjugateBase": "NH3",
+      "equation": "NH4+ ⇄ NH3 + H+",
+      "pKa": 9.25,
+      "type": "acidoBasic",
+      "color": "#d0fdd4",
+      "colorName": "pale green",
+      "category": "weakAcidBasicRange",
+      "categoryFr": "acide faible, domaine basique (pKa entre 7.1 et 15.6) – base conjuguée notable",
+      "categoryEn": "weak acid, basic range (pKa between 7.1 and 15.6) – appreciably basic conjugate base",
+      "rawComponents": {
+        "NH3": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 33,
+      "acid": "HCO3(-)",
+      "conjugateBase": "CO3(--)",
+      "equation": "HCO3(-) ⇄ CO3(--) + H+",
+      "pKa": 10.33,
+      "type": "acidoBasic",
+      "color": "#d0fdd4",
+      "colorName": "pale green",
+      "category": "weakAcidBasicRange",
+      "categoryFr": "acide faible, domaine basique (pKa entre 7.1 et 15.6) – base conjuguée notable",
+      "categoryEn": "weak acid, basic range (pKa between 7.1 and 15.6) – appreciably basic conjugate base",
+      "rawComponents": {
+        "CO3(--)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 34,
+      "acid": "CH3NH3+",
+      "conjugateBase": "CH3NH2",
+      "equation": "CH3NH3+ ⇄ CH3NH2 + H+",
+      "pKa": 10.66,
+      "type": "acidoBasic",
+      "color": "#d0fdd4",
+      "colorName": "pale green",
+      "category": "weakAcidBasicRange",
+      "categoryFr": "acide faible, domaine basique (pKa entre 7.1 et 15.6) – base conjuguée notable",
+      "categoryEn": "weak acid, basic range (pKa between 7.1 and 15.6) – appreciably basic conjugate base",
+      "rawComponents": {
+        "CH3NH2": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 35,
+      "acid": "(C2H5)3NH+",
+      "conjugateBase": "(C2H5)3N",
+      "equation": "(C2H5)3NH+ ⇄ (C2H5)3N + H+",
+      "pKa": 10.75,
+      "type": "acidoBasic",
+      "color": "#d0fdd4",
+      "colorName": "pale green",
+      "category": "weakAcidBasicRange",
+      "categoryFr": "acide faible, domaine basique (pKa entre 7.1 et 15.6) – base conjuguée notable",
+      "categoryEn": "weak acid, basic range (pKa between 7.1 and 15.6) – appreciably basic conjugate base",
+      "rawComponents": {
+        "(C2H5)3N": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 36,
+      "acid": "C2H5NH3+",
+      "conjugateBase": "C2H5NH2",
+      "equation": "C2H5NH3+ ⇄ C2H5NH2 + H+",
+      "pKa": 10.8,
+      "type": "acidoBasic",
+      "color": "#d0fdd4",
+      "colorName": "pale green",
+      "category": "weakAcidBasicRange",
+      "categoryFr": "acide faible, domaine basique (pKa entre 7.1 et 15.6) – base conjuguée notable",
+      "categoryEn": "weak acid, basic range (pKa between 7.1 and 15.6) – appreciably basic conjugate base",
+      "rawComponents": {
+        "C2H5NH2": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 37,
+      "acid": "HPO4(--)",
+      "conjugateBase": "PO4(---)",
+      "equation": "HPO4(--) ⇄ PO4(---) + H+",
+      "pKa": 12.32,
+      "type": "acidoBasic",
+      "color": "#d0fdd4",
+      "colorName": "pale green",
+      "category": "weakAcidBasicRange",
+      "categoryFr": "acide faible, domaine basique (pKa entre 7.1 et 15.6) – base conjuguée notable",
+      "categoryEn": "weak acid, basic range (pKa between 7.1 and 15.6) – appreciably basic conjugate base",
+      "rawComponents": {
+        "PO4(---)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 38,
+      "acid": "HS(-)",
+      "conjugateBase": "S(--)",
+      "equation": "HS(-) ⇄ S(--) + H+",
+      "pKa": 19,
+      "type": "acidoBasic",
+      "color": "#ffffe5",
+      "colorName": "pale yellow",
+      "category": "veryWeakAcid",
+      "categoryFr": "acide très faible (pKa ≥ 15.6) – base conjuguée forte, nivelée par l’eau",
+      "categoryEn": "very weak acid (pKa ≥ 15.6) – strong conjugate base, levelled by water",
+      "rawComponents": {
+        "S(--)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 39,
+      "acid": "NH3",
+      "conjugateBase": "NH2(-)",
+      "equation": "NH3 ⇄ NH2(-) + H+",
+      "pKa": 23,
+      "type": "acidoBasic",
+      "color": "#ffffe5",
+      "colorName": "pale yellow",
+      "category": "veryWeakAcid",
+      "categoryFr": "acide très faible (pKa ≥ 15.6) – base conjuguée forte, nivelée par l’eau",
+      "categoryEn": "very weak acid (pKa ≥ 15.6) – strong conjugate base, levelled by water",
+      "rawComponents": {
+        "NH2(-)": 1,
+        "H+": 1
+      }
+    },
+    {
+      "order": 40,
+      "acid": "HClO4",
+      "conjugateBase": "ClO4(-)",
+      "equation": "HClO4 ⇄ ClO4(-) + H+",
+      "pKa": -7,
+      "type": "acidoBasic",
+      "color": "#fdd2d2",
+      "colorName": "pale red",
+      "category": "strongAcid",
+      "categoryFr": "acide fort (« acide très fort », nivelé par l’eau) – base conjuguée très faible / indifférente",
+      "categoryEn": "strong acid (levelled by water) – very weak (spectator) conjugate base",
+      "rawComponents": {
+        "ClO4(-)": 1,
+        "H+": 1
+      }
+    }
+  ],
+  "pKaReferenceTableByCategory": [
+    {
+      "category": "strongAcid",
+      "color": "#fdd2d2",
+      "labelFr": "acide fort (« acide très fort », nivelé par l’eau) – base conjuguée très faible / indifférente",
+      "labelEn": "strong acid (levelled by water) – very weak (spectator) conjugate base",
+      "entries": [
+        {
+          "acid": "HI",
+          "conjugateBase": "I(-)",
+          "pKa": -5.2
+        },
+        {
+          "acid": "HBr",
+          "conjugateBase": "Br(-)",
+          "pKa": -4.7
+        },
+        {
+          "acid": "H2SO4",
+          "conjugateBase": "HSO4(-)",
+          "pKa": -3
+        },
+        {
+          "acid": "HCl",
+          "conjugateBase": "Cl(-)",
+          "pKa": -2.2
+        },
+        {
+          "acid": "HClO4",
+          "conjugateBase": "ClO4(-)",
+          "pKa": -7
+        }
+      ]
+    },
+    {
+      "category": "weakAcidAcidicRange",
+      "color": "#fcd6ff",
+      "labelFr": "acide faible, domaine acide (pKa entre −1.6 et 6.9) – base conjuguée faible",
+      "labelEn": "weak acid, acidic range (pKa between −1.6 and 6.9) – weak conjugate base",
+      "entries": [
+        {
+          "acid": "HNO3",
+          "conjugateBase": "NO3(-)",
+          "pKa": -1
+        },
+        {
+          "acid": "HIO3",
+          "conjugateBase": "IO3(-)",
+          "pKa": 0.8
+        },
+        {
+          "acid": "H2SO3",
+          "conjugateBase": "HSO3(-)",
+          "pKa": 1.8
+        },
+        {
+          "acid": "HSO4(-)",
+          "conjugateBase": "SO4(--)",
+          "pKa": 1.9
+        },
+        {
+          "acid": "HClO2",
+          "conjugateBase": "ClO2(-)",
+          "pKa": 1.93
+        },
+        {
+          "acid": "H2PO3",
+          "conjugateBase": "HPO3(-)",
+          "pKa": 2
+        },
+        {
+          "acid": "Fe(H2O)6+++",
+          "conjugateBase": "Fe(H2O)5OH++",
+          "pKa": 2.1
+        },
+        {
+          "acid": "H3PO4",
+          "conjugateBase": "H2PO4(-)",
+          "pKa": 2.12
+        },
+        {
+          "acid": "CH2ClCO2H",
+          "conjugateBase": "CH2ClCO2(-)",
+          "pKa": 2.89
+        },
+        {
+          "acid": "HF",
+          "conjugateBase": "F(-)",
+          "pKa": 3.17
+        },
+        {
+          "acid": "HNO2",
+          "conjugateBase": "NO2(-)",
+          "pKa": 3.35
+        },
+        {
+          "acid": "HOCN",
+          "conjugateBase": "OCN(-)",
+          "pKa": 3.48
+        },
+        {
+          "acid": "HCO2H",
+          "conjugateBase": "HCO2(-)",
+          "pKa": 3.75
+        },
+        {
+          "acid": "C6H5COOH",
+          "conjugateBase": "C6H5COO(-)",
+          "pKa": 4.2
+        },
+        {
+          "acid": "C6H5NH3+",
+          "conjugateBase": "C6H5NH2",
+          "pKa": 4.6
+        },
+        {
+          "acid": "CH3CO2H",
+          "conjugateBase": "CH3COO(-)",
+          "pKa": 4.7
+        },
+        {
+          "acid": "C2H5COOH",
+          "conjugateBase": "C2H5COO(-)",
+          "pKa": 4.87
+        },
+        {
+          "acid": "Al(H2O)6+++",
+          "conjugateBase": "Al(H2O)5OH++",
+          "pKa": 4.9
+        },
+        {
+          "acid": "C5H5NH+",
+          "conjugateBase": "C5H5N",
+          "pKa": 5.25
+        },
+        {
+          "acid": "H2CO3",
+          "conjugateBase": "HCO3(-)",
+          "pKa": 6.3
+        },
+        {
+          "acid": "HPO3(-)",
+          "conjugateBase": "PO3(--)",
+          "pKa": 6.59
+        }
+      ]
+    },
+    {
+      "category": "neutral",
+      "color": "#d1d3ff",
+      "labelFr": "pKa ≈ 7, couple neutre (frontière acide/base)",
+      "labelEn": "pKa ≈ 7, neutral couple (acid/base borderline)",
+      "entries": [
+        {
+          "acid": "H2S",
+          "conjugateBase": "HS(-)",
+          "pKa": 7.04
+        }
+      ]
+    },
+    {
+      "category": "weakAcidBasicRange",
+      "color": "#d0fdd4",
+      "labelFr": "acide faible, domaine basique (pKa entre 7.1 et 15.6) – base conjuguée notable",
+      "labelEn": "weak acid, basic range (pKa between 7.1 and 15.6) – appreciably basic conjugate base",
+      "entries": [
+        {
+          "acid": "H2PO4(-)",
+          "conjugateBase": "HPO4(--)",
+          "pKa": 7.2
+        },
+        {
+          "acid": "HSO3(-)",
+          "conjugateBase": "SO3(--)",
+          "pKa": 7.21
+        },
+        {
+          "acid": "HClO",
+          "conjugateBase": "ClO(-)",
+          "pKa": 8
+        },
+        {
+          "acid": "HBrO",
+          "conjugateBase": "BrO(-)",
+          "pKa": 8.6
+        },
+        {
+          "acid": "HCN",
+          "conjugateBase": "CN(-)",
+          "pKa": 9.2
+        },
+        {
+          "acid": "NH4+",
+          "conjugateBase": "NH3",
+          "pKa": 9.25
+        },
+        {
+          "acid": "HCO3(-)",
+          "conjugateBase": "CO3(--)",
+          "pKa": 10.33
+        },
+        {
+          "acid": "CH3NH3+",
+          "conjugateBase": "CH3NH2",
+          "pKa": 10.66
+        },
+        {
+          "acid": "(C2H5)3NH+",
+          "conjugateBase": "(C2H5)3N",
+          "pKa": 10.75
+        },
+        {
+          "acid": "C2H5NH3+",
+          "conjugateBase": "C2H5NH2",
+          "pKa": 10.8
+        },
+        {
+          "acid": "HPO4(--)",
+          "conjugateBase": "PO4(---)",
+          "pKa": 12.32
+        }
+      ]
+    },
+    {
+      "category": "veryWeakAcid",
+      "color": "#ffffe5",
+      "labelFr": "acide très faible (pKa ≥ 15.6) – base conjuguée forte, nivelée par l’eau",
+      "labelEn": "very weak acid (pKa ≥ 15.6) – strong conjugate base, levelled by water",
+      "entries": [
+        {
+          "acid": "HS(-)",
+          "conjugateBase": "S(--)",
+          "pKa": 19
+        },
+        {
+          "acid": "NH3",
+          "conjugateBase": "NH2(-)",
+          "pKa": 23
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": 1,
+      "url": "modules/types/client_interaction/code_executor/",
+      "title": "Do calculations when preferences changes",
+      "visibleInDefaultLayer": false,
+      "defaultLayerTitle": "Do calculations when preferences changes",
+      "defaultLayerPosition": {
+        "left": 100,
+        "top": 33
+      },
+      "defaultLayerSize": {
+        "width": 61,
+        "height": 49
+      },
+      "varsIn": [
+        {
+          "rel": "inputValue",
+          "name": "preferences"
+        }
+      ],
+      "varsOut": [
+        {
+          "jpath": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "url": "modules/types/edition/slick_grid/",
+      "title": "",
+      "visibleInDefaultLayer": false,
+      "defaultLayerTitle": "Couple(s) acide-base en jeu",
+      "defaultLayerPosition": {
+        "left": 93,
+        "top": 0
+      },
+      "defaultLayerSize": {
+        "width": 42,
+        "height": 26
+      },
+      "varsIn": [
+        {
+          "rel": "list",
+          "name": "equations"
+        }
+      ],
+      "varsOut": [
+        {
+          "jpath": []
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "url": "modules/types/display/template-twig/",
+      "title": "Préférences pour le calcul",
+      "visibleInDefaultLayer": true,
+      "defaultLayerTitle": "Préférences pour le calcul",
+      "defaultLayerPosition": {
+        "left": 0,
+        "top": 0
+      },
+      "defaultLayerSize": {
+        "width": 54,
+        "height": 63
+      },
+      "varsIn": [
+        {
+          "rel": "tpl",
+          "name": "templateForm"
+        },
+        {
+          "rel": "form",
+          "name": "preferences"
+        }
+      ],
+      "varsOut": [
+        {
+          "jpath": []
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "url": "modules/types/client_interaction/code_editor/",
+      "title": "templateForm",
+      "visibleInDefaultLayer": false,
+      "defaultLayerTitle": "templateForm",
+      "defaultLayerPosition": {
+        "left": 103,
+        "top": 38
+      },
+      "defaultLayerSize": {
+        "width": 38,
+        "height": 45
+      },
+      "varsIn": [
+        {}
+      ],
+      "varsOut": [
+        {
+          "event": "onEditorChange",
+          "rel": "data",
+          "jpath": [],
+          "name": "templateForm"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "url": "modules/types/edition/object_editor/",
+      "title": "Database of pKa",
+      "visibleInDefaultLayer": false,
+      "defaultLayerTitle": "Database of pKa",
+      "defaultLayerPosition": {
+        "left": 0,
+        "top": 0
+      },
+      "defaultLayerSize": {
+        "width": 20,
+        "height": 20
+      },
+      "varsIn": [
+        {}
+      ],
+      "varsOut": [
+        {
+          "event": "onObjectChange",
+          "rel": "output",
+          "jpath": [],
+          "name": "data"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "url": "modules/types/edition/slick_grid/",
+      "title": "Cliquez pour choisir l'acide",
+      "visibleInDefaultLayer": true,
+      "defaultLayerTitle": "Cliquez pour choisir l'acide",
+      "defaultLayerPosition": {
+        "left": 55,
+        "top": 8
+      },
+      "defaultLayerSize": {
+        "width": 40,
+        "height": 55
+      },
+      "varsIn": [
+        {
+          "rel": "list",
+          "name": "filteredData"
+        }
+      ],
+      "varsOut": [
+        {
+          "event": "onRowActive",
+          "rel": "row",
+          "jpath": [],
+          "name": "selectedEquilibrium"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "url": "modules/types/display/template-twig/",
+      "title": "",
+      "visibleInDefaultLayer": true,
+      "defaultLayerTitle": "",
+      "defaultLayerPosition": {
+        "left": 96,
+        "top": 8
+      },
+      "defaultLayerSize": {
+        "width": 42,
+        "height": 55
+      },
+      "varsIn": [
+        {
+          "rel": "tpl",
+          "name": "resultTemplate"
+        },
+        {
+          "rel": "value",
+          "name": "result"
+        },
+        {
+          "rel": "value",
+          "name": "preferences"
+        }
+      ],
+      "varsOut": [
+        {
+          "jpath": []
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "url": "modules/types/client_interaction/code_editor/",
+      "title": "",
+      "visibleInDefaultLayer": false,
+      "defaultLayerTitle": "",
+      "defaultLayerPosition": {
+        "left": 0,
+        "top": 0
+      },
+      "defaultLayerSize": {
+        "width": 20,
+        "height": 20
+      },
+      "varsIn": [
+        {}
+      ],
+      "varsOut": [
+        {
+          "event": "onEditorChange",
+          "rel": "data",
+          "jpath": [],
+          "name": "resultTemplate"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "url": "modules/types/array_search/smart_array_filter/",
+      "title": "Recherche d'un acide",
+      "visibleInDefaultLayer": true,
+      "defaultLayerTitle": "Recherche d'un acide",
+      "defaultLayerPosition": {
+        "left": 55,
+        "top": 0
+      },
+      "defaultLayerSize": {
+        "width": 40,
+        "height": 7
+      },
+      "varsIn": [
+        {
+          "rel": "input",
+          "name": "data"
+        }
+      ],
+      "varsOut": [
+        {
+          "event": "onQuery",
+          "rel": "output",
+          "jpath": [],
+          "name": "filteredData"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "url": "modules/types/client_interaction/code_executor/",
+      "title": "Change solution type when clicking on a row",
+      "visibleInDefaultLayer": false,
+      "defaultLayerTitle": "Change solution type when clicking on a row",
+      "defaultLayerPosition": {
+        "left": 91,
+        "top": 42
+      },
+      "defaultLayerSize": {
+        "width": 53,
+        "height": 28
+      },
+      "varsIn": [
+        {
+          "rel": "inputValue",
+          "name": "selectedEquilibrium"
+        }
+      ],
+      "varsOut": [
+        {
+          "jpath": []
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "url": "modules/types/edition/slick_grid/",
+      "title": "",
+      "visibleInDefaultLayer": false,
+      "defaultLayerTitle": "",
+      "defaultLayerPosition": {
+        "left": 0,
+        "top": 0
+      },
+      "defaultLayerSize": {
+        "width": 20,
+        "height": 20
+      },
+      "varsIn": [
+        {
+          "rel": "list",
+          "name": "data"
+        }
+      ],
+      "varsOut": [
+        {
+          "event": "onRowsSelect",
+          "rel": "rows",
+          "jpath": [],
+          "name": "newData"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "url": "modules/types/edition/object_editor/",
+      "title": "",
+      "visibleInDefaultLayer": false,
+      "defaultLayerTitle": "",
+      "defaultLayerPosition": {
+        "left": 0,
+        "top": 0
+      },
+      "defaultLayerSize": {
+        "width": 20,
+        "height": 20
+      },
+      "varsIn": [
+        {
+          "rel": "value",
+          "name": "newData"
+        }
+      ],
+      "varsOut": [
+        {
+          "jpath": []
+        }
+      ]
+    }
+  ],
+  "scripts": {
+    "initScript": "\n\nAPI.createData('preferences', {\n    solution: {\n        type: 'CH3CO2H',\n        concentration: 0.1,\n    }\n\n})",
+    "computePh": "const preferences = API.getData('preferences').resurrect();\npreferences.solution.volume = 1; // 10 mL\n\npreferences.titrationSolution = {\n    type: '',\n    volume: 0,\n}\npreferences.chunks = 1;\n\nconsole.log(preferences)\n\nconst database = API.getData('data').resurrect();\nconst helper = new ChemEquilibrium.Helper({database});\n\n\nconst serie = new ChemEquilibrium.Serie(helper);\nconst result = serie.getTitration(preferences);\nresult.equations = result.equations.filter( equation => equation.formed!=='H2O');\nresult.initial = [];\nfor (let key in result.solutions[0]) {\n    const concentration = ({\n        species: key,\n        concentration: result.solutions[0][key],\n        pConcentration: -Math.log10(result.solutions[0][key]),\n    })\n    result.initial.push(concentration);\n    if (key===\"H+\") {\n        result.pH = concentration;\n    }\n}\n\nAPI.createData('result', result);\nAPI.createData('equations', result.equations);\nAPI.createData('xy', result.xy);\nAPI.createData('errorCount', result.errorCount);\n\n",
+    "onAcidRowClick": "const selectedEquilibrium = API.getData('selectedEquilibrium').resurrect();\nconst preferences = API.getData('preferences');\npreferences.solution.type = selectedEquilibrium.formed;\npreferences.triggerChange();\n",
+    "acidListColourFilterRow": "if (this.event==='rowsChanged') {\n    for (let row of this.rows) {\n        if (row.item.pK < -1.6) {\n            row.item.color = \"#fdd2d2\";\n        } else if (row.item.pK < 6.9) {\n            row.item.color = \"#fcd6ff\";\n        } else if (row.item.pK < 7.1) {\n            row.item.color = \"#d1d3ff\";\n        } else if (row.item.pK < 15.6) {\n            row.item.color = \"#d0fdd4\";\n        } else {\n            row.item.color = \"#ffffe5\";\n        }\n\n    }\n    rerender();\n}\n\n"
+  },
+  "templates": {
+    "inputFormHtml": "<style>\n    #inputForm {\n        zoom: 1.5;\n    }\n    #inputForm h1 {\n        font-size: 1em;\n        padding-top: 1em;\n        padding-bottom: 0.5em;\n    }\n</style>\n\n<div id=\"inputForm\">\n  <p>\n      Cet outil permet la détermination du pH d'une solution d'une concentration connue.\n  </p>\n  <p>\n      Afin de faire les calculs il est nécessaire de:\n      <ol>\n          <li>Introduire la concentration de la solution (en mole/L, molaire)</li>\n          <li>Choisir dans la liste à droite l'acide souhaité</li>\n      </ol>\n  </p>\n  <p style=\"font-size: 1.2em; font-weight: bold\">\n     Concentration: <input type=\"number\" min=\"0\" max=\"6\" step=\"any\" name=\"solution.concentration\" style=\"width: 120px\"> M\n  </p>\n \n<h1>Quelques pKa importants pour fixer les idées</h1>\n \n<img width=\"100%\" src=\"https://couch.cheminfo.org/cheminfo-public/e71d251b9aee436715c821706dab07bd/upload/pk.png\">\n\n  \n</div>\n\n\n",
+    "resultTemplateHtml": "<style>\n    #result {\n        zoom: 1;\n        padding: 10px;\n    }\n    #result h1 {\n        font-size: 2em;\n        padding-top: 10px;\n        padding-bottom: 10px;\n        text-align: center;\n    }\n    #result h2 {\n        font-size: 1.2em;\n        padding-top: 10px;\n        padding-bottom: 10px;\n    }\n    #result th {\n        text-align: left;\n    }\n    #result table {\n        border-collapse: collapse;\n    }\n    #result th, #result td {\n        border: 1px solid;\n        padding: 3px;\n    }\n</style>\n\n<div id=\"result\">\n    <h1>Résultats du calcul</h1>\n    \n    <h2>\n    pH d'une solution de {{rendertype(preferences.solution.type,'mf')}}\n    {{preferences.solution.concentration}}M\n    </h2>\n    <h2 style=\"color: darkred; font-size: 2em\">\n        pH = {{result.pH.pConcentration|number_format(2)}}\n    </h2>\n    \n    <h2>Equations utilisées pour les calculs</h2>\n\n    <table>\n        <tr>\n            <th>Equation</th>\n            <th>pKa</th>\n        </tr>\n        {% for equation in result.equations %}\n            <tr>\n                <td>\n                    {{rendertype(equation.formed, \"mf\")}}\n                      ⇄\n                    {% for key,value in equation.components %}\n                        {% if value > 0 %}\n                            {% if loop.index != 1 %} + {% endif %}\n                        {% endif %}\n                        {% if value != 1 %}\n                          {{ value }}\n                        {% endif %}\n                        {{ rendertype(key, \"mf\") }}\n                    {% endfor %}\n                </td>\n                <td>\n                    {{equation.pK}}\n                </td>\n            </tr>\n        {% endfor %}\n    </table>\n    \n    <h2>Concentrations à l'équilibre</h2>\n    \n    <table>\n        <tr>\n            <th>Espèces</th>\n            <th>[ ] M</th>\n            <th>-log []</th>\n        </tr>\n    {% for specie in result.initial %}\n    <tr>\n        <th>\n            {{rendertype(specie.species,'mf')}}\n        </th>\n        <td>\n             {{rendertype(specie.concentration, {toPrecision: 4})}}\n        </td>\n        <td>\n             {{rendertype(specie.pConcentration, {toFixed: 2})}}\n        </td>\n    </tr>\n     \n    {% endfor %}\n    </table>\n\n\n</div>\n\n",
+    "equationTwigRenderer": "twig: '{{rendertype(formed, \"mf\")}} ⇄  {% for key,value in components %}     {% if value > 0 %} \t{% if loop.index != 1 %} \t\t+ \t{% endif %}     {% endif %}     {% if value != 1 %} \t{{ value }}     {% endif %}     {{ rendertype(key, \"mf\") }} {% endfor %}'"
+  },
+  "searchBox": {
+    "moduleId": 9,
+    "type": "smart_array_filter",
+    "titleFr": "Recherche d'un acide",
+    "titleEn": "Search for an acid",
+    "placeholderFr": "Introduire un mot-clef",
+    "placeholderEn": "Enter a keyword",
+    "debounceMs": 100,
+    "limit": 0,
+    "predicate": "AND",
+    "options": [
+      "caseInsensitive"
+    ]
+  },
+  "externalAssets": {
+    "pKaChartImage": "https://couch.cheminfo.org/cheminfo-public/e71d251b9aee436715c821706dab07bd/upload/pk.png"
+  }
+}

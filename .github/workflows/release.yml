@@ -10,7 +10,10 @@ jobs:
     # Documentation: https://github.com/zakodium/workflows#release
     uses: zakodium/workflows/.github/workflows/release.yml@release-v1
     with:
-      npm: true
+      # The npm publish step of the shared workflow runs at the repository
+      # root, which is private here. `publish-library.yml` publishes the
+      # library from its workspace when release-please pushes its tag.
+      npm: false
+      release-type: ''
     secrets:
       github-token: ${{ secrets.BOT_TOKEN }}
-      npm-token: ${{ secrets.NPM_BOT_TOKEN }}

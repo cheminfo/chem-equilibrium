@@ -1,0 +1,1178 @@
+[
+  {
+    "label": "(C2H5)3N",
+    "name": "triethylamine",
+    "alternatives": ["N,N-diethylethanamine"]
+  },
+  {
+    "label": "(C2H5)3NH+",
+    "name": "triethylammonium ion",
+    "alternatives": ["protonated triethylamine", "triethylazanium ion"]
+  },
+  {
+    "label": "Ag(CH3NH2)2+",
+    "name": "bis(methylamine)silver(I) ion",
+    "alternatives": [
+      "silver(I) methylamine complex",
+      "bis(methanamine)silver(I) ion"
+    ]
+  },
+  {
+    "label": "Ag(CN)2-",
+    "name": "dicyanoargentate(I) ion",
+    "alternatives": ["dicyanidoargentate(I) ion", "silver dicyanide complex"]
+  },
+  {
+    "label": "Ag(NH3)2+",
+    "name": "diamminesilver(I) ion",
+    "alternatives": [
+      "silver diammine complex",
+      "Tollens' reagent ion",
+      "diamminesilver(I) cation"
+    ]
+  },
+  {
+    "label": "Ag(S2O3)2---",
+    "name": "bis(thiosulfato)argentate(I) ion",
+    "alternatives": [
+      "bis(thiosulfato)silver(I) ion",
+      "silver dithiosulfate complex",
+      "bis(thiosulphato)argentate(I) ion"
+    ]
+  },
+  {
+    "label": "Ag+",
+    "name": "silver(I) ion",
+    "alternatives": ["silver ion", "silver cation", "argentous ion"]
+  },
+  {
+    "label": "Ag2CO3",
+    "name": "silver carbonate",
+    "alternatives": ["silver(I) carbonate", "disilver carbonate"]
+  },
+  {
+    "label": "Ag2CrO4",
+    "name": "silver chromate",
+    "alternatives": ["silver(I) chromate"]
+  },
+  {
+    "label": "Ag2S",
+    "name": "silver sulfide",
+    "alternatives": ["silver(I) sulfide", "silver sulphide", "acanthite"]
+  },
+  {
+    "label": "AgBr",
+    "name": "silver bromide",
+    "alternatives": ["silver(I) bromide"]
+  },
+  {
+    "label": "AgBr2-",
+    "name": "dibromoargentate(I) ion",
+    "alternatives": ["dibromidoargentate(I) ion", "silver dibromide complex"]
+  },
+  {
+    "label": "AgBrO3",
+    "name": "silver bromate",
+    "alternatives": ["silver(I) bromate"]
+  },
+  {
+    "label": "AgCl",
+    "name": "silver chloride",
+    "alternatives": ["silver(I) chloride", "chlorargyrite"]
+  },
+  {
+    "label": "AgCl2-",
+    "name": "dichloroargentate(I) ion",
+    "alternatives": ["dichloridoargentate(I) ion", "silver dichloride complex"]
+  },
+  {
+    "label": "AgI",
+    "name": "silver iodide",
+    "alternatives": ["silver(I) iodide"]
+  },
+  {
+    "label": "AgI2-",
+    "name": "diiodoargentate(I) ion",
+    "alternatives": ["diiodidoargentate(I) ion", "silver diiodide complex"]
+  },
+  {
+    "label": "AgOH",
+    "name": "silver hydroxide",
+    "alternatives": ["silver(I) hydroxide"]
+  },
+  {
+    "label": "Al(H2O)5OH++",
+    "name": "pentaaquahydroxoaluminium(III) ion",
+    "alternatives": [
+      "pentaaquahydroxidoaluminium(III) ion",
+      "hydroxopentaaquaaluminum(III) ion",
+      "monohydroxo aluminium complex"
+    ]
+  },
+  {
+    "label": "Al(H2O)6+++",
+    "name": "hexaaquaaluminium(III) ion",
+    "alternatives": [
+      "hexaaquaaluminum(III) ion",
+      "hydrated aluminium(III) ion",
+      "aquated aluminium ion"
+    ]
+  },
+  {
+    "label": "Al(OH)3",
+    "name": "aluminium hydroxide",
+    "alternatives": [
+      "aluminum hydroxide",
+      "aluminium(III) hydroxide",
+      "gibbsite"
+    ]
+  },
+  {
+    "label": "Al+++",
+    "name": "aluminium(III) ion",
+    "alternatives": ["aluminum ion", "aluminium cation", "Al3+"]
+  },
+  {
+    "label": "AlF4-",
+    "name": "tetrafluoroaluminate ion",
+    "alternatives": [
+      "tetrafluoridoaluminate(III) ion",
+      "tetrafluoroaluminate(III) ion"
+    ]
+  },
+  {
+    "label": "AlF6---",
+    "name": "hexafluoroaluminate ion",
+    "alternatives": ["hexafluoridoaluminate(III) ion", "cryolite anion"]
+  },
+  {
+    "label": "Au(CN)2-",
+    "name": "dicyanoaurate(I) ion",
+    "alternatives": [
+      "dicyanidoaurate(I) ion",
+      "gold dicyanide complex",
+      "gold cyanide leaching complex"
+    ]
+  },
+  {
+    "label": "Au+",
+    "name": "gold(I) ion",
+    "alternatives": ["aurous ion", "gold(I) cation"]
+  },
+  {
+    "label": "Ba++",
+    "name": "barium ion",
+    "alternatives": ["barium(II) ion", "barium cation", "Ba2+"]
+  },
+  {
+    "label": "BaCO3",
+    "name": "barium carbonate",
+    "alternatives": ["witherite"]
+  },
+  {
+    "label": "BaCrO4",
+    "name": "barium chromate",
+    "alternatives": ["barium chromate(VI)"]
+  },
+  {
+    "label": "BaF2",
+    "name": "barium fluoride",
+    "alternatives": ["frankdicksonite"]
+  },
+  {
+    "label": "BaSO4",
+    "name": "barium sulfate",
+    "alternatives": ["barium sulphate", "barite", "baryte"]
+  },
+  {
+    "label": "Be++",
+    "name": "beryllium ion",
+    "alternatives": ["beryllium(II) ion", "beryllium cation", "Be2+"]
+  },
+  {
+    "label": "BeF4--",
+    "name": "tetrafluoroberyllate ion",
+    "alternatives": [
+      "tetrafluoridoberyllate(II) ion",
+      "tetrafluoroberyllate(II) ion"
+    ]
+  },
+  {
+    "label": "Bi+++",
+    "name": "bismuth(III) ion",
+    "alternatives": ["bismuth ion", "bismuthous ion", "Bi3+"]
+  },
+  {
+    "label": "Bi2S3",
+    "name": "bismuth(III) sulfide",
+    "alternatives": ["bismuth sulfide", "bismuth sulphide", "bismuthinite"]
+  },
+  {
+    "label": "Br-",
+    "name": "bromide ion",
+    "alternatives": ["bromide", "bromide anion"]
+  },
+  {
+    "label": "BrO-",
+    "name": "hypobromite ion",
+    "alternatives": ["bromate(I) ion", "hypobromite"]
+  },
+  {
+    "label": "BrO3-",
+    "name": "bromate ion",
+    "alternatives": ["bromate(V) ion", "bromate"]
+  },
+  {
+    "label": "C2H5COO-",
+    "name": "propanoate ion",
+    "alternatives": ["propionate ion", "propanoate", "propionate"]
+  },
+  {
+    "label": "C2H5COOH",
+    "name": "propanoic acid",
+    "alternatives": ["propionic acid"]
+  },
+  {
+    "label": "C2H5NH2",
+    "name": "ethylamine",
+    "alternatives": ["ethanamine", "aminoethane", "monoethylamine"]
+  },
+  {
+    "label": "C2H5NH3+",
+    "name": "ethylammonium ion",
+    "alternatives": [
+      "protonated ethylamine",
+      "ethylazanium ion",
+      "ethanaminium ion"
+    ]
+  },
+  {
+    "label": "C2O4--",
+    "name": "oxalate ion",
+    "alternatives": ["ethanedioate ion", "oxalate", "oxalate dianion"]
+  },
+  {
+    "label": "C5H5N",
+    "name": "pyridine",
+    "alternatives": ["azine", "azabenzene"]
+  },
+  {
+    "label": "C5H5NH+",
+    "name": "pyridinium ion",
+    "alternatives": ["protonated pyridine", "pyridinium cation"]
+  },
+  {
+    "label": "C6H5COO-",
+    "name": "benzoate ion",
+    "alternatives": ["benzoate", "benzenecarboxylate ion"]
+  },
+  {
+    "label": "C6H5COOH",
+    "name": "benzoic acid",
+    "alternatives": ["benzenecarboxylic acid", "phenylmethanoic acid"]
+  },
+  {
+    "label": "C6H5NH2",
+    "name": "aniline",
+    "alternatives": ["phenylamine", "aminobenzene", "benzenamine"]
+  },
+  {
+    "label": "C6H5NH3+",
+    "name": "anilinium ion",
+    "alternatives": [
+      "phenylammonium ion",
+      "protonated aniline",
+      "benzenaminium ion"
+    ]
+  },
+  {
+    "label": "Ca(OH)2",
+    "name": "calcium hydroxide",
+    "alternatives": ["slaked lime", "portlandite", "calcium dihydroxide"]
+  },
+  {
+    "label": "Ca++",
+    "name": "calcium ion",
+    "alternatives": ["calcium(II) ion", "calcium cation", "Ca2+"]
+  },
+  {
+    "label": "Ca3(PO4)2",
+    "name": "calcium phosphate",
+    "alternatives": [
+      "tricalcium phosphate",
+      "calcium orthophosphate",
+      "calcium bis(phosphate)"
+    ]
+  },
+  {
+    "label": "CaCO3",
+    "name": "calcium carbonate",
+    "alternatives": ["calcite", "aragonite", "limestone", "chalk"]
+  },
+  {
+    "label": "CaF2",
+    "name": "calcium fluoride",
+    "alternatives": ["fluorite", "fluorspar"]
+  },
+  {
+    "label": "CaSO4",
+    "name": "calcium sulfate",
+    "alternatives": ["calcium sulphate", "anhydrite"]
+  },
+  {
+    "label": "Cd(CN)4--",
+    "name": "tetracyanocadmate(II) ion",
+    "alternatives": [
+      "tetracyanidocadmate(II) ion",
+      "cadmium tetracyanide complex"
+    ]
+  },
+  {
+    "label": "Cd(NH3)4++",
+    "name": "tetraamminecadmium(II) ion",
+    "alternatives": [
+      "tetraamminecadmium(2+) ion",
+      "cadmium tetraammine complex"
+    ]
+  },
+  {
+    "label": "Cd(NH3)6++",
+    "name": "hexaamminecadmium(II) ion",
+    "alternatives": ["hexaamminecadmium(2+) ion", "cadmium hexaammine complex"]
+  },
+  {
+    "label": "Cd(SCN)4--",
+    "name": "tetrathiocyanatocadmate(II) ion",
+    "alternatives": [
+      "tetrakis(thiocyanato)cadmate(II) ion",
+      "cadmium tetrathiocyanate complex"
+    ]
+  },
+  {
+    "label": "Cd++",
+    "name": "cadmium(II) ion",
+    "alternatives": ["cadmium ion", "cadmium cation", "Cd2+"]
+  },
+  {
+    "label": "CdS",
+    "name": "cadmium sulfide",
+    "alternatives": [
+      "cadmium(II) sulfide",
+      "cadmium sulphide",
+      "greenockite",
+      "cadmium yellow"
+    ]
+  },
+  {
+    "label": "CH2ClCO2-",
+    "name": "chloroacetate ion",
+    "alternatives": [
+      "chloroethanoate ion",
+      "monochloroacetate ion",
+      "chloroacetate"
+    ]
+  },
+  {
+    "label": "CH2ClCO2H",
+    "name": "chloroacetic acid",
+    "alternatives": [
+      "chloroethanoic acid",
+      "monochloroacetic acid",
+      "2-chloroacetic acid"
+    ]
+  },
+  {
+    "label": "CH3CO2H",
+    "name": "acetic acid",
+    "alternatives": ["ethanoic acid", "CH3COOH"]
+  },
+  {
+    "label": "CH3COO-",
+    "name": "acetate ion",
+    "alternatives": ["ethanoate ion", "acetate", "CH3CO2-"]
+  },
+  {
+    "label": "CH3NH2",
+    "name": "methylamine",
+    "alternatives": ["methanamine", "aminomethane", "monomethylamine"]
+  },
+  {
+    "label": "CH3NH3+",
+    "name": "methylammonium ion",
+    "alternatives": [
+      "protonated methylamine",
+      "methylazanium ion",
+      "methanaminium ion"
+    ]
+  },
+  {
+    "label": "Cl-",
+    "name": "chloride ion",
+    "alternatives": ["chloride", "chloride anion"]
+  },
+  {
+    "label": "ClO-",
+    "name": "hypochlorite ion",
+    "alternatives": ["chlorate(I) ion", "hypochlorite", "bleach anion"]
+  },
+  {
+    "label": "ClO2-",
+    "name": "chlorite ion",
+    "alternatives": ["chlorate(III) ion", "chlorite"]
+  },
+  {
+    "label": "ClO4-",
+    "name": "perchlorate ion",
+    "alternatives": [
+      "chlorate(VII) ion",
+      "perchlorate",
+      "tetraoxidochlorate(1-) ion"
+    ]
+  },
+  {
+    "label": "CN-",
+    "name": "cyanide ion",
+    "alternatives": ["cyanide", "cyanide anion", "nitridocarbonate(1-) ion"]
+  },
+  {
+    "label": "Co(C2O4)3----",
+    "name": "tris(oxalato)cobaltate(II) ion",
+    "alternatives": [
+      "trioxalatocobaltate(II) ion",
+      "cobalt(II) trisoxalate complex",
+      "tris(oxalato)cobaltate(4-) ion"
+    ]
+  },
+  {
+    "label": "Co(en)3++",
+    "name": "tris(ethylenediamine)cobalt(II) ion",
+    "alternatives": [
+      "tris(ethane-1,2-diamine)cobalt(II) ion",
+      "cobalt(II) tris-en complex"
+    ]
+  },
+  {
+    "label": "Co(en)3+++",
+    "name": "tris(ethylenediamine)cobalt(III) ion",
+    "alternatives": [
+      "tris(ethane-1,2-diamine)cobalt(III) ion",
+      "cobalt(III) tris-en complex"
+    ]
+  },
+  {
+    "label": "Co(NH3)4+++",
+    "name": "tetraamminecobalt(III) ion",
+    "alternatives": [
+      "cobalt(III) tetraammine complex",
+      "tetraamminecobalt(3+) ion"
+    ]
+  },
+  {
+    "label": "Co(NH3)6++",
+    "name": "hexaamminecobalt(II) ion",
+    "alternatives": [
+      "cobalt(II) hexaammine complex",
+      "hexaamminecobalt(2+) ion"
+    ]
+  },
+  {
+    "label": "Co++",
+    "name": "cobalt(II) ion",
+    "alternatives": ["cobaltous ion", "cobalt ion", "Co2+"]
+  },
+  {
+    "label": "Co+++",
+    "name": "cobalt(III) ion",
+    "alternatives": ["cobaltic ion", "Co3+"]
+  },
+  {
+    "label": "CO3--",
+    "name": "carbonate ion",
+    "alternatives": [
+      "carbonate",
+      "carbonate dianion",
+      "trioxidocarbonate(2-) ion"
+    ]
+  },
+  {
+    "label": "CrO4--",
+    "name": "chromate ion",
+    "alternatives": [
+      "chromate(VI) ion",
+      "chromate",
+      "tetraoxidochromate(2-) ion"
+    ]
+  },
+  {
+    "label": "Cu(CN)2-",
+    "name": "dicyanocuprate(I) ion",
+    "alternatives": ["dicyanidocuprate(I) ion", "copper(I) dicyanide complex"]
+  },
+  {
+    "label": "Cu(en)2++",
+    "name": "bis(ethylenediamine)copper(II) ion",
+    "alternatives": [
+      "bis(ethane-1,2-diamine)copper(II) ion",
+      "copper(II) bis-en complex"
+    ]
+  },
+  {
+    "label": "Cu(NH3)4++",
+    "name": "tetraamminecopper(II) ion",
+    "alternatives": [
+      "copper(II) tetraammine complex",
+      "tetraamminecopper(2+) ion",
+      "Schweizer's reagent ion"
+    ]
+  },
+  {
+    "label": "Cu(OH)2",
+    "name": "copper(II) hydroxide",
+    "alternatives": ["cupric hydroxide", "copper hydroxide"]
+  },
+  {
+    "label": "Cu(OH)4--",
+    "name": "tetrahydroxocuprate(II) ion",
+    "alternatives": ["tetrahydroxidocuprate(II) ion", "cuprate(II) ion"]
+  },
+  {
+    "label": "Cu(SCN)2",
+    "name": "bis(thiocyanato)copper(II)",
+    "alternatives": ["copper(II) thiocyanate", "cupric thiocyanate"]
+  },
+  {
+    "label": "Cu+",
+    "name": "copper(I) ion",
+    "alternatives": ["cuprous ion", "copper(I) cation"]
+  },
+  {
+    "label": "Cu++",
+    "name": "copper(II) ion",
+    "alternatives": ["cupric ion", "copper ion", "Cu2+"]
+  },
+  {
+    "label": "CuBr2-",
+    "name": "dibromocuprate(I) ion",
+    "alternatives": ["dibromidocuprate(I) ion", "copper(I) dibromide complex"]
+  },
+  {
+    "label": "CuCl",
+    "name": "copper(I) chloride",
+    "alternatives": ["cuprous chloride", "nantokite"]
+  },
+  {
+    "label": "CuCl2-",
+    "name": "dichlorocuprate(I) ion",
+    "alternatives": ["dichloridocuprate(I) ion", "copper(I) dichloride complex"]
+  },
+  {
+    "label": "CuI2-",
+    "name": "diiodocuprate(I) ion",
+    "alternatives": ["diiodidocuprate(I) ion", "copper(I) diiodide complex"]
+  },
+  {
+    "label": "CuS",
+    "name": "copper(II) sulfide",
+    "alternatives": ["cupric sulfide", "copper sulphide", "covellite"]
+  },
+  {
+    "label": "en",
+    "name": "ethylenediamine",
+    "alternatives": [
+      "ethane-1,2-diamine",
+      "1,2-diaminoethane",
+      "H2NCH2CH2NH2",
+      "en ligand"
+    ]
+  },
+  {
+    "label": "F-",
+    "name": "fluoride ion",
+    "alternatives": ["fluoride", "fluoride anion"]
+  },
+  {
+    "label": "Fe(C2O4)3---",
+    "name": "tris(oxalato)ferrate(III) ion",
+    "alternatives": [
+      "trioxalatoferrate(III) ion",
+      "ferrioxalate ion",
+      "tris(oxalato)ferrate(3-)",
+      "iron(III) oxalate complex"
+    ]
+  },
+  {
+    "label": "Fe(CN)6---",
+    "name": "hexacyanoferrate(III) ion",
+    "alternatives": [
+      "ferricyanide ion",
+      "hexacyanidoferrate(III) ion",
+      "red prussiate ion"
+    ]
+  },
+  {
+    "label": "Fe(CN)6----",
+    "name": "hexacyanoferrate(II) ion",
+    "alternatives": [
+      "ferrocyanide ion",
+      "hexacyanidoferrate(II) ion",
+      "yellow prussiate ion"
+    ]
+  },
+  {
+    "label": "Fe(en)3++",
+    "name": "tris(ethylenediamine)iron(II) ion",
+    "alternatives": [
+      "tris(ethane-1,2-diamine)iron(II) ion",
+      "tris(en)iron(II) ion",
+      "[Fe(en)3]2+"
+    ]
+  },
+  {
+    "label": "Fe(H2O)5OH++",
+    "name": "pentaaquahydroxoiron(III) ion",
+    "alternatives": [
+      "hydroxopentaaquairon(III) ion",
+      "pentaaquahydroxidoiron(2+)",
+      "[Fe(H2O)5(OH)]2+",
+      "monohydroxo iron(III) complex"
+    ]
+  },
+  {
+    "label": "Fe(H2O)6+++",
+    "name": "hexaaquairon(III) ion",
+    "alternatives": [
+      "hexaaquairon(3+)",
+      "hexaaquairon(III) cation",
+      "[Fe(H2O)6]3+",
+      "hydrated ferric ion"
+    ]
+  },
+  {
+    "label": "Fe(OH)2",
+    "name": "iron(II) hydroxide",
+    "alternatives": ["ferrous hydroxide"]
+  },
+  {
+    "label": "Fe(OH)3",
+    "name": "iron(III) hydroxide",
+    "alternatives": ["ferric hydroxide", "hydrated iron(III) oxide"]
+  },
+  {
+    "label": "Fe(SCN)3",
+    "name": "tris(thiocyanato)iron(III)",
+    "alternatives": [
+      "ferric thiocyanate",
+      "blood-red iron thiocyanate complex",
+      "iron(III) thiocyanate"
+    ]
+  },
+  {
+    "label": "Fe++",
+    "name": "iron(II) ion",
+    "alternatives": ["ferrous ion", "Fe2+", "iron(2+)"]
+  },
+  {
+    "label": "Fe+++",
+    "name": "iron(III) ion",
+    "alternatives": ["ferric ion", "Fe3+", "iron(3+)"]
+  },
+  {
+    "label": "FeS",
+    "name": "iron(II) sulfide",
+    "alternatives": ["ferrous sulfide", "iron sulfide", "troilite"]
+  },
+  {
+    "label": "H+",
+    "name": "hydrogen ion",
+    "alternatives": ["proton", "hydron", "hydronium ion", "H3O+", "oxonium ion"]
+  },
+  {
+    "label": "H2CO3",
+    "name": "carbonic acid",
+    "alternatives": [
+      "dihydrogen carbonate",
+      "aqueous carbon dioxide",
+      "CO2(aq)"
+    ]
+  },
+  {
+    "label": "H2O",
+    "name": "water",
+    "alternatives": ["oxidane", "dihydrogen monoxide"]
+  },
+  {
+    "label": "H2PO3-",
+    "name": "dihydrogen phosphite ion",
+    "alternatives": ["dihydrogenphosphite ion", "hydrogen phosphonate ion"]
+  },
+  {
+    "label": "H2PO4-",
+    "name": "dihydrogen phosphate ion",
+    "alternatives": [
+      "dihydrogenphosphate ion",
+      "biphosphate ion",
+      "dihydrogenorthophosphate ion"
+    ]
+  },
+  {
+    "label": "H2S",
+    "name": "hydrogen sulfide",
+    "alternatives": [
+      "hydrosulfuric acid",
+      "sulfane",
+      "dihydrogen sulfide",
+      "sulfhydric acid"
+    ]
+  },
+  {
+    "label": "H2SO3",
+    "name": "sulfurous acid",
+    "alternatives": ["dihydrogen sulfite", "aqueous sulfur dioxide", "SO2(aq)"]
+  },
+  {
+    "label": "H2SO4",
+    "name": "sulfuric acid",
+    "alternatives": ["dihydrogen sulfate", "oil of vitriol"]
+  },
+  {
+    "label": "H3PO3",
+    "name": "phosphorous acid",
+    "alternatives": [
+      "phosphonic acid",
+      "orthophosphorous acid",
+      "dihydroxyphosphine oxide"
+    ]
+  },
+  {
+    "label": "H3PO4",
+    "name": "phosphoric acid",
+    "alternatives": ["orthophosphoric acid", "trihydrogen phosphate"]
+  },
+  {
+    "label": "HBr",
+    "name": "hydrobromic acid",
+    "alternatives": ["hydrogen bromide"]
+  },
+  {
+    "label": "HBrO",
+    "name": "hypobromous acid",
+    "alternatives": ["bromic(I) acid", "bromanol", "hydrogen hypobromite"]
+  },
+  {
+    "label": "HCl",
+    "name": "hydrochloric acid",
+    "alternatives": ["hydrogen chloride", "muriatic acid"]
+  },
+  {
+    "label": "HClO",
+    "name": "hypochlorous acid",
+    "alternatives": ["chloric(I) acid", "chloranol", "hydrogen hypochlorite"]
+  },
+  {
+    "label": "HClO2",
+    "name": "chlorous acid",
+    "alternatives": ["chloric(III) acid", "hydrogen chlorite"]
+  },
+  {
+    "label": "HClO4",
+    "name": "perchloric acid",
+    "alternatives": ["chloric(VII) acid", "hydrogen perchlorate"]
+  },
+  {
+    "label": "HCN",
+    "name": "hydrogen cyanide",
+    "alternatives": ["hydrocyanic acid", "prussic acid", "formonitrile"]
+  },
+  {
+    "label": "HCO2-",
+    "name": "formate ion",
+    "alternatives": ["methanoate ion", "HCOO-", "formate anion"]
+  },
+  {
+    "label": "HCO2H",
+    "name": "formic acid",
+    "alternatives": ["methanoic acid", "HCOOH"]
+  },
+  {
+    "label": "HCO3-",
+    "name": "hydrogen carbonate ion",
+    "alternatives": ["bicarbonate ion", "hydrogencarbonate ion"]
+  },
+  {
+    "label": "HF",
+    "name": "hydrofluoric acid",
+    "alternatives": ["hydrogen fluoride", "fluorane"]
+  },
+  {
+    "label": "Hg(NH3)4++",
+    "name": "tetraamminemercury(II) ion",
+    "alternatives": ["[Hg(NH3)4]2+", "mercury(II) ammine complex"]
+  },
+  {
+    "label": "Hg(SCN)4--",
+    "name": "tetrathiocyanatomercurate(II) ion",
+    "alternatives": [
+      "tetrakis(thiocyanato)mercurate(II) ion",
+      "tetrathiocyanidomercurate(II) ion",
+      "mercury(II) tetrathiocyanate complex"
+    ]
+  },
+  {
+    "label": "Hg+",
+    "name": "mercury(I) ion",
+    "alternatives": ["mercurous ion", "Hg2 2+", "dimercury(2+) ion"]
+  },
+  {
+    "label": "Hg++",
+    "name": "mercury(II) ion",
+    "alternatives": ["mercuric ion", "Hg2+", "mercury(2+)"]
+  },
+  {
+    "label": "Hg2Cl2",
+    "name": "mercury(I) chloride",
+    "alternatives": ["calomel", "mercurous chloride", "dimercury dichloride"]
+  },
+  {
+    "label": "HgBr4--",
+    "name": "tetrabromomercurate(II) ion",
+    "alternatives": [
+      "tetrabromidomercurate(II) ion",
+      "[HgBr4]2-",
+      "mercury(II) tetrabromide complex"
+    ]
+  },
+  {
+    "label": "HgCl4--",
+    "name": "tetrachloromercurate(II) ion",
+    "alternatives": [
+      "tetrachloridomercurate(II) ion",
+      "[HgCl4]2-",
+      "mercury(II) tetrachloride complex"
+    ]
+  },
+  {
+    "label": "HgI4--",
+    "name": "tetraiodomercurate(II) ion",
+    "alternatives": [
+      "tetraiodidomercurate(II) ion",
+      "[HgI4]2-",
+      "Nessler's reagent anion"
+    ]
+  },
+  {
+    "label": "HI",
+    "name": "hydroiodic acid",
+    "alternatives": ["hydrogen iodide", "hydriodic acid"]
+  },
+  {
+    "label": "HIO3",
+    "name": "iodic acid",
+    "alternatives": ["iodic(V) acid", "hydrogen iodate"]
+  },
+  {
+    "label": "HNO2",
+    "name": "nitrous acid",
+    "alternatives": [
+      "nitric(III) acid",
+      "hydrogen nitrite",
+      "dioxonitric(III) acid"
+    ]
+  },
+  {
+    "label": "HNO3",
+    "name": "nitric acid",
+    "alternatives": ["nitric(V) acid", "hydrogen nitrate", "aqua fortis"]
+  },
+  {
+    "label": "HOCN",
+    "name": "cyanic acid",
+    "alternatives": ["hydrogen cyanate", "isocyanic acid", "HNCO"]
+  },
+  {
+    "label": "HPO3--",
+    "name": "hydrogen phosphite ion",
+    "alternatives": ["hydrogenphosphite ion", "phosphonate ion", "HPO3 2-"]
+  },
+  {
+    "label": "HPO4--",
+    "name": "hydrogen phosphate ion",
+    "alternatives": [
+      "monohydrogen phosphate ion",
+      "hydrogenphosphate ion",
+      "HPO4 2-"
+    ]
+  },
+  {
+    "label": "HS-",
+    "name": "hydrogen sulfide ion",
+    "alternatives": ["bisulfide ion", "hydrosulfide ion", "sulfanide"]
+  },
+  {
+    "label": "HSO3-",
+    "name": "hydrogen sulfite ion",
+    "alternatives": ["bisulfite ion", "hydrogensulfite ion"]
+  },
+  {
+    "label": "HSO4-",
+    "name": "hydrogen sulfate ion",
+    "alternatives": ["bisulfate ion", "hydrogensulfate ion"]
+  },
+  {
+    "label": "I-",
+    "name": "iodide ion",
+    "alternatives": ["iodide"]
+  },
+  {
+    "label": "I--",
+    "name": "iodide ion",
+    "alternatives": ["iodide", "I-", "iodide(1-)"]
+  },
+  {
+    "label": "IO3-",
+    "name": "iodate ion",
+    "alternatives": ["iodate(V) ion", "trioxidoiodate(1-)"]
+  },
+  {
+    "label": "Li+",
+    "name": "lithium ion",
+    "alternatives": ["lithium(I) ion", "lithium cation"]
+  },
+  {
+    "label": "Li2CO3",
+    "name": "lithium carbonate",
+    "alternatives": ["dilithium carbonate"]
+  },
+  {
+    "label": "Mg(OH)2",
+    "name": "magnesium hydroxide",
+    "alternatives": ["brucite", "milk of magnesia", "magnesium dihydroxide"]
+  },
+  {
+    "label": "Mg++",
+    "name": "magnesium ion",
+    "alternatives": ["magnesium(II) ion", "Mg2+", "magnesium cation"]
+  },
+  {
+    "label": "MgCO3",
+    "name": "magnesium carbonate",
+    "alternatives": ["magnesite"]
+  },
+  {
+    "label": "Mn--",
+    "name": "manganese(II) ion",
+    "alternatives": ["manganous ion", "Mn2+", "Mn++"]
+  },
+  {
+    "label": "Mn(en)3++",
+    "name": "tris(ethylenediamine)manganese(II) ion",
+    "alternatives": ["tris(ethane-1,2-diamine)manganese(II) ion", "[Mn(en)3]2+"]
+  },
+  {
+    "label": "Mn(OH)2",
+    "name": "manganese(II) hydroxide",
+    "alternatives": ["manganous hydroxide", "pyrochroite"]
+  },
+  {
+    "label": "Mn++",
+    "name": "manganese(II) ion",
+    "alternatives": ["manganous ion", "Mn2+", "manganese(2+)"]
+  },
+  {
+    "label": "NH2-",
+    "name": "amide ion",
+    "alternatives": ["azanide", "amide anion"]
+  },
+  {
+    "label": "NH3",
+    "name": "ammonia",
+    "alternatives": ["azane", "aqueous ammonia", "ammonia solution"]
+  },
+  {
+    "label": "NH4+",
+    "name": "ammonium ion",
+    "alternatives": ["azanium", "ammonium cation"]
+  },
+  {
+    "label": "Ni(CN)4--",
+    "name": "tetracyanonickelate(II) ion",
+    "alternatives": [
+      "tetracyanidonickelate(II) ion",
+      "[Ni(CN)4]2-",
+      "nickel(II) tetracyanide complex"
+    ]
+  },
+  {
+    "label": "Ni(en)3++",
+    "name": "tris(ethylenediamine)nickel(II) ion",
+    "alternatives": ["tris(ethane-1,2-diamine)nickel(II) ion", "[Ni(en)3]2+"]
+  },
+  {
+    "label": "Ni(NH3)6++",
+    "name": "hexaamminenickel(II) ion",
+    "alternatives": [
+      "hexaamminenickel(2+)",
+      "[Ni(NH3)6]2+",
+      "nickel(II) hexaammine complex"
+    ]
+  },
+  {
+    "label": "Ni++",
+    "name": "nickel(II) ion",
+    "alternatives": ["nickelous ion", "Ni2+", "nickel(2+)"]
+  },
+  {
+    "label": "NO2-",
+    "name": "nitrite ion",
+    "alternatives": ["nitrate(III) ion", "dioxidonitrate(1-)"]
+  },
+  {
+    "label": "NO3-",
+    "name": "nitrate ion",
+    "alternatives": ["nitrate(V) ion", "trioxidonitrate(1-)"]
+  },
+  {
+    "label": "OCN-",
+    "name": "cyanate ion",
+    "alternatives": ["isocyanate ion", "NCO-", "oxidonitridocarbonate(1-)"]
+  },
+  {
+    "label": "OH-",
+    "name": "hydroxide ion",
+    "alternatives": ["hydroxyl ion", "hydroxide anion"]
+  },
+  {
+    "label": "Pb(OH)2",
+    "name": "lead(II) hydroxide",
+    "alternatives": ["plumbous hydroxide", "lead dihydroxide"]
+  },
+  {
+    "label": "Pb++",
+    "name": "lead(II) ion",
+    "alternatives": ["plumbous ion", "Pb2+", "lead(2+)"]
+  },
+  {
+    "label": "PbCl2",
+    "name": "lead(II) chloride",
+    "alternatives": ["plumbous chloride", "cotunnite"]
+  },
+  {
+    "label": "PbCl4--",
+    "name": "tetrachloroplumbate(II) ion",
+    "alternatives": [
+      "tetrachloridoplumbate(II) ion",
+      "[PbCl4]2-",
+      "lead(II) tetrachloride complex"
+    ]
+  },
+  {
+    "label": "PbCrO4",
+    "name": "lead(II) chromate",
+    "alternatives": ["chrome yellow", "crocoite", "plumbous chromate"]
+  },
+  {
+    "label": "PbI2",
+    "name": "lead(II) iodide",
+    "alternatives": ["plumbous iodide", "lead diiodide"]
+  },
+  {
+    "label": "PbI4--",
+    "name": "tetraiodoplumbate(II) ion",
+    "alternatives": [
+      "tetraiodidoplumbate(II) ion",
+      "[PbI4]2-",
+      "lead(II) tetraiodide complex"
+    ]
+  },
+  {
+    "label": "PbS",
+    "name": "lead(II) sulfide",
+    "alternatives": ["galena", "plumbous sulfide"]
+  },
+  {
+    "label": "PbSO4",
+    "name": "lead(II) sulfate",
+    "alternatives": ["anglesite", "plumbous sulfate"]
+  },
+  {
+    "label": "PO4---",
+    "name": "phosphate ion",
+    "alternatives": ["orthophosphate ion", "tetraoxidophosphate(3-)", "PO4 3-"]
+  },
+  {
+    "label": "S--",
+    "name": "sulfide ion",
+    "alternatives": ["sulfide anion", "S2-", "sulfide(2-)"]
+  },
+  {
+    "label": "S2O3--",
+    "name": "thiosulfate ion",
+    "alternatives": ["thiosulphate ion", "trioxidosulfidosulfate(2-)"]
+  },
+  {
+    "label": "SCN-",
+    "name": "thiocyanate ion",
+    "alternatives": [
+      "rhodanide ion",
+      "isothiocyanate ion",
+      "nitridosulfidocarbonate(1-)"
+    ]
+  },
+  {
+    "label": "Sn++++",
+    "name": "tin(IV) ion",
+    "alternatives": ["stannic ion", "Sn4+", "tin(4+)"]
+  },
+  {
+    "label": "SnF6--",
+    "name": "hexafluorostannate(IV) ion",
+    "alternatives": [
+      "hexafluoridostannate(IV) ion",
+      "[SnF6]2-",
+      "fluostannate ion"
+    ]
+  },
+  {
+    "label": "SO3--",
+    "name": "sulfite ion",
+    "alternatives": ["sulphite ion", "trioxidosulfate(2-)"]
+  },
+  {
+    "label": "SO4--",
+    "name": "sulfate ion",
+    "alternatives": ["sulphate ion", "tetraoxidosulfate(2-)"]
+  },
+  {
+    "label": "Zn(NH3)4++",
+    "name": "tetraamminezinc(II) ion",
+    "alternatives": [
+      "tetraamminezinc(2+)",
+      "[Zn(NH3)4]2+",
+      "zinc(II) tetraammine complex"
+    ]
+  },
+  {
+    "label": "Zn(OH)2",
+    "name": "zinc hydroxide",
+    "alternatives": ["zinc(II) hydroxide", "zinc dihydroxide"]
+  },
+  {
+    "label": "Zn(OH)4--",
+    "name": "tetrahydroxozincate(II) ion",
+    "alternatives": [
+      "zincate ion",
+      "tetrahydroxidozincate(II) ion",
+      "[Zn(OH)4]2-",
+      "tetrahydroxozincate ion"
+    ]
+  },
+  {
+    "label": "Zn++",
+    "name": "zinc ion",
+    "alternatives": ["zinc(II) ion", "Zn2+", "zinc(2+)"]
+  },
+  {
+    "label": "ZnS",
+    "name": "zinc sulfide",
+    "alternatives": ["zinc(II) sulfide", "sphalerite", "wurtzite", "blende"]
+  }
+]

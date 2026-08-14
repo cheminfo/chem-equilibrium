@@ -1,4 +1,9 @@
 CHANGELOG.md
 coverage
 dist
-docs
+lib
+node_modules
+package-lock.json
+playwright-report
+reference
+test-results

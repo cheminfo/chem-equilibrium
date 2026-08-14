@@ -1,13 +1,31 @@
 name: Deploy on lactame.com
 
+# Custom workflow (does not use zakodium/workflows#lactame-deploy) because that
+# reusable workflow reads the package name from the repository root, which here
+# is the private workspace root. The six cheminfo visualizer views this site
+# replaces load the bundle from lactame.com/lib/chem-equilibrium/<version>/, so
+# the deployed name must stay `chem-equilibrium`.
+
 on:
   workflow_dispatch:
-  release:
-    types: [published]
+  push:
+    tags:
+      - 'chem-equilibrium-v*'
 
 jobs:
   deploy:
-    # Documentation: https://github.com/zakodium/workflows#lactame-deploy
-    uses: zakodium/workflows/.github/workflows/lactame-deploy.yml@lactame-deploy-v1
-    secrets:
-      lactame-token: ${{ secrets.LACTAME_TOKEN }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build-bundle
+      - uses: zakodium/lactame-action@v1
+        with:
+          token: ${{ secrets.LACTAME_TOKEN }}
+          name: chem-equilibrium
+          folder: packages/chem-equilibrium/dist

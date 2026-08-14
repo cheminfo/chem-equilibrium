@@ -1,0 +1,3409 @@
+{
+  "tool": "precipitation",
+  "sourceFile": "/private/tmp/claude-501/-Users-lpatiny-git-cheminfo-chem-equilibrium/fb7a3dc1-2711-4cea-942e-1d196da056c2/scratchpad/view-precipitation.json",
+  "visualizerVersion": "2.147.1",
+  "viewTitle": "Precipitation & équilibres divers",
+  "viewTitleEnglish": "Precipitation & miscellaneous equilibria",
+  "libraryAliases": [
+    {
+      "path": "https://www.lactame.com/lib/chem-equilibrium/2.2.0/chem-equilibrium.min",
+      "alias": "ChemEquilibrium"
+    },
+    {
+      "path": "https://www.lactame.com/github/cheminfo-js/visualizer-helper/7a38b815f448af67335e0e85465083b32bef694f/ChemEquilibrium/chart",
+      "alias": "Chart"
+    }
+  ],
+  "grid": {
+    "layers": {
+      "Admin": {
+        "name": "Admin"
+      },
+      "Default layer": {
+        "name": "Default layer"
+      },
+      "Twig": {
+        "name": "Twig"
+      }
+    },
+    "xWidth": 10,
+    "yHeight": 10
+  },
+  "moduleCount": 12,
+  "modules": [
+    {
+      "id": 1,
+      "moduleUrl": "modules/types/client_interaction/code_executor/",
+      "moduleType": "code_executor",
+      "title": "Create the equation table and the onde schema",
+      "visibleInDefaultLayer": false,
+      "defaultLayerPosition": {
+        "left": 0,
+        "top": 52
+      },
+      "defaultLayerSize": {
+        "width": 66,
+        "height": 68
+      },
+      "vars_in": [
+        {
+          "rel": "inputValue",
+          "name": "specieSelection"
+        }
+      ],
+      "vars_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "actions_in": [
+        {
+          "rel": "execute",
+          "name": "equationToggled"
+        }
+      ],
+      "actions_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "toolbar": {
+        "custom": [
+          [
+            {
+              "title": "",
+              "icon": "",
+              "action": "",
+              "position": "begin"
+            }
+          ]
+        ],
+        "common": [
+          {
+            "toolbar": [
+              [
+                "Open Preferences"
+              ]
+            ]
+          }
+        ]
+      },
+      "configuration": {
+        "sections": {},
+        "groups": {
+          "group": [
+            {
+              "display": [
+                [
+                  "editor",
+                  "buttons"
+                ]
+              ],
+              "execOnLoad": [
+                [
+                  "yes"
+                ]
+              ],
+              "script": [
+                "var localName = API.cache('localName');\nvar species = get('specieSelection') || [];\nvar helper = API.cache('helper');\nif(!helper) {\n    helper = new ChemEquilibrium.Helper();\n    API.cache('helper', helper);\n}\n\nlocalStorage.setItem(localName, JSON.stringify(species));\nhelper.resetSpecies();\nfor(var i=0; i<species.length; i++) {\n    var specie = species[i];\n    console.log(specie)\n    helper.addSpecie(String(specie.label), Number(specie.qty));\n}\n\n(API.getData('equations') || []).forEach(e => {\n    if(DataObject.resurrect(e.disabled)) {\n        console.log('disable equation', e.chemEq.formed);\n        helper.disableEquation(String(e.chemEq.formed));\n    } else {\n        helper.enableEquation(String(e.chemEq.formed));\n    }\n});\n\nvar chemEq = helper.getEquations({filtered: true, includeDisabled: true});\nconsole.log(chemEq)\nvar normalizedEq = helper.getEquations({filtered: true, normalized: true, includeDisabled: true});\nvar equations = chemEq.map((eq, idx) => {\n    return {\n        chemEq: eq,\n        normalizedEq: normalizedEq[idx],\n        disabled: eq.disabled ? true : false\n    }\n});\nAPI.createData('equations', equations);\n\nAPI.doAction('trigger')"
+              ],
+              "asyncAwait": [
+                []
+              ]
+            }
+          ],
+          "libs": [
+            [
+              {
+                "lib": "ChemEquilibrium",
+                "alias": "ChemEquilibrium"
+              }
+            ]
+          ],
+          "buttons": [
+            [
+              {
+                "name": "button1",
+                "label": "Execute"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": 2,
+      "moduleUrl": "modules/types/client_interaction/code_executor/",
+      "moduleType": "code_executor",
+      "title": "Init - create species",
+      "visibleInDefaultLayer": false,
+      "defaultLayerPosition": {
+        "left": 67,
+        "top": 52
+      },
+      "defaultLayerSize": {
+        "width": 54,
+        "height": 39
+      },
+      "vars_in": [
+        {}
+      ],
+      "vars_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "actions_in": [
+        {}
+      ],
+      "actions_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "toolbar": {
+        "custom": [
+          [
+            {
+              "title": "",
+              "icon": "",
+              "action": "",
+              "position": "begin"
+            }
+          ]
+        ],
+        "common": [
+          {
+            "toolbar": [
+              [
+                "Open Preferences"
+              ]
+            ]
+          }
+        ]
+      },
+      "configuration": {
+        "sections": {},
+        "groups": {
+          "group": [
+            {
+              "display": [
+                [
+                  "editor",
+                  "buttons"
+                ]
+              ],
+              "execOnLoad": [
+                [
+                  "yes"
+                ]
+              ],
+              "script": [
+                "var helper = new ChemEquilibrium.Helper();\n//{type: 'precipitation'}\nvar species = helper.getSpecies()\n    .map(function(label) {\n        return {\n            label: label,\n            qty: 1\n        }\n    });\n\nAPI.createData('allSpecies', species);"
+              ],
+              "asyncAwait": [
+                []
+              ]
+            }
+          ],
+          "libs": [
+            [
+              {
+                "lib": "ChemEquilibrium",
+                "alias": "ChemEquilibrium"
+              }
+            ]
+          ],
+          "buttons": [
+            [
+              {
+                "name": "button1",
+                "label": "Execute"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": 3,
+      "moduleUrl": "modules/types/edition/slick_grid/",
+      "moduleType": "slick_grid",
+      "title": "",
+      "visibleInDefaultLayer": true,
+      "defaultLayerPosition": {
+        "left": 0,
+        "top": 0
+      },
+      "defaultLayerSize": {
+        "width": 20,
+        "height": 44
+      },
+      "vars_in": [
+        {
+          "rel": "list",
+          "name": "allSpecies"
+        },
+        {
+          "rel": "script",
+          "name": "slickScript"
+        }
+      ],
+      "vars_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "actions_in": [
+        {
+          "rel": "selectRows",
+          "name": "rowSelection"
+        },
+        {
+          "rel": "selectRows",
+          "name": "selectSpecies"
+        }
+      ],
+      "actions_out": [
+        {
+          "event": "_onVarUpdated",
+          "rel": "_varName",
+          "jpath": [],
+          "name": "speciesLoaded"
+        }
+      ],
+      "toolbar": {
+        "custom": [
+          [
+            {
+              "title": "Data",
+              "icon": "fa-book",
+              "action": "data",
+              "position": "begin"
+            },
+            {
+              "title": "Clear selected",
+              "icon": "fa-eraser",
+              "action": "clearSelected",
+              "position": "begin"
+            }
+          ]
+        ],
+        "common": [
+          {
+            "toolbar": [
+              []
+            ]
+          }
+        ]
+      },
+      "configuration": {
+        "sections": {},
+        "groups": {
+          "group": [
+            {
+              "slickCheck": [
+                [
+                  "enableCellNavigation",
+                  "rowNumbering",
+                  "forceFitColumns",
+                  "highlightScroll",
+                  "editable",
+                  "autoEdit",
+                  "filterColumns",
+                  "keepSelected"
+                ]
+              ],
+              "autoColumns": [
+                [
+                  "select"
+                ]
+              ],
+              "toolbar": [
+                []
+              ],
+              "colorjpath": [
+                []
+              ],
+              "slick.defaultColumnWidth": [
+                null
+              ],
+              "slick.rowHeight": [
+                null
+              ],
+              "slick.headerRowHeight": [
+                30
+              ],
+              "slick.selectionModel": [
+                "row"
+              ],
+              "idProperty": [
+                ""
+              ],
+              "filterType": [
+                "invar"
+              ],
+              "filterRow": [
+                ""
+              ],
+              "customJpaths": [
+                "qty"
+              ]
+            }
+          ],
+          "cols": [
+            [
+              {
+                "name": "Label",
+                "jpath": [
+                  "label"
+                ],
+                "editor": "none",
+                "forceType": "mf",
+                "formatter": "typerenderer",
+                "visibility": "both",
+                "rendererOptions": "",
+                "editorOptions": "",
+                "hideColumn": []
+              }
+            ]
+          ],
+          "actionCols": [
+            [
+              {
+                "backgroundColor": [
+                  255,
+                  255,
+                  255,
+                  1
+                ],
+                "color": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "position": "end",
+                "clickMode": "text"
+              }
+            ]
+          ],
+          "groupings": [
+            [
+              {
+                "getter": []
+              }
+            ]
+          ],
+          "actionOutButtons": [
+            [
+              {}
+            ]
+          ],
+          "data": [
+            {
+              "saveInView": [
+                []
+              ],
+              "varname": [
+                ""
+              ],
+              "data": [
+                "[]"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 4,
+      "moduleUrl": "modules/types/edition/slick_grid/",
+      "moduleType": "slick_grid",
+      "title": "Constantes d'acidité utilisées",
+      "visibleInDefaultLayer": true,
+      "defaultLayerPosition": {
+        "left": 46,
+        "top": 0
+      },
+      "defaultLayerSize": {
+        "width": 52,
+        "height": 44
+      },
+      "vars_in": [
+        {
+          "rel": "list",
+          "name": "equations"
+        }
+      ],
+      "vars_out": [
+        {
+          "event": "onSelect",
+          "rel": "row",
+          "jpath": [],
+          "name": "clickedEq"
+        }
+      ],
+      "actions_in": [
+        {}
+      ],
+      "actions_out": [
+        {
+          "event": "onRowsDelete",
+          "rel": "rows",
+          "jpath": [],
+          "name": "eqDeleted"
+        }
+      ],
+      "toolbar": {
+        "custom": [
+          [
+            {
+              "title": "",
+              "icon": "",
+              "action": "",
+              "position": "begin",
+              "color": [
+                100,
+                100,
+                100,
+                1
+              ]
+            }
+          ]
+        ],
+        "common": [
+          {
+            "toolbar": [
+              []
+            ]
+          }
+        ]
+      },
+      "configuration": {
+        "sections": {},
+        "groups": {
+          "group": [
+            {
+              "slickCheck": [
+                [
+                  "enableCellNavigation",
+                  "rowNumbering",
+                  "forceFitColumns",
+                  "highlightScroll",
+                  "editable",
+                  "autoEdit"
+                ]
+              ],
+              "copyPaste": [
+                []
+              ],
+              "copyPasteOptions": [
+                [
+                  "newRows"
+                ]
+              ],
+              "autoColumns": [
+                []
+              ],
+              "toolbar": [
+                []
+              ],
+              "colorjpath": [
+                []
+              ],
+              "slick.defaultColumnWidth": [
+                null
+              ],
+              "slick.rowHeight": [
+                "32"
+              ],
+              "slick.headerRowHeight": [
+                30
+              ],
+              "slick.selectionModel": [
+                "row"
+              ],
+              "idProperty": [
+                ""
+              ],
+              "filterType": [
+                "pref"
+              ],
+              "filterRow": [
+                "// Documentation: https://github.com/NPellet/visualizer/blob/db85d9cc12c6204e4a3afb69bba6d695f6f8bad5/src/modules/types/edition/slick_grid/view.js#L918-L940\nif(this.event === 'cellChanged') {\n    if(this.column.id === 'Ignore') {\n        API.doAction('equationToggled');\n    }\n}"
+              ],
+              "customJpaths": [
+                ""
+              ]
+            }
+          ],
+          "cols": [
+            [
+              {
+                "name": "Equation",
+                "jpath": [
+                  "chemEq"
+                ],
+                "editor": "none",
+                "forceType": "",
+                "formatter": "typerenderer",
+                "copyFormatter": "default",
+                "visibility": "both",
+                "rendererOptions": "twig: '{{rendertype(formed, \"mf\")}} ⇄  {% for key,value in components %}     {% if value > 0 %} \t{% if loop.index != 1 %} \t\t+ \t{% endif %}     {% endif %}     {% if value != 1 %} \t{{ value }}     {% endif %}     {{ rendertype(key, \"mf\") }} {% endfor %}'",
+                "editorOptions": "",
+                "width": 158,
+                "hideColumn": []
+              },
+              {
+                "name": "pK",
+                "jpath": [
+                  "chemEq",
+                  "pK"
+                ],
+                "editor": "none",
+                "forceType": "",
+                "formatter": "typerenderer",
+                "copyFormatter": "default",
+                "visibility": "both",
+                "rendererOptions": "toPrecision: 4",
+                "editorOptions": "",
+                "hideColumn": []
+              },
+              {
+                "name": "Ignore",
+                "jpath": [
+                  "disabled"
+                ],
+                "editor": "auto",
+                "forceType": "boolean",
+                "formatter": "typerenderer",
+                "copyFormatter": "default",
+                "visibility": "both",
+                "rendererOptions": "",
+                "editorOptions": "",
+                "hideColumn": []
+              }
+            ]
+          ],
+          "actionCols": [
+            [
+              {
+                "backgroundColor": [
+                  255,
+                  255,
+                  255,
+                  1
+                ],
+                "color": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "position": "end",
+                "clickMode": "text"
+              }
+            ]
+          ],
+          "groupings": [
+            [
+              {
+                "getter": []
+              }
+            ]
+          ],
+          "actionOutButtons": [
+            [
+              {}
+            ]
+          ],
+          "data": [
+            {
+              "saveInView": [
+                []
+              ],
+              "varname": [
+                ""
+              ],
+              "data": [
+                "[]"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 5,
+      "moduleUrl": "modules/types/client_interaction/code_executor/",
+      "moduleType": "code_executor",
+      "title": "Compute equilibriums",
+      "visibleInDefaultLayer": false,
+      "defaultLayerPosition": {
+        "left": 20,
+        "top": 84
+      },
+      "defaultLayerSize": {
+        "width": 18,
+        "height": 6
+      },
+      "vars_in": [
+        {}
+      ],
+      "vars_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "actions_in": [
+        {
+          "rel": "execute",
+          "name": "trigger"
+        }
+      ],
+      "actions_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "toolbar": {
+        "custom": [
+          [
+            {
+              "title": "",
+              "icon": "",
+              "action": "",
+              "position": "begin"
+            }
+          ]
+        ],
+        "common": [
+          {
+            "toolbar": [
+              [
+                "Open Preferences"
+              ]
+            ]
+          }
+        ]
+      },
+      "configuration": {
+        "sections": {},
+        "groups": {
+          "group": [
+            {
+              "display": [
+                [
+                  "buttons",
+                  "editor"
+                ]
+              ],
+              "execOnLoad": [
+                []
+              ],
+              "script": [
+                "var species = API.getData('specieSelection') || [];\nvar config = {\n  \"varying\": \"H+\",\n  \"isFixed\": true,\n  \"from\": 0,\n  \"to\": 14,\n  \"log\": true,\n  \"tolerance\": 1e-15,\n  \"solidTolerance\": 1e-10,\n  \"maxIterations\": 200,\n  \"chunks\": 500\n};\n\nvar helper = API.cache('helper');\nif(!helper) {\n    UI.showNotification('Not ready to compute equilibriums');\n    return;\n}\n\nvar Serie = ChemEquilibrium.Serie;\nvar serie = new Serie(helper);\nvar sol = serie.getSolutions(config);\n\nvar chart = Chart.getChart(sol.x, sol.solutions, {\n    xLabel: config.isFixed ? ('Quantity ' + (config.log ? '-log10 of ' : 'of ') + config.varying + 'at equilibrium ' + config.log ? '' : '[mol]') : ('Total quantity of ' + config.varying),\n    yLabel: 'Amount of other species at equilibrium [mol]'\n});\n\n\nAPI.createData('errorCount', sol.errorCount);\nAPI.createData('chartSpecies', sol.species.map( specie => specie.replace(/(-+)/,'($1)')));\nAPI.createData('chart', chart);\nAPI.createData('model', helper.getModel());"
+              ],
+              "asyncAwait": [
+                null
+              ]
+            }
+          ],
+          "libs": [
+            [
+              {
+                "lib": "ChemEquilibrium",
+                "alias": "ChemEquilibrium"
+              },
+              {
+                "lib": "Chart",
+                "alias": "Chart"
+              },
+              {
+                "lib": "src/util/ui",
+                "alias": "UI"
+              }
+            ]
+          ],
+          "buttons": [
+            [
+              {
+                "name": "button1",
+                "label": "Generate"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": 6,
+      "moduleUrl": "modules/types/science/spectra/spectra_displayer/",
+      "moduleType": "spectra_displayer",
+      "title": "",
+      "visibleInDefaultLayer": true,
+      "defaultLayerPosition": {
+        "left": 0,
+        "top": 44.99999885559082
+      },
+      "defaultLayerSize": {
+        "width": 98,
+        "height": 37
+      },
+      "vars_in": [
+        {
+          "rel": "chart",
+          "name": "chart"
+        }
+      ],
+      "vars_out": [
+        {
+          "event": "onTrackMouse",
+          "rel": "trackData",
+          "jpath": [],
+          "name": "trackingData"
+        }
+      ],
+      "actions_in": [
+        {}
+      ],
+      "actions_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "toolbar": {
+        "custom": [
+          [
+            {
+              "title": "",
+              "icon": "",
+              "action": "",
+              "position": "begin",
+              "color": [
+                100,
+                100,
+                100,
+                1
+              ]
+            }
+          ]
+        ],
+        "common": [
+          {
+            "toolbar": [
+              [
+                "Show fullscreen"
+              ]
+            ]
+          }
+        ]
+      },
+      "configuration": {
+        "sections": {
+          "graph": [
+            {
+              "sections": {},
+              "groups": {
+                "graph": [
+                  {
+                    "url": [
+                      ""
+                    ],
+                    "zoom": [
+                      "none"
+                    ],
+                    "wheelAction": [
+                      "none"
+                    ],
+                    "wheelbaseline": [
+                      0
+                    ],
+                    "fullOut": [
+                      "both"
+                    ],
+                    "legend": [
+                      "bottom"
+                    ],
+                    "legendOptions": [
+                      [
+                        "isSerieHideable",
+                        "isSerieSelectable"
+                      ]
+                    ],
+                    "mouseTracking": [
+                      [
+                        "track"
+                      ]
+                    ],
+                    "trackingAxis": [
+                      "x"
+                    ],
+                    "selectScatter": [
+                      []
+                    ],
+                    "independantYZoom": [
+                      []
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "axis": [
+            {
+              "sections": {},
+              "groups": {
+                "xAxis": [
+                  {
+                    "checkboxes": [
+                      [
+                        "display",
+                        "main",
+                        "sec"
+                      ]
+                    ],
+                    "label": [
+                      ""
+                    ],
+                    "beforeSpacing": [
+                      "0"
+                    ],
+                    "afterSpacing": [
+                      0
+                    ],
+                    "min": [
+                      ""
+                    ],
+                    "max": [
+                      ""
+                    ],
+                    "nbTicksPrimary": [
+                      5
+                    ],
+                    "axismodification": [
+                      "none"
+                    ]
+                  }
+                ],
+                "yAxis": [
+                  {
+                    "checkboxes": [
+                      [
+                        "display",
+                        "main",
+                        "sec"
+                      ]
+                    ],
+                    "label": [
+                      ""
+                    ],
+                    "beforeSpacing": [
+                      "0"
+                    ],
+                    "afterSpacing": [
+                      0
+                    ],
+                    "min": [
+                      ""
+                    ],
+                    "max": [
+                      ""
+                    ],
+                    "nbTicksPrimary": [
+                      5
+                    ],
+                    "fitToAxisOnFromTo": [
+                      []
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "series": [
+            {
+              "sections": {},
+              "groups": {
+                "series": [
+                  {
+                    "overflow": [
+                      []
+                    ],
+                    "stackVerticalSpacing": [
+                      0
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "variables": [
+            {
+              "sections": {},
+              "groups": {
+                "variables": [
+                  [
+                    {
+                      "variable": "chart",
+                      "axis": "0",
+                      "adaptTo": "none",
+                      "plotcolor": [
+                        1,
+                        1,
+                        255,
+                        1
+                      ],
+                      "strokewidth": "2",
+                      "strokestyle": "1",
+                      "plotcontinuous": "continuous",
+                      "peakpicking": [],
+                      "markers": [],
+                      "markerShape": "1",
+                      "markerSize": 2,
+                      "normalize": "none",
+                      "optimizeSlots": [],
+                      "tracking": [
+                        "yes"
+                      ]
+                    }
+                  ]
+                ]
+              }
+            }
+          ],
+          "misc": [
+            {
+              "sections": {},
+              "groups": {
+                "misc": [
+                  {
+                    "highlightOptions": [
+                      "{}"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "groups": {}
+      }
+    },
+    {
+      "id": 7,
+      "moduleUrl": "modules/types/display/single_value/",
+      "moduleType": "single_value",
+      "title": "",
+      "visibleInDefaultLayer": true,
+      "defaultLayerPosition": {
+        "left": 99,
+        "top": 38
+      },
+      "defaultLayerSize": {
+        "width": 35,
+        "height": 6
+      },
+      "vars_in": [
+        {
+          "rel": "value",
+          "name": "errorCount"
+        }
+      ],
+      "vars_out": [],
+      "actions_in": [
+        {}
+      ],
+      "actions_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "toolbar": {
+        "custom": [
+          [
+            {
+              "title": "",
+              "icon": "",
+              "action": "",
+              "position": "begin"
+            }
+          ]
+        ],
+        "common": [
+          {
+            "toolbar": [
+              []
+            ]
+          }
+        ]
+      },
+      "configuration": {
+        "sections": {},
+        "groups": {
+          "group": [
+            {
+              "append": [
+                []
+              ],
+              "maxEntries": [
+                1
+              ],
+              "editable": [
+                []
+              ],
+              "debounce": [
+                0
+              ],
+              "defaultvalue": [
+                null
+              ],
+              "font": [
+                null
+              ],
+              "fontcolor": [
+                [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              "fontsize": [
+                null
+              ],
+              "align": [
+                null
+              ],
+              "valign": [
+                null
+              ],
+              "rendererOptions": [
+                ""
+              ],
+              "forceType": [
+                ""
+              ],
+              "sprintf": [
+                "Number of errors: %s"
+              ],
+              "sprintfOrder": [
+                null
+              ],
+              "preformatted": [
+                []
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 8,
+      "moduleUrl": "modules/types/edition/slick_grid/",
+      "moduleType": "slick_grid",
+      "title": "Quantitées initiales",
+      "visibleInDefaultLayer": true,
+      "defaultLayerPosition": {
+        "left": 20.99999933242798,
+        "top": 0
+      },
+      "defaultLayerSize": {
+        "width": 24,
+        "height": 44
+      },
+      "vars_in": [
+        {
+          "rel": "list",
+          "name": "specieSelection"
+        }
+      ],
+      "vars_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "actions_in": [
+        {}
+      ],
+      "actions_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "toolbar": {
+        "custom": [
+          [
+            {
+              "title": "",
+              "icon": "",
+              "action": "",
+              "position": "begin",
+              "color": [
+                100,
+                100,
+                100,
+                1
+              ]
+            }
+          ]
+        ],
+        "common": [
+          {
+            "toolbar": [
+              []
+            ]
+          }
+        ]
+      },
+      "configuration": {
+        "sections": {},
+        "groups": {
+          "group": [
+            {
+              "slickCheck": [
+                [
+                  "enableCellNavigation",
+                  "rowNumbering",
+                  "forceFitColumns",
+                  "highlightScroll",
+                  "editable",
+                  "autoEdit"
+                ]
+              ],
+              "copyPaste": [
+                []
+              ],
+              "copyPasteOptions": [
+                [
+                  "newRows"
+                ]
+              ],
+              "autoColumns": [
+                []
+              ],
+              "toolbar": [
+                []
+              ],
+              "colorjpath": [
+                []
+              ],
+              "slick.defaultColumnWidth": [
+                null
+              ],
+              "slick.rowHeight": [
+                null
+              ],
+              "slick.headerRowHeight": [
+                30
+              ],
+              "slick.selectionModel": [
+                "row"
+              ],
+              "idProperty": [
+                ""
+              ],
+              "filterType": [
+                "pref"
+              ],
+              "filterRow": [
+                "// Documentation: https://github.com/NPellet/visualizer/blob/db85d9cc12c6204e4a3afb69bba6d695f6f8bad5/src/modules/types/edition/slick_grid/view.js#L918-L940"
+              ],
+              "customJpaths": [
+                ""
+              ]
+            }
+          ],
+          "cols": [
+            [
+              {
+                "name": "Specie",
+                "jpath": [
+                  "label"
+                ],
+                "editor": "none",
+                "forceType": "mf",
+                "formatter": "typerenderer",
+                "copyFormatter": "default",
+                "visibility": "both",
+                "rendererOptions": "",
+                "editorOptions": "",
+                "hideColumn": []
+              },
+              {
+                "name": "Quantity (mol/L)",
+                "jpath": [
+                  "qty"
+                ],
+                "editor": "number",
+                "forceType": "",
+                "formatter": "typerenderer",
+                "copyFormatter": "default",
+                "visibility": "both",
+                "rendererOptions": "",
+                "editorOptions": "",
+                "hideColumn": []
+              }
+            ]
+          ],
+          "actionCols": [
+            [
+              {
+                "backgroundColor": [
+                  255,
+                  255,
+                  255,
+                  1
+                ],
+                "color": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "position": "end",
+                "clickMode": "text"
+              }
+            ]
+          ],
+          "groupings": [
+            [
+              {
+                "getter": []
+              }
+            ]
+          ],
+          "actionOutButtons": [
+            [
+              {}
+            ]
+          ],
+          "data": [
+            {
+              "saveInView": [
+                []
+              ],
+              "varname": [
+                ""
+              ],
+              "data": [
+                "[]"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 9,
+      "moduleUrl": "modules/types/display/template-twig/",
+      "moduleType": "template-twig",
+      "title": "",
+      "visibleInDefaultLayer": true,
+      "defaultLayerPosition": {
+        "left": 99,
+        "top": 45
+      },
+      "defaultLayerSize": {
+        "width": 35,
+        "height": 37
+      },
+      "vars_in": [
+        {
+          "rel": "value",
+          "name": "trackingData"
+        },
+        {
+          "rel": "value",
+          "name": "chartSpecies"
+        },
+        {
+          "rel": "tpl",
+          "name": "twigTemplate"
+        }
+      ],
+      "vars_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "actions_in": [
+        {}
+      ],
+      "actions_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "toolbar": {
+        "custom": [
+          [
+            {
+              "title": "",
+              "icon": "",
+              "action": "",
+              "position": "begin",
+              "color": [
+                100,
+                100,
+                100,
+                1
+              ]
+            }
+          ]
+        ],
+        "common": [
+          {
+            "toolbar": [
+              []
+            ]
+          }
+        ]
+      },
+      "configuration": {
+        "sections": {},
+        "groups": {
+          "group": [
+            {
+              "selectable": [
+                []
+              ],
+              "template": [
+                ""
+              ],
+              "modifyInForm": [
+                []
+              ],
+              "debouncing": [
+                0
+              ],
+              "formOptions": [
+                [
+                  "keepFormValueIfDataUndefined"
+                ]
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 10,
+      "moduleUrl": "modules/types/client_interaction/button_action/",
+      "moduleType": "button_action",
+      "title": "",
+      "visibleInDefaultLayer": true,
+      "defaultLayerPosition": {
+        "left": 103,
+        "top": 10
+      },
+      "defaultLayerSize": {
+        "width": 15,
+        "height": 7
+      },
+      "vars_in": [],
+      "vars_out": [],
+      "actions_in": [
+        {}
+      ],
+      "actions_out": [
+        {
+          "event": "onClick",
+          "rel": "actionText",
+          "jpath": [],
+          "name": "help"
+        }
+      ],
+      "toolbar": {
+        "custom": [
+          [
+            {
+              "title": "",
+              "icon": "",
+              "action": "",
+              "position": "begin"
+            }
+          ]
+        ],
+        "common": [
+          {
+            "toolbar": [
+              [
+                "Open Preferences"
+              ]
+            ]
+          }
+        ]
+      },
+      "configuration": {
+        "sections": {},
+        "groups": {
+          "group": [
+            {
+              "toggle": [
+                "click"
+              ],
+              "label": [
+                "Help"
+              ],
+              "onLabel": [
+                "Toggle action off"
+              ],
+              "offLabel": [
+                "Toggle action on"
+              ],
+              "title": [
+                ""
+              ],
+              "onColor": [
+                [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              "offColor": [
+                [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              ],
+              "startState": [
+                "off"
+              ],
+              "text": [
+                null
+              ],
+              "askConfirm": [
+                []
+              ],
+              "confirmText": [
+                "Are you sure?"
+              ],
+              "okLabel": [
+                "Ok"
+              ],
+              "cancelLabel": [
+                "Cancel"
+              ],
+              "content": [
+                ""
+              ],
+              "contentType": [
+                "content"
+              ],
+              "maskOpacity": [
+                0.6
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 11,
+      "moduleUrl": "modules/types/client_interaction/code_editor/",
+      "moduleType": "code_editor",
+      "title": "Slick script",
+      "visibleInDefaultLayer": false,
+      "defaultLayerPosition": {
+        "left": 0,
+        "top": 0
+      },
+      "defaultLayerSize": {
+        "width": 20,
+        "height": 20
+      },
+      "vars_in": [
+        {}
+      ],
+      "vars_out": [
+        {
+          "event": "onEditorChange",
+          "rel": "data",
+          "jpath": [],
+          "name": "slickScript"
+        }
+      ],
+      "actions_in": [
+        {}
+      ],
+      "actions_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "toolbar": {
+        "custom": [
+          [
+            {
+              "title": "",
+              "icon": "",
+              "action": "",
+              "position": "begin"
+            }
+          ]
+        ],
+        "common": [
+          {
+            "toolbar": [
+              [
+                "Open Preferences"
+              ]
+            ]
+          }
+        ]
+      },
+      "configuration": {
+        "sections": {},
+        "groups": {
+          "group": [
+            {
+              "mode": [
+                "javascript"
+              ],
+              "outputType": [
+                null
+              ],
+              "btnvalue": [
+                "Send script"
+              ],
+              "iseditable": [
+                [
+                  "editable"
+                ]
+              ],
+              "hasButton": [
+                [
+                  "button"
+                ]
+              ],
+              "variable": [
+                []
+              ],
+              "storeOnChange": [
+                [
+                  "store"
+                ]
+              ],
+              "debouncing": [
+                0
+              ],
+              "script": [
+                "// Documentation: https://github.com/NPellet/visualizer/blob/db85d9cc12c6204e4a3afb69bba6d695f6f8bad5/src/modules/types/edition/slick_grid/view.js#L918-L940\nvar localName = API.cache('localName');\n\nif(this.event === 'rowsSelected') {\n    try {\n        var rows = JSON.parse(localStorage.getItem(localName));\n    } catch(e) {\n        rows = []\n    }\n    console.log(rows);\n    API.createData('specieSelection', this.rows.map(row => {\n        var obj = {};\n        obj.label = String(row.item.label);\n        var r = rows.find(r => r.label === obj.label); \n        if(r) {\n            obj.qty = r.qty;\n        } else {\n            obj.qty = row.item.qty;\n        }\n        return obj;\n    }));\n}"
+              ]
+            }
+          ],
+          "ace": [
+            {
+              "useSoftTabs": [
+                [
+                  "yes"
+                ]
+              ],
+              "tabSize": [
+                4
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 12,
+      "moduleUrl": "modules/types/client_interaction/code_editor/",
+      "moduleType": "code_editor",
+      "title": "",
+      "visibleInDefaultLayer": false,
+      "defaultLayerPosition": {
+        "left": 0,
+        "top": 0
+      },
+      "defaultLayerSize": {
+        "width": 20,
+        "height": 20
+      },
+      "vars_in": [
+        {}
+      ],
+      "vars_out": [
+        {
+          "event": "onEditorChange",
+          "rel": "data",
+          "jpath": [],
+          "name": "twigTemplate"
+        }
+      ],
+      "actions_in": [
+        {}
+      ],
+      "actions_out": [
+        {
+          "jpath": []
+        }
+      ],
+      "toolbar": {
+        "custom": [
+          [
+            {
+              "title": "",
+              "icon": "",
+              "action": "",
+              "position": "begin",
+              "color": [
+                100,
+                100,
+                100,
+                1
+              ]
+            }
+          ]
+        ],
+        "common": [
+          {
+            "toolbar": [
+              [
+                "Open Preferences"
+              ]
+            ]
+          }
+        ]
+      },
+      "configuration": {
+        "sections": {},
+        "groups": {
+          "group": [
+            {
+              "mode": [
+                "html"
+              ],
+              "outputType": [
+                null
+              ],
+              "btnvalue": [
+                "Send script"
+              ],
+              "iseditable": [
+                [
+                  "editable"
+                ]
+              ],
+              "hasButton": [
+                [
+                  "button"
+                ]
+              ],
+              "variable": [
+                []
+              ],
+              "storeOnChange": [
+                [
+                  "store"
+                ]
+              ],
+              "debouncing": [
+                0
+              ],
+              "script": [
+                "<table style=\"font-size: 14px\">\n    <tr>\n        <th>Specie</th>\n        <th style=\"width:100px;\">[]</th>\n        <th style=\"width:100px;\">-log10[]</th>\n    </tr>\n    {% for k,value in trackingData %}\n        {% set log10 = value.interpolatedY | math_log10 %}\n        <tr>\n            <td>{{ rendertype(chartSpecies[loop.index0], 'mf') }}</td>\n            <td>{{ rendertype(value.interpolatedY, {toPrecision: 4},'number') }}</td>\n            <td>{{ rendertype(-1 * log10, {toPrecision:4}, 'number')}}</td>\n        </tr>\n    \n    {% endfor %}\n</table>"
+              ]
+            }
+          ],
+          "ace": [
+            {
+              "useSoftTabs": [
+                [
+                  "yes"
+                ]
+              ],
+              "tabSize": [
+                4
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "scripts": [
+    {
+      "location": "module[0] id=1 (modules/types/client_interaction/code_executor/) -> script",
+      "code": "var localName = API.cache('localName');\nvar species = get('specieSelection') || [];\nvar helper = API.cache('helper');\nif(!helper) {\n    helper = new ChemEquilibrium.Helper();\n    API.cache('helper', helper);\n}\n\nlocalStorage.setItem(localName, JSON.stringify(species));\nhelper.resetSpecies();\nfor(var i=0; i<species.length; i++) {\n    var specie = species[i];\n    console.log(specie)\n    helper.addSpecie(String(specie.label), Number(specie.qty));\n}\n\n(API.getData('equations') || []).forEach(e => {\n    if(DataObject.resurrect(e.disabled)) {\n        console.log('disable equation', e.chemEq.formed);\n        helper.disableEquation(String(e.chemEq.formed));\n    } else {\n        helper.enableEquation(String(e.chemEq.formed));\n    }\n});\n\nvar chemEq = helper.getEquations({filtered: true, includeDisabled: true});\nconsole.log(chemEq)\nvar normalizedEq = helper.getEquations({filtered: true, normalized: true, includeDisabled: true});\nvar equations = chemEq.map((eq, idx) => {\n    return {\n        chemEq: eq,\n        normalizedEq: normalizedEq[idx],\n        disabled: eq.disabled ? true : false\n    }\n});\nAPI.createData('equations', equations);\n\nAPI.doAction('trigger')"
+    },
+    {
+      "location": "module[1] id=2 (modules/types/client_interaction/code_executor/) -> script",
+      "code": "var helper = new ChemEquilibrium.Helper();\n//{type: 'precipitation'}\nvar species = helper.getSpecies()\n    .map(function(label) {\n        return {\n            label: label,\n            qty: 1\n        }\n    });\n\nAPI.createData('allSpecies', species);"
+    },
+    {
+      "location": "module[3] id=4 (modules/types/edition/slick_grid/) -> filterRow",
+      "code": "// Documentation: https://github.com/NPellet/visualizer/blob/db85d9cc12c6204e4a3afb69bba6d695f6f8bad5/src/modules/types/edition/slick_grid/view.js#L918-L940\nif(this.event === 'cellChanged') {\n    if(this.column.id === 'Ignore') {\n        API.doAction('equationToggled');\n    }\n}"
+    },
+    {
+      "location": "module[4] id=5 (modules/types/client_interaction/code_executor/) -> script",
+      "code": "var species = API.getData('specieSelection') || [];\nvar config = {\n  \"varying\": \"H+\",\n  \"isFixed\": true,\n  \"from\": 0,\n  \"to\": 14,\n  \"log\": true,\n  \"tolerance\": 1e-15,\n  \"solidTolerance\": 1e-10,\n  \"maxIterations\": 200,\n  \"chunks\": 500\n};\n\nvar helper = API.cache('helper');\nif(!helper) {\n    UI.showNotification('Not ready to compute equilibriums');\n    return;\n}\n\nvar Serie = ChemEquilibrium.Serie;\nvar serie = new Serie(helper);\nvar sol = serie.getSolutions(config);\n\nvar chart = Chart.getChart(sol.x, sol.solutions, {\n    xLabel: config.isFixed ? ('Quantity ' + (config.log ? '-log10 of ' : 'of ') + config.varying + 'at equilibrium ' + config.log ? '' : '[mol]') : ('Total quantity of ' + config.varying),\n    yLabel: 'Amount of other species at equilibrium [mol]'\n});\n\n\nAPI.createData('errorCount', sol.errorCount);\nAPI.createData('chartSpecies', sol.species.map( specie => specie.replace(/(-+)/,'($1)')));\nAPI.createData('chart', chart);\nAPI.createData('model', helper.getModel());"
+    },
+    {
+      "location": "module[7] id=8 (modules/types/edition/slick_grid/) -> filterRow",
+      "code": "// Documentation: https://github.com/NPellet/visualizer/blob/db85d9cc12c6204e4a3afb69bba6d695f6f8bad5/src/modules/types/edition/slick_grid/view.js#L918-L940"
+    },
+    {
+      "location": "module[10] id=11 (modules/types/client_interaction/code_editor/) -> script",
+      "code": "// Documentation: https://github.com/NPellet/visualizer/blob/db85d9cc12c6204e4a3afb69bba6d695f6f8bad5/src/modules/types/edition/slick_grid/view.js#L918-L940\nvar localName = API.cache('localName');\n\nif(this.event === 'rowsSelected') {\n    try {\n        var rows = JSON.parse(localStorage.getItem(localName));\n    } catch(e) {\n        rows = []\n    }\n    console.log(rows);\n    API.createData('specieSelection', this.rows.map(row => {\n        var obj = {};\n        obj.label = String(row.item.label);\n        var r = rows.find(r => r.label === obj.label); \n        if(r) {\n            obj.qty = r.qty;\n        } else {\n            obj.qty = row.item.qty;\n        }\n        return obj;\n    }));\n}"
+    },
+    {
+      "location": "module[11] id=12 (modules/types/client_interaction/code_editor/) -> script",
+      "code": "<table style=\"font-size: 14px\">\n    <tr>\n        <th>Specie</th>\n        <th style=\"width:100px;\">[]</th>\n        <th style=\"width:100px;\">-log10[]</th>\n    </tr>\n    {% for k,value in trackingData %}\n        {% set log10 = value.interpolatedY | math_log10 %}\n        <tr>\n            <td>{{ rendertype(chartSpecies[loop.index0], 'mf') }}</td>\n            <td>{{ rendertype(value.interpolatedY, {toPrecision: 4},'number') }}</td>\n            <td>{{ rendertype(-1 * log10, {toPrecision:4}, 'number')}}</td>\n        </tr>\n    \n    {% endfor %}\n</table>"
+    },
+    {
+      "location": "view.init_script",
+      "code": "var localName = 'chem-equilibrium-precipitation-species';\nAPI.cache('localName', localName);\nAPI.cache('helpGoogleDoc', '1ufpMdZ8BxDiFEVVX8pbVrJiB19GS9jHBPzR1Lsfpdj0');\nrequire([\n    'https://www.lactame.com/github/cheminfo-js/visualizer-helper/d32e267148e104f56ebfd1d9e4855ddd20f39a6b/util/trackArray.js',\n    'https://www.lactame.com/github/cheminfo-js/visualizer-helper/d32e267148e104f56ebfd1d9e4855ddd20f39a6b/util/track.js'], function (trackArray, track) {\n    trackArray(localName, [], function(entry) {return entry.specie}, {varName: 'specieSelection'}) ;\n    track('chem-equilibrium-config', {}, {varName: 'config'});\n});\n\nAPI.onAction('speciesLoaded', function () {\n    console.log('species loaded');\n    var data = JSON.parse(localStorage.getItem(localName));\n    API.doAction('selectSpecies', function (row) {return data.find(d => String(d.label) === String(row.label))});\n});\n"
+    },
+    {
+      "location": "view.actionscripts[\"help\"]",
+      "code": "var url=\"https://docs.google.com/document/d/\" + API.cache('helpGoogleDoc') + \"/edit?pref=2&pli=1\";\n \nrequire(['src/util/ui'], function(UI) {\n    UI.dialog(\n        '<iframe width=\"100%\" height=\"100%\" src=\"'+url+'\"></iframe>',\n        {width:1000, height: 800}\n    );\n})"
+    },
+    {
+      "location": "view.actionscripts[\"data\"]",
+      "code": "var url=\"https://docs.google.com/spreadsheets/d/1VjfiuDtJUqxdfyFr7DdVcIM-l3eh47SqanafHdbXvDQ/edit#gid=0\";\n \nrequire(['src/util/ui'], function(UI) {\n    UI.dialog(\n        '<iframe width=\"100%\" height=\"100%\" src=\"'+url+'\"></iframe>',\n        {width:1000, height: 800}\n    );\n})"
+    },
+    {
+      "location": "view.actionscripts[\"clearSelected\"]",
+      "code": "API.doAction('selectSpecies', []);\n"
+    }
+  ],
+  "frenchLabels": {
+    "Precipitation & équilibres divers": "Precipitation & miscellaneous equilibria",
+    "Constantes d'acidité utilisées": "Acidity constants used",
+    "Quantitées initiales": "Initial quantities  (sic: French should be \"Quantités initiales\")",
+    "Quantity (mol/L)": "(already English) Quantity (mol/L)",
+    "Ignore": "(already English) Ignore / skip this equation",
+    "Specie": "(already English, non-standard) Species",
+    "Number of errors: %s": "(already English) Number of errors"
+  },
+  "dataset": {
+    "source": {
+      "file": "chem-equilibrium/data/data.json (bundled into the library the view loads from lactame.com)",
+      "generatedBy": "npm run database  ->  data/update.js",
+      "upstreamSpreadsheet": "https://googledocs.cheminfo.org/spreadsheets/d/1VjfiuDtJUqxdfyFr7DdVcIM-l3eh47SqanafHdbXvDQ/export?format=tsv",
+      "note": "The view files contain NO inline chemistry data. Every equation, pK and species label comes from this database, shipped inside the chem-equilibrium bundle."
+    },
+    "equationCount": 125,
+    "countByType": {
+      "acidoBasic": 39,
+      "complexation": 47,
+      "precipitation": 39
+    },
+    "semantics": {
+      "formed": "label of the species produced by the (formation) reaction",
+      "components": "map componentLabel -> stoichiometric coefficient consumed to form `formed`",
+      "pK": "log10 of the formation constant beta of `formed` (beta = 10 ** pK). For type=precipitation the solubility product used by the solver is Ksp = 10 ** -pK.",
+      "type": "acidoBasic | complexation | precipitation"
+    },
+    "equations": [
+      {
+        "formed": "HIO3",
+        "components": {
+          "IO3-": 1,
+          "H+": 1
+        },
+        "pK": 0.8,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HOCN",
+        "components": {
+          "OCN-": 1,
+          "H+": 1
+        },
+        "pK": 3.48,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HBrO",
+        "components": {
+          "BrO-": 1,
+          "H+": 1
+        },
+        "pK": 8.6,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "CH2ClCO2H",
+        "components": {
+          "CH2ClCO2-": 1,
+          "H+": 1
+        },
+        "pK": 2.89,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "C6H5COOH",
+        "components": {
+          "C6H5COO-": 1,
+          "H+": 1
+        },
+        "pK": 4.2,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "C6H5NH3+",
+        "components": {
+          "C6H5NH2": 1,
+          "H+": 1
+        },
+        "pK": 4.6,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "C2H5COOH",
+        "components": {
+          "C2H5COO-": 1,
+          "H+": 1
+        },
+        "pK": 4.87,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "C5H5NH+",
+        "components": {
+          "C5H5N": 1,
+          "H+": 1
+        },
+        "pK": 5.25,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "CH3NH3+",
+        "components": {
+          "CH3NH2": 1,
+          "H+": 1
+        },
+        "pK": 10.66,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "(C2H5)3NH+",
+        "components": {
+          "(C2H5)3N": 1,
+          "H+": 1
+        },
+        "pK": 10.75,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "C2H5NH3+",
+        "components": {
+          "C2H5NH2": 1,
+          "H+": 1
+        },
+        "pK": 10.8,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HClO4",
+        "components": {
+          "ClO4-": 1,
+          "H+": 1
+        },
+        "pK": -7,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HCl",
+        "components": {
+          "Cl-": 1,
+          "H+": 1
+        },
+        "pK": -3,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "H2SO4",
+        "components": {
+          "HSO4-": 1,
+          "H+": 1
+        },
+        "pK": -3,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HNO3",
+        "components": {
+          "NO3-": 1,
+          "H+": 1
+        },
+        "pK": -1,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "H2SO3",
+        "components": {
+          "HSO3-": 1,
+          "H+": 1
+        },
+        "pK": 1.8,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HSO4-",
+        "components": {
+          "SO4--": 1,
+          "H+": 1
+        },
+        "pK": 1.9,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HClO2",
+        "components": {
+          "ClO2-": 1,
+          "H+": 1
+        },
+        "pK": 1.93,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "H3PO3",
+        "components": {
+          "H2PO3-": 1,
+          "H+": 1
+        },
+        "pK": 1.26,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "Fe(H2O)6+++",
+        "components": {
+          "Fe(H2O)5OH++": 1,
+          "H+": 1
+        },
+        "pK": 2.1,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "H3PO4",
+        "components": {
+          "H2PO4-": 1,
+          "H+": 1
+        },
+        "pK": 2.12,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HF",
+        "components": {
+          "F-": 1,
+          "H+": 1
+        },
+        "pK": 3.2,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HNO2",
+        "components": {
+          "NO2-": 1,
+          "H+": 1
+        },
+        "pK": 3.35,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HCO2H",
+        "components": {
+          "HCO2-": 1,
+          "H+": 1
+        },
+        "pK": 3.75,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "CH3CO2H",
+        "components": {
+          "CH3COO-": 1,
+          "H+": 1
+        },
+        "pK": 4.7,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "Al(H2O)6+++",
+        "components": {
+          "Al(H2O)5OH++": 1,
+          "H+": 1
+        },
+        "pK": 4.9,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "H2CO3",
+        "components": {
+          "HCO3-": 1,
+          "H+": 1
+        },
+        "pK": 6.3,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "H2PO3-",
+        "components": {
+          "HPO3--": 1,
+          "H+": 1
+        },
+        "pK": 6.7,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "H2S",
+        "components": {
+          "HS-": 1,
+          "H+": 1
+        },
+        "pK": 7.04,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HSO3-",
+        "components": {
+          "SO3--": 1,
+          "H+": 1
+        },
+        "pK": 7.21,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HClO",
+        "components": {
+          "ClO-": 1,
+          "H+": 1
+        },
+        "pK": 7.4,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HCN",
+        "components": {
+          "CN-": 1,
+          "H+": 1
+        },
+        "pK": 9.2,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "NH4+",
+        "components": {
+          "NH3": 1,
+          "H+": 1
+        },
+        "pK": 9.25,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HCO3-",
+        "components": {
+          "CO3--": 1,
+          "H+": 1
+        },
+        "pK": 10.33,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "H2PO4-",
+        "components": {
+          "HPO4--": 1,
+          "H+": 1
+        },
+        "pK": 7.2,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HPO4--",
+        "components": {
+          "PO4---": 1,
+          "H+": 1
+        },
+        "pK": 12.32,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "H2O",
+        "components": {
+          "OH-": 1,
+          "H+": 1
+        },
+        "pK": 14,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "HS-",
+        "components": {
+          "S--": 1,
+          "H+": 1
+        },
+        "pK": 19,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "NH3",
+        "components": {
+          "NH2-": 1,
+          "H+": 1
+        },
+        "pK": 23,
+        "type": "acidoBasic"
+      },
+      {
+        "formed": "Ag(NH3)2+",
+        "components": {
+          "Ag+": 1,
+          "NH3": 2
+        },
+        "pK": 7.2,
+        "type": "complexation"
+      },
+      {
+        "formed": "Zn(NH3)4++",
+        "components": {
+          "Zn++": 1,
+          "NH3": 4
+        },
+        "pK": 8.89,
+        "type": "complexation"
+      },
+      {
+        "formed": "Cu(NH3)4++",
+        "components": {
+          "Cu++": 1,
+          "NH3": 4
+        },
+        "pK": 13.04,
+        "type": "complexation"
+      },
+      {
+        "formed": "Hg(NH3)4++",
+        "components": {
+          "Hg++": 1,
+          "NH3": 4
+        },
+        "pK": 19.26,
+        "type": "complexation"
+      },
+      {
+        "formed": "Co(NH3)6++",
+        "components": {
+          "Co++": 1,
+          "NH3": 6
+        },
+        "pK": 4.7,
+        "type": "complexation"
+      },
+      {
+        "formed": "Co(NH3)4+++",
+        "components": {
+          "Co+++": 1,
+          "NH3": 4
+        },
+        "pK": 33.66,
+        "type": "complexation"
+      },
+      {
+        "formed": "Cd(NH3)6++",
+        "components": {
+          "Cd++": 1,
+          "NH3": 6
+        },
+        "pK": 5.41,
+        "type": "complexation"
+      },
+      {
+        "formed": "Cd(NH3)4++",
+        "components": {
+          "Cd++": 1,
+          "NH3": 4
+        },
+        "pK": 7,
+        "type": "complexation"
+      },
+      {
+        "formed": "Ni(NH3)6++",
+        "components": {
+          "Ni++": 1,
+          "NH3": 6
+        },
+        "pK": 8.3,
+        "type": "complexation"
+      },
+      {
+        "formed": "Fe(CN)6----",
+        "components": {
+          "Fe++": 1,
+          "CN-": 6
+        },
+        "pK": 35,
+        "type": "complexation"
+      },
+      {
+        "formed": "Fe(CN)6---",
+        "components": {
+          "Fe+++": 1,
+          "CN-": 6
+        },
+        "pK": 41.96,
+        "type": "complexation"
+      },
+      {
+        "formed": "Ag(CN)2-",
+        "components": {
+          "Ag+": 1,
+          "CN-": 2
+        },
+        "pK": 18.72,
+        "type": "complexation"
+      },
+      {
+        "formed": "Cu(CN)2-",
+        "components": {
+          "Cu+": 1,
+          "CN-": 2
+        },
+        "pK": 16,
+        "type": "complexation"
+      },
+      {
+        "formed": "Cd(CN)4--",
+        "components": {
+          "Cd++": 1,
+          "CN-": 4
+        },
+        "pK": 16.89,
+        "type": "complexation"
+      },
+      {
+        "formed": "Au(CN)2-",
+        "components": {
+          "Au+": 1,
+          "CN-": 2
+        },
+        "pK": 38.3,
+        "type": "complexation"
+      },
+      {
+        "formed": "Ni(CN)4--",
+        "components": {
+          "Ni++": 1,
+          "CN-": 4
+        },
+        "pK": 31,
+        "type": "complexation"
+      },
+      {
+        "formed": "AlF6---",
+        "components": {
+          "Al+++": 1,
+          "F-": 6
+        },
+        "pK": 4.4,
+        "type": "complexation"
+      },
+      {
+        "formed": "AlF4-",
+        "components": {
+          "Al+++": 1,
+          "F-": 4
+        },
+        "pK": 8.3,
+        "type": "complexation"
+      },
+      {
+        "formed": "BeF4--",
+        "components": {
+          "Be++": 1,
+          "F-": 4
+        },
+        "pK": 13.11,
+        "type": "complexation"
+      },
+      {
+        "formed": "SnF6--",
+        "components": {
+          "Sn++++": 1,
+          "F-": 6
+        },
+        "pK": 25,
+        "type": "complexation"
+      },
+      {
+        "formed": "CuCl2-",
+        "components": {
+          "Cu+": 1,
+          "Cl-": 2
+        },
+        "pK": 5.48,
+        "type": "complexation"
+      },
+      {
+        "formed": "AgCl2-",
+        "components": {
+          "Ag+": 1,
+          "Cl-": 2
+        },
+        "pK": 5.26,
+        "type": "complexation"
+      },
+      {
+        "formed": "PbCl4--",
+        "components": {
+          "Pb++": 1,
+          "Cl-": 4
+        },
+        "pK": 15.4,
+        "type": "complexation"
+      },
+      {
+        "formed": "HgCl4--",
+        "components": {
+          "Hg++": 1,
+          "Cl-": 4
+        },
+        "pK": 15.7,
+        "type": "complexation"
+      },
+      {
+        "formed": "CuBr2-",
+        "components": {
+          "Cu+": 1,
+          "Br-": 2
+        },
+        "pK": 5.9,
+        "type": "complexation"
+      },
+      {
+        "formed": "AgBr2-",
+        "components": {
+          "Ag+": 1,
+          "Br-": 2
+        },
+        "pK": 11,
+        "type": "complexation"
+      },
+      {
+        "formed": "HgBr4--",
+        "components": {
+          "Hg++": 1,
+          "Br-": 4
+        },
+        "pK": 4.48,
+        "type": "complexation"
+      },
+      {
+        "formed": "CuI2-",
+        "components": {
+          "Cu+": 1,
+          "I-": 2
+        },
+        "pK": 8.9,
+        "type": "complexation"
+      },
+      {
+        "formed": "AgI2-",
+        "components": {
+          "Ag+": 1,
+          "I-": 2
+        },
+        "pK": 11,
+        "type": "complexation"
+      },
+      {
+        "formed": "PbI4--",
+        "components": {
+          "Pb++": 1,
+          "I-": 4
+        },
+        "pK": 4.48,
+        "type": "complexation"
+      },
+      {
+        "formed": "HgI4--",
+        "components": {
+          "Hg++": 1,
+          "I-": 4
+        },
+        "pK": 30.28,
+        "type": "complexation"
+      },
+      {
+        "formed": "Ag(CH3NH2)2+",
+        "components": {
+          "Ag+": 1,
+          "CH3NH2": 2
+        },
+        "pK": 6.89,
+        "type": "complexation"
+      },
+      {
+        "formed": "Ag(S2O3)2---",
+        "components": {
+          "Ag+": 1,
+          "S2O3--": 2
+        },
+        "pK": 13.46,
+        "type": "complexation"
+      },
+      {
+        "formed": "Cd(SCN)4--",
+        "components": {
+          "Cd++": 1,
+          "SCN-": 4
+        },
+        "pK": 3,
+        "type": "complexation"
+      },
+      {
+        "formed": "Cu(SCN)2",
+        "components": {
+          "Cu++": 1,
+          "SCN-": 2
+        },
+        "pK": 3.75,
+        "type": "complexation"
+      },
+      {
+        "formed": "Fe(SCN)3",
+        "components": {
+          "Fe+++": 1,
+          "SCN-": 3
+        },
+        "pK": 6.3,
+        "type": "complexation"
+      },
+      {
+        "formed": "Hg(SCN)4--",
+        "components": {
+          "Hg++": 1,
+          "SCN-": 4
+        },
+        "pK": 21.7,
+        "type": "complexation"
+      },
+      {
+        "formed": "Cu(OH)4--",
+        "components": {
+          "Cu++": 1,
+          "OH-": 4
+        },
+        "pK": 16.11,
+        "type": "complexation"
+      },
+      {
+        "formed": "Zn(OH)4--",
+        "components": {
+          "Zn++": 1,
+          "OH-": 4
+        },
+        "pK": 15.45,
+        "type": "complexation"
+      },
+      {
+        "formed": "Mn(en)3++",
+        "components": {
+          "Mn++": 1,
+          "en": 1
+        },
+        "pK": 5.81,
+        "type": "complexation"
+      },
+      {
+        "formed": "Fe(en)3++",
+        "components": {
+          "Fe++": 1,
+          "en": 1
+        },
+        "pK": 9.72,
+        "type": "complexation"
+      },
+      {
+        "formed": "Co(en)3++",
+        "components": {
+          "Co++": 1,
+          "en": 1
+        },
+        "pK": 14.11,
+        "type": "complexation"
+      },
+      {
+        "formed": "Co(en)3+++",
+        "components": {
+          "Co+++": 1,
+          "en": 1
+        },
+        "pK": 48.68,
+        "type": "complexation"
+      },
+      {
+        "formed": "Ni(en)3++",
+        "components": {
+          "Ni++": 1,
+          "en": 1
+        },
+        "pK": 17.61,
+        "type": "complexation"
+      },
+      {
+        "formed": "Cu(en)2++",
+        "components": {
+          "Cu++": 1,
+          "en": 1
+        },
+        "pK": 19.54,
+        "type": "complexation"
+      },
+      {
+        "formed": "Co(C2O4)3----",
+        "components": {
+          "Co++": 1,
+          "C2O4--": 3
+        },
+        "pK": 6.65,
+        "type": "complexation"
+      },
+      {
+        "formed": "Fe(C2O4)3---",
+        "components": {
+          "Fe+++": 1,
+          "C2O4--": 3
+        },
+        "pK": 20.52,
+        "type": "complexation"
+      },
+      {
+        "formed": "AgBr",
+        "components": {
+          "Ag+": 1,
+          "Br-": 1
+        },
+        "pK": 12.27,
+        "type": "precipitation"
+      },
+      {
+        "formed": "AgBrO3",
+        "components": {
+          "Ag+": 1,
+          "BrO3-": 1
+        },
+        "pK": 4.24,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Ag2CO3",
+        "components": {
+          "Ag+": 2,
+          "CO3--": 1
+        },
+        "pK": 11.1,
+        "type": "precipitation"
+      },
+      {
+        "formed": "AgCl",
+        "components": {
+          "Ag+": 1,
+          "Cl-": 1
+        },
+        "pK": 9.74,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Ag2CrO4",
+        "components": {
+          "Ag+": 2,
+          "CrO4--": 1
+        },
+        "pK": 11.05,
+        "type": "precipitation"
+      },
+      {
+        "formed": "AgI",
+        "components": {
+          "Ag+": 1,
+          "I-": 1
+        },
+        "pK": 16.07,
+        "type": "precipitation"
+      },
+      {
+        "formed": "AgOH",
+        "components": {
+          "Ag+": 1,
+          "OH-": 1
+        },
+        "pK": 7.72,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Ag2S",
+        "components": {
+          "Ag+": 2,
+          "S--": 1
+        },
+        "pK": 50.22,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Al(OH)3",
+        "components": {
+          "Al+++": 1,
+          "OH-": 3
+        },
+        "pK": 32.74,
+        "type": "precipitation"
+      },
+      {
+        "formed": "BaCO3",
+        "components": {
+          "Ba++": 1,
+          "CO3--": 1
+        },
+        "pK": 8.7,
+        "type": "precipitation"
+      },
+      {
+        "formed": "BaCrO4",
+        "components": {
+          "Ba++": 1,
+          "CrO4--": 1
+        },
+        "pK": 10.07,
+        "type": "precipitation"
+      },
+      {
+        "formed": "BaF2",
+        "components": {
+          "Ba++": 1,
+          "F-": 2
+        },
+        "pK": 6.74,
+        "type": "precipitation"
+      },
+      {
+        "formed": "BaSO4",
+        "components": {
+          "Ba++": 1,
+          "SO4--": 1
+        },
+        "pK": 9.96,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Bi2S3",
+        "components": {
+          "Bi+++": 2,
+          "S--": 3
+        },
+        "pK": 71.8,
+        "type": "precipitation"
+      },
+      {
+        "formed": "CaCO3",
+        "components": {
+          "Ca++": 1,
+          "CO3--": 1
+        },
+        "pK": 8.47,
+        "type": "precipitation"
+      },
+      {
+        "formed": "CaF2",
+        "components": {
+          "Ca++": 1,
+          "F-": 2
+        },
+        "pK": 10.46,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Ca(OH)2",
+        "components": {
+          "Ca++": 1,
+          "OH-": 2
+        },
+        "pK": 5.3,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Ca3(PO4)2",
+        "components": {
+          "Ca++": 3,
+          "PO4---": 2
+        },
+        "pK": 32.68,
+        "type": "precipitation"
+      },
+      {
+        "formed": "CaSO4",
+        "components": {
+          "Ca++": 1,
+          "SO4--": 1
+        },
+        "pK": 4.35,
+        "type": "precipitation"
+      },
+      {
+        "formed": "CdS",
+        "components": {
+          "Cd++": 1,
+          "S--": 1
+        },
+        "pK": 28,
+        "type": "precipitation"
+      },
+      {
+        "formed": "CuCl",
+        "components": {
+          "Cu+": 1,
+          "Cl-": 1
+        },
+        "pK": 6.77,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Cu(OH)2",
+        "components": {
+          "Cu++": 1,
+          "OH-": 2
+        },
+        "pK": 18.8,
+        "type": "precipitation"
+      },
+      {
+        "formed": "CuS",
+        "components": {
+          "Cu++": 1,
+          "S--": 1
+        },
+        "pK": 44.07,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Fe(OH)2",
+        "components": {
+          "Fe++": 1,
+          "OH-": 2
+        },
+        "pK": 16.31,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Fe(OH)3",
+        "components": {
+          "Fe+++": 1,
+          "OH-": 3
+        },
+        "pK": 38.55,
+        "type": "precipitation"
+      },
+      {
+        "formed": "FeS",
+        "components": {
+          "Fe++": 1,
+          "S--": 1
+        },
+        "pK": 18.22,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Hg2Cl2",
+        "components": {
+          "Hg+": 2,
+          "Cl-": 2
+        },
+        "pK": 17.85,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Li2CO3",
+        "components": {
+          "Li+": 2,
+          "CO3--": 1
+        },
+        "pK": 2.96,
+        "type": "precipitation"
+      },
+      {
+        "formed": "MgCO3",
+        "components": {
+          "Mg++": 1,
+          "CO3--": 1
+        },
+        "pK": 4.17,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Mg(OH)2",
+        "components": {
+          "Mg++": 1,
+          "OH-": 2
+        },
+        "pK": 11.15,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Mn(OH)2",
+        "components": {
+          "Mn--": 1,
+          "OH-": 2
+        },
+        "pK": 12.7,
+        "type": "precipitation"
+      },
+      {
+        "formed": "PbCl2",
+        "components": {
+          "Pb++": 1,
+          "Cl-": 2
+        },
+        "pK": 4.77,
+        "type": "precipitation"
+      },
+      {
+        "formed": "PbCrO4",
+        "components": {
+          "Pb++": 1,
+          "CrO4--": 1
+        },
+        "pK": 15.7,
+        "type": "precipitation"
+      },
+      {
+        "formed": "PbI2",
+        "components": {
+          "Pb++": 1,
+          "I--": 2
+        },
+        "pK": 7.85,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Pb(OH)2",
+        "components": {
+          "Pb++": 1,
+          "OH-": 2
+        },
+        "pK": 14.92,
+        "type": "precipitation"
+      },
+      {
+        "formed": "PbS",
+        "components": {
+          "Pb++": 1,
+          "S--": 1
+        },
+        "pK": 28.15,
+        "type": "precipitation"
+      },
+      {
+        "formed": "PbSO4",
+        "components": {
+          "Pb++": 1,
+          "SO4--": 1
+        },
+        "pK": 7.8,
+        "type": "precipitation"
+      },
+      {
+        "formed": "Zn(OH)2",
+        "components": {
+          "Zn++": 1,
+          "OH-": 2
+        },
+        "pK": 16.35,
+        "type": "precipitation"
+      },
+      {
+        "formed": "ZnS",
+        "components": {
+          "Zn++": 1,
+          "S--": 1
+        },
+        "pK": 22.52,
+        "type": "precipitation"
+      }
+    ],
+    "speciesLabels": {
+      "all": [
+        "HIO3",
+        "IO3-",
+        "H+",
+        "HOCN",
+        "OCN-",
+        "HBrO",
+        "BrO-",
+        "CH2ClCO2H",
+        "CH2ClCO2-",
+        "C6H5COOH",
+        "C6H5COO-",
+        "C6H5NH3+",
+        "C6H5NH2",
+        "C2H5COOH",
+        "C2H5COO-",
+        "C5H5NH+",
+        "C5H5N",
+        "CH3NH3+",
+        "CH3NH2",
+        "(C2H5)3NH+",
+        "(C2H5)3N",
+        "C2H5NH3+",
+        "C2H5NH2",
+        "HClO4",
+        "ClO4-",
+        "HCl",
+        "Cl-",
+        "H2SO4",
+        "HSO4-",
+        "HNO3",
+        "NO3-",
+        "H2SO3",
+        "HSO3-",
+        "SO4--",
+        "HClO2",
+        "ClO2-",
+        "H3PO3",
+        "H2PO3-",
+        "Fe(H2O)6+++",
+        "Fe(H2O)5OH++",
+        "H3PO4",
+        "H2PO4-",
+        "HF",
+        "F-",
+        "HNO2",
+        "NO2-",
+        "HCO2H",
+        "HCO2-",
+        "CH3CO2H",
+        "CH3COO-",
+        "Al(H2O)6+++",
+        "Al(H2O)5OH++",
+        "H2CO3",
+        "HCO3-",
+        "HPO3--",
+        "H2S",
+        "HS-",
+        "SO3--",
+        "HClO",
+        "ClO-",
+        "HCN",
+        "CN-",
+        "NH4+",
+        "NH3",
+        "CO3--",
+        "HPO4--",
+        "PO4---",
+        "H2O",
+        "OH-",
+        "S--",
+        "NH2-",
+        "Ag(NH3)2+",
+        "Ag+",
+        "Zn(NH3)4++",
+        "Zn++",
+        "Cu(NH3)4++",
+        "Cu++",
+        "Hg(NH3)4++",
+        "Hg++",
+        "Co(NH3)6++",
+        "Co++",
+        "Co(NH3)4+++",
+        "Co+++",
+        "Cd(NH3)6++",
+        "Cd++",
+        "Cd(NH3)4++",
+        "Ni(NH3)6++",
+        "Ni++",
+        "Fe(CN)6----",
+        "Fe++",
+        "Fe(CN)6---",
+        "Fe+++",
+        "Ag(CN)2-",
+        "Cu(CN)2-",
+        "Cu+",
+        "Cd(CN)4--",
+        "Au(CN)2-",
+        "Au+",
+        "Ni(CN)4--",
+        "AlF6---",
+        "Al+++",
+        "AlF4-",
+        "BeF4--",
+        "Be++",
+        "SnF6--",
+        "Sn++++",
+        "CuCl2-",
+        "AgCl2-",
+        "PbCl4--",
+        "Pb++",
+        "HgCl4--",
+        "CuBr2-",
+        "Br-",
+        "AgBr2-",
+        "HgBr4--",
+        "CuI2-",
+        "I-",
+        "AgI2-",
+        "PbI4--",
+        "HgI4--",
+        "Ag(CH3NH2)2+",
+        "Ag(S2O3)2---",
+        "S2O3--",
+        "Cd(SCN)4--",
+        "SCN-",
+        "Cu(SCN)2",
+        "Fe(SCN)3",
+        "Hg(SCN)4--",
+        "Cu(OH)4--",
+        "Zn(OH)4--",
+        "Mn(en)3++",
+        "Mn++",
+        "en",
+        "Fe(en)3++",
+        "Co(en)3++",
+        "Co(en)3+++",
+        "Ni(en)3++",
+        "Cu(en)2++",
+        "Co(C2O4)3----",
+        "C2O4--",
+        "Fe(C2O4)3---",
+        "AgBr",
+        "AgBrO3",
+        "BrO3-",
+        "Ag2CO3",
+        "AgCl",
+        "Ag2CrO4",
+        "CrO4--",
+        "AgI",
+        "AgOH",
+        "Ag2S",
+        "Al(OH)3",
+        "BaCO3",
+        "Ba++",
+        "BaCrO4",
+        "BaF2",
+        "BaSO4",
+        "Bi2S3",
+        "Bi+++",
+        "CaCO3",
+        "Ca++",
+        "CaF2",
+        "Ca(OH)2",
+        "Ca3(PO4)2",
+        "CaSO4",
+        "CdS",
+        "CuCl",
+        "Cu(OH)2",
+        "CuS",
+        "Fe(OH)2",
+        "Fe(OH)3",
+        "FeS",
+        "Hg2Cl2",
+        "Hg+",
+        "Li2CO3",
+        "Li+",
+        "MgCO3",
+        "Mg++",
+        "Mg(OH)2",
+        "Mn(OH)2",
+        "Mn--",
+        "PbCl2",
+        "PbCrO4",
+        "PbI2",
+        "I--",
+        "Pb(OH)2",
+        "PbS",
+        "PbSO4",
+        "Zn(OH)2",
+        "ZnS"
+      ],
+      "acidoBasic": [
+        "HIO3",
+        "IO3-",
+        "H+",
+        "HOCN",
+        "OCN-",
+        "HBrO",
+        "BrO-",
+        "CH2ClCO2H",
+        "CH2ClCO2-",
+        "C6H5COOH",
+        "C6H5COO-",
+        "C6H5NH3+",
+        "C6H5NH2",
+        "C2H5COOH",
+        "C2H5COO-",
+        "C5H5NH+",
+        "C5H5N",
+        "CH3NH3+",
+        "CH3NH2",
+        "(C2H5)3NH+",
+        "(C2H5)3N",
+        "C2H5NH3+",
+        "C2H5NH2",
+        "HClO4",
+        "ClO4-",
+        "HCl",
+        "Cl-",
+        "H2SO4",
+        "HSO4-",
+        "HNO3",
+        "NO3-",
+        "H2SO3",
+        "HSO3-",
+        "SO4--",
+        "HClO2",
+        "ClO2-",
+        "H3PO3",
+        "H2PO3-",
+        "Fe(H2O)6+++",
+        "Fe(H2O)5OH++",
+        "H3PO4",
+        "H2PO4-",
+        "HF",
+        "F-",
+        "HNO2",
+        "NO2-",
+        "HCO2H",
+        "HCO2-",
+        "CH3CO2H",
+        "CH3COO-",
+        "Al(H2O)6+++",
+        "Al(H2O)5OH++",
+        "H2CO3",
+        "HCO3-",
+        "HPO3--",
+        "H2S",
+        "HS-",
+        "SO3--",
+        "HClO",
+        "ClO-",
+        "HCN",
+        "CN-",
+        "NH4+",
+        "NH3",
+        "CO3--",
+        "HPO4--",
+        "PO4---",
+        "H2O",
+        "OH-",
+        "S--",
+        "NH2-"
+      ],
+      "complexation": [
+        "Ag(NH3)2+",
+        "Ag+",
+        "NH3",
+        "Zn(NH3)4++",
+        "Zn++",
+        "Cu(NH3)4++",
+        "Cu++",
+        "Hg(NH3)4++",
+        "Hg++",
+        "Co(NH3)6++",
+        "Co++",
+        "Co(NH3)4+++",
+        "Co+++",
+        "Cd(NH3)6++",
+        "Cd++",
+        "Cd(NH3)4++",
+        "Ni(NH3)6++",
+        "Ni++",
+        "Fe(CN)6----",
+        "Fe++",
+        "CN-",
+        "Fe(CN)6---",
+        "Fe+++",
+        "Ag(CN)2-",
+        "Cu(CN)2-",
+        "Cu+",
+        "Cd(CN)4--",
+        "Au(CN)2-",
+        "Au+",
+        "Ni(CN)4--",
+        "AlF6---",
+        "Al+++",
+        "F-",
+        "AlF4-",
+        "BeF4--",
+        "Be++",
+        "SnF6--",
+        "Sn++++",
+        "CuCl2-",
+        "Cl-",
+        "AgCl2-",
+        "PbCl4--",
+        "Pb++",
+        "HgCl4--",
+        "CuBr2-",
+        "Br-",
+        "AgBr2-",
+        "HgBr4--",
+        "CuI2-",
+        "I-",
+        "AgI2-",
+        "PbI4--",
+        "HgI4--",
+        "Ag(CH3NH2)2+",
+        "CH3NH2",
+        "Ag(S2O3)2---",
+        "S2O3--",
+        "Cd(SCN)4--",
+        "SCN-",
+        "Cu(SCN)2",
+        "Fe(SCN)3",
+        "Hg(SCN)4--",
+        "Cu(OH)4--",
+        "OH-",
+        "Zn(OH)4--",
+        "Mn(en)3++",
+        "Mn++",
+        "en",
+        "Fe(en)3++",
+        "Co(en)3++",
+        "Co(en)3+++",
+        "Ni(en)3++",
+        "Cu(en)2++",
+        "Co(C2O4)3----",
+        "C2O4--",
+        "Fe(C2O4)3---"
+      ],
+      "precipitation": [
+        "AgBr",
+        "Ag+",
+        "Br-",
+        "AgBrO3",
+        "BrO3-",
+        "Ag2CO3",
+        "CO3--",
+        "AgCl",
+        "Cl-",
+        "Ag2CrO4",
+        "CrO4--",
+        "AgI",
+        "I-",
+        "AgOH",
+        "OH-",
+        "Ag2S",
+        "S--",
+        "Al(OH)3",
+        "Al+++",
+        "BaCO3",
+        "Ba++",
+        "BaCrO4",
+        "BaF2",
+        "F-",
+        "BaSO4",
+        "SO4--",
+        "Bi2S3",
+        "Bi+++",
+        "CaCO3",
+        "Ca++",
+        "CaF2",
+        "Ca(OH)2",
+        "Ca3(PO4)2",
+        "PO4---",
+        "CaSO4",
+        "CdS",
+        "Cd++",
+        "CuCl",
+        "Cu+",
+        "Cu(OH)2",
+        "Cu++",
+        "CuS",
+        "Fe(OH)2",
+        "Fe++",
+        "Fe(OH)3",
+        "Fe+++",
+        "FeS",
+        "Hg2Cl2",
+        "Hg+",
+        "Li2CO3",
+        "Li+",
+        "MgCO3",
+        "Mg++",
+        "Mg(OH)2",
+        "Mn(OH)2",
+        "Mn--",
+        "PbCl2",
+        "Pb++",
+        "PbCrO4",
+        "PbI2",
+        "I--",
+        "Pb(OH)2",
+        "PbS",
+        "PbSO4",
+        "Zn(OH)2",
+        "Zn++",
+        "ZnS"
+      ]
+    },
+    "publishedBundleDelta": {
+      "note": "The deployed views load chem-equilibrium 2.2.0 (precipitation) / 2.2.1 (free) from lactame.com. Their data.json differs from the current repo HEAD by these three rows.",
+      "onlyInPublishedV2_2_1": [
+        {
+          "formed": "H2PO3",
+          "components": {
+            "HPO3-": 1,
+            "H+": 1
+          },
+          "pK": 2,
+          "type": "acidoBasic"
+        },
+        {
+          "formed": "HPO3-",
+          "components": {
+            "PO3--": 1,
+            "H+": 1
+          },
+          "pK": 6.59,
+          "type": "acidoBasic"
+        },
+        {
+          "formed": "HClO",
+          "components": {
+            "ClO-": 1,
+            "H+": 1
+          },
+          "pK": 8,
+          "type": "acidoBasic"
+        }
+      ],
+      "onlyInRepoHead": [
+        {
+          "formed": "H3PO3",
+          "components": {
+            "H2PO3-": 1,
+            "H+": 1
+          },
+          "pK": 1.26,
+          "type": "acidoBasic"
+        },
+        {
+          "formed": "H2PO3-",
+          "components": {
+            "HPO3--": 1,
+            "H+": 1
+          },
+          "pK": 6.7,
+          "type": "acidoBasic"
+        },
+        {
+          "formed": "HClO",
+          "components": {
+            "ClO-": 1,
+            "H+": 1
+          },
+          "pK": 7.4,
+          "type": "acidoBasic"
+        }
+      ]
+    }
+  }
+}

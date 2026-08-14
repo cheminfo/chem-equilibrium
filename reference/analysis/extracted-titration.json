@@ -1,0 +1,857 @@
+{
+  "source": {
+    "tool": "Démonstration titrage acide / base (view-titration.json)",
+    "module": "id=6 code_executor \"Load indicator for google sheet\" (execOnLoad)",
+    "url": "https://googledocs.cheminfo.org/spreadsheets/d/1gTa_Sd4rdoZAs-G08PPf6LtM954vp_QHio9m0mYNamU/export?format=tsv",
+    "spreadsheetId": "1gTa_Sd4rdoZAs-G08PPf6LtM954vp_QHio9m0mYNamU",
+    "parser": "papaparse, header:true, dynamicTyping:true; rows sorted ascending by pH1; grouped by \"name\"",
+    "fetchedAt": "2026-08-14T11:52:48.624Z",
+    "columns": [
+      "Indicateur6",
+      "name",
+      "pH1",
+      "pH2",
+      "color1",
+      "color2\r"
+    ],
+    "note": "The dropdown/table prepends a pseudo-indicator \"none\" (no colouring)."
+  },
+  "rawRowCount": 25,
+  "rawRows": [
+    {
+      "transitionLabel": "Bleu de bromothymol, BBT (1re transition)",
+      "name": "Bleu de bromothymol (BBT)",
+      "pH1": 0,
+      "pH2": 0,
+      "color1": "#ff0088",
+      "color2": "yellow\r"
+    },
+    {
+      "transitionLabel": "Rouge de crésol (acide - 1re transition)",
+      "name": "Rouge de crésol",
+      "pH1": 0,
+      "pH2": 1,
+      "color1": "red",
+      "color2": "yellow\r"
+    },
+    {
+      "transitionLabel": "Violet de gentiane",
+      "name": "Violet de gentiane",
+      "pH1": 0,
+      "pH2": 1.6,
+      "color1": "yellow",
+      "color2": "#b516e9\r"
+    },
+    {
+      "transitionLabel": "Vert malachite (acide - 1re transition)",
+      "name": "Vert malachite",
+      "pH1": 0.2,
+      "pH2": 1.8,
+      "color1": "yellow",
+      "color2": "#00AAAA\r"
+    },
+    {
+      "transitionLabel": "Bleu de thymol (acide - 1re transition)",
+      "name": "Bleu de thymol",
+      "pH1": 1.2,
+      "pH2": 2.8,
+      "color1": "red",
+      "color2": "yellow\r"
+    },
+    {
+      "transitionLabel": "Jaune de méthyle",
+      "name": "Jaune de méthyle",
+      "pH1": 2.9,
+      "pH2": 4,
+      "color1": "red",
+      "color2": "yellow\r"
+    },
+    {
+      "transitionLabel": "Bleu de bromophénol (BBP)",
+      "name": "Bleu de bromophénol (BBP)",
+      "pH1": 3,
+      "pH2": 4.6,
+      "color1": "yellow",
+      "color2": "violet\r"
+    },
+    {
+      "transitionLabel": "Rouge Congo",
+      "name": "Rouge Congo",
+      "pH1": 3,
+      "pH2": 5.2,
+      "color1": "blue",
+      "color2": "red\r"
+    },
+    {
+      "transitionLabel": "Hélianthine (Méthyl orange)",
+      "name": "Hélianthine (Méthyl orange)",
+      "pH1": 3.1,
+      "pH2": 4.4,
+      "color1": "red",
+      "color2": "yellow\r"
+    },
+    {
+      "transitionLabel": "Hélianthine en solution dans le xylène cyanole",
+      "name": "Hélianthine en solution dans le xylène cyanole",
+      "pH1": 3.2,
+      "pH2": 4.2,
+      "color1": "fuchsia",
+      "color2": "lime\r"
+    },
+    {
+      "transitionLabel": "Vert de bromocrésol",
+      "name": "Vert de bromocrésol",
+      "pH1": 3.8,
+      "pH2": 5.4,
+      "color1": "yellow",
+      "color2": "#0033FF\r"
+    },
+    {
+      "transitionLabel": "Rouge de méthyle",
+      "name": "Rouge de méthyle",
+      "pH1": 4.2,
+      "pH2": 6.3,
+      "color1": "red",
+      "color2": "yellow\r"
+    },
+    {
+      "transitionLabel": "Papier de tournesol (Azolitmine)",
+      "name": "Papier de tournesol (Azolitmine)",
+      "pH1": 4.5,
+      "pH2": 8.3,
+      "color1": "red",
+      "color2": "blue\r"
+    },
+    {
+      "transitionLabel": "Pourpre de bromocrésol",
+      "name": "Pourpre de bromocrésol",
+      "pH1": 5.2,
+      "pH2": 6.8,
+      "color1": "yellow",
+      "color2": "violet\r"
+    },
+    {
+      "transitionLabel": "Bleu de bromothymol, BBT (2e transition)",
+      "name": "Bleu de bromothymol (BBT)",
+      "pH1": 6,
+      "pH2": 7.6,
+      "color1": "yellow",
+      "color2": "#0033FF\r"
+    },
+    {
+      "transitionLabel": "Rouge de phénol (Phénolsulfonephtaléine)",
+      "name": "Rouge de phénol (Phénolsulfonephtaléine)",
+      "pH1": 6.6,
+      "pH2": 8,
+      "color1": "yellow",
+      "color2": "red\r"
+    },
+    {
+      "transitionLabel": "Rouge neutre",
+      "name": "Rouge neutre",
+      "pH1": 6.8,
+      "pH2": 8,
+      "color1": "red",
+      "color2": "#FFCC00\r"
+    },
+    {
+      "transitionLabel": "Rouge de crésol (base - 2e transition)",
+      "name": "Rouge de crésol",
+      "pH1": 7.2,
+      "pH2": 8.8,
+      "color1": "yellow",
+      "color2": "red\r"
+    },
+    {
+      "transitionLabel": "Bleu de thymol (base - 2e transition)",
+      "name": "Bleu de thymol",
+      "pH1": 8,
+      "pH2": 9.6,
+      "color1": "yellow",
+      "color2": "blue\r"
+    },
+    {
+      "transitionLabel": "Phénolphtaléine",
+      "name": "Phénolphtaléine",
+      "pH1": 8.2,
+      "pH2": 10,
+      "color1": "white",
+      "color2": "pink\r"
+    },
+    {
+      "transitionLabel": "Thymolphtaléine",
+      "name": "Thymolphtaléine",
+      "pH1": 9.4,
+      "pH2": 10.6,
+      "color1": "white",
+      "color2": "blue\r"
+    },
+    {
+      "transitionLabel": "Jaune d'alizarine R",
+      "name": "Jaune d'alizarine R",
+      "pH1": 10.1,
+      "pH2": 12,
+      "color1": "yellow",
+      "color2": "#FF3300\r"
+    },
+    {
+      "transitionLabel": "Alizarine",
+      "name": "Alizarine",
+      "pH1": 11,
+      "pH2": 12.4,
+      "color1": "red",
+      "color2": "violet\r"
+    },
+    {
+      "transitionLabel": "Carmin d'indigo",
+      "name": "Carmin d'indigo",
+      "pH1": 11.4,
+      "pH2": 13,
+      "color1": "blue",
+      "color2": "yellow\r"
+    },
+    {
+      "transitionLabel": "Vert malachite (base - 2e transition)",
+      "name": "Vert malachite",
+      "pH1": 11.5,
+      "pH2": 13.2,
+      "color1": "#00AAAA",
+      "color2": "white"
+    }
+  ],
+  "indicatorCount": 21,
+  "indicators": [
+    {
+      "name": "Bleu de bromothymol (BBT)",
+      "nameEnglish": "Bromothymol blue (BTB)",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Bleu de bromothymol, BBT (1re transition)",
+          "pHLow": 0,
+          "pHHigh": 0,
+          "colorAcid": "#ff0088",
+          "colorBase": "yellow\r"
+        },
+        {
+          "transitionLabelFrench": "Bleu de bromothymol, BBT (2e transition)",
+          "pHLow": 6,
+          "pHHigh": 7.6,
+          "colorAcid": "yellow",
+          "colorBase": "#0033FF\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          0,
+          0,
+          6,
+          7.6
+        ],
+        "stops": [
+          "#ff0088",
+          "yellow\r",
+          "yellow",
+          "#0033FF\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Rouge de crésol",
+      "nameEnglish": "Cresol red",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Rouge de crésol (acide - 1re transition)",
+          "pHLow": 0,
+          "pHHigh": 1,
+          "colorAcid": "red",
+          "colorBase": "yellow\r"
+        },
+        {
+          "transitionLabelFrench": "Rouge de crésol (base - 2e transition)",
+          "pHLow": 7.2,
+          "pHHigh": 8.8,
+          "colorAcid": "yellow",
+          "colorBase": "red\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          0,
+          1,
+          7.2,
+          8.8
+        ],
+        "stops": [
+          "red",
+          "yellow\r",
+          "yellow",
+          "red\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Violet de gentiane",
+      "nameEnglish": "Gentian violet (crystal violet)",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Violet de gentiane",
+          "pHLow": 0,
+          "pHHigh": 1.6,
+          "colorAcid": "yellow",
+          "colorBase": "#b516e9\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          0,
+          1.6
+        ],
+        "stops": [
+          "yellow",
+          "#b516e9\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Vert malachite",
+      "nameEnglish": "Malachite green",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Vert malachite (acide - 1re transition)",
+          "pHLow": 0.2,
+          "pHHigh": 1.8,
+          "colorAcid": "yellow",
+          "colorBase": "#00AAAA\r"
+        },
+        {
+          "transitionLabelFrench": "Vert malachite (base - 2e transition)",
+          "pHLow": 11.5,
+          "pHHigh": 13.2,
+          "colorAcid": "#00AAAA",
+          "colorBase": "white"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          0.2,
+          1.8,
+          11.5,
+          13.2
+        ],
+        "stops": [
+          "yellow",
+          "#00AAAA\r",
+          "#00AAAA",
+          "white"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Bleu de thymol",
+      "nameEnglish": "Thymol blue",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Bleu de thymol (acide - 1re transition)",
+          "pHLow": 1.2,
+          "pHHigh": 2.8,
+          "colorAcid": "red",
+          "colorBase": "yellow\r"
+        },
+        {
+          "transitionLabelFrench": "Bleu de thymol (base - 2e transition)",
+          "pHLow": 8,
+          "pHHigh": 9.6,
+          "colorAcid": "yellow",
+          "colorBase": "blue\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          1.2,
+          2.8,
+          8,
+          9.6
+        ],
+        "stops": [
+          "red",
+          "yellow\r",
+          "yellow",
+          "blue\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Jaune de méthyle",
+      "nameEnglish": "Methyl yellow",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Jaune de méthyle",
+          "pHLow": 2.9,
+          "pHHigh": 4,
+          "colorAcid": "red",
+          "colorBase": "yellow\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          2.9,
+          4
+        ],
+        "stops": [
+          "red",
+          "yellow\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Bleu de bromophénol (BBP)",
+      "nameEnglish": "Bromophenol blue (BPB)",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Bleu de bromophénol (BBP)",
+          "pHLow": 3,
+          "pHHigh": 4.6,
+          "colorAcid": "yellow",
+          "colorBase": "violet\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          3,
+          4.6
+        ],
+        "stops": [
+          "yellow",
+          "violet\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Rouge Congo",
+      "nameEnglish": "Congo red",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Rouge Congo",
+          "pHLow": 3,
+          "pHHigh": 5.2,
+          "colorAcid": "blue",
+          "colorBase": "red\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          3,
+          5.2
+        ],
+        "stops": [
+          "blue",
+          "red\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Hélianthine (Méthyl orange)",
+      "nameEnglish": "Methyl orange",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Hélianthine (Méthyl orange)",
+          "pHLow": 3.1,
+          "pHHigh": 4.4,
+          "colorAcid": "red",
+          "colorBase": "yellow\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          3.1,
+          4.4
+        ],
+        "stops": [
+          "red",
+          "yellow\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Hélianthine en solution dans le xylène cyanole",
+      "nameEnglish": "Methyl orange in xylene cyanol solution (screened methyl orange)",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Hélianthine en solution dans le xylène cyanole",
+          "pHLow": 3.2,
+          "pHHigh": 4.2,
+          "colorAcid": "fuchsia",
+          "colorBase": "lime\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          3.2,
+          4.2
+        ],
+        "stops": [
+          "fuchsia",
+          "lime\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Vert de bromocrésol",
+      "nameEnglish": "Bromocresol green",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Vert de bromocrésol",
+          "pHLow": 3.8,
+          "pHHigh": 5.4,
+          "colorAcid": "yellow",
+          "colorBase": "#0033FF\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          3.8,
+          5.4
+        ],
+        "stops": [
+          "yellow",
+          "#0033FF\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Rouge de méthyle",
+      "nameEnglish": "Methyl red",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Rouge de méthyle",
+          "pHLow": 4.2,
+          "pHHigh": 6.3,
+          "colorAcid": "red",
+          "colorBase": "yellow\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          4.2,
+          6.3
+        ],
+        "stops": [
+          "red",
+          "yellow\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Papier de tournesol (Azolitmine)",
+      "nameEnglish": "Litmus paper (azolitmin)",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Papier de tournesol (Azolitmine)",
+          "pHLow": 4.5,
+          "pHHigh": 8.3,
+          "colorAcid": "red",
+          "colorBase": "blue\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          4.5,
+          8.3
+        ],
+        "stops": [
+          "red",
+          "blue\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Pourpre de bromocrésol",
+      "nameEnglish": "Bromocresol purple",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Pourpre de bromocrésol",
+          "pHLow": 5.2,
+          "pHHigh": 6.8,
+          "colorAcid": "yellow",
+          "colorBase": "violet\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          5.2,
+          6.8
+        ],
+        "stops": [
+          "yellow",
+          "violet\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Rouge de phénol (Phénolsulfonephtaléine)",
+      "nameEnglish": "Phenol red (phenolsulfonephthalein)",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Rouge de phénol (Phénolsulfonephtaléine)",
+          "pHLow": 6.6,
+          "pHHigh": 8,
+          "colorAcid": "yellow",
+          "colorBase": "red\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          6.6,
+          8
+        ],
+        "stops": [
+          "yellow",
+          "red\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Rouge neutre",
+      "nameEnglish": "Neutral red",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Rouge neutre",
+          "pHLow": 6.8,
+          "pHHigh": 8,
+          "colorAcid": "red",
+          "colorBase": "#FFCC00\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          6.8,
+          8
+        ],
+        "stops": [
+          "red",
+          "#FFCC00\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Phénolphtaléine",
+      "nameEnglish": "Phenolphthalein",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Phénolphtaléine",
+          "pHLow": 8.2,
+          "pHHigh": 10,
+          "colorAcid": "white",
+          "colorBase": "pink\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          8.2,
+          10
+        ],
+        "stops": [
+          "white",
+          "pink\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Thymolphtaléine",
+      "nameEnglish": "Thymolphthalein",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Thymolphtaléine",
+          "pHLow": 9.4,
+          "pHHigh": 10.6,
+          "colorAcid": "white",
+          "colorBase": "blue\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          9.4,
+          10.6
+        ],
+        "stops": [
+          "white",
+          "blue\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Jaune d'alizarine R",
+      "nameEnglish": "Alizarin yellow R",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Jaune d'alizarine R",
+          "pHLow": 10.1,
+          "pHHigh": 12,
+          "colorAcid": "yellow",
+          "colorBase": "#FF3300\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          10.1,
+          12
+        ],
+        "stops": [
+          "yellow",
+          "#FF3300\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Alizarine",
+      "nameEnglish": "Alizarin",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Alizarine",
+          "pHLow": 11,
+          "pHHigh": 12.4,
+          "colorAcid": "red",
+          "colorBase": "violet\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          11,
+          12.4
+        ],
+        "stops": [
+          "red",
+          "violet\r"
+        ],
+        "stopType": "values"
+      }
+    },
+    {
+      "name": "Carmin d'indigo",
+      "nameEnglish": "Indigo carmine",
+      "transitions": [
+        {
+          "transitionLabelFrench": "Carmin d'indigo",
+          "pHLow": 11.4,
+          "pHHigh": 13,
+          "colorAcid": "blue",
+          "colorBase": "yellow\r"
+        }
+      ],
+      "gradient": {
+        "domain": [
+          0,
+          14
+        ],
+        "stopPositions": [
+          11.4,
+          13
+        ],
+        "stops": [
+          "blue",
+          "yellow\r"
+        ],
+        "stopType": "values"
+      }
+    }
+  ]
+}

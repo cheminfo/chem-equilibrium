@@ -1,48 +1,37 @@
 {
-  "name": "chem-equilibrium",
-  "version": "2.2.1",
-  "description": "Compute chemical equilibrium",
+  "name": "chem-equilibrium-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Chemical equilibrium solver and the equilibrium.cheminfo.org teaching site.",
   "type": "module",
-  "keywords": [],
-  "exports": {
-    ".": "./src/index.js"
-  },
-  "files": [
-    "data/data.json",
-    "src"
+  "workspaces": [
+    "packages/chem-equilibrium",
+    "packages/equilibrium.cheminfo.org"
   ],
-  "author": "Daniel Kostro &lt;kostro.d@gmail.com&gt;",
-  "repository": "cheminfo/chem-equilibrium",
-  "bugs": {
-    "url": "https://github.com/cheminfo/chem-equilibrium/issues"
-  },
-  "homepage": "https://github.com/cheminfo/chem-equilibrium",
-  "license": "MIT",
-  "engines": {
-    "node": ">=22.12.0"
-  },
   "scripts": {
-    "build": "cheminfo-build --entry src/index.js --root ChemEquilibrium",
-    "database": "node data/update.js",
+    "build": "npm run build-lib && npm run build -w equilibrium.cheminfo.org",
+    "build-bundle": "npm run build -w chem-equilibrium",
+    "build-lib": "npm run tsc -w chem-equilibrium",
+    "check-types": "npm run build-lib && npm run check-types -w chem-equilibrium && npm run check-types -w equilibrium.cheminfo.org",
+    "database": "npm run database -w chem-equilibrium && node packages/equilibrium.cheminfo.org/data/update.ts",
+    "dev": "npm run build-lib && npm run dev -w equilibrium.cheminfo.org",
     "eslint": "eslint .",
     "eslint-fix": "eslint . --fix",
     "prettier": "prettier --check .",
     "prettier-write": "prettier --write .",
-    "test": "npm run test-only && npm run eslint && npm run prettier",
-    "test-only": "vitest run --coverage"
-  },
-  "dependencies": {
-    "debug": "^4.4.3",
-    "deepcopy": "^2.1.0",
-    "ml-matrix": "^6.15.0"
+    "test": "npm run test-only && npm run check-types && npm run eslint && npm run prettier",
+    "test-e2e": "npm run test-e2e -w equilibrium.cheminfo.org",
+    "test-only": "npm run test-only -w chem-equilibrium && npm run build-lib && npm run test-only -w equilibrium.cheminfo.org"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^4.1.10",
-    "cheminfo-build": "^1.4.0",
     "eslint": "^9.39.1",
-    "eslint-config-cheminfo": "^18.1.0",
-    "papaparse": "^5.6.0",
+    "eslint-config-cheminfo-react": "^20.1.0",
+    "eslint-config-cheminfo-typescript": "^22.1.0",
     "prettier": "^3.9.6",
-    "vitest": "^4.1.10"
+    "typescript": "^6.0.3"
+  },
+  "overrides": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   }
 }

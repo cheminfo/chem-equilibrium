@@ -1,0 +1,4100 @@
+{
+  "generatedBy": "analysis of chem-equilibrium formation-constant database",
+  "sourceFile": "/Users/lpatiny/git/cheminfo/chem-equilibrium/data/data.json",
+  "upstreamSpreadsheet": "https://googledocs.cheminfo.org/spreadsheets/d/1VjfiuDtJUqxdfyFr7DdVcIM-l3eh47SqanafHdbXvDQ/export?format=tsv",
+  "entryCount": 125,
+  "entryKeys": [
+    "formed",
+    "components",
+    "pK",
+    "type"
+  ],
+  "counts": {
+    "entries": 125,
+    "distinctFormedSpecies": 125,
+    "distinctComponents": 73,
+    "distinctLabelsTotal": 190,
+    "labelsThatThrowInMfParser": 7,
+    "labelsWhoseChargeIsSilentlyDropped": 52
+  },
+  "typeCounts": {
+    "acidoBasic": 39,
+    "complexation": 47,
+    "precipitation": 39
+  },
+  "formedSpecies": [
+    {
+      "label": "(C2H5)3NH+",
+      "declaredCharge": 1,
+      "type": "acidoBasic",
+      "pK": 10.75,
+      "components": {
+        "(C2H5)3N": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "(C_2H_5)_3NH^+"
+      }
+    },
+    {
+      "label": "Ag(CH3NH2)2+",
+      "declaredCharge": 1,
+      "type": "complexation",
+      "pK": 6.89,
+      "components": {
+        "Ag+": 1,
+        "CH3NH2": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Ag(CH_3NH_2)^+"
+      }
+    },
+    {
+      "label": "Ag(CN)2-",
+      "declaredCharge": -1,
+      "type": "complexation",
+      "pK": 18.72,
+      "components": {
+        "Ag+": 1,
+        "CN-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Ag(CN)_2"
+      }
+    },
+    {
+      "label": "Ag(NH3)2+",
+      "declaredCharge": 1,
+      "type": "complexation",
+      "pK": 7.2,
+      "components": {
+        "Ag+": 1,
+        "NH3": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Ag(NH_3)^+"
+      }
+    },
+    {
+      "label": "Ag(S2O3)2---",
+      "declaredCharge": -3,
+      "type": "complexation",
+      "pK": 13.46,
+      "components": {
+        "Ag+": 1,
+        "S2O3--": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(3)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -3,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Ag(S_2O_3)_2"
+      }
+    },
+    {
+      "label": "Ag2CO3",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 11.1,
+      "components": {
+        "Ag+": 2,
+        "CO3--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Ag_2CO_3"
+      }
+    },
+    {
+      "label": "Ag2CrO4",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 11.05,
+      "components": {
+        "Ag+": 2,
+        "CrO4--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Ag_2CrO_4"
+      }
+    },
+    {
+      "label": "Ag2S",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 50.22,
+      "components": {
+        "Ag+": 2,
+        "S--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Ag_2S"
+      }
+    },
+    {
+      "label": "AgBr",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 12.27,
+      "components": {
+        "Ag+": 1,
+        "Br-": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "AgBr"
+      }
+    },
+    {
+      "label": "AgBr2-",
+      "declaredCharge": -1,
+      "type": "complexation",
+      "pK": 11,
+      "components": {
+        "Ag+": 1,
+        "Br-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "AgBr_2"
+      }
+    },
+    {
+      "label": "AgBrO3",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 4.24,
+      "components": {
+        "Ag+": 1,
+        "BrO3-": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "AgBrO_3"
+      }
+    },
+    {
+      "label": "AgCl",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 9.74,
+      "components": {
+        "Ag+": 1,
+        "Cl-": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "AgCl"
+      }
+    },
+    {
+      "label": "AgCl2-",
+      "declaredCharge": -1,
+      "type": "complexation",
+      "pK": 5.26,
+      "components": {
+        "Ag+": 1,
+        "Cl-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "AgCl_2"
+      }
+    },
+    {
+      "label": "AgI",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 16.07,
+      "components": {
+        "Ag+": 1,
+        "I-": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "AgI"
+      }
+    },
+    {
+      "label": "AgI2-",
+      "declaredCharge": -1,
+      "type": "complexation",
+      "pK": 11,
+      "components": {
+        "Ag+": 1,
+        "I-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "AgI_2"
+      }
+    },
+    {
+      "label": "AgOH",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 7.72,
+      "components": {
+        "Ag+": 1,
+        "OH-": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "AgOH"
+      }
+    },
+    {
+      "label": "Al(H2O)6+++",
+      "declaredCharge": 3,
+      "type": "acidoBasic",
+      "pK": 4.9,
+      "components": {
+        "Al(H2O)5OH++": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(3)",
+        "explicit-aqua-ligand"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 3,
+        "mfParserCharge": 3,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Al(H_2O)^+3"
+      }
+    },
+    {
+      "label": "Al(OH)3",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 32.74,
+      "components": {
+        "Al+++": 1,
+        "OH-": 3
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Al(OH)_3"
+      }
+    },
+    {
+      "label": "AlF4-",
+      "declaredCharge": -1,
+      "type": "complexation",
+      "pK": 8.3,
+      "components": {
+        "Al+++": 1,
+        "F-": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "AlF_4"
+      }
+    },
+    {
+      "label": "AlF6---",
+      "declaredCharge": -3,
+      "type": "complexation",
+      "pK": 4.4,
+      "components": {
+        "Al+++": 1,
+        "F-": 6
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(3)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -3,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "AlF_6"
+      }
+    },
+    {
+      "label": "Au(CN)2-",
+      "declaredCharge": -1,
+      "type": "complexation",
+      "pK": 38.3,
+      "components": {
+        "Au+": 1,
+        "CN-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Au(CN)_2"
+      }
+    },
+    {
+      "label": "BaCO3",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 8.7,
+      "components": {
+        "Ba++": 1,
+        "CO3--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "BaCO_3"
+      }
+    },
+    {
+      "label": "BaCrO4",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 10.07,
+      "components": {
+        "Ba++": 1,
+        "CrO4--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "BaCrO_4"
+      }
+    },
+    {
+      "label": "BaF2",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 6.74,
+      "components": {
+        "Ba++": 1,
+        "F-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "BaF_2"
+      }
+    },
+    {
+      "label": "BaSO4",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 9.96,
+      "components": {
+        "Ba++": 1,
+        "SO4--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "BaSO_4"
+      }
+    },
+    {
+      "label": "BeF4--",
+      "declaredCharge": -2,
+      "type": "complexation",
+      "pK": 13.11,
+      "components": {
+        "Be++": 1,
+        "F-": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "BeF_4"
+      }
+    },
+    {
+      "label": "Bi2S3",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 71.8,
+      "components": {
+        "Bi+++": 2,
+        "S--": 3
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Bi_2S_3"
+      }
+    },
+    {
+      "label": "C2H5COOH",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 4.87,
+      "components": {
+        "C2H5COO-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "carboxyl-written-COO"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "C_2H_5COOH"
+      }
+    },
+    {
+      "label": "C2H5NH3+",
+      "declaredCharge": 1,
+      "type": "acidoBasic",
+      "pK": 10.8,
+      "components": {
+        "C2H5NH2": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "C_2H_5NH^+"
+      }
+    },
+    {
+      "label": "C5H5NH+",
+      "declaredCharge": 1,
+      "type": "acidoBasic",
+      "pK": 5.25,
+      "components": {
+        "C5H5N": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "C_5H_5NH^+"
+      }
+    },
+    {
+      "label": "C6H5COOH",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 4.2,
+      "components": {
+        "C6H5COO-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "carboxyl-written-COO"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "C_6H_5COOH"
+      }
+    },
+    {
+      "label": "C6H5NH3+",
+      "declaredCharge": 1,
+      "type": "acidoBasic",
+      "pK": 4.6,
+      "components": {
+        "C6H5NH2": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "C_6H_5NH^+"
+      }
+    },
+    {
+      "label": "CH2ClCO2H",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 2.89,
+      "components": {
+        "CH2ClCO2-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "carboxyl-written-CO2"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "CH_2ClCO_2H"
+      }
+    },
+    {
+      "label": "CH3CO2H",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 4.7,
+      "components": {
+        "CH3COO-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "carboxyl-written-CO2"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "CH_3CO_2H"
+      }
+    },
+    {
+      "label": "CH3NH3+",
+      "declaredCharge": 1,
+      "type": "acidoBasic",
+      "pK": 10.66,
+      "components": {
+        "CH3NH2": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "CH_3NH^+"
+      }
+    },
+    {
+      "label": "Ca(OH)2",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 5.3,
+      "components": {
+        "Ca++": 1,
+        "OH-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Ca(OH)_2"
+      }
+    },
+    {
+      "label": "Ca3(PO4)2",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 32.68,
+      "components": {
+        "Ca++": 3,
+        "PO4---": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Ca_3(PO_4)_2"
+      }
+    },
+    {
+      "label": "CaCO3",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 8.47,
+      "components": {
+        "Ca++": 1,
+        "CO3--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "CaCO_3"
+      }
+    },
+    {
+      "label": "CaF2",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 10.46,
+      "components": {
+        "Ca++": 1,
+        "F-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "CaF_2"
+      }
+    },
+    {
+      "label": "CaSO4",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 4.35,
+      "components": {
+        "Ca++": 1,
+        "SO4--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "CaSO_4"
+      }
+    },
+    {
+      "label": "Cd(CN)4--",
+      "declaredCharge": -2,
+      "type": "complexation",
+      "pK": 16.89,
+      "components": {
+        "Cd++": 1,
+        "CN-": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Cd(CN)_4"
+      }
+    },
+    {
+      "label": "Cd(NH3)4++",
+      "declaredCharge": 2,
+      "type": "complexation",
+      "pK": 7,
+      "components": {
+        "Cd++": 1,
+        "NH3": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Cd(NH_3)^+2"
+      }
+    },
+    {
+      "label": "Cd(NH3)6++",
+      "declaredCharge": 2,
+      "type": "complexation",
+      "pK": 5.41,
+      "components": {
+        "Cd++": 1,
+        "NH3": 6
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Cd(NH_3)^+2"
+      }
+    },
+    {
+      "label": "Cd(SCN)4--",
+      "declaredCharge": -2,
+      "type": "complexation",
+      "pK": 3,
+      "components": {
+        "Cd++": 1,
+        "SCN-": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Cd(SCN)_4"
+      }
+    },
+    {
+      "label": "CdS",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 28,
+      "components": {
+        "Cd++": 1,
+        "S--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "CdS"
+      }
+    },
+    {
+      "label": "Co(C2O4)3----",
+      "declaredCharge": -4,
+      "type": "complexation",
+      "pK": 6.65,
+      "components": {
+        "Co++": 1,
+        "C2O4--": 3
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(4)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -4,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Co(C_2O_4)_3"
+      }
+    },
+    {
+      "label": "Co(NH3)4+++",
+      "declaredCharge": 3,
+      "type": "complexation",
+      "pK": 33.66,
+      "components": {
+        "Co+++": 1,
+        "NH3": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(3)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 3,
+        "mfParserCharge": 3,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Co(NH_3)^+3"
+      }
+    },
+    {
+      "label": "Co(NH3)6++",
+      "declaredCharge": 2,
+      "type": "complexation",
+      "pK": 4.7,
+      "components": {
+        "Co++": 1,
+        "NH3": 6
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Co(NH_3)^+2"
+      }
+    },
+    {
+      "label": "Co(en)3++",
+      "declaredCharge": 2,
+      "type": "complexation",
+      "pK": 14.11,
+      "components": {
+        "Co++": 1,
+        "en": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)",
+        "ligand-abbreviation-not-a-formula"
+      ],
+      "mfParser": {
+        "parses": false,
+        "declaredCharge": 2,
+        "mfParserCharge": null,
+        "chargeSilentlyDropped": false,
+        "error": "found a lowercase not following an uppercase",
+        "renderedApprox": "Co(en)3++ (raw fallback)"
+      }
+    },
+    {
+      "label": "Co(en)3+++",
+      "declaredCharge": 3,
+      "type": "complexation",
+      "pK": 48.68,
+      "components": {
+        "Co+++": 1,
+        "en": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(3)",
+        "ligand-abbreviation-not-a-formula"
+      ],
+      "mfParser": {
+        "parses": false,
+        "declaredCharge": 3,
+        "mfParserCharge": null,
+        "chargeSilentlyDropped": false,
+        "error": "found a lowercase not following an uppercase",
+        "renderedApprox": "Co(en)3+++ (raw fallback)"
+      }
+    },
+    {
+      "label": "Cu(CN)2-",
+      "declaredCharge": -1,
+      "type": "complexation",
+      "pK": 16,
+      "components": {
+        "Cu+": 1,
+        "CN-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Cu(CN)_2"
+      }
+    },
+    {
+      "label": "Cu(NH3)4++",
+      "declaredCharge": 2,
+      "type": "complexation",
+      "pK": 13.04,
+      "components": {
+        "Cu++": 1,
+        "NH3": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Cu(NH_3)^+2"
+      }
+    },
+    {
+      "label": "Cu(OH)2",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 18.8,
+      "components": {
+        "Cu++": 1,
+        "OH-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Cu(OH)_2"
+      }
+    },
+    {
+      "label": "Cu(OH)4--",
+      "declaredCharge": -2,
+      "type": "complexation",
+      "pK": 16.11,
+      "components": {
+        "Cu++": 1,
+        "OH-": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Cu(OH)_4"
+      }
+    },
+    {
+      "label": "Cu(SCN)2",
+      "declaredCharge": 0,
+      "type": "complexation",
+      "pK": 3.75,
+      "components": {
+        "Cu++": 1,
+        "SCN-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Cu(SCN)_2"
+      }
+    },
+    {
+      "label": "Cu(en)2++",
+      "declaredCharge": 2,
+      "type": "complexation",
+      "pK": 19.54,
+      "components": {
+        "Cu++": 1,
+        "en": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)",
+        "ligand-abbreviation-not-a-formula"
+      ],
+      "mfParser": {
+        "parses": false,
+        "declaredCharge": 2,
+        "mfParserCharge": null,
+        "chargeSilentlyDropped": false,
+        "error": "found a lowercase not following an uppercase",
+        "renderedApprox": "Cu(en)2++ (raw fallback)"
+      }
+    },
+    {
+      "label": "CuBr2-",
+      "declaredCharge": -1,
+      "type": "complexation",
+      "pK": 5.9,
+      "components": {
+        "Cu+": 1,
+        "Br-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "CuBr_2"
+      }
+    },
+    {
+      "label": "CuCl",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 6.77,
+      "components": {
+        "Cu+": 1,
+        "Cl-": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "CuCl"
+      }
+    },
+    {
+      "label": "CuCl2-",
+      "declaredCharge": -1,
+      "type": "complexation",
+      "pK": 5.48,
+      "components": {
+        "Cu+": 1,
+        "Cl-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "CuCl_2"
+      }
+    },
+    {
+      "label": "CuI2-",
+      "declaredCharge": -1,
+      "type": "complexation",
+      "pK": 8.9,
+      "components": {
+        "Cu+": 1,
+        "I-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "CuI_2"
+      }
+    },
+    {
+      "label": "CuS",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 44.07,
+      "components": {
+        "Cu++": 1,
+        "S--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "CuS"
+      }
+    },
+    {
+      "label": "Fe(C2O4)3---",
+      "declaredCharge": -3,
+      "type": "complexation",
+      "pK": 20.52,
+      "components": {
+        "Fe+++": 1,
+        "C2O4--": 3
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(3)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -3,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Fe(C_2O_4)_3"
+      }
+    },
+    {
+      "label": "Fe(CN)6---",
+      "declaredCharge": -3,
+      "type": "complexation",
+      "pK": 41.96,
+      "components": {
+        "Fe+++": 1,
+        "CN-": 6
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(3)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -3,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Fe(CN)_6"
+      }
+    },
+    {
+      "label": "Fe(CN)6----",
+      "declaredCharge": -4,
+      "type": "complexation",
+      "pK": 35,
+      "components": {
+        "Fe++": 1,
+        "CN-": 6
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(4)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -4,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Fe(CN)_6"
+      }
+    },
+    {
+      "label": "Fe(H2O)6+++",
+      "declaredCharge": 3,
+      "type": "acidoBasic",
+      "pK": 2.1,
+      "components": {
+        "Fe(H2O)5OH++": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(3)",
+        "explicit-aqua-ligand"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 3,
+        "mfParserCharge": 3,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Fe(H_2O)^+3"
+      }
+    },
+    {
+      "label": "Fe(OH)2",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 16.31,
+      "components": {
+        "Fe++": 1,
+        "OH-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Fe(OH)_2"
+      }
+    },
+    {
+      "label": "Fe(OH)3",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 38.55,
+      "components": {
+        "Fe+++": 1,
+        "OH-": 3
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Fe(OH)_3"
+      }
+    },
+    {
+      "label": "Fe(SCN)3",
+      "declaredCharge": 0,
+      "type": "complexation",
+      "pK": 6.3,
+      "components": {
+        "Fe+++": 1,
+        "SCN-": 3
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Fe(SCN)_3"
+      }
+    },
+    {
+      "label": "Fe(en)3++",
+      "declaredCharge": 2,
+      "type": "complexation",
+      "pK": 9.72,
+      "components": {
+        "Fe++": 1,
+        "en": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)",
+        "ligand-abbreviation-not-a-formula"
+      ],
+      "mfParser": {
+        "parses": false,
+        "declaredCharge": 2,
+        "mfParserCharge": null,
+        "chargeSilentlyDropped": false,
+        "error": "found a lowercase not following an uppercase",
+        "renderedApprox": "Fe(en)3++ (raw fallback)"
+      }
+    },
+    {
+      "label": "FeS",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 18.22,
+      "components": {
+        "Fe++": 1,
+        "S--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "FeS"
+      }
+    },
+    {
+      "label": "H2CO3",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 6.3,
+      "components": {
+        "HCO3-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "H_2CO_3"
+      }
+    },
+    {
+      "label": "H2O",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 14,
+      "components": {
+        "OH-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "H_2O"
+      }
+    },
+    {
+      "label": "H2PO3-",
+      "declaredCharge": -1,
+      "type": "acidoBasic",
+      "pK": 6.7,
+      "components": {
+        "HPO3--": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "H_2PO_3"
+      }
+    },
+    {
+      "label": "H2PO4-",
+      "declaredCharge": -1,
+      "type": "acidoBasic",
+      "pK": 7.2,
+      "components": {
+        "HPO4--": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "H_2PO_4"
+      }
+    },
+    {
+      "label": "H2S",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 7.04,
+      "components": {
+        "HS-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "H_2S"
+      }
+    },
+    {
+      "label": "H2SO3",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 1.8,
+      "components": {
+        "HSO3-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "H_2SO_3"
+      }
+    },
+    {
+      "label": "H2SO4",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": -3,
+      "components": {
+        "HSO4-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "H_2SO_4"
+      }
+    },
+    {
+      "label": "H3PO3",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 1.26,
+      "components": {
+        "H2PO3-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "H_3PO_3"
+      }
+    },
+    {
+      "label": "H3PO4",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 2.12,
+      "components": {
+        "H2PO4-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "H_3PO_4"
+      }
+    },
+    {
+      "label": "HBrO",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 8.6,
+      "components": {
+        "BrO-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HBrO"
+      }
+    },
+    {
+      "label": "HCN",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 9.2,
+      "components": {
+        "CN-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HCN"
+      }
+    },
+    {
+      "label": "HCO2H",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 3.75,
+      "components": {
+        "HCO2-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "carboxyl-written-CO2"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HCO_2H"
+      }
+    },
+    {
+      "label": "HCO3-",
+      "declaredCharge": -1,
+      "type": "acidoBasic",
+      "pK": 10.33,
+      "components": {
+        "CO3--": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "HCO_3"
+      }
+    },
+    {
+      "label": "HCl",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": -3,
+      "components": {
+        "Cl-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HCl"
+      }
+    },
+    {
+      "label": "HClO",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 7.4,
+      "components": {
+        "ClO-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HClO"
+      }
+    },
+    {
+      "label": "HClO2",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 1.93,
+      "components": {
+        "ClO2-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HClO_2"
+      }
+    },
+    {
+      "label": "HClO4",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": -7,
+      "components": {
+        "ClO4-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HClO_4"
+      }
+    },
+    {
+      "label": "HF",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 3.2,
+      "components": {
+        "F-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HF"
+      }
+    },
+    {
+      "label": "HIO3",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 0.8,
+      "components": {
+        "IO3-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HIO_3"
+      }
+    },
+    {
+      "label": "HNO2",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 3.35,
+      "components": {
+        "NO2-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HNO_2"
+      }
+    },
+    {
+      "label": "HNO3",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": -1,
+      "components": {
+        "NO3-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HNO_3"
+      }
+    },
+    {
+      "label": "HOCN",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 3.48,
+      "components": {
+        "OCN-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HOCN"
+      }
+    },
+    {
+      "label": "HPO4--",
+      "declaredCharge": -2,
+      "type": "acidoBasic",
+      "pK": 12.32,
+      "components": {
+        "PO4---": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": true,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "HPO_4"
+      }
+    },
+    {
+      "label": "HS-",
+      "declaredCharge": -1,
+      "type": "acidoBasic",
+      "pK": 19,
+      "components": {
+        "S--": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HS^-1"
+      }
+    },
+    {
+      "label": "HSO3-",
+      "declaredCharge": -1,
+      "type": "acidoBasic",
+      "pK": 7.21,
+      "components": {
+        "SO3--": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "HSO_3"
+      }
+    },
+    {
+      "label": "HSO4-",
+      "declaredCharge": -1,
+      "type": "acidoBasic",
+      "pK": 1.9,
+      "components": {
+        "SO4--": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "HSO_4"
+      }
+    },
+    {
+      "label": "Hg(NH3)4++",
+      "declaredCharge": 2,
+      "type": "complexation",
+      "pK": 19.26,
+      "components": {
+        "Hg++": 1,
+        "NH3": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Hg(NH_3)^+2"
+      }
+    },
+    {
+      "label": "Hg(SCN)4--",
+      "declaredCharge": -2,
+      "type": "complexation",
+      "pK": 21.7,
+      "components": {
+        "Hg++": 1,
+        "SCN-": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Hg(SCN)_4"
+      }
+    },
+    {
+      "label": "Hg2Cl2",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 17.85,
+      "components": {
+        "Hg+": 2,
+        "Cl-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Hg_2Cl_2"
+      }
+    },
+    {
+      "label": "HgBr4--",
+      "declaredCharge": -2,
+      "type": "complexation",
+      "pK": 4.48,
+      "components": {
+        "Hg++": 1,
+        "Br-": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "HgBr_4"
+      }
+    },
+    {
+      "label": "HgCl4--",
+      "declaredCharge": -2,
+      "type": "complexation",
+      "pK": 15.7,
+      "components": {
+        "Hg++": 1,
+        "Cl-": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "HgCl_4"
+      }
+    },
+    {
+      "label": "HgI4--",
+      "declaredCharge": -2,
+      "type": "complexation",
+      "pK": 30.28,
+      "components": {
+        "Hg++": 1,
+        "I-": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "HgI_4"
+      }
+    },
+    {
+      "label": "Li2CO3",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 2.96,
+      "components": {
+        "Li+": 2,
+        "CO3--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Li_2CO_3"
+      }
+    },
+    {
+      "label": "Mg(OH)2",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 11.15,
+      "components": {
+        "Mg++": 1,
+        "OH-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Mg(OH)_2"
+      }
+    },
+    {
+      "label": "MgCO3",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 4.17,
+      "components": {
+        "Mg++": 1,
+        "CO3--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "MgCO_3"
+      }
+    },
+    {
+      "label": "Mn(OH)2",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 12.7,
+      "components": {
+        "Mn--": 1,
+        "OH-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Mn(OH)_2"
+      }
+    },
+    {
+      "label": "Mn(en)3++",
+      "declaredCharge": 2,
+      "type": "complexation",
+      "pK": 5.81,
+      "components": {
+        "Mn++": 1,
+        "en": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)",
+        "ligand-abbreviation-not-a-formula"
+      ],
+      "mfParser": {
+        "parses": false,
+        "declaredCharge": 2,
+        "mfParserCharge": null,
+        "chargeSilentlyDropped": false,
+        "error": "found a lowercase not following an uppercase",
+        "renderedApprox": "Mn(en)3++ (raw fallback)"
+      }
+    },
+    {
+      "label": "NH3",
+      "declaredCharge": 0,
+      "type": "acidoBasic",
+      "pK": 23,
+      "components": {
+        "NH2-": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "NH_3"
+      }
+    },
+    {
+      "label": "NH4+",
+      "declaredCharge": 1,
+      "type": "acidoBasic",
+      "pK": 9.25,
+      "components": {
+        "NH3": 1,
+        "H+": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "NH^+"
+      }
+    },
+    {
+      "label": "Ni(CN)4--",
+      "declaredCharge": -2,
+      "type": "complexation",
+      "pK": 31,
+      "components": {
+        "Ni++": 1,
+        "CN-": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Ni(CN)_4"
+      }
+    },
+    {
+      "label": "Ni(NH3)6++",
+      "declaredCharge": 2,
+      "type": "complexation",
+      "pK": 8.3,
+      "components": {
+        "Ni++": 1,
+        "NH3": 6
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Ni(NH_3)^+2"
+      }
+    },
+    {
+      "label": "Ni(en)3++",
+      "declaredCharge": 2,
+      "type": "complexation",
+      "pK": 17.61,
+      "components": {
+        "Ni++": 1,
+        "en": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)",
+        "ligand-abbreviation-not-a-formula"
+      ],
+      "mfParser": {
+        "parses": false,
+        "declaredCharge": 2,
+        "mfParserCharge": null,
+        "chargeSilentlyDropped": false,
+        "error": "found a lowercase not following an uppercase",
+        "renderedApprox": "Ni(en)3++ (raw fallback)"
+      }
+    },
+    {
+      "label": "Pb(OH)2",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 14.92,
+      "components": {
+        "Pb++": 1,
+        "OH-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Pb(OH)_2"
+      }
+    },
+    {
+      "label": "PbCl2",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 4.77,
+      "components": {
+        "Pb++": 1,
+        "Cl-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "PbCl_2"
+      }
+    },
+    {
+      "label": "PbCl4--",
+      "declaredCharge": -2,
+      "type": "complexation",
+      "pK": 15.4,
+      "components": {
+        "Pb++": 1,
+        "Cl-": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "PbCl_4"
+      }
+    },
+    {
+      "label": "PbCrO4",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 15.7,
+      "components": {
+        "Pb++": 1,
+        "CrO4--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "PbCrO_4"
+      }
+    },
+    {
+      "label": "PbI2",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 7.85,
+      "components": {
+        "Pb++": 1,
+        "I--": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "PbI_2"
+      }
+    },
+    {
+      "label": "PbI4--",
+      "declaredCharge": -2,
+      "type": "complexation",
+      "pK": 4.48,
+      "components": {
+        "Pb++": 1,
+        "I-": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "PbI_4"
+      }
+    },
+    {
+      "label": "PbS",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 28.15,
+      "components": {
+        "Pb++": 1,
+        "S--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "PbS"
+      }
+    },
+    {
+      "label": "PbSO4",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 7.8,
+      "components": {
+        "Pb++": 1,
+        "SO4--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "PbSO_4"
+      }
+    },
+    {
+      "label": "SnF6--",
+      "declaredCharge": -2,
+      "type": "complexation",
+      "pK": 25,
+      "components": {
+        "Sn++++": 1,
+        "F-": 6
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "SnF_6"
+      }
+    },
+    {
+      "label": "Zn(NH3)4++",
+      "declaredCharge": 2,
+      "type": "complexation",
+      "pK": 8.89,
+      "components": {
+        "Zn++": 1,
+        "NH3": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Zn(NH_3)^+2"
+      }
+    },
+    {
+      "label": "Zn(OH)2",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 16.35,
+      "components": {
+        "Zn++": 1,
+        "OH-": 2
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Zn(OH)_2"
+      }
+    },
+    {
+      "label": "Zn(OH)4--",
+      "declaredCharge": -2,
+      "type": "complexation",
+      "pK": 15.45,
+      "components": {
+        "Zn++": 1,
+        "OH-": 4
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "Zn(OH)_4"
+      }
+    },
+    {
+      "label": "ZnS",
+      "declaredCharge": 0,
+      "type": "precipitation",
+      "pK": 22.52,
+      "components": {
+        "Zn++": 1,
+        "S--": 1
+      },
+      "alsoUsedAsComponent": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "ZnS"
+      }
+    }
+  ],
+  "components": [
+    {
+      "label": "(C2H5)3N",
+      "declaredCharge": 0,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "(C_2H_5)_3N"
+      }
+    },
+    {
+      "label": "Ag+",
+      "declaredCharge": 1,
+      "usedInEquations": 15,
+      "stoichiometricCoefficients": [
+        1,
+        2
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Ag^+"
+      }
+    },
+    {
+      "label": "Al(H2O)5OH++",
+      "declaredCharge": 2,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)",
+        "explicit-aqua-ligand"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Al(H_2O)_5OH^+2"
+      }
+    },
+    {
+      "label": "Al+++",
+      "declaredCharge": 3,
+      "usedInEquations": 3,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(3)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 3,
+        "mfParserCharge": 3,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Al^+3"
+      }
+    },
+    {
+      "label": "Au+",
+      "declaredCharge": 1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Au^+"
+      }
+    },
+    {
+      "label": "Ba++",
+      "declaredCharge": 2,
+      "usedInEquations": 4,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Ba^+2"
+      }
+    },
+    {
+      "label": "Be++",
+      "declaredCharge": 2,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Be^+2"
+      }
+    },
+    {
+      "label": "Bi+++",
+      "declaredCharge": 3,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        2
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(3)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 3,
+        "mfParserCharge": 3,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Bi^+3"
+      }
+    },
+    {
+      "label": "Br-",
+      "declaredCharge": -1,
+      "usedInEquations": 4,
+      "stoichiometricCoefficients": [
+        1,
+        2,
+        4
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Br^-1"
+      }
+    },
+    {
+      "label": "BrO-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "BrO^-1"
+      }
+    },
+    {
+      "label": "BrO3-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "BrO_3"
+      }
+    },
+    {
+      "label": "C2H5COO-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "carboxyl-written-COO"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "C_2H_5COO^-1"
+      }
+    },
+    {
+      "label": "C2H5NH2",
+      "declaredCharge": 0,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "C_2H_5NH_2"
+      }
+    },
+    {
+      "label": "C2O4--",
+      "declaredCharge": -2,
+      "usedInEquations": 2,
+      "stoichiometricCoefficients": [
+        3
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "C_2O_4"
+      }
+    },
+    {
+      "label": "C5H5N",
+      "declaredCharge": 0,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "C_5H_5N"
+      }
+    },
+    {
+      "label": "C6H5COO-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "carboxyl-written-COO"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "C_6H_5COO^-1"
+      }
+    },
+    {
+      "label": "C6H5NH2",
+      "declaredCharge": 0,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "C_6H_5NH_2"
+      }
+    },
+    {
+      "label": "CH2ClCO2-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "carboxyl-written-CO2"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "CH_2ClCO_2"
+      }
+    },
+    {
+      "label": "CH3COO-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "carboxyl-written-COO"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "CH_3COO^-1"
+      }
+    },
+    {
+      "label": "CH3NH2",
+      "declaredCharge": 0,
+      "usedInEquations": 2,
+      "stoichiometricCoefficients": [
+        1,
+        2
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "CH_3NH_2"
+      }
+    },
+    {
+      "label": "CN-",
+      "declaredCharge": -1,
+      "usedInEquations": 8,
+      "stoichiometricCoefficients": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "CN^-1"
+      }
+    },
+    {
+      "label": "CO3--",
+      "declaredCharge": -2,
+      "usedInEquations": 6,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "CO_3"
+      }
+    },
+    {
+      "label": "Ca++",
+      "declaredCharge": 2,
+      "usedInEquations": 5,
+      "stoichiometricCoefficients": [
+        1,
+        3
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Ca^+2"
+      }
+    },
+    {
+      "label": "Cd++",
+      "declaredCharge": 2,
+      "usedInEquations": 5,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Cd^+2"
+      }
+    },
+    {
+      "label": "Cl-",
+      "declaredCharge": -1,
+      "usedInEquations": 9,
+      "stoichiometricCoefficients": [
+        1,
+        2,
+        4
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Cl^-1"
+      }
+    },
+    {
+      "label": "ClO-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "ClO^-1"
+      }
+    },
+    {
+      "label": "ClO2-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "ClO_2"
+      }
+    },
+    {
+      "label": "ClO4-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "ClO_4"
+      }
+    },
+    {
+      "label": "Co++",
+      "declaredCharge": 2,
+      "usedInEquations": 3,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Co^+2"
+      }
+    },
+    {
+      "label": "Co+++",
+      "declaredCharge": 3,
+      "usedInEquations": 2,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(3)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 3,
+        "mfParserCharge": 3,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Co^+3"
+      }
+    },
+    {
+      "label": "CrO4--",
+      "declaredCharge": -2,
+      "usedInEquations": 3,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "CrO_4"
+      }
+    },
+    {
+      "label": "Cu+",
+      "declaredCharge": 1,
+      "usedInEquations": 5,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Cu^+"
+      }
+    },
+    {
+      "label": "Cu++",
+      "declaredCharge": 2,
+      "usedInEquations": 6,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Cu^+2"
+      }
+    },
+    {
+      "label": "F-",
+      "declaredCharge": -1,
+      "usedInEquations": 7,
+      "stoichiometricCoefficients": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "F^-1"
+      }
+    },
+    {
+      "label": "Fe(H2O)5OH++",
+      "declaredCharge": 2,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)",
+        "explicit-aqua-ligand"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Fe(H_2O)_5OH^+2"
+      }
+    },
+    {
+      "label": "Fe++",
+      "declaredCharge": 2,
+      "usedInEquations": 4,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Fe^+2"
+      }
+    },
+    {
+      "label": "Fe+++",
+      "declaredCharge": 3,
+      "usedInEquations": 4,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(3)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 3,
+        "mfParserCharge": 3,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Fe^+3"
+      }
+    },
+    {
+      "label": "H+",
+      "declaredCharge": 1,
+      "usedInEquations": 39,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "H^+"
+      }
+    },
+    {
+      "label": "H2PO3-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "H_2PO_3"
+      }
+    },
+    {
+      "label": "H2PO4-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "H_2PO_4"
+      }
+    },
+    {
+      "label": "HCO2-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "carboxyl-written-CO2"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "HCO_2"
+      }
+    },
+    {
+      "label": "HCO3-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "HCO_3"
+      }
+    },
+    {
+      "label": "HPO3--",
+      "declaredCharge": -2,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "HPO_3"
+      }
+    },
+    {
+      "label": "HPO4--",
+      "declaredCharge": -2,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": true,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "HPO_4"
+      }
+    },
+    {
+      "label": "HS-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "HS^-1"
+      }
+    },
+    {
+      "label": "HSO3-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "HSO_3"
+      }
+    },
+    {
+      "label": "HSO4-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "HSO_4"
+      }
+    },
+    {
+      "label": "Hg+",
+      "declaredCharge": 1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        2
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Hg^+"
+      }
+    },
+    {
+      "label": "Hg++",
+      "declaredCharge": 2,
+      "usedInEquations": 5,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Hg^+2"
+      }
+    },
+    {
+      "label": "I-",
+      "declaredCharge": -1,
+      "usedInEquations": 5,
+      "stoichiometricCoefficients": [
+        1,
+        2,
+        4
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "I^-1"
+      }
+    },
+    {
+      "label": "I--",
+      "declaredCharge": -2,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        2
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": -2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "I^-2"
+      }
+    },
+    {
+      "label": "IO3-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "IO_3"
+      }
+    },
+    {
+      "label": "Li+",
+      "declaredCharge": 1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        2
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 1,
+        "mfParserCharge": 1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Li^+"
+      }
+    },
+    {
+      "label": "Mg++",
+      "declaredCharge": 2,
+      "usedInEquations": 2,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Mg^+2"
+      }
+    },
+    {
+      "label": "Mn++",
+      "declaredCharge": 2,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Mn^+2"
+      }
+    },
+    {
+      "label": "Mn--",
+      "declaredCharge": -2,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": -2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Mn^-2"
+      }
+    },
+    {
+      "label": "NH2-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "NH_2"
+      }
+    },
+    {
+      "label": "NH3",
+      "declaredCharge": 0,
+      "usedInEquations": 10,
+      "stoichiometricCoefficients": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "alsoFormed": true,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 0,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "NH_3"
+      }
+    },
+    {
+      "label": "NO2-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "NO_2"
+      }
+    },
+    {
+      "label": "NO3-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "NO_3"
+      }
+    },
+    {
+      "label": "Ni++",
+      "declaredCharge": 2,
+      "usedInEquations": 3,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Ni^+2"
+      }
+    },
+    {
+      "label": "OCN-",
+      "declaredCharge": -1,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "OCN^-1"
+      }
+    },
+    {
+      "label": "OH-",
+      "declaredCharge": -1,
+      "usedInEquations": 13,
+      "stoichiometricCoefficients": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "OH^-1"
+      }
+    },
+    {
+      "label": "PO4---",
+      "declaredCharge": -3,
+      "usedInEquations": 2,
+      "stoichiometricCoefficients": [
+        1,
+        2
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(3)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -3,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "PO_4"
+      }
+    },
+    {
+      "label": "Pb++",
+      "declaredCharge": 2,
+      "usedInEquations": 8,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Pb^+2"
+      }
+    },
+    {
+      "label": "S--",
+      "declaredCharge": -2,
+      "usedInEquations": 8,
+      "stoichiometricCoefficients": [
+        1,
+        3
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": -2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "S^-2"
+      }
+    },
+    {
+      "label": "S2O3--",
+      "declaredCharge": -2,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        2
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "S_2O_3"
+      }
+    },
+    {
+      "label": "SCN-",
+      "declaredCharge": -1,
+      "usedInEquations": 4,
+      "stoichiometricCoefficients": [
+        2,
+        3,
+        4
+      ],
+      "alsoFormed": false,
+      "notationFlags": [],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -1,
+        "mfParserCharge": -1,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "SCN^-1"
+      }
+    },
+    {
+      "label": "SO3--",
+      "declaredCharge": -2,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "SO_3"
+      }
+    },
+    {
+      "label": "SO4--",
+      "declaredCharge": -2,
+      "usedInEquations": 4,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": -2,
+        "mfParserCharge": 0,
+        "chargeSilentlyDropped": true,
+        "renderedApprox": "SO_4"
+      }
+    },
+    {
+      "label": "Sn++++",
+      "declaredCharge": 4,
+      "usedInEquations": 1,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(4)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 4,
+        "mfParserCharge": 4,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Sn^+4"
+      }
+    },
+    {
+      "label": "Zn++",
+      "declaredCharge": 2,
+      "usedInEquations": 4,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "repeated-sign-charge(2)"
+      ],
+      "mfParser": {
+        "parses": true,
+        "declaredCharge": 2,
+        "mfParserCharge": 2,
+        "chargeSilentlyDropped": false,
+        "renderedApprox": "Zn^+2"
+      }
+    },
+    {
+      "label": "en",
+      "declaredCharge": 0,
+      "usedInEquations": 6,
+      "stoichiometricCoefficients": [
+        1
+      ],
+      "alsoFormed": false,
+      "notationFlags": [
+        "ligand-abbreviation-not-a-formula"
+      ],
+      "mfParser": {
+        "parses": false,
+        "declaredCharge": 0,
+        "mfParserCharge": null,
+        "chargeSilentlyDropped": false,
+        "error": "found a lowercase not following an uppercase",
+        "renderedApprox": "en (raw fallback)"
+      }
+    }
+  ],
+  "allLabels": [
+    "(C2H5)3N",
+    "(C2H5)3NH+",
+    "Ag(CH3NH2)2+",
+    "Ag(CN)2-",
+    "Ag(NH3)2+",
+    "Ag(S2O3)2---",
+    "Ag+",
+    "Ag2CO3",
+    "Ag2CrO4",
+    "Ag2S",
+    "AgBr",
+    "AgBr2-",
+    "AgBrO3",
+    "AgCl",
+    "AgCl2-",
+    "AgI",
+    "AgI2-",
+    "AgOH",
+    "Al(H2O)5OH++",
+    "Al(H2O)6+++",
+    "Al(OH)3",
+    "Al+++",
+    "AlF4-",
+    "AlF6---",
+    "Au(CN)2-",
+    "Au+",
+    "Ba++",
+    "BaCO3",
+    "BaCrO4",
+    "BaF2",
+    "BaSO4",
+    "Be++",
+    "BeF4--",
+    "Bi+++",
+    "Bi2S3",
+    "Br-",
+    "BrO-",
+    "BrO3-",
+    "C2H5COO-",
+    "C2H5COOH",
+    "C2H5NH2",
+    "C2H5NH3+",
+    "C2O4--",
+    "C5H5N",
+    "C5H5NH+",
+    "C6H5COO-",
+    "C6H5COOH",
+    "C6H5NH2",
+    "C6H5NH3+",
+    "CH2ClCO2-",
+    "CH2ClCO2H",
+    "CH3CO2H",
+    "CH3COO-",
+    "CH3NH2",
+    "CH3NH3+",
+    "CN-",
+    "CO3--",
+    "Ca(OH)2",
+    "Ca++",
+    "Ca3(PO4)2",
+    "CaCO3",
+    "CaF2",
+    "CaSO4",
+    "Cd(CN)4--",
+    "Cd(NH3)4++",
+    "Cd(NH3)6++",
+    "Cd(SCN)4--",
+    "Cd++",
+    "CdS",
+    "Cl-",
+    "ClO-",
+    "ClO2-",
+    "ClO4-",
+    "Co(C2O4)3----",
+    "Co(NH3)4+++",
+    "Co(NH3)6++",
+    "Co(en)3++",
+    "Co(en)3+++",
+    "Co++",
+    "Co+++",
+    "CrO4--",
+    "Cu(CN)2-",
+    "Cu(NH3)4++",
+    "Cu(OH)2",
+    "Cu(OH)4--",
+    "Cu(SCN)2",
+    "Cu(en)2++",
+    "Cu+",
+    "Cu++",
+    "CuBr2-",
+    "CuCl",
+    "CuCl2-",
+    "CuI2-",
+    "CuS",
+    "F-",
+    "Fe(C2O4)3---",
+    "Fe(CN)6---",
+    "Fe(CN)6----",
+    "Fe(H2O)5OH++",
+    "Fe(H2O)6+++",
+    "Fe(OH)2",
+    "Fe(OH)3",
+    "Fe(SCN)3",
+    "Fe(en)3++",
+    "Fe++",
+    "Fe+++",
+    "FeS",
+    "H+",
+    "H2CO3",
+    "H2O",
+    "H2PO3-",
+    "H2PO4-",
+    "H2S",
+    "H2SO3",
+    "H2SO4",
+    "H3PO3",
+    "H3PO4",
+    "HBrO",
+    "HCN",
+    "HCO2-",
+    "HCO2H",
+    "HCO3-",
+    "HCl",
+    "HClO",
+    "HClO2",
+    "HClO4",
+    "HF",
+    "HIO3",
+    "HNO2",
+    "HNO3",
+    "HOCN",
+    "HPO3--",
+    "HPO4--",
+    "HS-",
+    "HSO3-",
+    "HSO4-",
+    "Hg(NH3)4++",
+    "Hg(SCN)4--",
+    "Hg+",
+    "Hg++",
+    "Hg2Cl2",
+    "HgBr4--",
+    "HgCl4--",
+    "HgI4--",
+    "I-",
+    "I--",
+    "IO3-",
+    "Li+",
+    "Li2CO3",
+    "Mg(OH)2",
+    "Mg++",
+    "MgCO3",
+    "Mn(OH)2",
+    "Mn(en)3++",
+    "Mn++",
+    "Mn--",
+    "NH2-",
+    "NH3",
+    "NH4+",
+    "NO2-",
+    "NO3-",
+    "Ni(CN)4--",
+    "Ni(NH3)6++",
+    "Ni(en)3++",
+    "Ni++",
+    "OCN-",
+    "OH-",
+    "PO4---",
+    "Pb(OH)2",
+    "Pb++",
+    "PbCl2",
+    "PbCl4--",
+    "PbCrO4",
+    "PbI2",
+    "PbI4--",
+    "PbS",
+    "PbSO4",
+    "S--",
+    "S2O3--",
+    "SCN-",
+    "SO3--",
+    "SO4--",
+    "Sn++++",
+    "SnF6--",
+    "Zn(NH3)4++",
+    "Zn(OH)2",
+    "Zn(OH)4--",
+    "Zn++",
+    "ZnS",
+    "en"
+  ],
+  "labelsUnparseableByMfParser": [
+    "Co(en)3++",
+    "Co(en)3+++",
+    "Cu(en)2++",
+    "Fe(en)3++",
+    "Mn(en)3++",
+    "Ni(en)3++",
+    "en"
+  ],
+  "labelsWithSilentlyDroppedCharge": [
+    "Ag(CN)2-",
+    "Ag(S2O3)2---",
+    "AgBr2-",
+    "AgCl2-",
+    "AgI2-",
+    "AlF4-",
+    "AlF6---",
+    "Au(CN)2-",
+    "BeF4--",
+    "BrO3-",
+    "C2O4--",
+    "CH2ClCO2-",
+    "CO3--",
+    "Cd(CN)4--",
+    "Cd(SCN)4--",
+    "ClO2-",
+    "ClO4-",
+    "Co(C2O4)3----",
+    "CrO4--",
+    "Cu(CN)2-",
+    "Cu(OH)4--",
+    "CuBr2-",
+    "CuCl2-",
+    "CuI2-",
+    "Fe(C2O4)3---",
+    "Fe(CN)6---",
+    "Fe(CN)6----",
+    "H2PO3-",
+    "H2PO4-",
+    "HCO2-",
+    "HCO3-",
+    "HPO3--",
+    "HPO4--",
+    "HSO3-",
+    "HSO4-",
+    "Hg(SCN)4--",
+    "HgBr4--",
+    "HgCl4--",
+    "HgI4--",
+    "IO3-",
+    "NH2-",
+    "NO2-",
+    "NO3-",
+    "Ni(CN)4--",
+    "PO4---",
+    "PbCl4--",
+    "PbI4--",
+    "S2O3--",
+    "SO3--",
+    "SO4--",
+    "SnF6--",
+    "Zn(OH)4--"
+  ]
+}
