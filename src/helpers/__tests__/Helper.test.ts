@@ -8,6 +8,7 @@ import {
   multiSolvent,
 } from '../../__tests__/data/equations.ts';
 import { at } from '../../__tests__/data/solutionValue.ts';
+import { database } from '../../data/database.ts';
 import type {
   EquationJSON,
   Model,
@@ -15,6 +16,35 @@ import type {
   ModelFormedSpecies,
 } from '../../types.ts';
 import { Helper } from '../Helper.ts';
+
+test('the bundled database records deactivated entries without using them', () => {
+  const inactive = database.filter((entry) => entry.active === false);
+
+  expect(database).toHaveLength(129);
+  expect(inactive.map((entry) => entry.formed).toSorted()).toStrictEqual([
+    'H3O+',
+    'OH-',
+  ]);
+
+  // Both deactivated rows are degenerate acid/base pairs: H3O+ from H2O + H+
+  // duplicates the water equilibrium, and OH- from O-- would drag O-- into
+  // every system. Neither may reach a model.
+  const helper = new Helper();
+  const formed = helper.getEquations().map((equation) => equation.formed);
+
+  expect(formed).toHaveLength(127);
+  expect(helper.getSpecies()).not.toContain('O--');
+  expect(
+    helper.getEquations().find((equation) => equation.formed === 'OH-'),
+  ).toBeUndefined();
+
+  // Deactivating them must leave the solved concentrations untouched.
+  helper.addSpecie('CO3--', 0.1);
+  helper.setAtEquilibrium('H+', 10 ** -7);
+  const solution = helper.getEquilibrium().solveRobust();
+
+  expect(solution?.['HCO3-']).toBeCloseTo(0.08333375231890001, 12);
+});
 
 test('should clone a helper', () => {
   const helper = new Helper({ database: equations1 });

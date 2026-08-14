@@ -38,6 +38,13 @@ export interface DatabaseEntry extends EquationData {
   temperature?: number;
   /** Why this entry should be treated with caution. */
   warning?: string;
+  /**
+   * Whether the equilibrium takes part in the systems built from the database.
+   * A deactivated entry is kept for the record — it documents a constant that
+   * was considered and deliberately left out — but never enters a model.
+   * @default true
+   */
+  active?: boolean;
 }
 
 /** A component of the system: either a known total, or a fixed free concentration. */

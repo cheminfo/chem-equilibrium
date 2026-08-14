@@ -57,6 +57,7 @@ export class Helper {
     if (this.options.extend && this.options.database) {
       entries = entries.concat(database);
     }
+    entries = entries.filter((entry) => entry.active !== false);
     this.eqSet = new EquationSet(forSolvent(entries, this.options.solvent));
     this.addSpecie(this.options.solvent);
   }

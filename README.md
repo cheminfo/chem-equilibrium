@@ -186,16 +186,16 @@ underlying `Helper` and `Equilibrium`.
 
 ## Database
 
-The formation constants are vendored as a tab-separated table,
-[`data/formation-constants.tsv`](./data/formation-constants.tsv), and compiled
-into `src/data/database.ts`. Each entry carries its `pK`, the temperature and
-the literature source when they are documented, and a `warning` when the value
-is known to be doubtful:
+The formation constants live in
+[`src/data/database.ts`](./src/data/database.ts), which is the source of truth —
+edit it there. Each entry carries its `pK`, the temperature and the literature
+source when they are documented, and a `warning` when the value is known to be
+doubtful:
 
 ```js
 import { database, speciesNames } from 'chem-equilibrium';
 
-database.length; // 127
+database.length; // 129
 speciesNames['CO3--'].name; // 'carbonate ion'
 ```
 
@@ -204,18 +204,12 @@ from its components, so `beta = 10 ** pK`. For an acid/base couple that number
 is the pKa; for a precipitation equilibrium it is `-log10(Ksp)`; for a complex
 it is `+log β`.
 
-Regenerate the module after editing the table:
+An entry marked `active: false` is kept for the record — it documents a constant
+that was considered and deliberately left out — and never enters a model, so
+`Helper` builds its systems from the 127 active ones:
 
-```console
-npm run database
-```
-
-The table is the source of truth: it holds corrections that were never applied
-to the spreadsheet it originally came from. To see how the two differ without
-overwriting anything:
-
-```console
-node data/update.ts --fetch
+```js
+database.filter((entry) => entry.active !== false).length; // 127
 ```
 
 Browse the whole table, sources included, on

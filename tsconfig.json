@@ -5,5 +5,5 @@
     "outDir": "lib",
     "types": ["node"]
   },
-  "include": ["src", "data", "vitest.config.ts"]
+  "include": ["src", "vitest.config.ts"]
 }
