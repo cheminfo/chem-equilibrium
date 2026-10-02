@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/cheminfo/chem-equilibrium/compare/v3.0.0...v3.1.0) (2026-10-02)
+
+
+### Features
+
+* titrate a mixture of solutions in one flask ([a8c4f64](https://github.com/cheminfo/chem-equilibrium/commit/a8c4f64483c41ed3fd5072933ccee6ca7d9ef62d))
+
 ## [3.0.0](https://github.com/cheminfo/chem-equilibrium/compare/v2.2.1...v3.0.0) (2026-08-14)
 
 
