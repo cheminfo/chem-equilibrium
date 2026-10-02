@@ -108,3 +108,69 @@ test('getSolutions rejects a missing varying specie', () => {
     'property "varying" is not defined',
   );
 });
+
+test('getTitration titrates a mixture, and the two acids are neutralised in turn', () => {
+  const serie = new Serie(new Helper());
+
+  // 10 mL of 0.1 M HCl and 10 mL of 0.1 M acetic acid in one flask: 1 mmol of
+  // each, so the strong acid is spent at 10 mL and the weak one at 20 mL.
+  const result = serie.getTitration({
+    solution: [
+      { type: 'HCl', concentration: 0.1, volume: 0.01 },
+      { type: 'CH3CO2H', concentration: 0.1, volume: 0.01 },
+    ],
+    titrationSolution: { type: 'OH-', concentration: 0.1, volume: 0.03 },
+    chunks: 30,
+    random: seededRandom(555),
+  });
+
+  expect(result.errorCount).toBe(0);
+  expect(result.volumes).toHaveLength(31);
+  expect(result.species).toContain('CH3CO2H');
+  expect(result.species).toContain('CH3COO-');
+
+  const ph: number[] = [];
+  for (let i = 1; i < result.xy.length; i += 2) ph.push(at(result.xy, i));
+
+  // The flask holds 20 mL, so the start is the pH of a 0.05 M strong acid,
+  // 1.30, not of the 0.1 M either acid was poured at.
+  expect(ph[0]).toBeCloseTo(1.3008785664933111, 9);
+  // The strong acid is spent at 10 mL and the acetic acid is left alone, at
+  // 0.033 M: half of (pKa - log c) is 3.12.
+  expect(ph[10]).toBeCloseTo(3.093880513854226, 9);
+  // Half the weak acid is titrated at 15 mL, so the pH is within a tenth of
+  // its pKa of 4.756.
+  expect(ph[15]).toBeCloseTo(4.701209774126973, 9);
+  // Everything is acetate at 20 mL, at 0.025 M: 7 + (pKa + log c) / 2 is 8.58.
+  expect(ph[20]).toBeCloseTo(8.549112536899099, 9);
+  // Each equivalence is a jump of its own, the second the steeper of the two.
+  expect(at(ph, 10) - at(ph, 9)).toBeGreaterThan(0.5);
+  expect(at(ph, 20) - at(ph, 19)).toBeGreaterThan(2);
+
+  for (let i = 1; i < ph.length; i++) {
+    expect(ph[i]).toBeGreaterThan(at(ph, i - 1));
+  }
+});
+
+test('getTitration adds up two entries naming the same species', () => {
+  const serie = new Serie(new Helper());
+  const options = {
+    titrationSolution: { type: 'OH-', concentration: 0.1, volume: 0.05 },
+    chunks: 10,
+    random: seededRandom(555),
+  };
+
+  const split = serie.getTitration({
+    ...options,
+    solution: [
+      { type: 'HCl', concentration: 0.1, volume: 0.01 },
+      { type: 'HCl', concentration: 0.1, volume: 0.01 },
+    ],
+  });
+  const whole = serie.getTitration({
+    ...options,
+    solution: { type: 'HCl', concentration: 0.1, volume: 0.02 },
+  });
+
+  expect(split.xy).toStrictEqual(whole.xy);
+});

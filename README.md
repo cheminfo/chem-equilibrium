@@ -111,6 +111,20 @@ titration.xy;
 // [0, 8.85, 0.02, 4.876, 0.04, 4.102, 0.06, 2.037, 0.08, 1.636, 0.1, 1.477]
 ```
 
+`solution` also takes a list, for a mixture titrated in one flask. The flask
+holds the sum of the volumes, and each acid is neutralised in turn — here the
+strong one at 10 mL and the acetic acid at 20 mL:
+
+```js
+serie.getTitration({
+  solution: [
+    { type: 'HCl', concentration: 0.1, volume: 0.01 },
+    { type: 'CH3CO2H', concentration: 0.1, volume: 0.01 },
+  ],
+  titrationSolution: { type: 'OH-', concentration: 0.1, volume: 0.03 },
+});
+```
+
 `getSolutions()` sweeps one specie instead of adding a titrant — here the pH,
 from 0 to 14:
 

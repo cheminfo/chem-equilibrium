@@ -22,8 +22,15 @@ export interface TitrationSolution {
 
 /** Options of {@link Serie.getTitration}. */
 export interface TitrationOptions extends HelperOptions {
-  /** The solution being titrated. */
-  solution: TitrationSolution;
+  /**
+   * The solution being titrated.
+   *
+   * Several of them are a mixture in one flask — a hydrochloric and an acetic
+   * acid titrated together, say. The flask then holds the sum of their volumes,
+   * and each contributes its own amount; two entries of the same species add
+   * up rather than replacing one another.
+   */
+  solution: TitrationSolution | readonly TitrationSolution[];
   /** The solution added from the burette. */
   titrationSolution: TitrationSolution;
   /**
@@ -102,8 +109,8 @@ export class Serie {
   }
 
   /**
-   * Titrate one solution with another.
-   * @param options - The two solutions and the number of points.
+   * Titrate one solution, or a mixture of them, with another.
+   * @param options - The solutions and the number of points.
    * @returns The titration curve and the speciation at every point.
    */
   getTitration(options: TitrationOptions): TitrationResult {
@@ -112,13 +119,25 @@ export class Serie {
     helper.resetSpecies();
     helper.setOptions(rest);
 
-    const analyteVolume = options.solution.volume;
-    const analyteQuantity =
-      options.solution.concentration * options.solution.volume;
+    const analytes: readonly TitrationSolution[] = Array.isArray(
+      options.solution,
+    )
+      ? options.solution
+      : [options.solution];
+    let analyteVolume = 0;
+    const analyteQuantities = new Map<string, number>();
+    for (const analyte of analytes) {
+      analyteVolume += analyte.volume;
+      analyteQuantities.set(
+        analyte.type,
+        (analyteQuantities.get(analyte.type) ?? 0) +
+          analyte.concentration * analyte.volume,
+      );
+    }
     const titrantConcentration = options.titrationSolution.concentration;
     const titrantVolume = options.titrationSolution.volume;
 
-    helper.addSpecie(options.solution.type);
+    for (const type of analyteQuantities.keys()) helper.addSpecie(type);
     helper.addSpecie(options.titrationSolution.type);
 
     const volumes: number[] = [];
@@ -133,7 +152,9 @@ export class Serie {
         options.titrationSolution.type,
         volume * titrantConcentration,
       );
-      helper.setTotal(options.solution.type, analyteQuantity);
+      for (const [type, quantity] of analyteQuantities) {
+        helper.setTotal(type, quantity);
+      }
       helper.setOptions({ volume: volume + analyteVolume });
 
       const equilibrium = helper.getEquilibrium();
