@@ -188,6 +188,18 @@ export const speciesNames: Record<
     name: 'bromate ion',
     alternatives: ['bromate(V) ion', 'bromate'],
   },
+  'C2H4(CO2)2--': {
+    name: 'succinate ion',
+    alternatives: ['butanedioate ion', 'succinate', 'succinate dianion'],
+  },
+  'C2H4(CO2H)2': {
+    name: 'succinic acid',
+    alternatives: ['butanedioic acid', 'HO2C(CH2)2CO2H'],
+  },
+  'C2H4(CO2H)CO2-': {
+    name: 'hydrogen succinate ion',
+    alternatives: ['hydrogensuccinate ion', 'succinate monoanion'],
+  },
   'C2H5COO-': {
     name: 'propanoate ion',
     alternatives: ['propionate ion', 'propanoate', 'propionate'],
@@ -312,6 +324,18 @@ export const speciesNames: Record<
       'cadmium yellow',
     ],
   },
+  'CH2(CO2)2--': {
+    name: 'malonate ion',
+    alternatives: ['propanedioate ion', 'malonate', 'malonate dianion'],
+  },
+  'CH2(CO2H)2': {
+    name: 'malonic acid',
+    alternatives: ['propanedioic acid', 'CH2(COOH)2'],
+  },
+  'CH2(CO2H)CO2-': {
+    name: 'hydrogen malonate ion',
+    alternatives: ['hydrogenmalonate ion', 'malonate monoanion'],
+  },
   'CH2ClCO2-': {
     name: 'chloroacetate ion',
     alternatives: [
@@ -327,6 +351,14 @@ export const speciesNames: Record<
       'monochloroacetic acid',
       '2-chloroacetic acid',
     ],
+  },
+  'CH3CH(OH)CO2-': {
+    name: 'lactate ion',
+    alternatives: ['2-hydroxypropanoate ion', 'lactate', 'CH3CH(OH)COO-'],
+  },
+  'CH3CH(OH)CO2H': {
+    name: 'lactic acid',
+    alternatives: ['2-hydroxypropanoic acid', 'milk acid', 'CH3CH(OH)COOH'],
   },
   CH3CO2H: {
     name: 'acetic acid',
@@ -571,6 +603,10 @@ export const speciesNames: Record<
     name: 'hydrogen ion',
     alternatives: ['proton', 'hydron', 'hydronium ion', 'H3O+', 'oxonium ion'],
   },
+  H2C2O4: {
+    name: 'oxalic acid',
+    alternatives: ['ethanedioic acid', 'HO2CCO2H'],
+  },
   H2CO3: {
     name: 'carbonic acid',
     alternatives: ['dihydrogen carbonate', 'aqueous carbon dioxide', 'CO2(aq)'],
@@ -647,6 +683,10 @@ export const speciesNames: Record<
   HCN: {
     name: 'hydrogen cyanide',
     alternatives: ['hydrocyanic acid', 'prussic acid', 'formonitrile'],
+  },
+  'HC2O4-': {
+    name: 'hydrogen oxalate ion',
+    alternatives: ['hydrogenoxalate ion', 'bioxalate ion', 'oxalate monoanion'],
   },
   'HCO2-': {
     name: 'formate ion',
