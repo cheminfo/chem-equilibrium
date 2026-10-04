@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/cheminfo/chem-equilibrium/compare/v3.1.0...v3.2.0) (2026-10-04)
+
+
+### Features
+
+* add oxalic, malonic, succinic and lactic acid ([466f62a](https://github.com/cheminfo/chem-equilibrium/commit/466f62a1ae5645869fdbb23006257bd3a600cbdc))
+
 ## [3.1.0](https://github.com/cheminfo/chem-equilibrium/compare/v3.0.0...v3.1.0) (2026-10-02)
 
 
