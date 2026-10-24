@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/cheminfo/chem-equilibrium/compare/v3.2.0...v3.3.0) (2026-10-24)
+
+
+### Features
+
+* add maleic, tartaric and glutaric acid ([33a6728](https://github.com/cheminfo/chem-equilibrium/commit/33a67284399e3ef8ffc8be9aedcbb563c9bf3c9b))
+
 ## [3.2.0](https://github.com/cheminfo/chem-equilibrium/compare/v3.1.0...v3.2.0) (2026-10-04)
 
 
