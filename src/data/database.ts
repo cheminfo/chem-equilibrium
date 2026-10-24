@@ -540,6 +540,72 @@ export const database: DatabaseEntry[] = [
     source: 'https://pubchem.ncbi.nlm.nih.gov/compound/612',
   },
   {
+    formed: 'C2H2(CO2H)2',
+    components: {
+      'C2H2(CO2H)CO2-': 1,
+      'H+': 1,
+    },
+    pK: 1.83,
+    type: 'acidoBasic',
+    temperature: 298,
+    source: 'https://userpages.umbc.edu/~dfrey1/acidbase.htm',
+  },
+  {
+    formed: 'C2H2(CO2H)CO2-',
+    components: {
+      'C2H2(CO2)2--': 1,
+      'H+': 1,
+    },
+    pK: 6.07,
+    type: 'acidoBasic',
+    temperature: 298,
+    source: 'https://userpages.umbc.edu/~dfrey1/acidbase.htm',
+  },
+  {
+    formed: '(CHOH)2(CO2H)2',
+    components: {
+      '(CHOH)2(CO2H)CO2-': 1,
+      'H+': 1,
+    },
+    pK: 2.98,
+    type: 'acidoBasic',
+    temperature: 298,
+    source: 'https://userpages.umbc.edu/~dfrey1/acidbase.htm',
+  },
+  {
+    formed: '(CHOH)2(CO2H)CO2-',
+    components: {
+      '(CHOH)2(CO2)2--': 1,
+      'H+': 1,
+    },
+    pK: 4.34,
+    type: 'acidoBasic',
+    temperature: 298,
+    source: 'https://userpages.umbc.edu/~dfrey1/acidbase.htm',
+  },
+  {
+    formed: 'C3H6(CO2H)2',
+    components: {
+      'C3H6(CO2H)CO2-': 1,
+      'H+': 1,
+    },
+    pK: 4.31,
+    type: 'acidoBasic',
+    temperature: 298,
+    source: 'https://userpages.umbc.edu/~dfrey1/acidbase.htm',
+  },
+  {
+    formed: 'C3H6(CO2H)CO2-',
+    components: {
+      'C3H6(CO2)2--': 1,
+      'H+': 1,
+    },
+    pK: 5.41,
+    type: 'acidoBasic',
+    temperature: 298,
+    source: 'https://userpages.umbc.edu/~dfrey1/acidbase.htm',
+  },
+  {
     formed: 'Ag(NH3)2+',
     components: {
       'Ag+': 1,

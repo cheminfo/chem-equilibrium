@@ -11,6 +11,30 @@ export const speciesNames: Record<
     name: 'triethylammonium ion',
     alternatives: ['protonated triethylamine', 'triethylazanium ion'],
   },
+  '(CHOH)2(CO2)2--': {
+    name: 'tartrate ion',
+    alternatives: [
+      '2,3-dihydroxybutanedioate ion',
+      'tartrate',
+      'tartrate dianion',
+    ],
+  },
+  '(CHOH)2(CO2H)2': {
+    name: 'tartaric acid',
+    alternatives: [
+      '2,3-dihydroxybutanedioic acid',
+      'L-tartaric acid',
+      'HO2CCH(OH)CH(OH)CO2H',
+    ],
+  },
+  '(CHOH)2(CO2H)CO2-': {
+    name: 'hydrogen tartrate ion',
+    alternatives: [
+      'hydrogentartrate ion',
+      'bitartrate ion',
+      'tartrate monoanion',
+    ],
+  },
   'Ag(CH3NH2)2+': {
     name: 'bis(methylamine)silver(I) ion',
     alternatives: [
@@ -188,6 +212,18 @@ export const speciesNames: Record<
     name: 'bromate ion',
     alternatives: ['bromate(V) ion', 'bromate'],
   },
+  'C2H2(CO2)2--': {
+    name: 'maleate ion',
+    alternatives: ['(Z)-butenedioate ion', 'maleate', 'maleate dianion'],
+  },
+  'C2H2(CO2H)2': {
+    name: 'maleic acid',
+    alternatives: ['(Z)-butenedioic acid', 'cis-butenedioic acid'],
+  },
+  'C2H2(CO2H)CO2-': {
+    name: 'hydrogen maleate ion',
+    alternatives: ['hydrogenmaleate ion', 'maleate monoanion'],
+  },
   'C2H4(CO2)2--': {
     name: 'succinate ion',
     alternatives: ['butanedioate ion', 'succinate', 'succinate dianion'],
@@ -232,6 +268,18 @@ export const speciesNames: Record<
   'C2O4--': {
     name: 'oxalate ion',
     alternatives: ['ethanedioate ion', 'oxalate', 'oxalate dianion'],
+  },
+  'C3H6(CO2)2--': {
+    name: 'glutarate ion',
+    alternatives: ['pentanedioate ion', 'glutarate', 'glutarate dianion'],
+  },
+  'C3H6(CO2H)2': {
+    name: 'glutaric acid',
+    alternatives: ['pentanedioic acid', 'HO2C(CH2)3CO2H'],
+  },
+  'C3H6(CO2H)CO2-': {
+    name: 'hydrogen glutarate ion',
+    alternatives: ['hydrogenglutarate ion', 'glutarate monoanion'],
   },
   C5H5N: {
     name: 'pyridine',
