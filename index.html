@@ -153,17 +153,24 @@ computed) and forward any other option to the underlying <code>Helper</code> and
 edit it there. Each entry carries its <code>pK</code>, the temperature and the literature
 source when they are documented, and a <code>warning</code> when the value is known to be
 doubtful:</p>
-<pre><code class="js"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">database</span><span class="hl-0">, </span><span class="hl-2">speciesNames</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;chem-equilibrium&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-2">database</span><span class="hl-0">.</span><span class="hl-2">length</span><span class="hl-0">; </span><span class="hl-6">// 129</span><br/><span class="hl-2">speciesNames</span><span class="hl-0">[</span><span class="hl-3">&#39;CO3--&#39;</span><span class="hl-0">].</span><span class="hl-2">name</span><span class="hl-0">; </span><span class="hl-6">// &#39;carbonate ion&#39;</span>
+<pre><code class="js"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">database</span><span class="hl-0">, </span><span class="hl-2">speciesNames</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;chem-equilibrium&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-2">database</span><span class="hl-0">.</span><span class="hl-2">length</span><span class="hl-0">; </span><span class="hl-6">// 189</span><br/><span class="hl-2">speciesNames</span><span class="hl-0">[</span><span class="hl-3">&#39;CO3--&#39;</span><span class="hl-0">].</span><span class="hl-2">name</span><span class="hl-0">; </span><span class="hl-6">// &#39;carbonate ion&#39;</span><br/><span class="hl-2">speciesNames</span><span class="hl-0">.</span><span class="hl-2">HGlyOH</span><span class="hl-0">.</span><span class="hl-2">idCode</span><span class="hl-0">; </span><span class="hl-6">// &#39;gJX`bDnLiMmP@&#39;</span>
 </code><button type="button">Copy</button></pre>
 
+<p>The 20 proteinogenic amino acids are written as <code>mf-parser</code> and
+<code>chemical-groups</code> write them, where <code>Ala</code> is the residue: alanine is <code>HAlaOH</code>.
+Protons are added in front and taken from its ends, so every label reads the
+formula and charge of its species: <code>H2AlaOH+</code>, <code>HAlaOH</code>, <code>HAlaO-</code>; <code>H2AspOH+</code>
+down to <code>AspO--</code>; <code>H3LysOH++</code> down to <code>HLysO-</code>. Each species also carries
+<code>idCode</code>, the openchemlib structure of the microspecies that predominates,
+checked against <code>chemical-groups</code>.</p>
 <p><code>pK</code> is always the base-10 logarithm of the <strong>formation</strong> constant of <code>formed</code>
 from its components, so <code>beta = 10 ** pK</code>. For an acid/base couple that number
 is the pKa; for a precipitation equilibrium it is <code>-log10(Ksp)</code>; for a complex
 it is <code>+log β</code>.</p>
 <p>An entry marked <code>active: false</code> is kept for the record — it documents a constant
 that was considered and deliberately left out — and never enters a model, so
-<code>Helper</code> builds its systems from the 127 active ones:</p>
-<pre><code class="js"><span class="hl-2">database</span><span class="hl-0">.</span><span class="hl-8">filter</span><span class="hl-0">((</span><span class="hl-2">entry</span><span class="hl-0">) </span><span class="hl-4">=&gt;</span><span class="hl-0"> </span><span class="hl-2">entry</span><span class="hl-0">.</span><span class="hl-2">active</span><span class="hl-0"> !== </span><span class="hl-4">false</span><span class="hl-0">).</span><span class="hl-2">length</span><span class="hl-0">; </span><span class="hl-6">// 127</span>
+<code>Helper</code> builds its systems from the 187 active ones:</p>
+<pre><code class="js"><span class="hl-2">database</span><span class="hl-0">.</span><span class="hl-8">filter</span><span class="hl-0">((</span><span class="hl-2">entry</span><span class="hl-0">) </span><span class="hl-4">=&gt;</span><span class="hl-0"> </span><span class="hl-2">entry</span><span class="hl-0">.</span><span class="hl-2">active</span><span class="hl-0"> !== </span><span class="hl-4">false</span><span class="hl-0">).</span><span class="hl-2">length</span><span class="hl-0">; </span><span class="hl-6">// 187</span>
 </code><button type="button">Copy</button></pre>
 
 <p>Browse the whole table, sources included, on
