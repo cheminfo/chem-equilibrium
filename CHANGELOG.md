@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.0](https://github.com/cheminfo/chem-equilibrium/compare/v3.3.0...v3.4.0) (2026-10-26)
+
+
+### Features
+
+* add the 20 amino acids, with their structures as idCode ([3990030](https://github.com/cheminfo/chem-equilibrium/commit/3990030e55f84c1a78d428bf34ba35df2e534e4f))
+
 ## [3.3.0](https://github.com/cheminfo/chem-equilibrium/compare/v3.2.0...v3.3.0) (2026-10-24)
 
 
