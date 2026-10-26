@@ -60,6 +60,23 @@ export interface DatabaseEntry extends EquationData {
   active?: boolean;
 }
 
+/** How a species of the bundled database is named, searched for and drawn. */
+export interface SpeciesDescription {
+  /** English name, e.g. `carbonate ion`. */
+  name: string;
+  /**
+   * Other names and notations the species may be searched for by.
+   * @default undefined - it goes by its name alone
+   */
+  alternatives?: string[];
+  /**
+   * Structure of the microspecies that predominates, charges and stereo
+   * included, as an openchemlib idCode, e.g. `gJX`bDnLiMmP@` for glycine.
+   * @default undefined - no structure is recorded
+   */
+  idCode?: string;
+}
+
 /** A component of the system: either a known total, or a fixed free concentration. */
 export interface ModelComponent {
   label: string;

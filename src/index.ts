@@ -30,4 +30,5 @@ export type {
   ModelFormedSpecies,
   Solution,
   SolverOptions,
+  SpeciesDescription,
 } from './types.ts';

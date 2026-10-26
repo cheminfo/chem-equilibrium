@@ -20,7 +20,7 @@ import { Helper } from '../Helper.ts';
 test('the bundled database records deactivated entries without using them', () => {
   const inactive = database.filter((entry) => entry.active === false);
 
-  expect(database).toHaveLength(142);
+  expect(database).toHaveLength(189);
   expect(inactive.map((entry) => entry.formed).toSorted()).toStrictEqual([
     'H3O+',
     'OH-',
@@ -32,7 +32,7 @@ test('the bundled database records deactivated entries without using them', () =
   const helper = new Helper();
   const formed = helper.getEquations().map((equation) => equation.formed);
 
-  expect(formed).toHaveLength(140);
+  expect(formed).toHaveLength(187);
   expect(helper.getSpecies()).not.toContain('O--');
   expect(
     helper.getEquations().find((equation) => equation.formed === 'OH-'),

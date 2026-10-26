@@ -1,8 +1,10 @@
-/** English name of every species of the database, for searching and labelling. */
-export const speciesNames: Record<
-  string,
-  { name: string; alternatives?: string[] }
-> = {
+import type { SpeciesDescription } from '../types.ts';
+
+/**
+ * English name of every species of the database, for searching and labelling,
+ * and the structure of those that have one.
+ */
+export const speciesNames: Record<string, SpeciesDescription> = {
   '(C2H5)3N': {
     name: 'triethylamine',
     alternatives: ['N,N-diethylethanamine'],
@@ -148,6 +150,11 @@ export const speciesNames: Record<
   'AlF6---': {
     name: 'hexafluoroaluminate ion',
     alternatives: ['hexafluoridoaluminate(III) ion', 'cryolite anion'],
+  },
+  'AspO--': {
+    name: 'aspartate ion',
+    alternatives: ['aspartate', 'aspartate dianion'],
+    idCode: 'diFBABANENGdf{Yjihr@@',
   },
   'Au(CN)2-': {
     name: 'dicyanoaurate(I) ion',
@@ -568,6 +575,11 @@ export const speciesNames: Record<
     name: 'copper(II) sulfide',
     alternatives: ['cupric sulfide', 'copper sulphide', 'covellite'],
   },
+  'CysO--': {
+    name: 'cysteinate ion',
+    alternatives: ['cysteinate', 'cysteinate dianion'],
+    idCode: 'gNxhmV@`\\~RVzjZI@',
+  },
   'F-': {
     name: 'fluoride ion',
     alternatives: ['fluoride', 'fluoride anion'],
@@ -647,9 +659,33 @@ export const speciesNames: Record<
     name: 'iron(II) sulfide',
     alternatives: ['ferrous sulfide', 'iron sulfide', 'troilite'],
   },
+  'GluO--': {
+    name: 'glutamate ion',
+    alternatives: ['glutamate', 'glutamate dianion'],
+    idCode: 'defBABAAeNgdf{VZjfcH@',
+  },
   'H+': {
     name: 'hydrogen ion',
     alternatives: ['proton', 'hydron', 'hydronium ion', 'H3O+', 'oxonium ion'],
+  },
+  'H2AlaOH+': {
+    name: 'alaninium ion',
+    alternatives: ['protonated alanine'],
+    idCode: 'gGXaBDYR[fjf`@',
+  },
+  'H2ArgOH+': {
+    name: 'argininium ion',
+    alternatives: ['protonated arginine'],
+    idCode: 'dctdCBE]ADxiVTf{UYjjihr@@',
+  },
+  'H2AsnOH+': {
+    name: 'asparaginium ion',
+    alternatives: ['protonated asparagine'],
+    idCode: 'diELBBDDxiR[mfjfcH@',
+  },
+  'H2AspOH+': {
+    name: 'protonated aspartic acid',
+    idCode: 'diFBBBANDiR[mfjfcH@',
   },
   H2C2O4: {
     name: 'oxalic acid',
@@ -659,9 +695,58 @@ export const speciesNames: Record<
     name: 'carbonic acid',
     alternatives: ['dihydrogen carbonate', 'aqueous carbon dioxide', 'CO2(aq)'],
   },
+  'H2CysOH+': {
+    name: 'cysteinium ion',
+    alternatives: ['protonated cysteine'],
+    idCode: 'gNxiMV@cRdmuTtR@',
+  },
+  'H2GlnOH+': {
+    name: 'glutaminium ion',
+    alternatives: ['protonated glutamine'],
+    idCode: 'deeLBBdDDiR[mYjjZL`@',
+  },
+  'H2GluOH+': {
+    name: 'protonated glutamic acid',
+    idCode: 'defBBBAAdiR[mYjjZL`@',
+  },
+  'H2GlyOH+': {
+    name: 'glycinium ion',
+    alternatives: ['protonated glycine'],
+    idCode: 'gJXaBDYR[Z`@',
+  },
+  'H2HisOH+': {
+    name: 'histidinium ion',
+    alternatives: ['protonated histidine'],
+    idCode: 'dmwDCByPQNJUeInvVUZjffL`@',
+  },
+  'H2IleOH+': {
+    name: 'isoleucinium ion',
+    alternatives: ['protonated isoleucine'],
+    idCode: 'diFDBBABeInyZjiLeH@',
+  },
+  'H2LeuOH+': {
+    name: 'leucinium ion',
+    alternatives: ['protonated leucine'],
+    idCode: 'diFDBBABeInvZjjL`@',
+  },
+  'H2LysOH+': {
+    name: 'lysinium ion',
+    alternatives: ['protonated lysine'],
+    idCode: 'deeDCBdDSbfYR[mUjjjL`@',
+  },
+  'H2MetOH+': {
+    name: 'methioninium ion',
+    alternatives: ['protonated methionine'],
+    idCode: 'diFDbJxPBJeJ]njjZBP@',
+  },
   H2O: {
     name: 'water',
     alternatives: ['oxidane', 'dihydrogen monoxide'],
+  },
+  'H2PheOH+': {
+    name: 'phenylalaninium ion',
+    alternatives: ['protonated phenylalanine'],
+    idCode: 'dcNDBBABeInvUWVj`@Hr@@',
   },
   'H2PO3-': {
     name: 'dihydrogen phosphite ion',
@@ -675,6 +760,11 @@ export const speciesNames: Record<
       'dihydrogenorthophosphate ion',
     ],
   },
+  'H2ProOH+': {
+    name: 'prolinium ion',
+    alternatives: ['protonated proline'],
+    idCode: 'daFDBBABeInUnZjjL`@',
+  },
   H2S: {
     name: 'hydrogen sulfide',
     alternatives: [
@@ -684,6 +774,11 @@ export const speciesNames: Record<
       'sulfhydric acid',
     ],
   },
+  'H2SerOH+': {
+    name: 'serinium ion',
+    alternatives: ['protonated serine'],
+    idCode: 'gNyaBDsJS]mUSP@',
+  },
   H2SO3: {
     name: 'sulfurous acid',
     alternatives: ['dihydrogen sulfite', 'aqueous sulfur dioxide', 'SO2(aq)'],
@@ -691,6 +786,41 @@ export const speciesNames: Record<
   H2SO4: {
     name: 'sulfuric acid',
     alternatives: ['dihydrogen sulfate', 'oil of vitriol'],
+  },
+  'H2ThrOH+': {
+    name: 'threoninium ion',
+    alternatives: ['protonated threonine'],
+    idCode: 'dazLBBAFJTf{fjiLeH@',
+  },
+  'H2TrpOH+': {
+    name: 'tryptophanium ion',
+    alternatives: ['protonated tryptophan'],
+    idCode: 'foAP`DBZ@`diMvsJ|mV\\uUHPDPq@@',
+  },
+  'H2TyrOH+': {
+    name: 'tyrosinium ion',
+    alternatives: ['protonated tyrosine'],
+    idCode: 'dknLBBACJTf{YWWVj`@bL`@',
+  },
+  'H2ValOH+': {
+    name: 'valinium ion',
+    alternatives: ['protonated valine'],
+    idCode: 'dazDBBABeInyjjcH@',
+  },
+  'H3ArgOH++': {
+    name: 'arginine dication',
+    alternatives: ['doubly protonated arginine'],
+    idCode: 'dctdABE]ABeYR[mUfjjfcH@',
+  },
+  'H3HisOH++': {
+    name: 'histidine dication',
+    alternatives: ['doubly protonated histidine'],
+    idCode: 'dmwDAByPPiVTf{YYUjjZXr@@',
+  },
+  'H3LysOH++': {
+    name: 'lysine dication',
+    alternatives: ['doubly protonated lysine'],
+    idCode: 'deeDABdDJYeInuVjjhr@@',
   },
   H3PO3: {
     name: 'phosphorous acid',
@@ -703,6 +833,70 @@ export const speciesNames: Record<
   H3PO4: {
     name: 'phosphoric acid',
     alternatives: ['orthophosphoric acid', 'trihydrogen phosphate'],
+  },
+  'HAlaO-': {
+    name: 'alaninate ion',
+    alternatives: ['alaninate'],
+    idCode: 'gGXaBDnR[fjf`@',
+  },
+  HAlaOH: {
+    name: 'alanine',
+    alternatives: [
+      'Ala',
+      'H-Ala-OH',
+      'L-alanine',
+      '(2S)-2-aminopropanoic acid',
+      'alanine zwitterion',
+    ],
+    idCode: 'gGX`bDnLiMsUSP@',
+  },
+  'HArgO-': {
+    name: 'argininate ion',
+    alternatives: ['argininate'],
+    idCode: 'dctdBBE]ADyInuVZjjZL`@',
+  },
+  HArgOH: {
+    name: 'arginine',
+    alternatives: [
+      'Arg',
+      'H-Arg-OH',
+      'L-arginine',
+      '(2S)-2-amino-5-(diaminomethylideneamino)pentanoic acid',
+      'arginine zwitterion',
+    ],
+    idCode: 'dctdABE]ADyYR[mUfjjfcH@',
+  },
+  'HAsnO-': {
+    name: 'asparaginate ion',
+    alternatives: ['asparaginate'],
+    idCode: 'diELBBDDyNR[mfjfcH@',
+  },
+  HAsnOH: {
+    name: 'asparagine',
+    alternatives: [
+      'Asn',
+      'H-Asn-OH',
+      'L-asparagine',
+      '(2S)-2,4-diamino-4-oxobutanoic acid',
+      'asparagine zwitterion',
+    ],
+    idCode: 'diELABDDyNJTf{Yjihr@@',
+  },
+  'HAspO-': {
+    name: 'hydrogen aspartate ion',
+    alternatives: ['hydrogenaspartate ion', 'aspartate monoanion'],
+    idCode: 'diFBCBANENJQyInvZjZL`@',
+  },
+  HAspOH: {
+    name: 'aspartic acid',
+    alternatives: [
+      'Asp',
+      'H-Asp-OH',
+      'L-aspartic acid',
+      '(2S)-2-aminobutanedioic acid',
+      'aspartic acid zwitterion',
+    ],
+    idCode: 'diFBABANENJTf{Yjihr@@',
   },
   HBr: {
     name: 'hydrobromic acid',
@@ -747,6 +941,22 @@ export const speciesNames: Record<
   'HCO3-': {
     name: 'hydrogen carbonate ion',
     alternatives: ['bicarbonate ion', 'hydrogencarbonate ion'],
+  },
+  'HCysO-': {
+    name: 'hydrogen cysteinate ion',
+    alternatives: ['hydrogencysteinate ion', 'cysteinate monoanion'],
+    idCode: 'gNximV@`]i_IK]UMD`@',
+  },
+  HCysOH: {
+    name: 'cysteine',
+    alternatives: [
+      'Cys',
+      'H-Cys-OH',
+      'L-cysteine',
+      '(2R)-2-amino-3-sulfanylpropanoic acid',
+      'cysteine zwitterion',
+    ],
+    idCode: 'gNxhmV@cR~RVzjZI@',
   },
   HF: {
     name: 'hydrofluoric acid',
@@ -800,13 +1010,140 @@ export const speciesNames: Record<
       "Nessler's reagent anion",
     ],
   },
+  'HGlnO-': {
+    name: 'glutaminate ion',
+    alternatives: ['glutaminate'],
+    idCode: 'deeLBBdDENR[mYjjZL`@',
+  },
+  HGlnOH: {
+    name: 'glutamine',
+    alternatives: [
+      'Gln',
+      'H-Gln-OH',
+      'L-glutamine',
+      '(2S)-2,5-diamino-5-oxopentanoic acid',
+      'glutamine zwitterion',
+    ],
+    idCode: 'deeLABdDENJTf{VZjfcH@',
+  },
+  'HGluO-': {
+    name: 'hydrogen glutamate ion',
+    alternatives: ['hydrogenglutamate ion', 'glutamate monoanion'],
+    idCode: 'defBCBAAeNJYyInufjihr@@',
+  },
+  HGluOH: {
+    name: 'glutamic acid',
+    alternatives: [
+      'Glu',
+      'H-Glu-OH',
+      'L-glutamic acid',
+      '(2S)-2-aminopentanedioic acid',
+      'glutamic acid zwitterion',
+    ],
+    idCode: 'defBABAAeNJTf{VZjfcH@',
+  },
+  'HGlyO-': {
+    name: 'glycinate ion',
+    alternatives: ['glycinate'],
+    idCode: 'gJXaBDnR[Z`@',
+  },
+  HGlyOH: {
+    name: 'glycine',
+    alternatives: [
+      'Gly',
+      'H-Gly-OH',
+      '2-aminoacetic acid',
+      'glycine zwitterion',
+    ],
+    idCode: 'gJX`bDnLiMmP@',
+  },
+  'HHisO-': {
+    name: 'histidinate ion',
+    alternatives: ['histidinate'],
+    idCode: 'dmwDBByPQNR[meeVjiZcH@',
+  },
+  HHisOH: {
+    name: 'histidine',
+    alternatives: [
+      'His',
+      'H-His-OH',
+      'L-histidine',
+      '(2S)-2-amino-3-(1H-imidazol-5-yl)propanoic acid',
+      'histidine zwitterion',
+    ],
+    idCode: 'dmwDAByPQNJTf{YYUjjVhr@@',
+  },
   HI: {
     name: 'hydroiodic acid',
     alternatives: ['hydrogen iodide', 'hydriodic acid'],
   },
+  'HIleO-': {
+    name: 'isoleucinate ion',
+    alternatives: ['isoleucinate'],
+    idCode: 'diFDBBADyInyZjiLeH@',
+  },
+  HIleOH: {
+    name: 'isoleucine',
+    alternatives: [
+      'Ile',
+      'H-Ile-OH',
+      'L-isoleucine',
+      '(2S,3S)-2-amino-3-methylpentanoic acid',
+      'isoleucine zwitterion',
+    ],
+    idCode: 'diFDABADxiR[nVjjSIR@',
+  },
   HIO3: {
     name: 'iodic acid',
     alternatives: ['iodic(V) acid', 'hydrogen iodate'],
+  },
+  'HLeuO-': {
+    name: 'leucinate ion',
+    alternatives: ['leucinate'],
+    idCode: 'diFDBBADyInvZjjL`@',
+  },
+  HLeuOH: {
+    name: 'leucine',
+    alternatives: [
+      'Leu',
+      'H-Leu-OH',
+      'L-leucine',
+      '(2S)-2-amino-4-methylpentanoic acid',
+      'leucine zwitterion',
+    ],
+    idCode: 'diFDABADxiR[mfjjcH@',
+  },
+  'HLysO-': {
+    name: 'lysinate ion',
+    alternatives: ['lysinate'],
+    idCode: 'deeDBBdDSdf{UZjjcH@',
+  },
+  HLysOH: {
+    name: 'lysine',
+    alternatives: [
+      'Lys',
+      'H-Lys-OH',
+      'L-lysine',
+      '(2S)-2,6-diaminohexanoic acid',
+      'lysine zwitterion',
+    ],
+    idCode: 'deeDABdDSieInuVjjhr@@',
+  },
+  'HMetO-': {
+    name: 'methioninate ion',
+    alternatives: ['methioninate'],
+    idCode: 'diFDbJxPBAyJ]njjZBP@',
+  },
+  HMetOH: {
+    name: 'methionine',
+    alternatives: [
+      'Met',
+      'H-Met-OH',
+      'L-methionine',
+      '(2S)-2-amino-4-(methylsulfanyl)butanoic acid',
+      'methionine zwitterion',
+    ],
+    idCode: 'diFDaJxPBJd^Rg[jjf`d@',
   },
   HNO2: {
     name: 'nitrous acid',
@@ -824,6 +1161,22 @@ export const speciesNames: Record<
     name: 'cyanic acid',
     alternatives: ['hydrogen cyanate', 'isocyanic acid', 'HNCO'],
   },
+  'HPheO-': {
+    name: 'phenylalaninate ion',
+    alternatives: ['phenylalaninate'],
+    idCode: 'dcNDBBADyInvUWVj`@Hr@@',
+  },
+  HPheOH: {
+    name: 'phenylalanine',
+    alternatives: [
+      'Phe',
+      'H-Phe-OH',
+      'L-phenylalanine',
+      '(2S)-2-amino-3-phenylpropanoic acid',
+      'phenylalanine zwitterion',
+    ],
+    idCode: 'dcNDABADxiR[meUujh@BL`@',
+  },
   'HPO3--': {
     name: 'hydrogen phosphite ion',
     alternatives: ['hydrogenphosphite ion', 'phosphonate ion', 'HPO3 2-'],
@@ -836,9 +1189,41 @@ export const speciesNames: Record<
       'HPO4 2-',
     ],
   },
+  'HProO-': {
+    name: 'prolinate ion',
+    alternatives: ['prolinate'],
+    idCode: 'daFDBBADyInUnZjjL`@',
+  },
+  HProOH: {
+    name: 'proline',
+    alternatives: [
+      'Pro',
+      'H-Pro-OH',
+      'L-proline',
+      '(2S)-pyrrolidine-2-carboxylic acid',
+      'proline zwitterion',
+    ],
+    idCode: 'daFDABADxiR[e[fjjcH@',
+  },
   'HS-': {
     name: 'hydrogen sulfide ion',
     alternatives: ['bisulfide ion', 'hydrosulfide ion', 'sulfanide'],
+  },
+  'HSerO-': {
+    name: 'serinate ion',
+    alternatives: ['serinate'],
+    idCode: 'gNyaBDurS]mUSP@',
+  },
+  HSerOH: {
+    name: 'serine',
+    alternatives: [
+      'Ser',
+      'H-Ser-OH',
+      'L-serine',
+      '(2S)-2-amino-3-hydroxypropanoic acid',
+      'serine zwitterion',
+    ],
+    idCode: 'gNy`bDuqeInvjih@',
   },
   'HSO3-': {
     name: 'hydrogen sulfite ion',
@@ -847,6 +1232,70 @@ export const speciesNames: Record<
   'HSO4-': {
     name: 'hydrogen sulfate ion',
     alternatives: ['bisulfate ion', 'hydrogensulfate ion'],
+  },
+  'HThrO-': {
+    name: 'threoninate ion',
+    alternatives: ['threoninate'],
+    idCode: 'dazLBBAFSdf{fjiLeH@',
+  },
+  HThrOH: {
+    name: 'threonine',
+    alternatives: [
+      'Thr',
+      'H-Thr-OH',
+      'L-threonine',
+      '(2S,3R)-2-amino-3-hydroxybutanoic acid',
+      'threonine zwitterion',
+    ],
+    idCode: 'dazLABAFSbeInyjjSIR@',
+  },
+  'HTrpO-': {
+    name: 'tryptophanate ion',
+    alternatives: ['tryptophanate'],
+    idCode: 'foAP`DBZ@aGIMvsJ|mV\\uUHPDPq@@',
+  },
+  HTrpOH: {
+    name: 'tryptophan',
+    alternatives: [
+      'Trp',
+      'H-Trp-OH',
+      'L-tryptophan',
+      '(2S)-2-amino-3-(1H-indol-3-yl)propanoic acid',
+      'tryptophan zwitterion',
+    ],
+    idCode: 'foAP`BBZ@aGDeInvYWejsfjiB@bFH@',
+  },
+  'HTyrO-': {
+    name: 'hydrogen tyrosinate ion',
+    alternatives: ['hydrogentyrosinate ion', 'tyrosinate monoanion'],
+    idCode: 'dknLBBACSdf{YWWVj`@bL`@',
+  },
+  HTyrOH: {
+    name: 'tyrosine',
+    alternatives: [
+      'Tyr',
+      'H-Tyr-OH',
+      'L-tyrosine',
+      '(2S)-2-amino-3-(4-hydroxyphenyl)propanoic acid',
+      'tyrosine zwitterion',
+    ],
+    idCode: 'dknLABACSbeInvUuujh@HcH@',
+  },
+  'HValO-': {
+    name: 'valinate ion',
+    alternatives: ['valinate'],
+    idCode: 'dazDBBADyInyjjcH@',
+  },
+  HValOH: {
+    name: 'valine',
+    alternatives: [
+      'Val',
+      'H-Val-OH',
+      'L-valine',
+      '(2S)-2-amino-3-methylbutanoic acid',
+      'valine zwitterion',
+    ],
+    idCode: 'dazDABADxiR[nZjhr@@',
   },
   'I-': {
     name: 'iodide ion',
@@ -1026,6 +1475,11 @@ export const speciesNames: Record<
   'SO4--': {
     name: 'sulfate ion',
     alternatives: ['sulphate ion', 'tetraoxidosulfate(2-)'],
+  },
+  'TyrO--': {
+    name: 'tyrosinate ion',
+    alternatives: ['tyrosinate', 'tyrosinate dianion'],
+    idCode: 'dknLABACScyInvUuujh@HcH@',
   },
   'Zn(NH3)4++': {
     name: 'tetraamminezinc(II) ion',

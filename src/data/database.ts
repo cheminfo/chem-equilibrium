@@ -606,6 +606,476 @@ export const database: DatabaseEntry[] = [
     source: 'https://userpages.umbc.edu/~dfrey1/acidbase.htm',
   },
   {
+    formed: 'H2GlyOH+',
+    components: {
+      HGlyOH: 1,
+      'H+': 1,
+    },
+    pK: 2.35,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HGlyOH',
+    components: {
+      'HGlyO-': 1,
+      'H+': 1,
+    },
+    pK: 9.78,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2AlaOH+',
+    components: {
+      HAlaOH: 1,
+      'H+': 1,
+    },
+    pK: 2.35,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HAlaOH',
+    components: {
+      'HAlaO-': 1,
+      'H+': 1,
+    },
+    pK: 9.87,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2ValOH+',
+    components: {
+      HValOH: 1,
+      'H+': 1,
+    },
+    pK: 2.29,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HValOH',
+    components: {
+      'HValO-': 1,
+      'H+': 1,
+    },
+    pK: 9.74,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2LeuOH+',
+    components: {
+      HLeuOH: 1,
+      'H+': 1,
+    },
+    pK: 2.33,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HLeuOH',
+    components: {
+      'HLeuO-': 1,
+      'H+': 1,
+    },
+    pK: 9.74,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2IleOH+',
+    components: {
+      HIleOH: 1,
+      'H+': 1,
+    },
+    pK: 2.32,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HIleOH',
+    components: {
+      'HIleO-': 1,
+      'H+': 1,
+    },
+    pK: 9.76,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2MetOH+',
+    components: {
+      HMetOH: 1,
+      'H+': 1,
+    },
+    pK: 2.13,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HMetOH',
+    components: {
+      'HMetO-': 1,
+      'H+': 1,
+    },
+    pK: 9.28,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2ProOH+',
+    components: {
+      HProOH: 1,
+      'H+': 1,
+    },
+    pK: 1.95,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HProOH',
+    components: {
+      'HProO-': 1,
+      'H+': 1,
+    },
+    pK: 10.64,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2PheOH+',
+    components: {
+      HPheOH: 1,
+      'H+': 1,
+    },
+    pK: 2.2,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HPheOH',
+    components: {
+      'HPheO-': 1,
+      'H+': 1,
+    },
+    pK: 9.31,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2TrpOH+',
+    components: {
+      HTrpOH: 1,
+      'H+': 1,
+    },
+    pK: 2.46,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HTrpOH',
+    components: {
+      'HTrpO-': 1,
+      'H+': 1,
+    },
+    pK: 9.41,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2SerOH+',
+    components: {
+      HSerOH: 1,
+      'H+': 1,
+    },
+    pK: 2.19,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HSerOH',
+    components: {
+      'HSerO-': 1,
+      'H+': 1,
+    },
+    pK: 9.21,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2ThrOH+',
+    components: {
+      HThrOH: 1,
+      'H+': 1,
+    },
+    pK: 2.09,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HThrOH',
+    components: {
+      'HThrO-': 1,
+      'H+': 1,
+    },
+    pK: 9.1,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2AsnOH+',
+    components: {
+      HAsnOH: 1,
+      'H+': 1,
+    },
+    pK: 2.14,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HAsnOH',
+    components: {
+      'HAsnO-': 1,
+      'H+': 1,
+    },
+    pK: 8.72,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2GlnOH+',
+    components: {
+      HGlnOH: 1,
+      'H+': 1,
+    },
+    pK: 2.17,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HGlnOH',
+    components: {
+      'HGlnO-': 1,
+      'H+': 1,
+    },
+    pK: 9.13,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2AspOH+',
+    components: {
+      HAspOH: 1,
+      'H+': 1,
+    },
+    pK: 1.99,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HAspOH',
+    components: {
+      'HAspO-': 1,
+      'H+': 1,
+    },
+    pK: 3.9,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HAspO-',
+    components: {
+      'AspO--': 1,
+      'H+': 1,
+    },
+    pK: 9.9,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2GluOH+',
+    components: {
+      HGluOH: 1,
+      'H+': 1,
+    },
+    pK: 2.1,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HGluOH',
+    components: {
+      'HGluO-': 1,
+      'H+': 1,
+    },
+    pK: 4.07,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HGluO-',
+    components: {
+      'GluO--': 1,
+      'H+': 1,
+    },
+    pK: 9.47,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2CysOH+',
+    components: {
+      HCysOH: 1,
+      'H+': 1,
+    },
+    pK: 1.92,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HCysOH',
+    components: {
+      'HCysO-': 1,
+      'H+': 1,
+    },
+    pK: 8.37,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HCysO-',
+    components: {
+      'CysO--': 1,
+      'H+': 1,
+    },
+    pK: 10.7,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2TyrOH+',
+    components: {
+      HTyrOH: 1,
+      'H+': 1,
+    },
+    pK: 2.2,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HTyrOH',
+    components: {
+      'HTyrO-': 1,
+      'H+': 1,
+    },
+    pK: 9.21,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HTyrO-',
+    components: {
+      'TyrO--': 1,
+      'H+': 1,
+    },
+    pK: 10.46,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H3HisOH++',
+    components: {
+      'H2HisOH+': 1,
+      'H+': 1,
+    },
+    pK: 1.8,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2HisOH+',
+    components: {
+      HHisOH: 1,
+      'H+': 1,
+    },
+    pK: 6.04,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HHisOH',
+    components: {
+      'HHisO-': 1,
+      'H+': 1,
+    },
+    pK: 9.33,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H3LysOH++',
+    components: {
+      'H2LysOH+': 1,
+      'H+': 1,
+    },
+    pK: 2.16,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2LysOH+',
+    components: {
+      HLysOH: 1,
+      'H+': 1,
+    },
+    pK: 9.06,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HLysOH',
+    components: {
+      'HLysO-': 1,
+      'H+': 1,
+    },
+    pK: 10.54,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H3ArgOH++',
+    components: {
+      'H2ArgOH+': 1,
+      'H+': 1,
+    },
+    pK: 1.82,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'H2ArgOH+',
+    components: {
+      HArgOH: 1,
+      'H+': 1,
+    },
+    pK: 8.99,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
+    formed: 'HArgOH',
+    components: {
+      'HArgO-': 1,
+      'H+': 1,
+    },
+    pK: 12.48,
+    type: 'acidoBasic',
+    source: 'https://spdbv.unil.ch/TheMolecularLevel/Goodies/AATable.pdf',
+  },
+  {
     formed: 'Ag(NH3)2+',
     components: {
       'Ag+': 1,

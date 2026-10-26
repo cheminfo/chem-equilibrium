@@ -210,9 +210,18 @@ doubtful:
 ```js
 import { database, speciesNames } from 'chem-equilibrium';
 
-database.length; // 129
+database.length; // 189
 speciesNames['CO3--'].name; // 'carbonate ion'
+speciesNames.HGlyOH.idCode; // 'gJX`bDnLiMmP@'
 ```
+
+The 20 proteinogenic amino acids are written as `mf-parser` and
+`chemical-groups` write them, where `Ala` is the residue: alanine is `HAlaOH`.
+Protons are added in front and taken from its ends, so every label reads the
+formula and charge of its species: `H2AlaOH+`, `HAlaOH`, `HAlaO-`; `H2AspOH+`
+down to `AspO--`; `H3LysOH++` down to `HLysO-`. Each species also carries
+`idCode`, the openchemlib structure of the microspecies that predominates,
+checked against `chemical-groups`.
 
 `pK` is always the base-10 logarithm of the **formation** constant of `formed`
 from its components, so `beta = 10 ** pK`. For an acid/base couple that number
@@ -221,10 +230,10 @@ it is `+log β`.
 
 An entry marked `active: false` is kept for the record — it documents a constant
 that was considered and deliberately left out — and never enters a model, so
-`Helper` builds its systems from the 127 active ones:
+`Helper` builds its systems from the 187 active ones:
 
 ```js
-database.filter((entry) => entry.active !== false).length; // 127
+database.filter((entry) => entry.active !== false).length; // 187
 ```
 
 Browse the whole table, sources included, on
