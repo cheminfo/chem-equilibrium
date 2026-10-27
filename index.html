@@ -160,9 +160,19 @@ doubtful:</p>
 <code>chemical-groups</code> write them, where <code>Ala</code> is the residue: alanine is <code>HAlaOH</code>.
 Protons are added in front and taken from its ends, so every label reads the
 formula and charge of its species: <code>H2AlaOH+</code>, <code>HAlaOH</code>, <code>HAlaO-</code>; <code>H2AspOH+</code>
-down to <code>AspO--</code>; <code>H3LysOH++</code> down to <code>HLysO-</code>. Each species also carries
-<code>idCode</code>, the openchemlib structure of the microspecies that predominates,
-checked against <code>chemical-groups</code>.</p>
+down to <code>AspO--</code>; <code>H3LysOH++</code> down to <code>HLysO-</code>. Their structures are checked
+against <code>chemical-groups</code>.</p>
+<p>A species whose structure says more than its formula carries <code>idCode</code>, the
+openchemlib structure of the microspecies that predominates, with the formula
+and charge its label reads. A precipitate is drawn as its ions, and a complex as
+its metal ion bound to its ligands by metal–ligand bonds, each ligand drawn as
+the free species:</p>
+<pre><code class="js"><span class="hl-2">speciesNames</span><span class="hl-0">[</span><span class="hl-3">&#39;CaCO3&#39;</span><span class="hl-0">].</span><span class="hl-2">idCode</span><span class="hl-0">; </span><span class="hl-6">// Ca²⁺ beside CO₃²⁻</span><br/><span class="hl-2">speciesNames</span><span class="hl-0">[</span><span class="hl-3">&#39;Fe(CN)6----&#39;</span><span class="hl-0">].</span><span class="hl-2">idCode</span><span class="hl-0">; </span><span class="hl-6">// Fe²⁺ bound to the carbon of six CN⁻</span>
+</code><button type="button">Copy</button></pre>
+
+<p>A species made only of single atoms with their hydrogens — <code>Cl-</code>, <code>H2O</code>, <code>OH-</code>,
+<code>NH3</code>, and what is built from them, such as <code>Mn(OH)2</code>, <code>Hg2Cl2</code>,
+<code>Fe(H2O)6+++</code> or <code>Cu(NH3)4++</code> — carries none: its formula already says it all.</p>
 <p><code>pK</code> is always the base-10 logarithm of the <strong>formation</strong> constant of <code>formed</code>
 from its components, so <code>beta = 10 ** pK</code>. For an acid/base couple that number
 is the pKa; for a precipitation equilibrium it is <code>-log10(Ksp)</code>; for a complex
