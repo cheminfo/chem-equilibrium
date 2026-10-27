@@ -14,6 +14,9 @@ const DRAWN = Object.entries(speciesNames).filter(
     entry[1].idCode !== undefined,
 );
 
+const AMINO_ACID =
+  /Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val/;
+
 test('every species an active equilibrium uses is named', () => {
   const unnamed = new Set<string>();
   for (const entry of database) {
@@ -26,8 +29,33 @@ test('every species an active equilibrium uses is named', () => {
   expect(unnamed).toStrictEqual(new Set());
 });
 
-test('the 20 amino acids are drawn in every protonation state', () => {
-  expect(DRAWN).toHaveLength(67);
+test('a species is drawn when its structure says more than its formula', () => {
+  const undrawn = Object.keys(speciesNames).filter(
+    (label) => speciesNames[label]?.idCode === undefined,
+  );
+  const unneeded = DRAWN.filter(
+    ([, { idCode }]) => !saysMoreThanFormula(Molecule.fromIDCode(idCode)),
+  );
+
+  expect(unneeded).toStrictEqual([]);
+  expect(DRAWN).toHaveLength(180);
+  expect(DRAWN.filter(([label]) => AMINO_ACID.test(label))).toHaveLength(67);
+  expect(undrawn).toHaveLength(96);
+  expect(undrawn).toStrictEqual(
+    expect.arrayContaining([
+      'Cl-',
+      'H2O',
+      'NH4+',
+      'Mn(OH)2',
+      'Hg2Cl2',
+      'Fe(H2O)6+++',
+      'HgCl4--',
+      'Cu(NH3)4++',
+    ]),
+  );
+  expect(speciesNames['Fe(CN)6----']?.idCode).toBe(
+    'dkM`cnFUtpV@VNSlxnkfyJjeUZjo\u007FpA~[ABXU@',
+  );
   expect(speciesNames.HGlyOH).toStrictEqual({
     name: 'glycine',
     alternatives: [
@@ -43,7 +71,8 @@ test('the 20 amino acids are drawn in every protonation state', () => {
 test('every amino acid is its chemical-groups structure, charges aside', () => {
   const mismatches: string[] = [];
   for (const [label, { idCode }] of DRAWN) {
-    const code = /[A-Z][a-z]{2}/.exec(label)?.[0] ?? label;
+    const code = AMINO_ACID.exec(label)?.[0];
+    if (!code) continue;
     const reference = expandChemicalGroups(`H${code}OH`);
     if (skeleton(Molecule.fromIDCode(idCode)) !== skeleton(reference)) {
       mismatches.push(label);
@@ -56,18 +85,7 @@ test('every amino acid is its chemical-groups structure, charges aside', () => {
 test('every label reads, in mf-parser, the formula of its structure', () => {
   const mismatches: string[] = [];
   for (const [label, { idCode }] of DRAWN) {
-    const written = new MF(
-      label.replace(
-        /(?<signs>\++|-+)$/,
-        (signs) => `(${signs[0]}${signs.length})`,
-      ),
-    ).getInfo();
-    const drawn = Molecule.fromIDCode(idCode);
-    if (
-      written.mf.replace(/\(.*\)$/, '') !==
-        drawn.getMolecularFormula().formula ||
-      written.charge !== netCharge(drawn)
-    ) {
+    if (labelMF(label) !== structureMF(Molecule.fromIDCode(idCode))) {
       mismatches.push(label);
     }
   }
@@ -108,7 +126,35 @@ test('the two structures of a couple differ by exactly one hydrogen', () => {
     }
   }
 
-  expect(couples).toBe(47);
+  expect(couples).toBe(90);
+  expect(mismatches).toStrictEqual([]);
+});
+
+test('a complex or a precipitate is drawn as exactly its components', () => {
+  const mismatches: string[] = [];
+  let checked = 0;
+  for (const entry of database) {
+    const formed = speciesNames[entry.formed]?.idCode;
+    if (entry.type === 'acidoBasic' || !formed) continue;
+    checked++;
+    // A component that is not drawn is known by its formula.
+    const expected: string[] = [];
+    for (const [label, coefficient] of Object.entries(entry.components)) {
+      for (let index = 0; index < coefficient; index++) {
+        expected.push(speciesNames[label]?.idCode ?? labelMF(label));
+      }
+    }
+    const found = freeSpecies(Molecule.fromIDCode(formed)).map((fragment) =>
+      saysMoreThanFormula(fragment)
+        ? fragment.getIDCode()
+        : structureMF(fragment),
+    );
+    if (String(found.toSorted()) !== String(expected.toSorted())) {
+      mismatches.push(entry.formed);
+    }
+  }
+
+  expect(checked).toBe(34);
   expect(mismatches).toStrictEqual([]);
 });
 
@@ -145,6 +191,59 @@ function skeleton(molecule: Molecule): string {
     if (copy.getBondOrder(bond) > 1) copy.setBondOrder(bond, 1);
   }
   return copy.getIDCode();
+}
+
+/**
+ * The free species a structure is made of: its fragments once every
+ * metal–ligand bond is broken.
+ * @param molecule - The molecule.
+ * @returns Its fragments.
+ */
+function freeSpecies(molecule: Molecule): Molecule[] {
+  const copy = molecule.getCompactCopy();
+  for (let bond = copy.getAllBonds() - 1; bond >= 0; bond--) {
+    if (copy.getBondType(bond) === Molecule.cBondTypeMetalLigand) {
+      copy.deleteBond(bond);
+    }
+  }
+  return copy.getFragments();
+}
+
+/**
+ * Whether a drawing tells more than the formula: a structure made only of
+ * single atoms with their hydrogens — Mn²⁺ and OH⁻, Hg₂²⁺ and Cl⁻, Fe³⁺ bound
+ * to H₂O — is read from the formula alone.
+ * @param molecule - The molecule.
+ * @returns Whether a free species of it bonds two different elements.
+ */
+function saysMoreThanFormula(molecule: Molecule): boolean {
+  for (const fragment of freeSpecies(molecule)) {
+    const elements = new Set<number>();
+    for (let atom = 0; atom < fragment.getAllAtoms(); atom++) {
+      const atomicNo = fragment.getAtomicNo(atom);
+      if (atomicNo !== 1) elements.add(atomicNo);
+    }
+    if (elements.size > 1) return true;
+  }
+  return false;
+}
+
+function labelMF(label: string): string {
+  return new MF(
+    label.replace(
+      /(?<signs>\++|-+)$/,
+      (signs) => `(${signs[0]}${signs.length})`,
+    ),
+  ).getInfo().mf;
+}
+
+// openchemlib does not write the Hill order mf-parser does.
+function structureMF(molecule: Molecule): string {
+  const charge = netCharge(molecule);
+  const { formula } = molecule.getMolecularFormula();
+  return new MF(
+    charge ? `${formula}(${charge > 0 ? '+' : ''}${charge})` : formula,
+  ).getInfo().mf;
 }
 
 function labelCharge(label: string): number {

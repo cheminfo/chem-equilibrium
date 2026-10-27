@@ -8,10 +8,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   '(C2H5)3N': {
     name: 'triethylamine',
     alternatives: ['N,N-diethylethanamine'],
+    idCode: 'gNx@@eRmUP@',
   },
   '(C2H5)3NH+': {
     name: 'triethylammonium ion',
     alternatives: ['protonated triethylamine', 'triethylazanium ion'],
+    idCode: 'gNxA@IRiVjh@',
   },
   '(CHOH)2(CO2)2--': {
     name: 'tartrate ion',
@@ -20,6 +22,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'tartrate',
       'tartrate dianion',
     ],
+    idCode: 'dedFA@PfFTz^R[nyjjYLUP@',
   },
   '(CHOH)2(CO2H)2': {
     name: 'tartaric acid',
@@ -28,6 +31,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'L-tartaric acid',
       'HO2CCH(OH)CH(OH)CO2H',
     ],
+    idCode: 'dedF@@PfFTf{nZjfSET@',
   },
   '(CHOH)2(CO2H)CO2-': {
     name: 'hydrogen tartrate ion',
@@ -36,6 +40,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'bitartrate ion',
       'tartrate monoanion',
     ],
+    idCode: 'dedFB@PfFYyIn{fjidqU@@',
   },
   'Ag(CH3NH2)2+': {
     name: 'bis(methylamine)silver(I) ion',
@@ -43,10 +48,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'silver(I) methylamine complex',
       'bis(methanamine)silver(I) ion',
     ],
+    idCode: 'gJTIHazBTiZhA~ZD@',
   },
   'Ag(CN)2-': {
     name: 'dicyanoargentate(I) ion',
     alternatives: ['dicyanidoargentate(I) ion', 'silver dicyanide complex'],
+    idCode: 'gJTIlQzBYryJVo@_fa@',
   },
   'Ag(NH3)2+': {
     name: 'diamminesilver(I) ion',
@@ -63,6 +70,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'silver dithiosulfate complex',
       'bis(thiosulphato)argentate(I) ion',
     ],
+    idCode: 'dmTFjj[aeP}HBDBLBBB@fNSny^ReZZjee`A~ZA@',
   },
   'Ag+': {
     name: 'silver(I) ion',
@@ -71,10 +79,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   Ag2CO3: {
     name: 'silver carbonate',
     alternatives: ['silver(I) carbonate', 'disilver carbonate'],
+    idCode: 'gGadTZOR^`fR^oHFsP@',
   },
   Ag2CrO4: {
     name: 'silver chromate',
     alternatives: ['silver(I) chromate'],
+    idCode: String.raw`gNP\\ZqzStPpIdwgrAuKP@`,
   },
   Ag2S: {
     name: 'silver sulfide',
@@ -91,6 +101,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   AgBrO3: {
     name: 'silver bromate',
     alternatives: ['silver(I) bromate'],
+    idCode: 'gKadebORX`d|`tl@@',
   },
   AgCl: {
     name: 'silver chloride',
@@ -163,6 +174,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'gold dicyanide complex',
       'gold cyanide leaching complex',
     ],
+    idCode: 'gJTIlQyBYryJVo@_fa@',
   },
   'Au+': {
     name: 'gold(I) ion',
@@ -175,10 +187,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   BaCO3: {
     name: 'barium carbonate',
     alternatives: ['witherite'],
+    idCode: 'gKaiibApKnOHKM@@',
   },
   BaCrO4: {
     name: 'barium chromate',
     alternatives: ['barium chromate(VI)'],
+    idCode: 'gFPUecPNPXBgkrCTm@@',
   },
   BaF2: {
     name: 'barium fluoride',
@@ -187,6 +201,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   BaSO4: {
     name: 'barium sulfate',
     alternatives: ['barium sulphate', 'barite', 'baryte'],
+    idCode: 'gFPUecPNPHBgkrCTm@@',
   },
   'Be++': {
     name: 'beryllium ion',
@@ -214,46 +229,57 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   'BrO-': {
     name: 'hypobromite ion',
     alternatives: ['bromate(I) ion', 'hypobromite'],
+    idCode: 'eFJhqKhp@',
   },
   'BrO3-': {
     name: 'bromate ion',
     alternatives: ['bromate(V) ion', 'bromate'],
+    idCode: 'gCaiHlLS]GV@@',
   },
   'C2H2(CO2)2--': {
     name: 'maleate ion',
     alternatives: ['(Z)-butenedioate ion', 'maleate', 'maleate dianion'],
+    idCode: 'daxBA@QnSnyImYifBLP',
   },
   'C2H2(CO2H)2': {
     name: 'maleic acid',
     alternatives: ['(Z)-butenedioic acid', 'cis-butenedioic acid'],
+    idCode: 'daxB@@QnR[VZY`cD',
   },
   'C2H2(CO2H)CO2-': {
     name: 'hydrogen maleate ion',
     alternatives: ['hydrogenmaleate ion', 'maleate monoanion'],
+    idCode: 'daxBB@Qn{dfuffXHq@',
   },
   'C2H4(CO2)2--': {
     name: 'succinate ion',
     alternatives: ['butanedioate ion', 'succinate', 'succinate dianion'],
+    idCode: 'daxBA@QnSnyImYjf@@',
   },
   'C2H4(CO2H)2': {
     name: 'succinic acid',
     alternatives: ['butanedioic acid', 'HO2C(CH2)2CO2H'],
+    idCode: 'daxB@@QnR[VZi`@',
   },
   'C2H4(CO2H)CO2-': {
     name: 'hydrogen succinate ion',
     alternatives: ['hydrogensuccinate ion', 'succinate monoanion'],
+    idCode: 'daxBB@Qn{dfufjX@@',
   },
   'C2H5COO-': {
     name: 'propanoate ion',
     alternatives: ['propionate ion', 'propanoate', 'propionate'],
+    idCode: 'gJPa@erS[T@@',
   },
   C2H5COOH: {
     name: 'propanoic acid',
     alternatives: ['propionic acid'],
+    idCode: 'gJP`@dfvh@',
   },
   C2H5NH2: {
     name: 'ethylamine',
     alternatives: ['ethanamine', 'aminoethane', 'monoethylamine'],
+    idCode: 'eM`AIh@',
   },
   'C2H5NH3+': {
     name: 'ethylammonium ion',
@@ -262,6 +288,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'ethylazanium ion',
       'ethanaminium ion',
     ],
+    idCode: 'eM``eIh@',
   },
   C2H8N2: {
     name: 'ethylenediamine',
@@ -271,42 +298,52 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'H2NCH2CH2NH2',
       'en',
     ],
+    idCode: 'gCd@Adej@@',
   },
   'C2O4--': {
     name: 'oxalate ion',
     alternatives: ['ethanedioate ion', 'oxalate', 'oxalate dianion'],
+    idCode: 'gGPP`cUuyInZX@',
   },
   'C3H6(CO2)2--': {
     name: 'glutarate ion',
     alternatives: ['pentanedioate ion', 'glutarate', 'glutarate dianion'],
+    idCode: 'diDBA@SaSayImVZjX@@',
   },
   'C3H6(CO2H)2': {
     name: 'glutaric acid',
     alternatives: ['pentanedioic acid', 'HO2C(CH2)3CO2H'],
+    idCode: 'diDB@@SaR[Ufjf@@',
   },
   'C3H6(CO2H)CO2-': {
     name: 'hydrogen glutarate ion',
     alternatives: ['hydrogenglutarate ion', 'glutarate monoanion'],
+    idCode: 'diDBB@SaGdfuYji`@',
   },
   C5H5N: {
     name: 'pyridine',
     alternatives: ['azine', 'azabenzene'],
+    idCode: 'gFx@@eJf`@@@',
   },
   'C5H5NH+': {
     name: 'pyridinium ion',
     alternatives: ['protonated pyridine', 'pyridinium cation'],
+    idCode: 'gFxA@IReSP@@@',
   },
   'C6H5COO-': {
     name: 'benzoate ion',
     alternatives: ['benzoate', 'benzenecarboxylate ion'],
+    idCode: 'didDB@QNR[e^Eh@@@@',
   },
   C6H5COOH: {
     name: 'benzoic acid',
     alternatives: ['benzenecarboxylic acid', 'phenylmethanoic acid'],
+    idCode: 'didD@@QInUxV`@@@',
   },
   C6H5NH2: {
     name: 'aniline',
     alternatives: ['phenylamine', 'aminobenzene', 'benzenamine'],
+    idCode: String.raw`gOx@@drm\@@@@`,
   },
   'C6H5NH3+': {
     name: 'anilinium ion',
@@ -315,6 +352,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'protonated aniline',
       'benzenaminium ion',
     ],
+    idCode: 'gOxA@IRYVn@@@@',
   },
   'Ca(OH)2': {
     name: 'calcium hydroxide',
@@ -331,10 +369,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'calcium orthophosphate',
       'calcium bis(phosphate)',
     ],
+    idCode: 'dkDAjRine]LBbBaBcO@_@EaTVn[ny^wc{@@YHGIFij@@',
   },
   CaCO3: {
     name: 'calcium carbonate',
     alternatives: ['calcite', 'aragonite', 'limestone', 'chalk'],
+    idCode: 'gKaiibB`KnOHKM@@',
   },
   CaF2: {
     name: 'calcium fluoride',
@@ -343,6 +383,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   CaSO4: {
     name: 'calcium sulfate',
     alternatives: ['calcium sulphate', 'anhydrite'],
+    idCode: 'gFPUecPTPHBgkrCTm@@',
   },
   'Cd(CN)4--': {
     name: 'tetracyanocadmate(II) ion',
@@ -350,6 +391,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'tetracyanidocadmate(II) ion',
       'cadmium tetracyanide complex',
     ],
+    idCode: 'diD`bj[a@LAXyNsbyJiUjo|@_fPPf@',
   },
   'Cd(NH3)4++': {
     name: 'tetraamminecadmium(II) ion',
@@ -365,6 +407,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'tetrakis(thiocyanato)cadmate(II) ion',
       'cadmium tetrathiocyanate complex',
     ],
+    idCode: 'dkL`jiWS@L`HPHpHHHAXyNsbyJiUUZjj\u007FpA~YABX',
   },
   'Cd++': {
     name: 'cadmium(II) ion',
@@ -382,14 +425,17 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   'CH2(CO2)2--': {
     name: 'malonate ion',
     alternatives: ['propanedioate ion', 'malonate', 'malonate dianion'],
+    idCode: 'gNpP`jusyImfi`@',
   },
   'CH2(CO2H)2': {
     name: 'malonic acid',
     alternatives: ['propanedioic acid', 'CH2(COOH)2'],
+    idCode: 'gNpP@jtfvZf@@',
   },
   'CH2(CO2H)CO2-': {
     name: 'hydrogen malonate ion',
     alternatives: ['hydrogenmalonate ion', 'malonate monoanion'],
+    idCode: 'gNpQ@jwrS[MS@@',
   },
   'CH2ClCO2-': {
     name: 'chloroacetate ion',
@@ -398,6 +444,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'monochloroacetate ion',
       'chloroacetate',
     ],
+    idCode: 'gJPiLQDGdejX@',
   },
   CH2ClCO2H: {
     name: 'chloroacetic acid',
@@ -406,26 +453,32 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'monochloroacetic acid',
       '2-chloroacetic acid',
     ],
+    idCode: 'gJPhLQDIKTp@',
   },
   'CH3CH(OH)CO2-': {
     name: 'lactate ion',
     alternatives: ['2-hydroxypropanoate ion', 'lactate', 'CH3CH(OH)COO-'],
+    idCode: 'gGQa@bnR[fj@@',
   },
   'CH3CH(OH)CO2H': {
     name: 'lactic acid',
     alternatives: ['2-hydroxypropanoic acid', 'milk acid', 'CH3CH(OH)COOH'],
+    idCode: 'gGQ`@bdwMT@@',
   },
   CH3CO2H: {
     name: 'acetic acid',
     alternatives: ['ethanoic acid', 'CH3COOH'],
+    idCode: 'gC``@dfZ@@',
   },
   'CH3COO-': {
     name: 'acetate ion',
     alternatives: ['ethanoate ion', 'acetate', 'CH3CO2-'],
+    idCode: 'gC`a@erSM@@',
   },
   CH3NH2: {
     name: 'methylamine',
     alternatives: ['methanamine', 'aminomethane', 'monomethylamine'],
+    idCode: 'eF`BL@',
   },
   'CH3NH3+': {
     name: 'methylammonium ion',
@@ -434,6 +487,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'methylazanium ion',
       'methanaminium ion',
     ],
+    idCode: 'eF``fL@',
   },
   'Cl-': {
     name: 'chloride ion',
@@ -442,10 +496,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   'ClO-': {
     name: 'hypochlorite ion',
     alternatives: ['chlorate(I) ion', 'hypochlorite', 'bleach anion'],
+    idCode: 'eFJhbKhp@',
   },
   'ClO2-': {
     name: 'chlorite ion',
     alternatives: ['chlorate(III) ion', 'chlorite'],
+    idCode: 'eMFiHazM`@',
   },
   'ClO4-': {
     name: 'perchlorate ion',
@@ -454,10 +510,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'perchlorate',
       'tetraoxidochlorate(1-) ion',
     ],
+    idCode: 'gJPYHlQDGh}V@@',
   },
   'CN-': {
     name: 'cyanide ion',
     alternatives: ['cyanide', 'cyanide anion', 'nitridocarbonate(1-) ion'],
+    idCode: 'eF`bzN@',
   },
   'Co(C2O4)3----': {
     name: 'tris(oxalato)cobaltate(II) ion',
@@ -466,6 +524,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'cobalt(II) trisoxalate complex',
       'tris(oxalato)cobaltate(4-) ion',
     ],
+    idCode: 'flu@ZGHHpRcKN|FJP[@EarNqqNisNRjiUUUW`iJtZjjjiUVh@GylAAFBT@',
   },
   'Co(C2H8N2)3++': {
     name: 'tris(ethylenediamine)cobalt(II) ion',
@@ -473,6 +532,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'tris(ethane-1,2-diamine)cobalt(II) ion',
       'cobalt(II) tris(ethylenediamine) complex',
     ],
+    idCode: 'dk}`bHSBi`v@UJjeU^FUtzjjjj`A~[ABXU@',
   },
   'Co(C2H8N2)3+++': {
     name: 'tris(ethylenediamine)cobalt(III) ion',
@@ -480,6 +540,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'tris(ethane-1,2-diamine)cobalt(III) ion',
       'cobalt(III) tris(ethylenediamine) complex',
     ],
+    idCode: 'dk}`bHSBi`v@uJjeU^FUtzjjjj`A~[ABXU@',
   },
   'Co(NH3)4+++': {
     name: 'tetraamminecobalt(III) ion',
@@ -507,6 +568,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'carbonate dianion',
       'trioxidocarbonate(2-) ion',
     ],
+    idCode: 'gCa``lnwILt@@',
   },
   'CrO4--': {
     name: 'chromate ion',
@@ -515,10 +577,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'chromate',
       'tetraoxidochromate(2-) ion',
     ],
+    idCode: 'gJPXhlPL[ct^m@@',
   },
   'Cu(CN)2-': {
     name: 'dicyanocuprate(I) ion',
     alternatives: ['dicyanidocuprate(I) ion', 'copper(I) dicyanide complex'],
+    idCode: String.raw`gJTIlQ\BYryJVo@_fa@`,
   },
   'Cu(C2H8N2)2++': {
     name: 'bis(ethylenediamine)copper(II) ion',
@@ -526,6 +590,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'bis(ethane-1,2-diamine)copper(II) ion',
       'copper(II) bis(ethylenediamine) complex',
     ],
+    idCode: 'diT`bHSBBxATjeVfxZjjh@_fPPf@',
   },
   'Cu(NH3)4++': {
     name: 'tetraamminecopper(II) ion',
@@ -546,6 +611,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   'Cu(SCN)2': {
     name: 'bis(thiocyanato)copper(II)',
     alternatives: ['copper(II) thiocyanate', 'cupric thiocyanate'],
+    idCode: String.raw`gNtMha\THXPEoOdiUkz@_fa@`,
   },
   'Cu+': {
     name: 'copper(I) ion',
@@ -592,6 +658,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'tris(oxalato)ferrate(3-)',
       'iron(III) oxalate complex',
     ],
+    idCode: 'flu@ZGHHpRcKN|FJPK@MarNqqNisNRjiUUUW`iJtZjjjiUVh@GylAAFBT@',
   },
   'Fe(CN)6---': {
     name: 'hexacyanoferrate(III) ion',
@@ -600,6 +667,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'hexacyanidoferrate(III) ion',
       'red prussiate ion',
     ],
+    idCode: 'dkM`cnFUtpV@vNSlxnkfyJjeUZjo\u007FpA~[ABXU@',
   },
   'Fe(CN)6----': {
     name: 'hexacyanoferrate(II) ion',
@@ -608,10 +676,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'hexacyanidoferrate(II) ion',
       'yellow prussiate ion',
     ],
+    idCode: 'dkM`cnFUtpV@VNSlxnkfyJjeUZjo\u007FpA~[ABXU@',
   },
   'Fe(C2H8N2)3++': {
     name: 'tris(ethylenediamine)iron(II) ion',
     alternatives: ['tris(ethane-1,2-diamine)iron(II) ion', '[Fe(C2H8N2)3]2+'],
+    idCode: 'dk}`bHSBi`V@UJjeU^FUtzjjjj`A~[ABXU@',
   },
   'Fe(H2O)5OH++': {
     name: 'pentaaquahydroxoiron(III) ion',
@@ -646,6 +716,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'blood-red iron thiocyanate complex',
       'iron(III) thiocyanate',
     ],
+    idCode: 'deg@HhS@VNBABIB@wnGiyJeUZoz`A~^AB@',
   },
   'Fe++': {
     name: 'iron(II) ion',
@@ -690,10 +761,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   H2C2O4: {
     name: 'oxalic acid',
     alternatives: ['ethanedioic acid', 'HO2CCO2H'],
+    idCode: 'gGPP@cTfyi`@',
   },
   H2CO3: {
     name: 'carbonic acid',
     alternatives: ['dihydrogen carbonate', 'aqueous carbon dioxide', 'CO2(aq)'],
+    idCode: 'gCa`@ldsP@',
   },
   'H2CysOH+': {
     name: 'cysteinium ion',
@@ -751,6 +824,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   'H2PO3-': {
     name: 'dihydrogen phosphite ion',
     alternatives: ['dihydrogenphosphite ion', 'hydrogen phosphonate ion'],
+    idCode: 'gCaiHlOC]GZ@@',
   },
   'H2PO4-': {
     name: 'dihydrogen phosphate ion',
@@ -759,6 +833,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'biphosphate ion',
       'dihydrogenorthophosphate ion',
     ],
+    idCode: 'gJPYHlQxGh}j@@',
   },
   'H2ProOH+': {
     name: 'prolinium ion',
@@ -782,10 +857,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   H2SO3: {
     name: 'sulfurous acid',
     alternatives: ['dihydrogen sulfite', 'aqueous sulfur dioxide', 'SO2(aq)'],
+    idCode: 'gCahHl@bNt@@',
   },
   H2SO4: {
     name: 'sulfuric acid',
     alternatives: ['dihydrogen sulfate', 'oil of vitriol'],
+    idCode: 'gJPXHlPDQzt@@',
   },
   'H2ThrOH+': {
     name: 'threoninium ion',
@@ -829,10 +906,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'orthophosphorous acid',
       'dihydroxyphosphine oxide',
     ],
+    idCode: 'gCahHlOBNt@@',
   },
   H3PO4: {
     name: 'phosphoric acid',
     alternatives: ['orthophosphoric acid', 'trihydrogen phosphate'],
+    idCode: 'gJPXHlQxQ{T@@',
   },
   'HAlaO-': {
     name: 'alaninate ion',
@@ -905,6 +984,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   HBrO: {
     name: 'hypobromous acid',
     alternatives: ['bromic(I) acid', 'bromanol', 'hydrogen hypobromite'],
+    idCode: 'eFJHqHp@',
   },
   HCl: {
     name: 'hydrochloric acid',
@@ -913,34 +993,42 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   HClO: {
     name: 'hypochlorous acid',
     alternatives: ['chloric(I) acid', 'chloranol', 'hydrogen hypochlorite'],
+    idCode: 'eFJHbHp@',
   },
   HClO2: {
     name: 'chlorous acid',
     alternatives: ['chloric(III) acid', 'hydrogen chlorite'],
+    idCode: 'eMFIHbM`@',
   },
   HClO4: {
     name: 'perchloric acid',
     alternatives: ['chloric(VII) acid', 'hydrogen perchlorate'],
+    idCode: 'gJPXHlQDQzl@@',
   },
   HCN: {
     name: 'hydrogen cyanide',
     alternatives: ['hydrocyanic acid', 'prussic acid', 'formonitrile'],
+    idCode: 'eF`BN@',
   },
   'HC2O4-': {
     name: 'hydrogen oxalate ion',
     alternatives: ['hydrogenoxalate ion', 'bioxalate ion', 'oxalate monoanion'],
+    idCode: String.raw`gGPQ@c[rS\tp@`,
   },
   'HCO2-': {
     name: 'formate ion',
     alternatives: ['methanoate ion', 'HCOO-', 'formate anion'],
+    idCode: 'eMDa^RV@',
   },
   HCO2H: {
     name: 'formic acid',
     alternatives: ['methanoic acid', 'HCOOH'],
+    idCode: 'eMDARV@',
   },
   'HCO3-': {
     name: 'hydrogen carbonate ion',
     alternatives: ['bicarbonate ion', 'hydrogencarbonate ion'],
+    idCode: 'gCaa@mnRYh@',
   },
   'HCysO-': {
     name: 'hydrogen cysteinate ion',
@@ -973,6 +1061,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'tetrathiocyanidomercurate(II) ion',
       'mercury(II) tetrathiocyanate complex',
     ],
+    idCode: 'dkL`jiWS@J`HPHpHHHAXyNsbyJiUUZjj\u007FpA~YABX',
   },
   'Hg+': {
     name: 'mercury(I) ion',
@@ -1096,6 +1185,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   HIO3: {
     name: 'iodic acid',
     alternatives: ['iodic(V) acid', 'hydrogen iodate'],
+    idCode: 'gCahHlJrNl@@',
   },
   'HLeuO-': {
     name: 'leucinate ion',
@@ -1152,14 +1242,17 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'hydrogen nitrite',
       'dioxonitric(III) acid',
     ],
+    idCode: 'eMdHTe`@',
   },
   HNO3: {
     name: 'nitric acid',
     alternatives: ['nitric(V) acid', 'hydrogen nitrate', 'aqua fortis'],
+    idCode: 'gCi`hEiNyIf`@',
   },
   HOCN: {
     name: 'cyanic acid',
     alternatives: ['hydrogen cyanate', 'isocyanic acid', 'HNCO'],
+    idCode: 'eMhDR[@',
   },
   'HPheO-': {
     name: 'phenylalaninate ion',
@@ -1180,6 +1273,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   'HPO3--': {
     name: 'hydrogen phosphite ion',
     alternatives: ['hydrogenphosphite ion', 'phosphonate ion', 'HPO3 2-'],
+    idCode: 'gCahhlOA]ncm@@',
   },
   'HPO4--': {
     name: 'hydrogen phosphate ion',
@@ -1188,6 +1282,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'hydrogenphosphate ion',
       'HPO4 2-',
     ],
+    idCode: 'gJPXhlQx[ct^u@@',
   },
   'HProO-': {
     name: 'prolinate ion',
@@ -1228,10 +1323,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   'HSO3-': {
     name: 'hydrogen sulfite ion',
     alternatives: ['bisulfite ion', 'hydrogensulfite ion'],
+    idCode: 'gCaiHl@c]GZ@@',
   },
   'HSO4-': {
     name: 'hydrogen sulfate ion',
     alternatives: ['bisulfate ion', 'hydrogensulfate ion'],
+    idCode: 'gJPYHlPDGh}Z@@',
   },
   'HThrO-': {
     name: 'threoninate ion',
@@ -1304,6 +1401,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   'IO3-': {
     name: 'iodate ion',
     alternatives: ['iodate(V) ion', 'trioxidoiodate(1-)'],
+    idCode: 'gCaiHlJs]GV@@',
   },
   'Li+': {
     name: 'lithium ion',
@@ -1312,6 +1410,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   Li2CO3: {
     name: 'lithium carbonate',
     alternatives: ['dilithium carbonate'],
+    idCode: String.raw`gGadPl\BxB{\YliLCP@`,
   },
   'Mg(OH)2': {
     name: 'magnesium hydroxide',
@@ -1324,6 +1423,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   MgCO3: {
     name: 'magnesium carbonate',
     alternatives: ['magnesite'],
+    idCode: 'gKaiibC@KnOHKM@@',
   },
   'Mn(C2H8N2)3++': {
     name: 'tris(ethylenediamine)manganese(II) ion',
@@ -1331,6 +1431,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'tris(ethane-1,2-diamine)manganese(II) ion',
       '[Mn(C2H8N2)3]2+',
     ],
+    idCode: 'dk}`bHSBi`f@UJjeU^FUtzjjjj`A~[ABXU@',
   },
   'Mn(OH)2': {
     name: 'manganese(II) hydroxide',
@@ -1359,10 +1460,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       '[Ni(CN)4]2-',
       'nickel(II) tetracyanide complex',
     ],
+    idCode: 'diD`bj[a@xAXyNsbyJiUjo|@_fPPf@',
   },
   'Ni(C2H8N2)3++': {
     name: 'tris(ethylenediamine)nickel(II) ion',
     alternatives: ['tris(ethane-1,2-diamine)nickel(II) ion', '[Ni(C2H8N2)3]2+'],
+    idCode: 'dk}`bHSBi`N@UJjeU^FUtzjjjj`A~[ABXU@',
   },
   'Ni(NH3)6++': {
     name: 'hexaamminenickel(II) ion',
@@ -1379,14 +1482,17 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   'NO2-': {
     name: 'nitrite ion',
     alternatives: ['nitrate(III) ion', 'dioxidonitrate(1-)'],
+    idCode: 'eMdhWde`@',
   },
   'NO3-': {
     name: 'nitrate ion',
     alternatives: ['nitrate(V) ion', 'trioxidonitrate(1-)'],
+    idCode: String.raw`gCiahEiJ{\dsP@`,
   },
   'OCN-': {
     name: 'cyanate ion',
     alternatives: ['isocyanate ion', 'NCO-', 'oxidonitridocarbonate(1-)'],
+    idCode: 'eMhdNR[@',
   },
   'OH-': {
     name: 'hydroxide ion',
@@ -1415,6 +1521,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   PbCrO4: {
     name: 'lead(II) chromate',
     alternatives: ['chrome yellow', 'crocoite', 'plumbous chromate'],
+    idCode: 'gFPUecPePXBgkrCTm@@',
   },
   PbI2: {
     name: 'lead(II) iodide',
@@ -1435,10 +1542,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   PbSO4: {
     name: 'lead(II) sulfate',
     alternatives: ['anglesite', 'plumbous sulfate'],
+    idCode: 'gFPUecPePHBgkrCTm@@',
   },
   'PO4---': {
     name: 'phosphate ion',
     alternatives: ['orthophosphate ion', 'tetraoxidophosphate(3-)', 'PO4 3-'],
+    idCode: 'gJPYhlQxKmqzOZ`@',
   },
   'S--': {
     name: 'sulfide ion',
@@ -1447,6 +1556,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   'S2O3--': {
     name: 'thiosulfate ion',
     alternatives: ['thiosulphate ion', 'trioxidosulfidosulfate(2-)'],
+    idCode: 'gJQdeb@bADx}Grp@',
   },
   'SCN-': {
     name: 'thiocyanate ion',
@@ -1455,6 +1565,7 @@ export const speciesNames: Record<string, SpeciesDescription> = {
       'isothiocyanate ion',
       'nitridosulfidocarbonate(1-)',
     ],
+    idCode: 'eMbdBCdfp@',
   },
   'Sn++++': {
     name: 'tin(IV) ion',
@@ -1471,10 +1582,12 @@ export const speciesNames: Record<string, SpeciesDescription> = {
   'SO3--': {
     name: 'sulfite ion',
     alternatives: ['sulphite ion', 'trioxidosulfate(2-)'],
+    idCode: 'gCahhl@a]ncm@@',
   },
   'SO4--': {
     name: 'sulfate ion',
     alternatives: ['sulphate ion', 'tetraoxidosulfate(2-)'],
+    idCode: 'gJPXhlPD[ct^m@@',
   },
   'TyrO--': {
     name: 'tyrosinate ion',

@@ -219,9 +219,23 @@ The 20 proteinogenic amino acids are written as `mf-parser` and
 `chemical-groups` write them, where `Ala` is the residue: alanine is `HAlaOH`.
 Protons are added in front and taken from its ends, so every label reads the
 formula and charge of its species: `H2AlaOH+`, `HAlaOH`, `HAlaO-`; `H2AspOH+`
-down to `AspO--`; `H3LysOH++` down to `HLysO-`. Each species also carries
-`idCode`, the openchemlib structure of the microspecies that predominates,
-checked against `chemical-groups`.
+down to `AspO--`; `H3LysOH++` down to `HLysO-`. Their structures are checked
+against `chemical-groups`.
+
+A species whose structure says more than its formula carries `idCode`, the
+openchemlib structure of the microspecies that predominates, with the formula
+and charge its label reads. A precipitate is drawn as its ions, and a complex as
+its metal ion bound to its ligands by metal–ligand bonds, each ligand drawn as
+the free species:
+
+```js
+speciesNames['CaCO3'].idCode; // Ca²⁺ beside CO₃²⁻
+speciesNames['Fe(CN)6----'].idCode; // Fe²⁺ bound to the carbon of six CN⁻
+```
+
+A species made only of single atoms with their hydrogens — `Cl-`, `H2O`, `OH-`,
+`NH3`, and what is built from them, such as `Mn(OH)2`, `Hg2Cl2`,
+`Fe(H2O)6+++` or `Cu(NH3)4++` — carries none: its formula already says it all.
 
 `pK` is always the base-10 logarithm of the **formation** constant of `formed`
 from its components, so `beta = 10 ** pK`. For an acid/base couple that number
