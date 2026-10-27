@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0](https://github.com/cheminfo/chem-equilibrium/compare/v3.4.0...v3.5.0) (2026-10-27)
+
+
+### Features
+
+* draw every species whose formula does not already say it all ([fdb3379](https://github.com/cheminfo/chem-equilibrium/commit/fdb3379c4650104962024ea4dedd255d80eaf1f1))
+
 ## [3.4.0](https://github.com/cheminfo/chem-equilibrium/compare/v3.3.0...v3.4.0) (2026-10-26)
 
 
